@@ -28,6 +28,7 @@ Input Requied Text
     Input Text                              ${text_register_password}           ${PASSWORD}
     Input Text                              ${text_register_confirm_password}   ${PASSWORD}
     Input Text                              ${text_register_phone}              ${PHONE}
+    
 
 
 Click Button Register
