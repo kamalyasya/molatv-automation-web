@@ -10,3 +10,4 @@ Resource            Configs.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Homepage/HomePage.robot
 Resource            ../Resources/Login/SignInPage.robot
+Resource            ../Resources/Register/RegisterPage.robot
