@@ -28,4 +28,4 @@ Security - Registration: Sign Up with email and password
 
     Click Register Links
     Input Requied Text      ${EMAIL_2}     ${PASSWORD}    ${PHONE}
-    Click Button Register
+    Click Button Register               
