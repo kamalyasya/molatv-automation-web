@@ -12,6 +12,9 @@ ${EMAIL}                kamal.yasha@mola.tv
 ${PASSWORD}             123123
 ${PHONE}                628123213123
 ${GENDER}               Pria
+${BULAN}                January
+${TAHUN}                2000
+${TANGGAL}              8
 
 
 
@@ -22,4 +25,4 @@ Security - Registra: Sign Up with email and password
 
     001_RegisterPage.Click A
     001_RegisterPage.Input A      ${EMAIL}     ${PASSWORD}    ${PHONE}
-    001_RegisterPage.Click A
+    001_RegisterPage.Click B
