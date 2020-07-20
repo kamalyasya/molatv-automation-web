@@ -8,9 +8,9 @@ Test Teardown           CommonKeywords.End Testing
 *** Variables ***
 ${URL}                  https://mola.tv/accounts/login
 
-${EMAIL}                kamal.yasha@mola.tv
-${PASSWORD}             123123
-${PHONE}                628123213123
+${EMAIL}                kamal.yasha+012@mola.tv
+${PASSWORD}             1231233
+${PHONE}                62812111899
 ${GENDER}               Pria
 ${BULAN}                January
 ${TAHUN}                2000
@@ -23,6 +23,7 @@ Security - Registra: Sign Up with email and password
     [documentation]  Security - Registration: Sign Up with email and password
 	[tags]  regression smoke
 
-    001_RegisterPage.Click A
-    001_RegisterPage.Input A      ${EMAIL}     ${PASSWORD}    ${PHONE}
-    001_RegisterPage.Click B
+    RegistrationPage.Click Register Sekarang
+    RegistrationPage.Input Register Column      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Click Register Button
+    RegistrationPage.User Successfully Register
