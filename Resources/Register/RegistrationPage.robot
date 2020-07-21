@@ -27,7 +27,7 @@ Click Register Sekarang
     Wait Until Element Is Visible           ${links_login_register_sekarang}
     Click Element                           ${links_login_register_sekarang}
 
-Input Register Column
+Input all the field and tick the agreement
     [Arguments]  ${EMAIL}   ${PASSWORD}  ${PHONE}   ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     Wait Until Element Is Visible           ${text_register_email}
     Input Text                              ${text_register_email}              ${EMAIL}
