@@ -46,3 +46,5 @@ TC003 Input wrong OTP number after Registration process
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
     RegistrationPage.User Input Incorrect Verification Code
+
+
