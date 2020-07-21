@@ -10,10 +10,6 @@ ${text_register_confirm_email}            id=confirmEmail
 ${text_register_password}                 id=password
 ${text_register_confirm_password}         id=confirmPassword
 ${text_register_phone}                    id=phone
-#${text_register_phone}                    id=phone
-
-
-
 
 *** Keywords ***
 Click Register Links
@@ -28,7 +24,6 @@ Input Requied Text
     Input Text                              ${text_register_password}           ${PASSWORD}
     Input Text                              ${text_register_confirm_password}   ${PASSWORD}
     Input Text                              ${text_register_phone}              ${PHONE}
-
 
 Click Button Register
     Log To Console          Test
