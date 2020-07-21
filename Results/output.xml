@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.7.7 on darwin)" generated="20200721 20:35:36.647" rpa="false">
+<suite id="s1" name="SignIn" source="/Users/molatv/Documents/git/molatv-automation-web/Tests/Security/DesktopWeb/SignIn.robot">
+<test id="s1-t1" name="TC003 Sign in with unregistered account">
+<kw name="Start Testing" library="CommonKeywords" type="setup">
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Open Mola TV" library="CommonKeywords">
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200721 20:35:36.952" level="INFO">Opening browser 'chrome' to base url 'https://mola.tv/accounts/login'.</msg>
+<status status="PASS" starttime="20200721 20:35:36.952" endtime="20200721 20:35:43.887"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200721 20:35:43.887" endtime="20200721 20:35:44.071"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:35:36.951" endtime="20200721 20:35:44.072"></status>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<doc>Sets the timeout that is used by various keywords.</doc>
+<arguments>
+<arg>${DEFAULT_TIMEOUT}</arg>
+</arguments>
+<status status="PASS" starttime="20200721 20:35:44.072" endtime="20200721 20:35:44.073"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:35:36.951" endtime="20200721 20:35:44.073"></status>
+</kw>
+<kw name="Login Using Credentials" library="SignInPage">
+<arguments>
+<arg>${EMAIL_UNREGISTERED}</arg>
+<arg>${EMAIL_UNREGISTERED_PASSWORD}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${field_login_email}</arg>
+</arguments>
+<status status="PASS" starttime="20200721 20:35:44.074" endtime="20200721 20:35:44.106"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${field_login_email}</arg>
+<arg>${EMAIL}</arg>
+</arguments>
+<msg timestamp="20200721 20:35:44.107" level="INFO">Typing text 'cincincin@mola.tv' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20200721 20:35:44.106" endtime="20200721 20:35:44.341"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${field_login_password}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200721 20:35:44.341" level="INFO">Typing text '123123' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200721 20:35:44.341" endtime="20200721 20:35:44.458"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${button_login_login}</arg>
+</arguments>
+<msg timestamp="20200721 20:35:44.458" level="INFO">Clicking element 'css=.undefined'.</msg>
+<status status="PASS" starttime="20200721 20:35:44.458" endtime="20200721 20:35:44.513"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:35:44.074" endtime="20200721 20:35:44.513"></status>
+</kw>
+<kw name="Verify A Error Message Show Up" library="SignInPage">
+<arguments>
+<arg>${EXPECTED_MESSAGE_WRONG_LOGIN}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${text_login_error_message}</arg>
+</arguments>
+<status status="PASS" starttime="20200721 20:35:44.514" endtime="20200721 20:35:44.762"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${text_login_error_message}</arg>
+<arg>${EXPECTED_MESSAGE}</arg>
+</arguments>
+<msg timestamp="20200721 20:35:44.764" level="INFO">Verifying element 'css=.ch-Xo' contains exact text 'Either id or password you have entered is invalid'.</msg>
+<status status="PASS" starttime="20200721 20:35:44.763" endtime="20200721 20:35:44.779"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:35:44.513" endtime="20200721 20:35:44.779"></status>
+</kw>
+<kw name="End Testing" library="CommonKeywords" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200721 20:35:44.780" endtime="20200721 20:35:44.873"></status>
+</kw>
+<status status="PASS" starttime="20200721 20:35:44.780" endtime="20200721 20:35:44.873"></status>
+</kw>
+<doc>User can't signing in using wrong credential.</doc>
+<tags>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" starttime="20200721 20:35:36.950" endtime="20200721 20:35:44.873" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200721 20:35:36.649" endtime="20200721 20:35:44.874"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Regression</stat>
+<stat pass="1" fail="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="SignIn">SignIn</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
