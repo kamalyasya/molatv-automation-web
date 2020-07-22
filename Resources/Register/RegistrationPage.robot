@@ -25,7 +25,7 @@ ${text_register_akun_berhasil}                      css=._3ZtJL
 ${field_register_otp_1}                             css=div:nth-of-type(1) > .eKKpu
 ${field_register_otp_2}                             css=div:nth-of-type(2) > .eKKpu
 ${field_register_otp_3}                             css=div:nth-of-type(3) > .eKKpu
-${field_register_otp_4}                             css=div:nth-of-type(4) > .eKKpu
+${field_register_otp_4kuda}                             css=div:nth-of-type(4) > .eKKpu
 ${field_register_otp_5}                             css=div:nth-of-type(5) > .eKKpu
 ${field_register_otp_6}                             css=div:nth-of-type(6) > .eKKpu
 ${field_register
