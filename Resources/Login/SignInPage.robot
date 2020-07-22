@@ -10,7 +10,7 @@ ${button_login_login}               css=.undefined
 
 ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
-
+${links_video_player_login}         css=.css-1mpgh73 a
 
 *** Keywords ***
 Login Using Credentials
@@ -62,3 +62,16 @@ Verify Sign Out
     Click Element                       ${button_homepage_account}
     Wait Until Element Is Visible       ${button_homepage_login}
     Element Should Be Visible           ${button_homepage_login}
+
+Select Special Asset
+    [Arguments]  ${URL}
+    Go To                               ${URL}
+
+Verify User Is Redirected Back To The Same Movie Detail Page Automatically
+    [Arguments]  ${URL}
+    Location Should Be                  ${URL}
+    Sleep   5
+
+Click Links Login
+    Wait Until Element Is Visible       ${links_video_player_login}
+    Click Element                       ${links_video_player_login}

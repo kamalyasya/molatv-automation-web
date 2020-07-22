@@ -19,6 +19,8 @@ ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for fai
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
 ${EXPECTED_TEXT_INVALID_TOKEN}          Invalid token
 ${EXPECTED_TEXT_MENU_FEATURED}          Featured
+${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
+${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
 
 *** Test Cases ***
 TC001 Sign in with wrong credential
@@ -84,3 +86,12 @@ TC009 Sign Out
     SignInPage.Sign Out
     SignInPage.Verify Sign Out
     SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
+
+TC010 Sign in from special asset
+    [Documentation]  TC009 Sign Out
+    [Tags]  Regression  Smoke
+
+    SignInPage.Select Special Asset                                                         ${SAMPLE_MOVIE_URL}
+    SignInPage.Click Links Login
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify User Is Redirected Back To The Same Movie Detail Page Automatically   ${EXPECTED_SAMPLE_MOVIE_URL}
