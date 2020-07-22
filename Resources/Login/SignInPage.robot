@@ -10,6 +10,7 @@ ${button_login_login}               css=.undefined
 
 ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
+${menu_}
 
 *** Keywords ***
 Login Using Credentials
@@ -34,7 +35,7 @@ Input Wrong Credential For 7 Times
     Login Using Credentials             ${EMAIL}    ${PASSWORD}
     Login Using Credentials             ${EMAIL}    ${PASSWORD}
 
-Successfully Logged In Using My Account
+Verify Logged In Using Correct Account
     [Arguments]     ${EXPECTED_ACCOUNT_EMAIL}
     Wait Until Element Is Not Visible   ${field_login_email}
     Wait Until Element Is Visible       ${button_homepage_account}
@@ -42,3 +43,8 @@ Successfully Logged In Using My Account
     Sleep   1
     Wait Until Element Is Visible       ${text_homepage_account_email}
     Element Text Should Be              ${text_homepage_account_email}           ${EXPECTED_ACCOUNT_EMAIL}
+
+Verify The App Navigates To Featured Page
+    [Arguments]     ${FEATURED}
+    Wait Until Element Is Visible       ${menu_homepage_featured}
+    Element Text Should Be              ${menu_homepage_featured}         ${FEATURED}

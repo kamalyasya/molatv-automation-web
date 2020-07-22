@@ -18,6 +18,7 @@ ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered i
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
 ${EXPECTED_TEXT_INVALID_TOKEN}          Invalid token
+${EXPECTED_TEXT_MENU_FEATURED}          Featured
 
 *** Test Cases ***
 TC001 Sign in with wrong credential
@@ -66,3 +67,11 @@ TC006 Resend OTP number code
     ForgotPasswordPage.Verify Direct to Masukkan Kode Verifikasi Page                       ${EXPECTED_TITLE_RESET_PASSWORD}
     ForgotPasswordPage.Click Resend OTP
     ForgotPasswordPage.Verify Countdown Is Appeared
+
+TC007 Page Navigation after sign in
+    [Documentation]  Check page navigation after sign in
+	[Tags]  Regression
+
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
+    SignInPage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
