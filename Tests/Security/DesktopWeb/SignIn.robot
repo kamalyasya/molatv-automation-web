@@ -18,6 +18,9 @@ ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered i
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
 ${EXPECTED_TEXT_INVALID_TOKEN}          Invalid token
+${EXPECTED_TEXT_MENU_FEATURED}          Featured
+${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
+${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
 
 *** Test Cases ***
 TC001 Sign in with wrong credential
@@ -66,3 +69,29 @@ TC006 Resend OTP number code
     ForgotPasswordPage.Verify Direct to Masukkan Kode Verifikasi Page                       ${EXPECTED_TITLE_RESET_PASSWORD}
     ForgotPasswordPage.Click Resend OTP
     ForgotPasswordPage.Verify Countdown Is Appeared
+
+TC007 Page Navigation after sign in
+    [Documentation]  Check page navigation after sign in
+	[Tags]  Regression
+
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
+    SignInPage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+
+TC009 Sign Out
+    [Documentation]  TC009 Sign Out
+	[Tags]  Regression  Smoke
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+    SignInPage.Sign Out
+    SignInPage.Verify Sign Out
+    SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
+
+TC010 Sign in from special asset
+    [Documentation]  TC009 Sign Out
+    [Tags]  Regression  Smoke
+
+    SignInPage.Select Special Asset                                                         ${SAMPLE_MOVIE_URL}
+    SignInPage.Click Links Login
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify User Is Redirected Back To The Same Movie Detail Page Automatically   ${EXPECTED_SAMPLE_MOVIE_URL}
