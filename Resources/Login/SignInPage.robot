@@ -10,7 +10,7 @@ ${button_login_login}               css=.undefined
 
 ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
-${menu_}
+
 
 *** Keywords ***
 Login Using Credentials
@@ -43,8 +43,22 @@ Verify Logged In Using Correct Account
     Sleep   1
     Wait Until Element Is Visible       ${text_homepage_account_email}
     Element Text Should Be              ${text_homepage_account_email}           ${EXPECTED_ACCOUNT_EMAIL}
+    Click Element                       ${button_homepage_account}
+
 
 Verify The App Navigates To Featured Page
     [Arguments]     ${FEATURED}
     Wait Until Element Is Visible       ${menu_homepage_featured}
     Element Text Should Be              ${menu_homepage_featured}         ${FEATURED}
+
+Sign Out
+    Wait Until Element Is Visible       ${button_homepage_account}
+    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Visible       ${links_homepage_keluar}
+    Click Element                       ${links_homepage_keluar}
+
+Verify Sign Out
+    Wait Until Element Is Visible       ${button_homepage_account}
+    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Visible       ${button_homepage_login}
+    Element Should Be Visible           ${button_homepage_login}

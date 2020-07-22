@@ -75,3 +75,12 @@ TC007 Page Navigation after sign in
     SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
     SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
     SignInPage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+
+TC009 Sign Out
+    [Documentation]  TC009 Sign Out
+	[Tags]  Regression  Smoke
+    SignInPage.Login Using Credentials                             ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+    SignInPage.Sign Out
+    SignInPage.Verify Sign Out
+    SignInPage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
