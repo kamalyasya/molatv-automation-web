@@ -28,8 +28,6 @@ ${field_register_otp_3}                             css=div:nth-of-type(3) > .eK
 ${field_register_otp_4}                             css=div:nth-of-type(4) > .eKKpu
 ${field_register_otp_5}                             css=div:nth-of-type(5) > .eKKpu
 ${field_register_otp_6}                             css=div:nth-of-type(6) > .eKKpu
-${field_register_otp_6}                             css=div:nth-of-
-type(6) > .eKKpu
 ${button_register_verifikasi}                       css=.undefined
 ${text_register_kode_verifikas_salah}               css=._3ZtJL
 
