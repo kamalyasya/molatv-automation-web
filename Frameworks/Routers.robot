@@ -13,4 +13,5 @@ Resource            ../Resources/Login/LoginGooglePage.robot
 Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
+Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/Video_Player/VideoPlaybackWithoutSignIn.robot

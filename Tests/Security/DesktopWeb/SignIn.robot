@@ -39,7 +39,7 @@ TC002 Sign in with wrong password for 7 times
 
     SignInPage.Input Wrong Credential For 7 Times       ${EMAIL_MIA}                        ${EMAIL_MIA_WRONG_PASSWORD}
     SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}
-    Sleep                                               1m
+#    Sleep                                               1m
 #    SignInPage.Login Using Credentials                  ${EMAIL_MIA}                        ${EMAIL_MIA_VALID_PASSWORD}
 #    SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN}
 
@@ -55,21 +55,21 @@ TC005 Input wrong OTP number code
 	[Tags]  Regression  Smoke
 
     SignInPage.Click Lupa Password Links
-    ForgotPasswordPage.Input Email                      ${EMAIL_CINCIN}
+    ForgotPasswordPage.Input Email                                  ${EMAIL_CINCIN}
     ForgotPasswordPage.Click Button Reset Password
-    OtpPage.Verify Direct to Masukkan Kode Verifikasi Page                       ${EXPECTED_TITLE_RESET_PASSWORD}
+    OtpPage.Verify Direct to Masukkan Kode Verifikasi Page          ${EXPECTED_TITLE_RESET_PASSWORD}
     OtpPage.Input OTP                        1   1   1   1   1   1
     OtpPage.Click Button Verifkasi
-    OtpPage.Verify Invalid Token Message Show Up                                 ${EXPECTED_TEXT_INVALID_TOKEN}
+    OtpPage.Verify Invalid Token Message Show Up                    ${EXPECTED_TEXT_INVALID_TOKEN}
 
 TC006 Resend OTP number code
     [Documentation]  TC006 Resend OTP number code
 	[Tags]  Regression  Smoke
 
     SignInPage.Click Lupa Password Links
-    ForgotPasswordPage.Input Email                      ${EMAIL_CINCIN}
+    ForgotPasswordPage.Input Email                                  ${EMAIL_CINCIN}
     ForgotPasswordPage.Click Button Reset Password
-    OtpPage.Verify Direct to Masukkan Kode Verifikasi Page                       ${EXPECTED_TITLE_RESET_PASSWORD}
+    OtpPage.Verify Direct to Masukkan Kode Verifikasi Page          ${EXPECTED_TITLE_RESET_PASSWORD}
     OtpPage.Click Resend OTP
     OtpPage.Verify Countdown Is Appeared
 
@@ -77,18 +77,18 @@ TC007 Page Navigation after sign in
     [Documentation]  Check page navigation after sign in
 	[Tags]  Regression
 
-    SignInPage.Login Using Credentials                           ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
-    HomePage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
-    HomePage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+    SignInPage.Login Using Credentials                              ${EMAIL_MIA}            ${EMAIL_MIA_VALID_PASSWORD}
+    HomePage.Verify The App Navigates To Featured Page              ${EXPECTED_TEXT_MENU_FEATURED}
+    HomePage.Verify Logged In Using Correct Account                 ${EMAIL_MIA}
 
 TC009 Sign Out
     [Documentation]  TC009 Sign Out
 	[Tags]  Regression  Smoke
-    SignInPage.Login Using Credentials                           ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
-    HomePage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+    SignInPage.Login Using Credentials                              ${EMAIL_MIA}            ${EMAIL_MIA_VALID_PASSWORD}
+    HomePage.Verify Logged In Using Correct Account                 ${EMAIL_MIA}
     HomePage.Sign Out
     HomePage.Verify Sign Out
-    HomePage.Verify The App Navigates To Featured Page           ${EXPECTED_TEXT_MENU_FEATURED}
+    HomePage.Verify The App Navigates To Featured Page              ${EXPECTED_TEXT_MENU_FEATURED}
 
 TC010 Sign in from special asset
     [Documentation]  TC009 Sign Out
@@ -96,5 +96,14 @@ TC010 Sign in from special asset
 
     SignInPage.Select Special Asset                                                         ${SAMPLE_MOVIE_URL}
     SignInPage.Click Links Login
-    SignInPage.Login Using Credentials                            ${EMAIL_MIA}             ${EMAIL_MIA_VALID_PASSWORD}
+    SignInPage.Login Using Credentials                              ${EMAIL_MIA}            ${EMAIL_MIA_VALID_PASSWORD}
     SignInPage.Verify User Is Redirected Back To The Same Movie Detail Page Automatically   ${EXPECTED_SAMPLE_MOVIE_URL}
+
+TC013 Sign in from Beli Paket
+    [Documentation]  Login process from Beli Paket page
+    [Tags]  Regression  Smoke
+
+    HomePage.Open Beli Paket Menu
+    SubscriptionPackagePage.Choose A Package
+    SignInPage.Login Using Credentials                              ${EMAIL_MIA}            ${EMAIL_MIA_VALID_PASSWORD}
+    SubscriptionPackagePage.Verify On Beli Package Page
