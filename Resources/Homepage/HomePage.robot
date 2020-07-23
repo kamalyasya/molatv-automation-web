@@ -17,6 +17,8 @@ ${button_homepage_login}                css=._2ov9c
 ${text_homepage_account_email}          css=.lQ9ux
 ${links_homepage_keluar}                css=._2hHhe
 ${links_homepage_beli_paket}            xpath=//html//div[@id='app']/div[2]//a[@href='/accounts/profile?tab=subscriptionPackage']
+${links_homepage_privasi}               css=[href='\/privacy']
+${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
 
 *** Keywords ***
 Verify Logged In Using Correct Account
@@ -52,3 +54,12 @@ Open Beli Paket Menu
     Click Element                       ${button_homepage_account}
     Wait Until Element Is Visible       ${links_homepage_beli_paket}
     Click Element                       ${links_homepage_beli_paket}
+
+Open Privasi Page
+    Wait Until Element Is Visible       ${links_homepage_privasi}
+    Click Element                       ${links_homepage_privasi}
+
+Open Syarat Dan Ketentuan Page
+    Wait Until Element Is Visible       ${links_homepage_syarat_dan_ketentuan}
+    Click Element                       ${links_homepage_syarat_dan_ketentuan}
+

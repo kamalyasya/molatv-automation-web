@@ -8,6 +8,8 @@ Resource            Configs.robot
 # Resource
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Homepage/HomePage.robot
+Resource            ../Resources/Homepage/PrivacyPage.robot
+Resource            ../Resources/Homepage/TermsConditionsPage.robot
 Resource            ../Resources/Login/ForgotPasswordPage.robot
 Resource            ../Resources/Login/LoginGooglePage.robot
 Resource            ../Resources/Login/OtpPage.robot
