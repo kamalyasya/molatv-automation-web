@@ -19,6 +19,7 @@ ${links_homepage_keluar}                css=._2hHhe
 ${links_homepage_beli_paket}            xpath=//html//div[@id='app']/div[2]//a[@href='/accounts/profile?tab=subscriptionPackage']
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
+${button_homepage_next_inbox_onboarding}    css=div:nth-of-type(2) > button[role='button']
 
 *** Keywords ***
 Verify Logged In Using Correct Account
@@ -26,11 +27,10 @@ Verify Logged In Using Correct Account
     Wait Until Element Is Not Visible   ${field_login_email}
     Wait Until Element Is Visible       ${button_homepage_account}
     Click Element                       ${button_homepage_account}
-    Sleep   1
+    Sleep                               1
     Wait Until Element Is Visible       ${text_homepage_account_email}
     Element Text Should Be              ${text_homepage_account_email}           ${EXPECTED_ACCOUNT_EMAIL}
     Click Element                       ${button_homepage_account}
-
 
 Verify The App Navigates To Featured Page
     [Arguments]     ${FEATURED}
@@ -63,3 +63,8 @@ Open Syarat Dan Ketentuan Page
     Wait Until Element Is Visible       ${links_homepage_syarat_dan_ketentuan}
     Click Element                       ${links_homepage_syarat_dan_ketentuan}
 
+Click Next Button And Skip Inbox Onboarding
+    Sleep                               1
+    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
+    Click Element                       ${button_homepage_next_inbox_onboarding}
+    Click Element                       ${button_homepage_account}
