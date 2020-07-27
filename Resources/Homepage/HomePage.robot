@@ -26,6 +26,8 @@ ${links_homepage_menu_keluar}           css=._2hHhe
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
 ${frame_homepage_inbox_onboarding}      css=.__floater__body
+${text_homepage_title_onboarding}       css=h4
+${text_homepage_content_onboarding}     css=div[role='alertdialog'] > div:nth-of-type(1) > div
 ${button_homepage_next_inbox_onboarding}    css=div:nth-of-type(2) > button[role='button']
 
 *** Keywords ***
@@ -103,3 +105,13 @@ Verify Menu After Logged In
     Element Should Be Visible           ${links_homepage_menu_beli_paket}
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
     Element Should Be Visible           ${links_homepage_menu_keluar}
+
+Verify Inbox Onboarding On Homepage
+    [Arguments]  ${EXPECTED_TEXT_TITLE_ONBOARDING}  ${EXPECTED_TEXT_CONTENT_ONBOARDING}
+    Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
+    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
+    Element Should Be Visible           ${text_homepage_title_onboarding}
+    Element Text Should Be              ${text_homepage_title_onboarding}                   ${EXPECTED_TEXT_TITLE_ONBOARDING}
+    Element Should Be Visible           ${text_homepage_content_onboarding}
+    Element Text Should Be              ${text_homepage_content_onboarding}                 ${EXPECTED_TEXT_CONTENT_ONBOARDING}
+    Element Should Be Visible           ${button_homepage_next_inbox_onboarding}
