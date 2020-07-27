@@ -6,7 +6,9 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                    https://mola.tv/
+${URL}				                     https://mola.tv/
+${EMAIL_SUPERMOLA50}                     supermola50@sapisuper.com
+${EMAIL_SUPERMOLA50_PASSWORD}            sapisuper50
 
 ${EXPECTED_TEXT_PRIVASI_TITLE_KEBIJAKAN_PRIVASI}                KEBIJAKAN PRIVASI
 ${EXPECTED_TEXT_TERMS_CONDITIONS_TITLE_KEBIJAKAN_PRIVASI}       A. KETENTUAN UMUM
@@ -14,6 +16,16 @@ ${EXPECTED_TEXT_PRIVASI_FIRST_PARAGRAPH}                        Kebijakan Privas
 ${EXPECTED_TEXT_TERMS_CONDITIONS_FIRST_PARAGRAPH}               Ketentuan Umum di bawah ini (“Ketentuan Umum”) harus dibaca sebelum pengunjung maupun pengguna ("Anda") menggunakan Platform Layanan ini. Penggunaan Platform Layanan ini menunjukkan penerimaan, persetujuan dan kepatuhan Anda terhadap Ketentuan Umum ini beserta Kebijakan Privasi dan setiap dokumen lainnya yang terkait.
 
 *** Test Cases ***
+TC001 UI of My Account Page
+    [Documentation]  Check Privacy page at My Account page, Register page and Beli Paket page
+	[Tags]  Regression
+
+    HomePage.Verify The UI Of The User Icon Without Login
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                                      ${EMAIL_SUPERMOLA50}        ${EMAIL_SUPERMOLA50_PASSWORD}
+    HomePage.Click Next Button And Skip Inbox Onboarding
+    HomePage.Verify Menu After Logged In
+
 TC002 Privacy
     [Documentation]  Check Privacy page at My Account page, Register page and Beli Paket page
 	[Tags]  Regression
