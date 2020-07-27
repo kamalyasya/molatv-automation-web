@@ -115,3 +115,9 @@ Verify Inbox Onboarding On Homepage
     Element Should Be Visible           ${text_homepage_content_onboarding}
     Element Text Should Be              ${text_homepage_content_onboarding}                 ${EXPECTED_TEXT_CONTENT_ONBOARDING}
     Element Should Be Visible           ${button_homepage_next_inbox_onboarding}
+
+Open Inbox Page
+    Wait Until Element Is Visible       ${button_homepage_account}
+    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Visible       ${links_homepage_menu_inbox}
+    Click Element                       ${links_homepage_menu_inbox}
