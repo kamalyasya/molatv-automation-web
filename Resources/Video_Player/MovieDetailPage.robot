@@ -6,8 +6,8 @@ Resource            ../../Frameworks/Routers.robot
 ${menu_movies}                          css=a[title='Movies'] > div[title='Movies']
 ${button_movies_categories}             css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
 ${button_garsel}                        css=.css-1rguokb > div:nth-of-type(2) > div:nth-of-type(1) .css-11xe1ut.css-dzdbuq.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
-#${title_garselep1}                      css=div:nth-of-type(1) > .css-gu2yrd > .title
-#${button_select_movies_garselep1}       css=div:nth-of-type(1) > .css-gu2yrd > .css-rh1xgi > .css-tqv6h2.imageWrapper.loaded > .imageBorder    29-07-20 Edited by Putra karena element berganti
+${title_garselep1}                      css=div:nth-of-type(1) > .css-gu2yrd > .title
+${button_select_movies_garselep1}       css=div:nth-of-type(1) > .css-gu2yrd > .css-rh1xgi > .css-tqv6h2.imageWrapper.loaded > .imageBorder
 ${login_blocker_garselep1}              link=login
 
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
@@ -44,8 +44,8 @@ Select an asset for video playback (Live/Reply/Movie)
     Wait Until Element Is Visible       ${button_garsel}
     Click Element                       ${button_garsel}
 
-#    Wait Until Element Is Visible       ${title_garselep1}
-#    Click Element                       ${button_select_movies_garselep1}  29-07-20 Edited by Putra karena element berganti
+    Wait Until Element Is Visible       ${title_garselep1}
+    Click Element                       ${button_select_movies_garselep1}
 
 Verify login blocker if not sign in before
     Sleep                               3
@@ -107,27 +107,18 @@ Play Content From Movie Detail To Change Video Quality
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_576}
     sleep                               5
-    Capture Element ScreenShot          ${movie_quality_list_576}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_270}
-    Mouse Over                          ${movie_mouse_over}
     sleep                               5
-    Capture Element ScreenShot          ${movie_quality_list_270}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_360}
-    Mouse Over                          ${movie_mouse_over}
     sleep                               5
-    Capture Element ScreenShot          ${movie_quality_list_360}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_720}
-    Mouse Over                          ${movie_mouse_over}
     sleep                               5
-    Capture Element ScreenShot          ${movie_quality_list_720}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_auto}
-    Mouse Over                          ${movie_mouse_over}
     sleep                               5
-    Capture Element ScreenShot          ${movie_quality_list_auto}
 
 Verify Change Quality
     [Arguments]  ${EXPECTED_CHANGE_QUALITY_576}     ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
