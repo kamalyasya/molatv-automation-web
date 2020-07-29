@@ -6,8 +6,6 @@ Resource                ../../Frameworks/Routers.robot
 ${field_login_email}                id=email
 ${field_login_password}             id=password
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
-${button_login_login}               css=.undefined
-
 ${button_login_login}               css=._3C-S2
 ${button_login_loading_login}       css=._3C-S2.nA5CF.undefined > ._3_DDx
 ${text_login_error_message}         css=.ch-Xo

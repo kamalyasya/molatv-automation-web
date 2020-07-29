@@ -15,26 +15,12 @@ ${EMAIL_CINCIN}                         cincin.jati@mola.tv
 ${PASSWORD_CINCIN}                      12345678
 ${EMAIL_KAMAL}                          kamal.yasha@mola.tv
 ${PASSWORD_KAMAL}                       1234567890
-${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd91671021
-${EMAIL_PUTRA}                          putra.pratama@mola.tv
-${PASSWORD_PUTRA}                       admin123
-${EMAIL_CINCIN}                         cincin.jati@mola.tv
-${PASSWORD_CINCIN}                      12345678
-${EMAIL_KAMAL}                          kamal.yasha@mola.tv
-${PASSWORD_KAMAL}                       1234567890
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_BUFFERING}                   css=.progressbar_progress_buffer
 ${TITLE_MOVIE_DETAIL}                   css=h1
 ${TITLE_MOVIE}                          Apocalypto
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd61974308
 ${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
-${MOUSE_OVER_MOVIE_DETAIL}              css=div#video-child > .css-q60n54
-${EXPECTED_CHANGE_QUALITY_576}          576
-${EXPECTED_CHANGE_QUALITY_270}          270
-${EXPECTED_CHANGE_QUALITY_360}          360
-${EXPECTED_CHANGE_QUALITY_720}          720
-${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
-
 ${MOUSE_OVER_MOVIE_DETAIL}              css=div#video-child > .css-q60n54
 ${EXPECTED_CHANGE_QUALITY_576}          576
 ${EXPECTED_CHANGE_QUALITY_270}          270
@@ -61,9 +47,6 @@ Delivery - Video player: Buffering
     SignInPage.Login Using Credentials         ${EMAIL_PUTRA}          ${PASSWORD_PUTRA}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail And Forward Progress Bar
-    MovieDetailPage.Login Using Credintials         ${EMAIL_PUTRA}          ${PASSWORD_PUTRA}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail And Forward Progress Bar
     MovieDetailPage.Verify Loading Indicator        ${EXPECTED_BUFFERING}
 
 Delivery - Video player: Playback Control
@@ -86,9 +69,4 @@ Delivery - Video player: Quality Control
     SignInPage.Login Using Credentials              ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail To Change Video Quality
-    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
-    MovieDetailPage.Login Using Credintials         ${EMAIL_PUTRA}          ${PASSWORD_PUTRA}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
