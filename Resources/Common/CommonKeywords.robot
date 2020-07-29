@@ -1,8 +1,9 @@
 *** Settings ***
-Library         	    SeleniumLibrary
-Resource                ../../Frameworks/Routers.robot
+Library         	            SeleniumLibrary
+Resource                        ../../Frameworks/Routers.robot
 
 *** Variables ***
+${URL_BLANK}                    about:blank
 
 *** Keywords ***
 Start Testing
@@ -15,5 +16,6 @@ End Testing
 
 Open Mola TV
     [Arguments]     ${URL}
-    Open Browser                ${URL}      ${BROWSER}
+    Open Browser                ${URL_BLANK}      ${BROWSER}
     Maximize Browser Window
+    Go To                       ${URL}

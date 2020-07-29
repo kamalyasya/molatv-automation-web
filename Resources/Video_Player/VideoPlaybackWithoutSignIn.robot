@@ -9,6 +9,7 @@ ${button_garsel}                    css=.css-1rwwe5j > div:nth-of-type(2) > div:
 ${title_garselep1}                  css=div:nth-of-type(1) > .css-g2tceo > .title
 ${button_select_movies_garselep1}   css=div:nth-of-type(1) > .css-g2tceo > .css-rh1xgi > .css-tqv6h2.imageWrapper.loaded > .imageBorder
 ${login_blocker_garselep1}          css=.css-2m3anb > p
+${links_video_player_login}         css=.css-1mpgh73 a
 
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
@@ -26,3 +27,7 @@ Select an asset for video playback (Live/Reply/Movie)
 
 Start video playback
     Wait Until Element Is Visible   ${login_blocker_garselep1}
+
+Click Links Login
+    Wait Until Element Is Visible       ${links_video_player_login}
+    Click Element                       ${links_video_player_login}
