@@ -29,6 +29,7 @@ ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}      Daftar Pesan
 
 *** Keywords ***
 Click Next Button On Inbox Filter Per Kategori Onboarding
+    Sleep                                           1
     Wait Until Element Contains                     ${text_inbox_title_filter_perkategori_onboarding}           ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_filter_perkategori_onboarding}
     Element Should Be Visible                       ${frame_inbox_filter_perkategori_onboarding}
@@ -37,6 +38,7 @@ Click Next Button On Inbox Filter Per Kategori Onboarding
     Click Element                                   ${button_inbox_next_filter_perkategori_onboarding}
 
 Click Next Button On Inbox Sort By Onboarding
+    Sleep                                           1
     Wait Until Element Contains                     ${text_inbox_title_sort_by_onboarding}                      ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_sort_by_onboarding}
     Element Should Be Visible                       ${frame_inbox_sort_by_onboarding}
@@ -46,6 +48,7 @@ Click Next Button On Inbox Sort By Onboarding
     Click Element                                   ${button_inbox_next_sort_by_onboarding}
 
 Click Next Button On Inbox Daftar Pesan Onboarding
+    Sleep                                           1
     Wait Until Element Contains                     ${text_inbox_title_daftar_pesan_onboarding}                 ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_daftar_pesan_onboarding}
     Element Should Be Visible                       ${frame_inbox_daftar_pesan_onboarding}
