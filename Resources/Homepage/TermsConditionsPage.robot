@@ -4,7 +4,7 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${text_terms_conditions_title_ketentuan_umum}       css=._1Rq9v > div:nth-of-type(1)
-${text_terms_conditions_first_paragraph}            css=div:nth-of-type(2) > .JJ24V
+${text_terms_conditions_first_paragraph}            css=div:nth-of-type(3) > .JJ24V
 
 *** Keywords ***
 Verify User Can Open Syarat Dan Ketentuan Page

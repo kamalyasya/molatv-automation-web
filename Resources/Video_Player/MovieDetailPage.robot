@@ -11,6 +11,8 @@ ${button_garsel}                        css=.css-1rguokb > div:nth-of-type(2) > 
 ${button_garsel}                        css=.css-1rwwe5j > div:nth-of-type(2) > div:nth-of-type(1) .css-11xe1ut.css-dzdbuq.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
 ${title_garselep1}                      css=div:nth-of-type(1) > .css-g2tceo > .title
 ${button_select_movies_garselep1}       css=[class] .css-jraxs5:nth-of-type(1) .imageBorder
+${title_garselep1}                      css=div:nth-of-type(1) > .css-gu2yrd > .title
+${button_select_movies_garselep1}       css=div:nth-of-type(1) > .css-gu2yrd > .css-rh1xgi > .css-tqv6h2.imageWrapper.loaded > .imageBorder
 ${login_blocker_garselep1}              link=login
 
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
@@ -39,13 +41,21 @@ ${button_login_login}                   css=.undefined
 ${title_movie_detail}                   css=h1
 ${movie_detail_play_button}             css=.css-zy8jsc
 ${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
-${notif_badge_inbox}                    css=div:nth-of-type(2) > button[role='button']
+${notif_badge_inbox}                    id=next
 ${forward_movie_detail}                 css=.css-2v9r2y.forwardIcon
 
 ${movie_detail_duration}                css=.duration
-${movie_progress_bar}                   css=[class='css-1xc2rfo hide'] > .progress:nth-of-type(2)
+${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
 ${movie_pause_button}                   css=.css-2v9r2y.pauseIcon
-${mouse_over}                           css=div#video-child > .css-q60n54
+${movie_mouse_over}                     css=div#video-child > .css-q60n54
+${movie_quality_control}                css=div#vpcc-quality
+${movie_change_quality}                 css=.quality_popup
+${movie_quality_list_576}               css=div#vpcc-quality > div > div:nth-of-type(3)
+${movie_quality_list_270}               css=div#vpcc-quality > div > div:nth-of-type(5)
+${movie_quality_list_360}               css=div#vpcc-quality > div > div:nth-of-type(4)
+${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-type(2)
+${movie_quality_list_auto}              css=div > div:nth-of-type(6)
+${movie_quality_title}                  css=.quality_title
 
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
@@ -66,6 +76,7 @@ Select an asset for video playback (Live/Reply/Movie)
 Verify login blocker if not sign in before
     Sleep                               3
     Page Should Contain Element         ${login_blocker_garselep1}
+    Capture Element Screenshot          ${title_movie_detail}
     Capture Element Screenshot          ${login_blocker_garselep1}
 
 
@@ -78,13 +89,6 @@ Login from movie detail
 Verify Direct To Login Page
     Wait Until Element Is Visible       ${field_login_email}
     Element Should Be Visible           ${text_login_login_page}
-
-Login Using Credintials
-    [Arguments]  ${EMAIL_PUTRA}     ${PASSWORD_PUTRA}
-    Wait Until Element Is Visible       ${field_login_email}
-    Input Text                          ${field_login_email}            ${EMAIL_PUTRA}
-    Input Text                          ${field_login_password}         ${PASSWORD_PUTRA}
-    Click Element                       ${button_login_login}
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
@@ -101,12 +105,7 @@ Play Content From Movie Detail
     Wait Until Element Is Visible       ${title_movie_detail}
     sleep                               2
     Click Element                       ${movie_detail_play_button}
-    sleep                               2
-    Mouse Over                          ${mouse_over}
-    Mouse Over                          ${mouse_over}
-    Mouse Over                          ${mouse_over}
-    Click Element                       ${forward_movie_detail}
-    Click Element                       ${forward_movie_detail}
+    sleep                               5
     Click Element                       ${forward_movie_detail}
 
 Verify Loading Indicator
@@ -176,3 +175,41 @@ Verify The progress bar and elapsed time are updating when playing a content
     Capture Element Screenshot          ${movie_detail_duration}
     Wait Until Element Is Visible       ${movie_progress_bar}
     Capture Element Screenshot          ${movie_progress_bar}
+
+Verify The progress bar and elapsed time are updating when playing a content
+    Page Should Contain Element         ${movie_pause_button}
+    Page Should Contain Element         ${movie_detail_duration}
+    Page Should Contain Element         ${movie_progress_bar}
+
+
+Play Content From Movie Detail To Change Video Quality
+    Wait Until Element Is Visible       ${title_movie_detail}
+    sleep                               2
+    Click Element                       ${movie_detail_play_button}
+    sleep                               5
+    Wait Until Element Is Visible       ${movie_quality_control}
+    Click Element                       ${movie_quality_control}
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Click Element                       ${movie_quality_list_576}
+    sleep                               5
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Click Element                       ${movie_quality_list_270}
+    sleep                               5
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Click Element                       ${movie_quality_list_360}
+    sleep                               5
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Click Element                       ${movie_quality_list_720}
+    sleep                               5
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Click Element                       ${movie_quality_list_auto}
+    sleep                               5
+
+Verify Change Quality
+    [Arguments]  ${EXPECTED_CHANGE_QUALITY_576}     ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
+    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_576}
+    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_270}
+    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_360}
+    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_720}
+    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_AUTO}
+    Page Should Contain Element         ${movie_quality_title}
