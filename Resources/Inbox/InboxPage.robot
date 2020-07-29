@@ -23,8 +23,13 @@ ${button_inbox_finish_daftar_pesan_onboarding}      id=next
 ${frame_inbox_onboarding}                           css=.__floater__body
 ${button_inbox_back_onboarding}                     id=back
 
+${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}   Filter per Kategori
+${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}           Sort By
+${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}      Daftar Pesan
+
 *** Keywords ***
 Click Next Button On Inbox Filter Per Kategori Onboarding
+    Wait Until Element Contains                     ${text_inbox_title_filter_perkategori_onboarding}           ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_filter_perkategori_onboarding}
     Element Should Be Visible                       ${frame_inbox_filter_perkategori_onboarding}
     Element Should Be Visible                       ${button_inbox_skip_filter_perkategori_onboarding}
@@ -32,6 +37,7 @@ Click Next Button On Inbox Filter Per Kategori Onboarding
     Click Element                                   ${button_inbox_next_filter_perkategori_onboarding}
 
 Click Next Button On Inbox Sort By Onboarding
+    Wait Until Element Contains                     ${text_inbox_title_sort_by_onboarding}                      ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_sort_by_onboarding}
     Element Should Be Visible                       ${frame_inbox_sort_by_onboarding}
     Element Should Be Visible                       ${button_inbox_skip_sort_by_onboarding}
@@ -40,6 +46,7 @@ Click Next Button On Inbox Sort By Onboarding
     Click Element                                   ${button_inbox_next_sort_by_onboarding}
 
 Click Next Button On Inbox Daftar Pesan Onboarding
+    Wait Until Element Contains                     ${text_inbox_title_daftar_pesan_onboarding}                 ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_daftar_pesan_onboarding}
     Element Should Be Visible                       ${frame_inbox_daftar_pesan_onboarding}
     Element Should Be Visible                       ${button_inbox_back_daftar_pesan_onboarding}
@@ -58,6 +65,7 @@ Click Back Button On Onboarding
 
 Verify Inbox Daftar Pesan Onboarding Is Displayed
     [Arguments]  ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}     ${EXPECTED_TEXT_CONTENT_DAFTAR_PESAN_ONBOARDING}
+    Wait Until Element Contains                     ${text_inbox_title_daftar_pesan_onboarding}         ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_daftar_pesan_onboarding}
     Element Should Be Visible                       ${frame_inbox_daftar_pesan_onboarding}
     Element Text Should Be                          ${text_inbox_title_daftar_pesan_onboarding}         ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}
@@ -67,6 +75,7 @@ Verify Inbox Daftar Pesan Onboarding Is Displayed
 
 Verify Inbox Sort By Onboarding Is Displayed
     [Arguments]  ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}     ${EXPECTED_TEXT_CONTENT_SORT_BY_ONBOARDING}
+    Wait Until Element Contains                     ${text_inbox_title_sort_by_onboarding}              ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_sort_by_onboarding}
     Element Should Be Visible                       ${frame_inbox_sort_by_onboarding}
     Element Text Should Be                          ${text_inbox_title_sort_by_onboarding}              ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}
@@ -77,6 +86,7 @@ Verify Inbox Sort By Onboarding Is Displayed
 
 Verify Inbox Filter Per Kategori Onboarding Is Displayed
     [Arguments]  ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}     ${EXPECTED_TEXT_CONTENT_FILTER_KATEGORI_ONBOARDING}
+    Wait Until Element Contains                     ${text_inbox_title_filter_perkategori_onboarding}         ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}
     Wait Until Element Is Visible                   ${frame_inbox_filter_perkategori_onboarding}
     Element Should Be Visible                       ${frame_inbox_filter_perkategori_onboarding}
     Element Text Should Be                          ${text_inbox_title_filter_perkategori_onboarding}         ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}
