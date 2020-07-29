@@ -19,7 +19,7 @@ ${dropdown_register_tanggal_lahir_tahun}                css=.react-datepicker__y
 ${dropdown_register_tanggal_lahir_tahun_ke}             css=.react-datepicker__year-dropdown.react-datepicker__year-dropdown--scrollable > div:nth-of-type(21)
 ${field_register_tanggal_lahir_tanggal_ke}              css=div:nth-of-type(2) > div:nth-of-type(7)
 ${checkbox_register_saya_menjamin}                      css=._1GnU3._5k2bC
-${button_register_tanggal_lahir_register}               css=.undefined
+${button_register_tanggal_lahir_register}               css=._3C-S2
 ${text_register_akun_berhasil}                          css=._3ZtJL
 
 ${field_register_otp_1}                                 css=div:nth-of-type(1) > .eKKpu
@@ -28,9 +28,9 @@ ${field_register_otp_3}                                 css=div:nth-of-type(3) >
 ${field_register_otp_4}                                 css=div:nth-of-type(4) > .eKKpu
 ${field_register_otp_5}                                 css=div:nth-of-type(5) > .eKKpu
 ${field_register_otp_6}                                 css=div:nth-of-type(6) > .eKKpu
-${button_register_verifikasi}                           css=.undefined
+${button_register_verifikasi}                           css=._3C-S2
 ${text_register_kode_verifikas_salah}                   css=._3ZtJL
-${button_register_verifikasi_again}                     css=.undefined
+${button_register_verifikasi_again}                     css=._3C-S2
 ${text_register_kode_verifikas_salah_again}             css=._3ZtJL
 ${button_register_verifikasi_kirim_ulang}               link=Kirim ulang
 ${text_register_kode_verifikas_terkirim}                css=._3ZtJL
@@ -59,17 +59,13 @@ Input all the field and tick the agreement
     Click Element                                   ${dropdown_register_tanggal_lahir_tahun_ke}
     Click Element                                   ${field_register_tanggal_lahir_tanggal_ke}
     Click Element                                   ${checkbox_register_saya_menjamin}
-    sleep                                           3
 
 Click Register Button
     Click Element                                   ${button_register_tanggal_lahir_register}
-    sleep                                           3
 
 User Successfully Register
     Wait Until Element Is Visible                   ${text_register_akun_berhasil}
-    sleep                                           3
     Element Text Should Be                          ${text_register_akun_berhasil}      Akun berhasil terdaftar. Login sekarang
-    sleep                                           3
 
 Input OTP
     [Arguments]  ${1}   ${2}  ${3}   ${4}   ${5}    ${6}
@@ -91,13 +87,9 @@ User Input Incorrect Verification Code
 
 Click Verifikasi Again
     Click Verifikasi
-#    Wait Until Element Is Visible                   ${button_register_verifikasi}
-#    Click Element                                   ${button_register_verifikasi}
 
 User Input Incorrect Verification Code Again
     User Input Incorrect Verification Code
-#    Wait Until Element Is Visible                   ${text_register_kode_verifikas_salah}
-#    Element Text Should Be                          ${text_register_kode_verifikas_salah}        You have entered invalid OTP
     Sleep                                            10
 
 Click Kirim Ulang
