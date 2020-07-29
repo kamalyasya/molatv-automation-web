@@ -26,9 +26,10 @@ ${links_homepage_menu_keluar}           css=._2hHhe
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
 ${frame_homepage_inbox_onboarding}      css=.__floater__body
-${text_homepage_title_onboarding}       css=h4
-${text_homepage_content_onboarding}     css=div[role='alertdialog'] > div:nth-of-type(1) > div
-${button_homepage_next_inbox_onboarding}    css=div:nth-of-type(2) > button[role='button']
+${text_homepage_title_onboarding}       css=._2u2aj
+${text_homepage_content_onboarding}     css=._1fO2X
+${button_homepage_skip_inbox_onboarding}        id=skip
+${button_homepage_finish_inbox_onboarding}      id=next
 
 *** Keywords ***
 Verify Logged In Using Correct Account
@@ -73,9 +74,10 @@ Open Syarat Dan Ketentuan Page
     Click Element                       ${links_homepage_syarat_dan_ketentuan}
 
 Click Next Button And Skip Inbox Onboarding
+    Sleep                               2
     Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
-    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
-    Click Element                       ${button_homepage_next_inbox_onboarding}
+    Wait Until Element Is Visible       ${button_homepage_finish_inbox_onboarding}
+    Click Element                       ${button_homepage_finish_inbox_onboarding}
     Click Element                       ${button_homepage_account}
 
 Open Login Page
@@ -109,12 +111,12 @@ Verify Menu After Logged In
 Verify Inbox Onboarding On Homepage
     [Arguments]  ${EXPECTED_TEXT_TITLE_ONBOARDING}  ${EXPECTED_TEXT_CONTENT_ONBOARDING}
     Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
-    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
+    Wait Until Element Is Visible       ${button_homepage_finish_inbox_onboarding}
     Element Should Be Visible           ${text_homepage_title_onboarding}
     Element Text Should Be              ${text_homepage_title_onboarding}                   ${EXPECTED_TEXT_TITLE_ONBOARDING}
     Element Should Be Visible           ${text_homepage_content_onboarding}
     Element Text Should Be              ${text_homepage_content_onboarding}                 ${EXPECTED_TEXT_CONTENT_ONBOARDING}
-    Element Should Be Visible           ${button_homepage_next_inbox_onboarding}
+    Element Should Be Visible           ${button_homepage_finish_inbox_onboarding}
 
 Open Inbox Page
     Wait Until Element Is Visible       ${button_homepage_account}
