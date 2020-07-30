@@ -53,7 +53,6 @@ Verify login blocker if not sign in before
     Capture Element Screenshot          ${title_movie_detail}
     Capture Element Screenshot          ${login_blocker_garselep1}
 
-
 Login from movie detail
     [Arguments]  ${URL_MOVIE_DETAIL}
     Go To                               ${URL_MOVIE_DETAIL}
@@ -83,7 +82,6 @@ Verify Loading Indicator
     sleep                               3
     Capture Element Screenshot          ${movie_detail_image_logo}
 
-
 Play Content From Movie Detail And Mouse Hover To Movie
     [Arguments]     ${MOUSE_OVER_MOVIE_DETAIL}
     Wait Until Element Is Visible       ${title_movie_detail}
@@ -95,7 +93,6 @@ Verify The progress bar and elapsed time are updating when playing a content
     Page Should Contain Element         ${movie_pause_button}
     Page Should Contain Element         ${movie_detail_duration}
     Page Should Contain Element         ${movie_progress_bar}
-
 
 Play Content From Movie Detail To Change Video Quality
     Wait Until Element Is Visible       ${title_movie_detail}
