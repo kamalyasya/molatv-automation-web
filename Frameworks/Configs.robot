@@ -1,3 +1,3 @@
 *** Variables ***
-${BROWSER}              ff
+${BROWSER}              chrome
 ${DEFAULT_TIMEOUT}      10s
