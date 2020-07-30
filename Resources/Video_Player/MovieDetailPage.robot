@@ -33,6 +33,12 @@ ${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-
 ${movie_quality_list_auto}              css=div > div:nth-of-type(6)
 ${movie_quality_title}                  css=.quality_title
 
+${autoplay_next_movie}                  css=.content
+${autoplay_button_Play_next}            css=.play
+${autoplay_button_skip}                 css=.close
+
+${caption_close_button}                 css=div#vpcc-subtitle
+${caption_close_}
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     Wait Until Element Is Visible       ${menu_movies}
@@ -69,11 +75,13 @@ Verify Is Redirected Back To The Same Movie Detail
     Click Element                       ${notif_badge_inbox}
     Location Should Be                  ${URL}
 
-Play Content From Movie Detail And Forward Progress Bar
+Play Content From Movie Detail
     Wait Until Element Is Visible       ${title_movie_detail}
     sleep                               2
     Click Element                       ${movie_detail_play_button}
     sleep                               5
+
+Forward Progress Bar
     Click Element                       ${forward_movie_detail}
 
 Verify Loading Indicator
@@ -82,23 +90,26 @@ Verify Loading Indicator
     sleep                               3
     Capture Element Screenshot          ${movie_detail_image_logo}
 
-Play Content From Movie Detail And Mouse Hover To Movie
-    [Arguments]     ${MOUSE_OVER_MOVIE_DETAIL}
-    Wait Until Element Is Visible       ${title_movie_detail}
-    sleep                               2
-    Click Element                       ${movie_detail_play_button}
-    sleep                               5   ${MOUSE_OVER_MOVIE_DETAIL}
+Mouse Hover To Movie
+    Mouse Over                          ${movie_mouse_over}
 
 Verify The progress bar and elapsed time are updating when playing a content
     Page Should Contain Element         ${movie_pause_button}
     Page Should Contain Element         ${movie_detail_duration}
     Page Should Contain Element         ${movie_progress_bar}
 
-Play Content From Movie Detail To Change Video Quality
-    Wait Until Element Is Visible       ${title_movie_detail}
-    sleep                               2
-    Click Element                       ${movie_detail_play_button}
-    sleep                               5
+Auto Play Next Episode
+    Sleep                               110
+    Wait Until Element Is Visible       ${autoplay_next_movie}
+
+Verify Auto Play Next Episode
+    Page Should Contain Element         ${autoplay_next_movie}
+    Page Should Contain Element         ${autoplay_button_Play_next}
+    Capture Element Screenshot          ${autoplay_button_Play_next}
+    Page Should Contain Element         ${autoplay_button_skip}
+    Capture Element Screenshot          ${autoplay_button_skip}
+
+Change Video Quality
     Wait Until Element Is Visible       ${movie_quality_control}
     Click Element                       ${movie_quality_control}
     Wait Until Element Is Visible       ${movie_change_quality}

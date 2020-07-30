@@ -21,7 +21,6 @@ ${TITLE_MOVIE_DETAIL}                   css=h1
 ${TITLE_MOVIE}                          Apocalypto
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd61974308
 ${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
-${MOUSE_OVER_MOVIE_DETAIL}              css=div#video-child > .css-q60n54
 ${EXPECTED_CHANGE_QUALITY_576}          576
 ${EXPECTED_CHANGE_QUALITY_270}          270
 ${EXPECTED_CHANGE_QUALITY_360}          360
@@ -46,7 +45,8 @@ Delivery - Video player: Buffering
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials         ${EMAIL_PUTRA}          ${PASSWORD_PUTRA}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail And Forward Progress Bar
+    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Forward Progress Bar
     MovieDetailPage.Verify Loading Indicator        ${EXPECTED_BUFFERING}
 
 Delivery - Video player: Playback Control
@@ -57,8 +57,11 @@ Delivery - Video player: Playback Control
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${EMAIL_CINCIN}                 ${PASSWORD_CINCIN}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail And Mouse Hover To Movie  ${MOUSE_OVER_MOVIE_DETAIL}
+    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    MovieDetailPage.Auto Play Next Episode
+    MovieDetailPage.Verify Auto Play Next Episode
 
 Delivery - Video player: Quality Control
     [Documentation]  Change Quality Control
@@ -68,5 +71,15 @@ Delivery - Video player: Quality Control
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail To Change Video Quality
+    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
+
+Delivery - Video player: Volume Control
+    [Documentation]  Change Volume During Video Playback
+    [Tags]           Regression Smoke
+
+    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
