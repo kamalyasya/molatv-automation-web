@@ -12,6 +12,7 @@ Resource            ../Resources/Homepage/PrivacyPage.robot
 Resource            ../Resources/Homepage/TermsConditionsPage.robot
 Resource            ../Resources/Inbox/InboxPage.robot
 Resource            ../Resources/Login/ForgotPasswordPage.robot
+Resource            ../Resources/Login/LoginFacebookPage.robot
 Resource            ../Resources/Login/LoginGooglePage.robot
 Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot

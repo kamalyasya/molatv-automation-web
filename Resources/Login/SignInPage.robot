@@ -11,7 +11,7 @@ ${button_login_loading_login}       css=._3C-S2.nA5CF.undefined > ._3_DDx
 ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_google}              css=._3Zzdj > button:nth-of-type(1)
-${button_login_facebook}            css=._3Zzdj > button:nth-of-type(2)
+${button_login_fb}                  xpath=//button[2]
 ${text_login_email_error_message}   css=.css-e2n7zw
 *** Keywords ***
 Login Using Credentials
@@ -61,6 +61,10 @@ Verify User Is Redirected Back To The Same Movie Detail Page Automatically
 Click Button Google Login
     Wait Until Element Is Visible       ${button_login_google}
     Click Element                       ${button_login_google}
+
+Click Button Facebook Login
+    Wait Until Element Is Visible       ${button_login_fb}
+    Click Element                       ${button_login_fb}
 
 Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}

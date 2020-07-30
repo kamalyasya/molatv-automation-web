@@ -40,6 +40,8 @@ ${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
 ${ACCOUNT_GOOGLE_EMAIL}                 molatv.tester@gmail.com
 ${ACCOUNT_GOOGLE_EMAIL_CINCIN}          cincin.jati@mola.tv
 ${ACCOUNT_GOOGLE_PASSWORD}              molajaya
+${ACCOUNT_FACEBOOK_EMAIL}               cincin.jati+fb@tokopedia.com
+${ACCOUNT_FACEBOOK_PASSWORD}            tokopedia
 
 *** Test Cases ***
 TC001 Sign in with wrong credential
@@ -121,11 +123,20 @@ TC010 Sign in from special asset
     SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA1}             ${EMAIL_SUPERMOLA1_PASSWORD}
     SignInPage.Verify User Is Redirected Back To The Same Movie Detail Page Automatically           ${EXPECTED_SAMPLE_MOVIE_URL}
 
+TC012 Sign in from Facebook button
+    [Documentation]  Login using facebook account
+    [Tags]  Regression  Smoke
+
+    SignInPage.Click Button Facebook Login
+    LoginFacebookPage.Login Using Facebook Account                  ${ACCOUNT_FACEBOOK_EMAIL}       ${ACCOUNT_FACEBOOK_PASSWORD}
+    HomePage.Click Next Button And Skip Inbox Onboarding
+    HomePage.Verify Logged In Using Correct Account                 ${ACCOUNT_FACEBOOK_EMAIL}
+
 TC013 Sign in from Beli Paket
     [Documentation]  Login process from Beli Paket page
     [Tags]  Regression  Smoke
 
     HomePage.Open Beli Paket Menu
     SubscriptionPackagePage.Choose A Package
-    SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA4}            ${EMAIL_SUPERMOLA4_PASSWORD}
+    SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA4}             ${EMAIL_SUPERMOLA4_PASSWORD}
     SubscriptionPackagePage.Verify On Beli Package Page

@@ -74,7 +74,7 @@ Open Syarat Dan Ketentuan Page
     Click Element                       ${links_homepage_syarat_dan_ketentuan}
 
 Click Next Button And Skip Inbox Onboarding
-    Sleep                               2
+    Wait Until Page Contains Element    ${frame_homepage_inbox_onboarding}
     Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
     Wait Until Element Is Visible       ${button_homepage_finish_inbox_onboarding}
     Click Element                       ${button_homepage_finish_inbox_onboarding}
