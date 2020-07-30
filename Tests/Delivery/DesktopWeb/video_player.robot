@@ -32,9 +32,7 @@ Delivery - Video Player: Video playback without sign in
     [Documentation]     Select an asset for video playback (Live/Reply/Movie)
     [Tags]              Regression Smoke
 
-    VideoPlaybackWithoutSignIn.Select an asset for video playback (Live/Reply/Movie)
-    VideoPlaybackWithoutSignIn.Start video playback
-    MovieDetailPage.Select an asset for video playback (Live/Reply/Movie)
+    MovieDetailPage.Select an asset for video playback (Live/Reply/Movie)      ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify login blocker if not sign in before
 
 Delivery - Video player: Buffering
@@ -74,12 +72,3 @@ Delivery - Video player: Quality Control
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
-
-Delivery - Video player: Volume Control
-    [Documentation]  Change Volume During Video Playback
-    [Tags]           Regression Smoke
-
-    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}

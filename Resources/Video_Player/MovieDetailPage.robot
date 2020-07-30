@@ -37,21 +37,11 @@ ${autoplay_next_movie}                  css=.content
 ${autoplay_button_Play_next}            css=.play
 ${autoplay_button_skip}                 css=.close
 
-${caption_close_button}                 css=div#vpcc-subtitle
-${caption_close_}
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
-    Wait Until Element Is Visible       ${menu_movies}
-    Click Element                       ${menu_movies}
-
-    Wait Until element Is Visible       ${button_movies_categories}
-    Click Element                       ${button_movies_categories}
-
-    Wait Until Element Is Visible       ${button_garsel}
-    Click Element                       ${button_garsel}
-
-    Wait Until Element Is Visible       ${title_garselep1}
-    Click Element                       ${button_select_movies_garselep1}
+    [Arguments]  ${URL_MOVIE_DETAIL}
+    Go To                               ${URL_MOVIE_DETAIL}
+    Wait Until Element Is Visible       ${movie_detail_login_blocker}
 
 Verify login blocker if not sign in before
     Sleep                               3
@@ -71,7 +61,8 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
-    Sleep                               2
+    Wait Until Element Is Visible       ${notif_badge_inbox}
+    Sleep                               5
     Click Element                       ${notif_badge_inbox}
     Location Should Be                  ${URL}
 
@@ -110,20 +101,25 @@ Verify Auto Play Next Episode
     Capture Element Screenshot          ${autoplay_button_skip}
 
 Change Video Quality
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
     Click Element                       ${movie_quality_control}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_576}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_270}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_360}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_720}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_auto}
     sleep                               5
