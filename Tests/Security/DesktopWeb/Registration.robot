@@ -9,35 +9,52 @@ Test Teardown           CommonKeywords.End Testing
 *** Variables ***
 ${URL}                  https://mola.tv/accounts/login
 
-${EMAIL}                kamal.yasha+013@mola
-${PASSWORD}             1111111
-${PHONE}                62812111222
+${EMAIL}                kamal.yasha+001@mola
+${PASSWORD}             11111333
+${PHONE}                6281297186777
 ${GENDER}               Pria
 ${BULAN}                January
 ${TAHUN}                2000
 ${TANGGAL}              8
 
-${EMAIL_REGISTERED}                putra.putra@mola.tv
-${PASSWORD_REGISTERED}             2222290
-${PHONE_REGISTERED}                6281290807111
+${EMAIL_REGISTERED}                mitha.andini@mola.tv
+${PASSWORD_REGISTERED}             999999333
+${PHONE_REGISTERED}                6281297184444
+
+${EMAIL}                        kamal.yasha+001@mola
+${PASSWORD}                     11111333
+${PHONE}                        6281297186777
+${GENDER_INVALID}               Wanita
+${BULAN_INVALID}                January
+${TAHUN_INVALID}                1900
+${TANGGAL_INVALID}              1
+
 
 *** Test Cases ***
 TC001 Registration with email and password
-    [Documentation]     User is able to register their email and password from the website.
-	[Tags]              Regression  Smoke
-	${RANDOM_NUMBER}    Generate random string    10    0123456789
-    ${EMAIL}			Catenate	kamal.yasha+${RANDOM_NUMBER}@mola.tv
-    ${EMAIL}			Catenate	kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			Catenate 	62${RANDOM_NUMBER}
+    [Documentation]         User is able to register their email and password from the website.
+	[Tags]                  Regression  Smoke
+	${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
+    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
     RegistrationPage.User Successfully Register
 
+
+#TC002 Input OTP number after Registration process
+#    [Documentation]         Already go through registration process
+#    [Tags]                  Regression  Smoke
+#
+#    Reason Can't Automated ?        Cause , Test Automation Can Not Handle OTP (Random Number)
+
+
 TC003 Input wrong OTP number after Registration process
-    [Documentation]     Input wrong OTP number at registration flow.
-    [Tags]              Regression  Smoke
+    [Documentation]         Input wrong OTP number at registration flow.
+    [Tags]                  Regression  Smoke
 
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
@@ -56,3 +73,27 @@ TC004 Resend OTP number code
     RegistrationPage.Click Register Button
     RegistrationPage.Click Kirim Ulang
     RegistrationPage.Verify User Kode verifikasi terkirim
+
+TC005 Registration without required information
+    [Documentation]                 User is unable to register their email and password from the application.
+    [Tags]                          Regression  Smoke
+
+    RegistrationPage.Click Register Sekarang empty mandatory
+    RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Click Register Button empty mandatory
+    RegistrationPage.Can Not click button Register
+
+#TC006 No auto login after Registration
+#    [Documentation]         After register process, user should input email address and password to login.
+#    [Tags]                  Regression
+#
+#    Reason Can't Automated ?        Cause , This Test Case Use Valid OTP
+
+TC007 Registration with wrong information
+    [Documentation]                 User is unable to register their email and password from the website.
+    [Tags]                          Regression  Smoke
+
+    RegistrationPage.Click Register Sekarang invalid
+    RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
+    RegistrationPage.Click Register Button invalid
+    RegistrationPage.User Cannot Register

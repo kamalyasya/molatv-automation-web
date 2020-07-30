@@ -2,6 +2,7 @@
 Library         	    SeleniumLibrary
 Resource                ../../Frameworks/Routers.robot
 
+
 *** Variables ***
 ${links_login_register_sekarang}                        css=[href='\/accounts\/register']
 
@@ -36,6 +37,13 @@ ${button_register_verifikasi_kirim_ulang}               link=Kirim ulang
 ${text_register_kode_verifikas_terkirim}                css=._3ZtJL
 ${text_register_wait_countdown_60_second}               xpath=//*[@style='cursor: auto; color: rgb(131, 133, 134);']
 
+${button_register_tanggal_lahir_register_empty}         css=form#main_form > ._3C-S2.nA5CF
+
+${dropdown_register_gender_pria_invalid}                        css=option[value='f']
+${dropdown_register_tanggal_lahir_nama_bulan_invalid}           css=.react-datepicker__month-dropdown > div:nth-of-type(1)
+${dropdown_register_tanggal_lahir_tahun_ke_invalid}             css=.react-datepicker__year-dropdown.react-datepicker__year-dropdown--scrollable > div:nth-of-type(121)
+${field_register_tanggal_lahir_tanggal_ke_invalid}              css=.react-datepicker__month > div:nth-of-type(1) > div:nth-of-type(2)
+${text_register_akun_invalid}                                   css=._3ZtJL
 
 *** Keywords ***
 Click Register Sekarang
@@ -102,3 +110,58 @@ Verify User Kode verifikasi terkirim
     Element Text Should Be                          ${text_register_kode_verifikas_terkirim}        Kode verifikasi terkirim
     Wait Until Element Is Visible                   ${text_register_wait_countdown_60_second}
     Element Should Be Visible                       ${text_register_wait_countdown_60_second}
+
+Click Register Sekarang empty mandatory
+    Click Register Sekarang
+
+Input the field with empty mandatory fields and tick the agreement
+    [Arguments]  ${EMAIL}   ${PASSWORD}  ${PHONE}   ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    Wait Until Element Is Visible                   ${field_register_email}
+    Input Text                                      ${field_register_email}                 ${EMAIL}
+    Input Text                                      ${field_register_password}              ${PASSWORD}
+    Input Text                                      ${field_register_phone}                 ${PHONE}
+    Click Element                                   ${dropdown_register_gender}
+    Click Element                                   ${dropdown_register_gender_pria}
+    Click Element                                   ${field_register_tanggal_lahir}
+    Click Element                                   ${dropdown_register_tanggal_lahir_bulan}
+    Click Element                                   ${dropdown_register_tanggal_lahir_nama_bulan}
+    Click Element                                   ${dropdown_register_tanggal_lahir_tahun}
+    Click Element                                   ${dropdown_register_tanggal_lahir_tahun_ke}
+    Click Element                                   ${field_register_tanggal_lahir_tanggal_ke}
+    Click Element                                   ${checkbox_register_saya_menjamin}
+
+Click Register Button empty mandatory
+    Click Register Button
+
+Can Not click button Register
+    Wait Until Element Is Visible                   ${button_register_tanggal_lahir_register_empty}
+    Element Should Be Disabled                      ${button_register_tanggal_lahir_register_empty}
+
+
+Click Register Sekarang invalid
+    Click Register Sekarang
+
+Input the field with invalid fields format and tick the agreement
+    [Arguments]  ${EMAIL}   ${PASSWORD}  ${PHONE}   ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
+    Wait Until Element Is Visible                   ${field_register_email}
+    Input Text                                      ${field_register_email}              ${EMAIL}
+    Input Text                                      ${field_register_confirm_email}      ${EMAIL}
+    Input Text                                      ${field_register_password}           ${PASSWORD}
+    Input Text                                      ${field_register_confirm_password}   ${PASSWORD}
+    Input Text                                      ${field_register_phone}              ${PHONE}
+    Click Element                                   ${dropdown_register_gender}
+    Click Element                                   ${dropdown_register_gender_pria_invalid}
+    Click Element                                   ${field_register_tanggal_lahir}
+    Click Element                                   ${dropdown_register_tanggal_lahir_bulan}
+    Click Element                                   ${dropdown_register_tanggal_lahir_nama_bulan_invalid}
+    Click Element                                   ${dropdown_register_tanggal_lahir_tahun}
+    Click Element                                   ${dropdown_register_tanggal_lahir_tahun_ke_invalid}
+    Click Element                                   ${field_register_tanggal_lahir_tanggal_ke_invalid}
+    Click Element                                   ${checkbox_register_saya_menjamin}
+
+Click Register Button invalid
+    Click Register Button
+
+User Cannot Register
+    Wait Until Element Is Visible                   ${text_register_akun_invalid}
+    Element Text Should Be                          ${text_register_akun_invalid}           "birthdate" must be larger than or equal to "Mon Jan 01 1945 00:00:00 GMT+0000 (UTC)"
