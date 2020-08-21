@@ -33,8 +33,8 @@ ${EMAIL_SUPERMOLA5_PASSWORD}            sapisuper5
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
-${EXPECTED_TEXT_INVALID_TOKEN}          Invalid token
-${EXPECTED_TEXT_MENU_FEATURED}          Featured
+${EXPECTED_TEXT_INVALID_TOKEN}          Kode verifikasi salah
+${EXPECTED_TEXT_MENU_HOME}              Home
 ${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
 ${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
 ${ACCOUNT_GOOGLE_EMAIL}                 molatv.tester@gmail.com
@@ -100,19 +100,19 @@ TC007 Page Navigation after sign in
 	[Tags]  Regression
 
     SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA5}            ${EMAIL_SUPERMOLA5_PASSWORD}
-    HomePage.Click Next Button And Skip Inbox Onboarding
-    HomePage.Verify The App Navigates To Featured Page              ${EXPECTED_TEXT_MENU_FEATURED}
-    HomePage.Verify Logged In Using Correct Account                 ${EMAIL_SUPERMOLA5}
+#    HomePage.Click Next Button And Skip Inbox Onboarding
+    HomePage.Verify The App Navigates To Home Page                           ${EXPECTED_TEXT_MENU_HOME}
+    ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_SUPERMOLA5}
 
 TC009 Sign Out
     [Documentation]  TC009 Sign Out
 	[Tags]  Regression  Smoke
     SignInPage.Login Using Credentials                              ${EMAIL_MIA}                    ${EMAIL_MIA_VALID_PASSWORD}
-    HomePage.Click Next Button And Skip Inbox Onboarding
-    HomePage.Verify Logged In Using Correct Account                 ${EMAIL_MIA}
-    HomePage.Sign Out
-    HomePage.Verify Sign Out
-    HomePage.Verify The App Navigates To Featured Page              ${EXPECTED_TEXT_MENU_FEATURED}
+#    HomePage.Click Next Button And Skip Inbox Onboarding
+    ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
+    ProfilePage.Sign Out
+    ProfilePage.Verify Sign Out
+    HomePage.Verify The App Navigates To Home Page                           ${EXPECTED_TEXT_MENU_HOME}
 
 TC010 Sign in from special asset
     [Documentation]  TC010 Sign in from special asset
@@ -129,8 +129,8 @@ TC012 Sign in from Facebook button
 
     SignInPage.Click Button Facebook Login
     LoginFacebookPage.Login Using Facebook Account                  ${ACCOUNT_FACEBOOK_EMAIL}       ${ACCOUNT_FACEBOOK_PASSWORD}
-    HomePage.Click Next Button And Skip Inbox Onboarding
-    HomePage.Verify Logged In Using Correct Account                 ${ACCOUNT_FACEBOOK_EMAIL}
+#    HomePage.Click Next Button And Skip Inbox Onboarding
+    ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_FACEBOOK_EMAIL}
 
 TC013 Sign in from Beli Paket
     [Documentation]  Login process from Beli Paket page

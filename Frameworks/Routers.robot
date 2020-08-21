@@ -6,6 +6,7 @@ Library             SeleniumLibrary
 Resource            Configs.robot
 
 # Resource
+Resource            ../Resources/Accounts/ProfilePage.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Homepage/HomePage.robot
 Resource            ../Resources/Homepage/PrivacyPage.robot

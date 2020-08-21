@@ -41,7 +41,7 @@ Verify Invalid Token Message Show Up
     Element Text Should Be                      ${text_halaman_verifikasi_invalid_token}                ${TEXT}
 
 Click Resend OTP
-    Wait Until Element Is Visible               ${button_halaman_verifikasi_kirim_ulang}
+    Wait Until Element Is Visible               ${button_halaman_verifikasi_kirim_ulang}                70
     Click Element                               ${button_halaman_verifikasi_kirim_ulang}
 
 Verify Countdown Is Appeared
