@@ -23,7 +23,6 @@ TC001 UI of My Account Page
     HomePage.Verify The UI Of The User Icon Without Login
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                                      ${EMAIL_SUPERMOLA50}        ${EMAIL_SUPERMOLA50_PASSWORD}
-    HomePage.Click Next Button And Skip Inbox Onboarding
     HomePage.Verify Menu After Logged In
 
 TC002 Privacy

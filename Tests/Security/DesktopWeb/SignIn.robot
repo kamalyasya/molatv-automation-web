@@ -3,7 +3,6 @@ Resource                ../../../Frameworks/Routers.robot
 Library         	    SeleniumLibrary
 Library 				String
 
-
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
@@ -57,9 +56,6 @@ TC002 Sign in with wrong password for 7 times
 
     SignInPage.Input Wrong Credential For 7 Times       ${EMAIL_SUPERMOLA2}                     ${EMAIL_SUPERMOLA2_WRONG_PASSWORD}
     SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}
-#    Sleep                                               1m
-#    SignInPage.Login Using Credentials                  ${EMAIL_MIA}                        ${EMAIL_MIA_VALID_PASSWORD}
-#    SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN}
 
 TC003 Sign in with unregistered account
     [Documentation]  User can't signing in using wrong credential.
@@ -100,7 +96,6 @@ TC007 Page Navigation after sign in
 	[Tags]  Regression
 
     SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA5}            ${EMAIL_SUPERMOLA5_PASSWORD}
-#    HomePage.Click Next Button And Skip Inbox Onboarding
     HomePage.Verify The App Navigates To Home Page                           ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_SUPERMOLA5}
 
@@ -108,7 +103,6 @@ TC009 Sign Out
     [Documentation]  TC009 Sign Out
 	[Tags]  Regression  Smoke
     SignInPage.Login Using Credentials                              ${EMAIL_MIA}                    ${EMAIL_MIA_VALID_PASSWORD}
-#    HomePage.Click Next Button And Skip Inbox Onboarding
     ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
     ProfilePage.Sign Out
     ProfilePage.Verify Sign Out
@@ -129,7 +123,6 @@ TC012 Sign in from Facebook button
 
     SignInPage.Click Button Facebook Login
     LoginFacebookPage.Login Using Facebook Account                  ${ACCOUNT_FACEBOOK_EMAIL}       ${ACCOUNT_FACEBOOK_PASSWORD}
-#    HomePage.Click Next Button And Skip Inbox Onboarding
     ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_FACEBOOK_EMAIL}
 
 TC013 Sign in from Beli Paket
