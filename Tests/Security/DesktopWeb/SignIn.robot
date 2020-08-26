@@ -96,7 +96,7 @@ TC007 Page Navigation after sign in
 	[Tags]  Regression
 
     SignInPage.Login Using Credentials                              ${EMAIL_SUPERMOLA5}            ${EMAIL_SUPERMOLA5_PASSWORD}
-    HomePage.Verify The App Navigates To Home Page                           ${EXPECTED_TEXT_MENU_HOME}
+    HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_SUPERMOLA5}
 
 TC009 Sign Out
@@ -106,7 +106,7 @@ TC009 Sign Out
     ProfilePage.Verify Logged In Using Correct Account              ${EMAIL_MIA}
     ProfilePage.Sign Out
     ProfilePage.Verify Sign Out
-    HomePage.Verify The App Navigates To Home Page                           ${EXPECTED_TEXT_MENU_HOME}
+    HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
 
 TC010 Sign in from special asset
     [Documentation]  TC010 Sign in from special asset
