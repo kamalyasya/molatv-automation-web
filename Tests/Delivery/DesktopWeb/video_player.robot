@@ -28,6 +28,7 @@ ${EXPECTED_CHANGE_QUALITY_720}          720
 ${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
 ${EXPECTED_CLOSE_CAPTION_ICON}          css=div#vpcc-subtitle
 ${EXPECTED_SUBTITLE_ON_SCREEN}          css=.css-du9w46
+${EXPECTED_VOLUME}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
 
 *** Test Cases ***
 #Delivery - Video Player: Video playback without sign in
@@ -75,20 +76,31 @@ ${EXPECTED_SUBTITLE_ON_SCREEN}          css=.css-du9w46
 #    MovieDetailPage.Play Content From Movie Detail
 #    MovieDetailPage.Change Video Quality
 #    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
+#
+#Delivery - Video player: Closed Caption (Subtitles) Control
+#    [Documentation]  Check about closed caption from video player
+#    [Tags]           Regression Smoke
+#
+#    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials                          ${EMAIL_PUTRA}                  ${PASSWORD_PUTRA}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Verify Content not Supporting Closed Caption                     ${EXPECTED_CLOSE_CAPTION_ICON}
+#    MovieDetailPage.Play a content which is not supporting closed caption               ${URL_MOVIE_DETAIL2}
+#    MovieDetailPage.Verify Close Caption Icon                   ${EXPECTED_CLOSE_CAPTION_ICON}
+#    MovieDetailPage.Play a content which is supporting closed caption
+#    MovieDetailPage.Verify Subtitle                             ${EXPECTED_SUBTITLE_ON_SCREEN}
+#    MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
+#    MovieDetailPage.Verify Closed Caption is Not Shown          ${EXPECTED_SUBTITLE_ON_SCREEN}
 
-Delivery - Video player: Closed Caption (Subtitles) Control
-    [Documentation]  Check about closed caption from video player
-    [Tags]           Regression Smoke
+Delivery - Video player: Volume Control
+     [Documentation]  Change volume during video playback
+     [Tags]           Regression Smoke
 
     MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${EMAIL_PUTRA}                  ${PASSWORD_PUTRA}
+    SignInPage.Login Using Credentials                          ${EMAIL_CINCIN}                  ${PASSWORD_CINCIN}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Verify Content not Supporting Closed Caption                     ${EXPECTED_CLOSE_CAPTION_ICON}
-    MovieDetailPage.Play a content which is not supporting closed caption               ${URL_MOVIE_DETAIL2}
-    MovieDetailPage.Verify Close Caption Icon                   ${EXPECTED_CLOSE_CAPTION_ICON}
-    MovieDetailPage.Play a content which is supporting closed caption
-    MovieDetailPage.Verify Subtitle                             ${EXPECTED_SUBTITLE_ON_SCREEN}
-    MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
-    MovieDetailPage.Verify Closed Caption is Not Shown          ${EXPECTED_SUBTITLE_ON_SCREEN}
+    MovieDetailPage.Change volume during video playback         ${EXPECTED_VOLUME}

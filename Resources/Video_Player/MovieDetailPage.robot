@@ -44,6 +44,9 @@ ${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
 ${subtitle_list_off}                    css=.subtitle_popup .subtitle_list:nth-of-type(3)
 ${movie2_play_button}                   css=.css-xvdnxx
 
+${movie_volume_bar}                     css=input#vpcc-volume
+${volume_button}                        css=#volume-button
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -180,3 +183,13 @@ No closed caption is shown when the 'Closed Caption' is off
 Verify Closed Caption is Not Shown
     [Arguments]  ${EXPECTED_SUBTITLE_ON_SCREEN}
     Page Should Not Contain Element     ${EXPECTED_SUBTITLE_ON_SCREEN}
+
+Change volume during video playback
+    [Arguments]  ${EXPECTED_VOLUME}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${movie_volume_bar}
+    Sleep                               2
+    Element Should Be Visible           ${EXPECTED_VOLUME}
+    Click Element                       ${volume_button}
+    Sleep                               2
+    Element Should Be Visible           ${volume_button}
