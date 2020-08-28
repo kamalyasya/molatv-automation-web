@@ -10,25 +10,30 @@ Test Teardown           CommonKeywords.End Testing
 ${URL}                  https://mola.tv/accounts/login
 
 ${EMAIL}                kamal.yasha+001@mola
-${PASSWORD}             11111333
-${PHONE}                6281297186777
+${PASSWORD}             11111444
+${PHONE}                6281297186666
 ${GENDER}               Pria
 ${BULAN}                January
 ${TAHUN}                2000
 ${TANGGAL}              8
 
-${EMAIL_REGISTERED}                mitha.andini@mola.tv
-${PASSWORD_REGISTERED}             999999333
-${PHONE_REGISTERED}                6281297184444
+${EMAIL_REGISTERED1}                dyah.paramitha@mola.tv
+${PASSWORD_REGISTERED1}             1234567890
+${PHONE_REGISTERED1}                6281297181234
+
+${EMAIL_REGISTERED2}                putri.nuradibah@mola.tv
+${PASSWORD_REGISTERED2}             0987654321
+${PHONE_REGISTERED2}                6281297185678
 
 ${EMAIL}                        kamal.yasha+001@mola
-${PASSWORD}                     11111333
-${PHONE}                        6281297186777
+${PASSWORD}                     11115555
+${PHONE}                        6281297112345
 ${GENDER_INVALID}               Wanita
 ${BULAN_INVALID}                January
 ${TAHUN_INVALID}                1900
 ${TANGGAL_INVALID}              1
 
+${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
 
 *** Test Cases ***
 TC001 Registration with email and password
@@ -57,7 +62,7 @@ TC003 Input wrong OTP number after Registration process
     [Tags]                  Regression  Smoke
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
@@ -69,7 +74,7 @@ TC004 Resend OTP number code
     [Tags]                          Regression  Smoke
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}    ${PHONE_REGISTERED2}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
     RegistrationPage.Click Kirim Ulang
     RegistrationPage.Verify User Kode verifikasi terkirim
@@ -79,7 +84,7 @@ TC005 Registration without required information
     [Tags]                          Regression  Smoke
 
     RegistrationPage.Click Register Sekarang empty mandatory
-    RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button empty mandatory
     RegistrationPage.Can Not click button Register
 
@@ -94,6 +99,26 @@ TC007 Registration with wrong information
     [Tags]                          Regression  Smoke
 
     RegistrationPage.Click Register Sekarang invalid
-    RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED}     ${PASSWORD_REGISTERED}    ${PHONE_REGISTERED}    ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
+    RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
     RegistrationPage.Click Register Button invalid
     RegistrationPage.User Cannot Register
+
+TC008 Registration from special assets
+    [Documentation]                 User is able to register their email and password from the website.
+    [Tags]                          Regression  Smoke
+
+    RegistrationPage.Select any special assets or content                                       ${SAMPLE_MOVIE_URL}
+    RegistrationPage.Select Login
+    RegistrationPage.Select Register Sekarang and go through the registration flow with valid info
+    RegistrationPage.Click Register Button special assets
+    RegistrationPage.User Successfully Register special assets
+
+TC009 Registration from Beli Paket Page
+    [Documentation]                 User is able to register their email and password from the website.
+    [Tags]                          Regression  Smoke
+
+    RegistrationPage.Select Beli Paket
+    RegistrationPage.Choose package
+    RegistrationPage.Select Register Sekarang and go through the registration flow with valid info
+    RegistrationPage.Click Register Button Beli Paket Page
+    RegistrationPage.User Successfully Register Beli Paket Page
