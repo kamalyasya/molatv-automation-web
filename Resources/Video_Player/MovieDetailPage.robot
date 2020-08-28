@@ -47,6 +47,8 @@ ${movie2_play_button}                   css=.css-xvdnxx
 ${movie_volume_bar}                     css=input#vpcc-volume
 ${volume_button}                        css=#volume-button
 
+${button_fullscreen}                    css=#vpcc-fullscreen
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -193,3 +195,21 @@ Change volume during video playback
     Click Element                       ${volume_button}
     Sleep                               2
     Element Should Be Visible           ${volume_button}
+
+Play a content in fullscreen mode
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_fullscreen}
+    Mouse Over                          ${button_fullscreen}
+    Sleep                               3
+
+
+Verify fullscreen icon
+    [Arguments]     ${EXPECTED_FULLSCREEN_ICON}
+    Page Should Contain Element         ${EXPECTED_FULLSCREEN_ICON}
+    Capture Element Screenshot          ${EXPECTED_FULLSCREEN_ICON}
+
+Verify Video Metadata
+    [Arguments]     ${EXPECTED_PLAYER_CONTROL_HIDE}      ${EXPECTED_PLAYER_CONTROL_UNHIDE}
+    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_HIDE}
+    Mouse Over                          ${movie_mouse_over}
+    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_UNHIDE}
