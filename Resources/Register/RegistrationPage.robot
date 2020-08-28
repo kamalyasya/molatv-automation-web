@@ -4,7 +4,7 @@ Resource                ../../Frameworks/Routers.robot
 
 
 *** Variables ***
-${links_login_register_sekarang}                                css=[href='\/accounts\/register']
+${links_login_register_sekarang}                                xpath=//a[contains(text(),'Register sekarang')]
 
 ${field_register_email}                                         id=email
 ${field_register_confirm_email}                                 id=confirmEmail
@@ -121,11 +121,9 @@ Verify User Kode verifikasi terkirim
     Wait Until Element Is Visible                   ${text_register_wait_countdown_60_second}
     Element Should Be Visible                       ${text_register_wait_countdown_60_second}
 
-Click Register Sekarang empty mandatory
-    Click Register Sekarang
-
 Input the field with empty mandatory fields and tick the agreement
     [Arguments]  ${EMAIL}   ${PASSWORD}  ${PHONE}   ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    Wait Until Element Is Not Visible               ${links_login_register_sekarang}
     Wait Until Element Is Visible                   ${field_register_email}
     Input Text                                      ${field_register_email}                 ${EMAIL}
     Input Text                                      ${field_register_password}              ${PASSWORD}
@@ -140,16 +138,9 @@ Input the field with empty mandatory fields and tick the agreement
     Click Element                                   ${field_register_tanggal_lahir_tanggal_ke}
     Click Element                                   ${checkbox_register_saya_menjamin}
 
-Click Register Button empty mandatory
-    Click Register Button
-
 Can Not click button Register
     Wait Until Element Is Visible                   ${button_register_tanggal_lahir_register_empty}
     Element Should Be Disabled                      ${button_register_tanggal_lahir_register_empty}
-
-
-Click Register Sekarang invalid
-    Click Register Sekarang
 
 Input the field with invalid fields format and tick the agreement
     [Arguments]  ${EMAIL}   ${PASSWORD}  ${PHONE}   ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
@@ -170,14 +161,9 @@ Input the field with invalid fields format and tick the agreement
     Click Element                                   ${field_register_tanggal_lahir_tanggal_ke_invalid}
     Click Element                                   ${checkbox_register_saya_menjamin}
 
-Click Register Button invalid
-    Click Register Button
-
 User Cannot Register
     Wait Until Element Is Visible                   ${text_register_akun_invalid}
     Element Text Should Be                          ${text_register_akun_invalid}           "birthdate" must be larger than or equal to "Mon Jan 01 1945 00:00:00 GMT+0000 (UTC)"
-
-
 
 Select any special assets or content
     [Arguments]                                     ${URL_SAMPLE_MOVIE}
@@ -187,18 +173,6 @@ Select Login
     Wait Until Element Is Visible                   ${links_login}
     Click Element                                   ${links_login}
 
-Select Register Sekarang and go through the registration flow with valid info
-    Click Register Sekarang
-    Input all the field and tick the agreement
-
-Click Register Button special assets
-    Click Register Button
-
-User Successfully Register special assets
-    User Successfully Register
-
-
-
 Select Beli Paket
     Wait Until Element Is Visible                   ${text_register_peli_paket}
     Click Element                                   ${text_register_peli_paket}
@@ -206,9 +180,3 @@ Select Beli Paket
 Choose package
     Wait Until Element Is Visible                   ${button_register_peli_paket}
     Click Element                                   ${button_register_peli_paket}
-
-Click Register Button Beli Paket Page
-    Click Register Button
-
-User Successfully Register Beli Paket Page
-    User Successfully Register

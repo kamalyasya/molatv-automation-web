@@ -82,8 +82,8 @@ TC009 Sign Out
     SignInPage.Login Using Credentials                              ${ACCOUNT_KAMAL_EMAIL}                  ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_KAMAL_EMAIL}
     ProfilePage.Sign Out
-    ProfilePage.Verify Sign Out
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
+    ProfilePage.Verify Sign Out
 
 TC010 Sign in from special asset
     [Documentation]  TC010 Sign in from special asset

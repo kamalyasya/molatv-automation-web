@@ -83,9 +83,9 @@ TC005 Registration without required information
     [Documentation]                 User is unable to register their email and password from the application.
     [Tags]                          Regression  Smoke
 
-    RegistrationPage.Click Register Sekarang empty mandatory
+    RegistrationPage.Click Register Sekarang
     RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
-    RegistrationPage.Click Register Button empty mandatory
+    RegistrationPage.Click Register Button
     RegistrationPage.Can Not click button Register
 
 #TC006 No auto login after Registration
@@ -98,27 +98,39 @@ TC007 Registration with wrong information
     [Documentation]                 User is unable to register their email and password from the website.
     [Tags]                          Regression  Smoke
 
-    RegistrationPage.Click Register Sekarang invalid
+    RegistrationPage.Click Register Sekarang
     RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
-    RegistrationPage.Click Register Button invalid
+    RegistrationPage.Click Register Button
     RegistrationPage.User Cannot Register
 
 TC008 Registration from special assets
     [Documentation]                 User is able to register their email and password from the website.
     [Tags]                          Regression  Smoke
 
+	${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
+    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
+
     RegistrationPage.Select any special assets or content                                       ${SAMPLE_MOVIE_URL}
-    RegistrationPage.Select Login
-    RegistrationPage.Select Register Sekarang and go through the registration flow with valid info
-    RegistrationPage.Click Register Button special assets
-    RegistrationPage.User Successfully Register special assets
+    VideoPlaybackWithoutSignIn.Click Links Login
+    RegistrationPage.Click Register Sekarang
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Click Register Button
+    RegistrationPage.User Successfully Register
 
 TC009 Registration from Beli Paket Page
     [Documentation]                 User is able to register their email and password from the website.
     [Tags]                          Regression  Smoke
 
+    ${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
+    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
+
     RegistrationPage.Select Beli Paket
     RegistrationPage.Choose package
-    RegistrationPage.Select Register Sekarang and go through the registration flow with valid info
-    RegistrationPage.Click Register Button Beli Paket Page
-    RegistrationPage.User Successfully Register Beli Paket Page
+    RegistrationPage.Click Register Sekarang
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Click Register Button
+    RegistrationPage.User Successfully Register
