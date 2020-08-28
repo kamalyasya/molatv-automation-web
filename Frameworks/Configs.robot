@@ -1,4 +1,3 @@
 *** Variables ***
 ${BROWSER}              chrome
-${DEFAULT_TIMEOUT}      10
-
+${DEFAULT_TIMEOUT}      20
