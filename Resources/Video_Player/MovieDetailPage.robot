@@ -17,13 +17,14 @@ ${field_login_password}                 id=password
 ${title_movie_detail}                   css=h1
 ${movie_detail_play_button}             css=.css-zy8jsc
 ${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
-${notif_badge_inbox}                    id=next
+${notif_badge_inbox}                    css=div[role='alertdialog']
+${notif_badge_button}                   css=[aria-label='Next']
 ${forward_movie_detail}                 css=.css-2v9r2y.forwardIcon
 
 ${movie_detail_duration}                css=.duration
 ${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
 ${movie_pause_button}                   css=.css-2v9r2y.pauseIcon
-${movie_mouse_over}                     css=div#video-child > .css-q60n54
+${movie_mouse_over}                     css=.css-q60n54
 ${movie_quality_control}                css=div#vpcc-quality
 ${movie_change_quality}                 css=.quality_popup
 ${movie_quality_list_576}               css=div#vpcc-quality > div > div:nth-of-type(3)
@@ -33,19 +34,26 @@ ${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-
 ${movie_quality_list_auto}              css=div > div:nth-of-type(6)
 ${movie_quality_title}                  css=.quality_title
 
+${autoplay_next_movie}                  css=.content
+${autoplay_button_Play_next}            css=.play
+${autoplay_button_skip}                 css=.close
+
+${close_caption}                        css=div#vpcc-subtitle
+${subtitle_title}                       css=.subtitle_title
+${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
+${subtitle_list_off}                    css=.subtitle_popup .subtitle_list:nth-of-type(3)
+${movie2_play_button}                   css=.css-xvdnxx
+
+${movie_volume_bar}                     css=input#vpcc-volume
+${volume_button}                        css=#volume-button
+
+${button_fullscreen}                    css=#vpcc-fullscreen
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
-    Wait Until Element Is Visible       ${menu_movies}
-    Click Element                       ${menu_movies}
-
-    Wait Until element Is Visible       ${button_movies_categories}
-    Click Element                       ${button_movies_categories}
-
-    Wait Until Element Is Visible       ${button_garsel}
-    Click Element                       ${button_garsel}
-
-    Wait Until Element Is Visible       ${title_garselep1}
-    Click Element                       ${button_select_movies_garselep1}
+    [Arguments]  ${URL_MOVIE_DETAIL}
+    Go To                               ${URL_MOVIE_DETAIL}
+    Wait Until Element Is Visible       ${movie_detail_login_blocker}
 
 Verify login blocker if not sign in before
     Sleep                               3
@@ -65,54 +73,70 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
-    Sleep                               2
-    Click Element                       ${notif_badge_inbox}
+#    Wait Until Element Is Visible       ${notif_badge_inbox}
+    Sleep                               5
+#    Click Element                       ${notif_badge_button}
     Location Should Be                  ${URL}
 
-Play Content From Movie Detail And Forward Progress Bar
+Play Content From Movie Detail
     Wait Until Element Is Visible       ${title_movie_detail}
     sleep                               2
     Click Element                       ${movie_detail_play_button}
     sleep                               5
+
+Forward Progress Bar
+    Click Element                       ${forward_movie_detail}
+    Click Element                       ${forward_movie_detail}
     Click Element                       ${forward_movie_detail}
 
 Verify Loading Indicator
     [Arguments]  ${EXPECTED_BUFFERING}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${EXPECTED_BUFFERING}
     Page Should Contain Element         ${EXPECTED_BUFFERING}
+    Capture Element Screenshot          ${EXPECTED_BUFFERING}
     sleep                               3
     Capture Element Screenshot          ${movie_detail_image_logo}
 
-Play Content From Movie Detail And Mouse Hover To Movie
-    [Arguments]     ${MOUSE_OVER_MOVIE_DETAIL}
-    Wait Until Element Is Visible       ${title_movie_detail}
-    sleep                               2
-    Click Element                       ${movie_detail_play_button}
-    sleep                               5   ${MOUSE_OVER_MOVIE_DETAIL}
+Mouse Hover To Movie
+    Mouse Over                          ${movie_mouse_over}
 
 Verify The progress bar and elapsed time are updating when playing a content
     Page Should Contain Element         ${movie_pause_button}
     Page Should Contain Element         ${movie_detail_duration}
     Page Should Contain Element         ${movie_progress_bar}
 
-Play Content From Movie Detail To Change Video Quality
-    Wait Until Element Is Visible       ${title_movie_detail}
-    sleep                               2
-    Click Element                       ${movie_detail_play_button}
-    sleep                               5
+Auto Play Next Episode
+    Sleep                               110
+    Wait Until Element Is Visible       ${autoplay_next_movie}
+
+Verify Auto Play Next Episode
+    Page Should Contain Element         ${autoplay_next_movie}
+    Page Should Contain Element         ${autoplay_button_Play_next}
+    Capture Element Screenshot          ${autoplay_button_Play_next}
+    Page Should Contain Element         ${autoplay_button_skip}
+    Capture Element Screenshot          ${autoplay_button_skip}
+
+Change Video Quality
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
     Click Element                       ${movie_quality_control}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_576}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_270}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_360}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_720}
     sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_change_quality}
     Click Element                       ${movie_quality_list_auto}
     sleep                               5
@@ -125,3 +149,67 @@ Verify Change Quality
     Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_720}
     Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_AUTO}
     Page Should Contain Element         ${movie_quality_title}
+
+Verify Content not Supporting Closed Caption
+    [Arguments]  ${EXPEECTED_CLOSE_CAPTION_ICON}
+    Mouse Over                          ${movie_mouse_over}
+    Page Should Not Contain Element     ${close_caption}                    ${EXPEECTED_CLOSE_CAPTION_ICON}
+
+Play a content which is not supporting closed caption
+    [Arguments]  ${URL_MOVIE_DETAIL2}
+    Go To                               ${URL_MOVIE_DETAIL2}
+    Wait Until Element Is Visible       ${movie2_play_button}
+    Click Element                       ${movie2_play_button}
+    Wait Until Element Is Visible       ${close_caption}
+
+Verify Close Caption Icon
+    [Arguments]  ${EXPECTED_CLOSE_CAPTION_ICON}
+    Page Should Contain Element         ${EXPECTED_CLOSE_CAPTION_ICON}
+
+Play a content which is supporting closed caption
+    Click Element                       ${close_caption}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${subtitle_list_Indonesia}
+
+Verify Subtitle
+    [Arguments]  ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Wait Until Element Is Visible       ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Page Should Contain Element         ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Capture Element Screenshot          ${EXPECTED_SUBTITLE_ON_SCREEN}
+
+No closed caption is shown when the 'Closed Caption' is off
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${subtitle_list_off}
+    Sleep                               5
+
+Verify Closed Caption is Not Shown
+    [Arguments]  ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Page Should Not Contain Element     ${EXPECTED_SUBTITLE_ON_SCREEN}
+
+Change volume during video playback
+    [Arguments]  ${EXPECTED_VOLUME}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${movie_volume_bar}
+    Sleep                               2
+    Element Should Be Visible           ${EXPECTED_VOLUME}
+    Click Element                       ${volume_button}
+    Sleep                               2
+    Element Should Be Visible           ${volume_button}
+
+Play a content in fullscreen mode
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_fullscreen}
+    Mouse Over                          ${button_fullscreen}
+    Sleep                               3
+
+
+Verify fullscreen icon
+    [Arguments]     ${EXPECTED_FULLSCREEN_ICON}
+    Page Should Contain Element         ${EXPECTED_FULLSCREEN_ICON}
+    Capture Element Screenshot          ${EXPECTED_FULLSCREEN_ICON}
+
+Verify Video Metadata
+    [Arguments]     ${EXPECTED_PLAYER_CONTROL_HIDE}      ${EXPECTED_PLAYER_CONTROL_UNHIDE}
+    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_HIDE}
+    Mouse Over                          ${movie_mouse_over}
+    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_UNHIDE}
