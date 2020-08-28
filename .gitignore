@@ -6,3 +6,4 @@ Results/
 *.html
 *.xml
 .pabotsuitenames
+Frameworks/Configs.robot

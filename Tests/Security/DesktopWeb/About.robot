@@ -7,8 +7,6 @@ Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}				                     https://mola.tv/
-${EMAIL_SUPERMOLA50}                     supermola50@sapisuper.com
-${EMAIL_SUPERMOLA50_PASSWORD}            sapisuper50
 
 ${EXPECTED_TEXT_PRIVASI_TITLE_KEBIJAKAN_PRIVASI}                KEBIJAKAN PRIVASI
 ${EXPECTED_TEXT_TERMS_CONDITIONS_TITLE_KEBIJAKAN_PRIVASI}       A. KETENTUAN UMUM
@@ -22,8 +20,7 @@ TC001 UI of My Account Page
 
     HomePage.Verify The UI Of The User Icon Without Login
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                                      ${EMAIL_SUPERMOLA50}        ${EMAIL_SUPERMOLA50_PASSWORD}
-    HomePage.Click Next Button And Skip Inbox Onboarding
+    SignInPage.Login Using Credentials                                      ${ACCOUNT_SUPERMOLA50_EMAIL}        ${ACCOUNT_SUPERMOLA50_PASSWORD}
     HomePage.Verify Menu After Logged In
 
 TC002 Privacy
