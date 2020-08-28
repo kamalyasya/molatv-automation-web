@@ -7,8 +7,7 @@ Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}				                     https://mola.tv/
-${EMAIL_SUPERMOLA50}                     supermola50@sapisuper.com
-${EMAIL_SUPERMOLA50_PASSWORD}            sapisuper50
+
 ${EMAIL_INVALID_FORMAT}                  @xxx.com
 ${EMPTY_PASSWORD}
 
