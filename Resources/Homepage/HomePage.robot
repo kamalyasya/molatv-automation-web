@@ -104,3 +104,7 @@ Open Inbox Page
     Click Element                       ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${links_homepage_menu_inbox}
     Click Element                       ${links_homepage_menu_inbox}
+
+Open Search Page
+    Wait Until Element Is Visible       ${menu_homepage_search}
+    Click Element                       ${menu_homepage_search}

@@ -12,6 +12,8 @@ ${ACCOUNT_KAMAL_PASSWORD}                   1234567890
 ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
 ${ACCOUNT_MIA_VALID_PASSWORD}               admin1234
 ${ACCOUNT_MIA_WRONG_PASSWORD}               123123123
+${ACCOUNT_GANGGA_EMAIL}                     reza.gangga@mola.tv
+${ACCOUNT_GANGGA_PASSWORD}                  Password01
 ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            123123
 
