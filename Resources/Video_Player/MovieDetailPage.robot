@@ -9,7 +9,6 @@ ${button_garsel}                        css=.css-1rguokb > div:nth-of-type(2) > 
 ${title_garselep1}                      css=div:nth-of-type(1) > .css-gu2yrd > .title
 ${button_select_movies_garselep1}       css=div:nth-of-type(1) > .css-gu2yrd > .css-rh1xgi > .css-tqv6h2.imageWrapper.loaded > .imageBorder
 ${login_blocker_garselep1}              link=login
-
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
 ${text_login_login_page}                css=._2WE07 > ._3CiJF
 ${field_login_email}                    id=email
@@ -17,10 +16,7 @@ ${field_login_password}                 id=password
 ${title_movie_detail}                   css=h1
 ${movie_detail_play_button}             css=.css-zy8jsc
 ${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
-${notif_badge_inbox}                    css=div[role='alertdialog']
-${notif_badge_button}                   css=[aria-label='Next']
 ${forward_movie_detail}                 css=.css-2v9r2y.forwardIcon
-
 ${movie_detail_duration}                css=.duration
 ${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
 ${movie_pause_button}                   css=.css-2v9r2y.pauseIcon
@@ -33,21 +29,24 @@ ${movie_quality_list_360}               css=div#vpcc-quality > div > div:nth-of-
 ${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-type(2)
 ${movie_quality_list_auto}              css=div > div:nth-of-type(6)
 ${movie_quality_title}                  css=.quality_title
-
 ${autoplay_next_movie}                  css=.content
 ${autoplay_button_Play_next}            css=.play
 ${autoplay_button_skip}                 css=.close
-
 ${close_caption}                        css=div#vpcc-subtitle
 ${subtitle_title}                       css=.subtitle_title
 ${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
 ${subtitle_list_off}                    css=.subtitle_popup .subtitle_list:nth-of-type(3)
 ${movie2_play_button}                   css=.css-xvdnxx
-
 ${movie_volume_bar}                     css=input#vpcc-volume
 ${volume_button}                        css=#volume-button
-
 ${button_fullscreen}                    css=#vpcc-fullscreen
+${expected_buffering}                   css=code
+${expected_close_caption_icon}          css=div#vpcc-subtitle
+${expected_subtitle_on_screen}          css=.css-du9w46
+${expected_volume}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
+${expected_fullscreen_icon}             css=#vpcc-fullscreen .withTooltip
+${expected_pleyer_control_hide}         css=[class='css-1xc2rfo hide']
+${expected_player_control_unhide}       css=[class='css-1xc2rfo ']
 
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
@@ -73,9 +72,7 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
-#    Wait Until Element Is Visible       ${notif_badge_inbox}
     Sleep                               5
-#    Click Element                       ${notif_badge_button}
     Location Should Be                  ${URL}
 
 Play Content From Movie Detail
@@ -90,11 +87,10 @@ Forward Progress Bar
     Click Element                       ${forward_movie_detail}
 
 Verify Loading Indicator
-    [Arguments]  ${EXPECTED_BUFFERING}
     Mouse Over                          ${movie_mouse_over}
-    Wait Until Element Is Visible       ${EXPECTED_BUFFERING}
-    Page Should Contain Element         ${EXPECTED_BUFFERING}
-    Capture Element Screenshot          ${EXPECTED_BUFFERING}
+    Wait Until Element Is Visible       ${expected_buffering}
+    Page Should Contain Element         ${expected_buffering}
+    Capture Element Screenshot          ${expected_buffering}
     sleep                               3
     Capture Element Screenshot          ${movie_detail_image_logo}
 
@@ -151,9 +147,8 @@ Verify Change Quality
     Page Should Contain Element         ${movie_quality_title}
 
 Verify Content not Supporting Closed Caption
-    [Arguments]  ${EXPEECTED_CLOSE_CAPTION_ICON}
     Mouse Over                          ${movie_mouse_over}
-    Page Should Not Contain Element     ${close_caption}                    ${EXPEECTED_CLOSE_CAPTION_ICON}
+    Page Should Not Contain Element     ${close_caption}                    ${expected_close_caption_icon}
 
 Play a content which is not supporting closed caption
     [Arguments]  ${URL_MOVIE_DETAIL2}
@@ -163,8 +158,7 @@ Play a content which is not supporting closed caption
     Wait Until Element Is Visible       ${close_caption}
 
 Verify Close Caption Icon
-    [Arguments]  ${EXPECTED_CLOSE_CAPTION_ICON}
-    Page Should Contain Element         ${EXPECTED_CLOSE_CAPTION_ICON}
+    Page Should Contain Element         ${expected_close_caption_icon}
 
 Play a content which is supporting closed caption
     Click Element                       ${close_caption}
@@ -172,10 +166,9 @@ Play a content which is supporting closed caption
     Click Element                       ${subtitle_list_Indonesia}
 
 Verify Subtitle
-    [Arguments]  ${EXPECTED_SUBTITLE_ON_SCREEN}
-    Wait Until Element Is Visible       ${EXPECTED_SUBTITLE_ON_SCREEN}
-    Page Should Contain Element         ${EXPECTED_SUBTITLE_ON_SCREEN}
-    Capture Element Screenshot          ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Wait Until Element Is Visible       ${expected_subtitle_on_screen}
+    Page Should Contain Element         ${expected_subtitle_on_screen}
+    Capture Element Screenshot          ${expected_subtitle_on_screen}
 
 No closed caption is shown when the 'Closed Caption' is off
     Mouse Over                          ${movie_mouse_over}
@@ -183,15 +176,13 @@ No closed caption is shown when the 'Closed Caption' is off
     Sleep                               5
 
 Verify Closed Caption is Not Shown
-    [Arguments]  ${EXPECTED_SUBTITLE_ON_SCREEN}
-    Page Should Not Contain Element     ${EXPECTED_SUBTITLE_ON_SCREEN}
+    Page Should Not Contain Element     ${expected_subtitle_on_screen}
 
 Change volume during video playback
-    [Arguments]  ${EXPECTED_VOLUME}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${movie_volume_bar}
     Sleep                               2
-    Element Should Be Visible           ${EXPECTED_VOLUME}
+    Element Should Be Visible           ${expected_volume}
     Click Element                       ${volume_button}
     Sleep                               2
     Element Should Be Visible           ${volume_button}
@@ -204,12 +195,13 @@ Play a content in fullscreen mode
 
 
 Verify fullscreen icon
-    [Arguments]     ${EXPECTED_FULLSCREEN_ICON}
-    Page Should Contain Element         ${EXPECTED_FULLSCREEN_ICON}
-    Capture Element Screenshot          ${EXPECTED_FULLSCREEN_ICON}
+    Page Should Contain Element         ${expected_fullscreen_icon}
+    Capture Element Screenshot          ${expected_fullscreen_icon}
 
 Verify Video Metadata
-    [Arguments]     ${EXPECTED_PLAYER_CONTROL_HIDE}      ${EXPECTED_PLAYER_CONTROL_UNHIDE}
-    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_HIDE}
+    Sleep                               10
+#    Wait Until Element Is Visible       ${expected_pleyer_control_hide}
+    Page Should Contain Element         ${expected_pleyer_control_hide}
     Mouse Over                          ${movie_mouse_over}
-    Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_UNHIDE}
+#    Wait Until Element Is Visible       ${expected_player_control_unhide}
+    Page Should Contain Element         ${expected_player_control_unhide}

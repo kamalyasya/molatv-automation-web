@@ -7,17 +7,8 @@ Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}                                  https://mola.tv
-
 ${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
-${EMAIL_PUTRA}                          putra.pratama@mola.tv
-${PASSWORD_PUTRA}                       admin123
-${EMAIL_CINCIN}                         cincin.jati@mola.tv
-${PASSWORD_CINCIN}                      12345678
-${EMAIL_KAMAL}                          kamal.yasha@mola.tv
-${PASSWORD_KAMAL}                       1234567890
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
-${EXPECTED_BUFFERING}                   css=code
-${TITLE_MOVIE_DETAIL}                   css=h1
 ${TITLE_MOVIE}                          Apocalypto
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd92288792
 ${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
@@ -26,42 +17,36 @@ ${EXPECTED_CHANGE_QUALITY_270}          270
 ${EXPECTED_CHANGE_QUALITY_360}          360
 ${EXPECTED_CHANGE_QUALITY_720}          720
 ${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
-${EXPECTED_CLOSE_CAPTION_ICON}          css=div#vpcc-subtitle
-${EXPECTED_SUBTITLE_ON_SCREEN}          css=.css-du9w46
-${EXPECTED_VOLUME}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
-${EXPECTED_FULLSCREEN_ICON}             css=#vpcc-fullscreen .withTooltip
-${EXPECTED_PLAYER_CONTROL_HIDE}         css=[class='css-1xc2rfo hide']
-${EXPECTED_PLAYER_CONTROL_UNHIDE}       css=[class='css-1xc2rfo ']
 
 *** Test Cases ***
 Delivery - Video Player: Video playback without sign in
     [Documentation]     Select an asset for video playback (Live/Reply/Movie)
-    [Tags]              Regression Smoke
+    [Tags]              Regression  Smoke
 
     MovieDetailPage.Select an asset for video playback (Live/Reply/Movie)      ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify login blocker if not sign in before
 
 Delivery - Video player: Buffering
     [Documentation]  Buffering when movie played
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials         ${EMAIL_CINCIN}          ${PASSWORD_CINCIN}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Forward Progress Bar
-    MovieDetailPage.Verify Loading Indicator        ${EXPECTED_BUFFERING}
+    MovieDetailPage.Verify Loading Indicator
 
 Delivery - Video player: Playback Control
     [Documentation]  Playback control movie
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${EMAIL_CINCIN}                 ${PASSWORD_CINCIN}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
@@ -70,65 +55,65 @@ Delivery - Video player: Playback Control
 
 Delivery - Video player: Quality Control
     [Documentation]  Change Quality Control
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}                  ${ACCOUNT_KAMAL_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
 
 Delivery - Video player: Closed Caption (Subtitles) Control
     [Documentation]  Check about closed caption from video player
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${EMAIL_PUTRA}                  ${PASSWORD_PUTRA}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials                          ${ACCOUNT_MIA2_EMAIL}                   ${ACCOUNT_MIA2_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                  ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Verify Content not Supporting Closed Caption                     ${EXPECTED_CLOSE_CAPTION_ICON}
-    MovieDetailPage.Play a content which is not supporting closed caption               ${URL_MOVIE_DETAIL2}
-    MovieDetailPage.Verify Close Caption Icon                   ${EXPECTED_CLOSE_CAPTION_ICON}
+    MovieDetailPage.Verify Content not Supporting Closed Caption
+    MovieDetailPage.Play a content which is not supporting closed caption                               ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Verify Close Caption Icon
     MovieDetailPage.Play a content which is supporting closed caption
-    MovieDetailPage.Verify Subtitle                             ${EXPECTED_SUBTITLE_ON_SCREEN}
+    MovieDetailPage.Verify Subtitle
     MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
-    MovieDetailPage.Verify Closed Caption is Not Shown          ${EXPECTED_SUBTITLE_ON_SCREEN}
+    MovieDetailPage.Verify Closed Caption is Not Shown
 
 Delivery - Video player: Volume Control
      [Documentation]  Change volume during video playback
-     [Tags]           Regression Smoke
+     [Tags]           Regression    Smoke
 
     MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${EMAIL_CINCIN}                  ${PASSWORD_CINCIN}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}                     ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Change volume during video playback         ${EXPECTED_VOLUME}
+    MovieDetailPage.Change volume during video playback
 
 Delivery - Video player: Fullscreen mode
     [Documentation]  Video player can be played in minimize and maximize
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${EMAIL_CINCIN}                  ${PASSWORD_CINCIN}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}                      ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Play a content in fullscreen mode
-    MovieDetailPage.Verify fullscreen icon                      ${EXPECTED_FULLSCREEN_ICON}
+    MovieDetailPage.Verify fullscreen icon
 
 Delivery - VOD Player - Video Metadata
     [Documentation]  Shown player content from VOD
-    [Tags]           Regression Smoke
+    [Tags]           Regression     Smoke
 
     MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${EMAIL_KAMAL}                  ${PASSWORD_KAMAL}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}                      ${ACCOUNT_KAMAL_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Play a content in fullscreen mode
-    MovieDetailPage.Verify fullscreen icon                      ${EXPECTED_FULLSCREEN_ICON}
-    MovieDetailPage.Verify Video Metadata                       ${EXPECTED_PLAYER_CONTROL_HIDE}     ${EXPECTED_PLAYER_CONTROL_UNHIDE}
+    MovieDetailPage.Verify fullscreen icon
+    MovieDetailPage.Verify Video Metadata
