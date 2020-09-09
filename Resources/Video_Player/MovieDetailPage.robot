@@ -85,6 +85,8 @@ Forward Progress Bar
     Click Element                       ${forward_movie_detail}
     Click Element                       ${forward_movie_detail}
     Click Element                       ${forward_movie_detail}
+    Click Element                       ${forward_movie_detail}
+    Click Element                       ${forward_movie_detail}
 
 Verify Loading Indicator
     Mouse Over                          ${movie_mouse_over}
@@ -193,15 +195,12 @@ Play a content in fullscreen mode
     Mouse Over                          ${button_fullscreen}
     Sleep                               3
 
-
 Verify fullscreen icon
     Page Should Contain Element         ${expected_fullscreen_icon}
     Capture Element Screenshot          ${expected_fullscreen_icon}
 
 Verify Video Metadata
     Sleep                               10
-#    Wait Until Element Is Visible       ${expected_pleyer_control_hide}
     Page Should Contain Element         ${expected_pleyer_control_hide}
     Mouse Over                          ${movie_mouse_over}
-#    Wait Until Element Is Visible       ${expected_player_control_unhide}
     Page Should Contain Element         ${expected_player_control_unhide}
