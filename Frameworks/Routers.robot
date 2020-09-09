@@ -9,6 +9,7 @@ Resource            Configs.robot
 Resource            ../Resources/Accounts/ProfilePage.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Data/Accounts.robot
+Resource            ../Resources/Hbo/HboPlayback.robot
 Resource            ../Resources/Homepage/HomePage.robot
 Resource            ../Resources/Homepage/PrivacyPage.robot
 Resource            ../Resources/Homepage/TermsConditionsPage.robot
