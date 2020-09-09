@@ -60,3 +60,11 @@ Open Related Movie
     Wait Until Element Is Visible               ${text_search_search_result_1}
     Click Element                               ${text_search_search_result_1}
 
+Clear Keywords On Search Field
+    Wait Until Element Is Visible               ${field_search_search}
+    Sleep                                       2
+    Clear Element Text                          ${field_search_search}
+
+Verify Clear Keywords
+    Wait Until Element Is Visible               ${field_search_search}
+    Element Text Should Be                      ${field_search_search}                      ${EMPTY}

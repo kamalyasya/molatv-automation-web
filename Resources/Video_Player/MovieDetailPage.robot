@@ -213,3 +213,9 @@ Verify Video Metadata
     Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_HIDE}
     Mouse Over                          ${movie_mouse_over}
     Page Should Contain Element         ${EXPECTED_PLAYER_CONTROL_UNHIDE}
+
+Verify Movie Details Page Is Shown
+    [Arguments]     ${EXPECTED_TITLE_CONTENT}
+    Wait Until Element Is Visible       ${title_movie_detail}
+    Element Should Contain              ${title_movie_detail}               ${EXPECTED_TITLE_CONTENT}
+
