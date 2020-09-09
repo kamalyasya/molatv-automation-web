@@ -16,6 +16,8 @@ ${ACCOUNT_MIA_VALID_PASSWORD}               admin1234
 ${ACCOUNT_MIA_WRONG_PASSWORD}               123123123
 ${ACCOUNT_MIA2_EMAIL}                       yeremia.ayunda@mola.tv
 ${ACCOUNT_MIA2_PASSWORD}                    admin1234
+${ACCOUNT_GANGGA_EMAIL}                     reza.gangga@mola.tv
+${ACCOUNT_GANGGA_PASSWORD}                  Password01
 ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            123123
 
