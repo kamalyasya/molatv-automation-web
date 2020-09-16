@@ -45,3 +45,7 @@ ${ACCOUNT_GOOGLE_PASSWORD}                  molajaya
 # FACEBOOK ACCOUNTS
 ${ACCOUNT_FACEBOOK_EMAIL}                   cincin.jati+fb@tokopedia.com
 ${ACCOUNT_FACEBOOK_PASSWORD}                tokopedia
+
+# HBO ACCOUNTS
+${ACCOUNTS_HBO_EMAIL}                       t.hbo@mola.tv
+${ACCOUNTS_HBO_PASSWORD}                    M0L4h8o!
