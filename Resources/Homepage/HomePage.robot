@@ -20,7 +20,7 @@ ${links_homepage_menu_inbox}            xpath=//div[text()='Pesan Masuk']
 ${links_homepage_menu_pengaturan}       xpath=//div[text()='Pengaturan']
 ${links_homepage_menu_langganan}        xpath=//div[text()='Langganan']
 ${links_homepage_menu_order_history}    xpath=//div[text()='Riwayat Pembelian']
-${links_homepage_menu_beli_paket}       xpath=//div[text()='Beli Paket']
+${links_homepage_menu_beli_akses}       xpath=//div[text()='Beli Akses']
 
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
@@ -43,8 +43,8 @@ Verify The App Navigates To Home Page
 Open Beli Paket Menu
     Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
-    Wait Until Element Is Visible       ${links_homepage_menu_beli_paket}
-    Click Element                       ${links_homepage_menu_beli_paket}
+    Wait Until Element Is Visible       ${links_homepage_menu_beli_akses}
+    Click Element                       ${links_homepage_menu_beli_akses}
 
 Open Privasi Page
     Wait Until Element Is Visible       ${links_homepage_privasi}
@@ -71,7 +71,7 @@ Verify The UI Of The User Icon Without Login
     Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
-    Element Should Be Visible           ${links_homepage_menu_beli_paket}
+    Element Should Be Visible           ${links_homepage_menu_beli_akses}
     Element Should Be Visible           ${field_login_email}
     Element Should Be Visible           ${field_login_password}
 
@@ -86,7 +86,7 @@ Verify Menu After Logged In
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
     Element Should Be Visible           ${links_homepage_menu_langganan}
     Element Should Be Visible           ${links_homepage_menu_order_history}
-    Element Should Be Visible           ${links_homepage_menu_beli_paket}
+    Element Should Be Visible           ${links_homepage_menu_beli_akses}
 
 Verify Inbox Onboarding On Homepage
     [Arguments]  ${EXPECTED_TEXT_TITLE_ONBOARDING}  ${EXPECTED_TEXT_CONTENT_ONBOARDING}

@@ -12,7 +12,8 @@ ${URL}				                    https://mola.tv/accounts/login
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
-${EXPECTED_TEXT_INVALID_TOKEN}          Kode verifikasi salah
+${EXPECTED_TEXT_INVALID_TOKEN}          INVALID_OTP
+${EXPECTED_TEXT_INVALID_TOKEN2}         Kode verifikasi salah
 ${EXPECTED_TEXT_MENU_HOME}              Home
 ${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
 ${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
@@ -79,8 +80,8 @@ TC007 Page Navigation after sign in
 TC009 Sign Out
     [Documentation]  TC009 Sign Out
 	[Tags]  Regression  Smoke
-    SignInPage.Login Using Credentials                              ${ACCOUNT_KAMAL_EMAIL}                  ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_KAMAL_EMAIL}
+    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA3_EMAIL}            ${ACCOUNT_SUPERMOLA3_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_SUPERMOLA3_EMAIL}
     ProfilePage.Sign Out
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Sign Out
