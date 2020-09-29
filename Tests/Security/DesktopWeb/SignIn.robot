@@ -107,7 +107,7 @@ TC013 Sign in from Beli Paket
     [Documentation]  Login process from Beli Paket page
     [Tags]  Regression  Smoke
 
-    HomePage.Open Beli Paket Menu
+    HomePage.Open Beli Akses Menu
     SubscriptionPackagePage.Choose A Package
     SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA4_EMAIL}             ${ACCOUNT_SUPERMOLA4_PASSWORD}
     SubscriptionPackagePage.Verify On Beli Package Page

@@ -9,7 +9,10 @@ ${menu_homepage_home}                   css=._1GfoO > div:nth-of-type(2)
 ${menu_homepage_home_hover}             css=div:nth-of-type(2) > ._2yKxK
 ${menu_homepage_browse}                 css=._1GfoO > div:nth-of-type(3)
 ${menu_homepage_matches}                css=._1GfoO > div:nth-of-type(4)
-${menu_homepage_accounts}               css=.ncb37
+${menu_homepage_beli_akses}             css=._1GfoO > div:nth-of-type(5)
+${menu_homepage_redeem_voucher}         css=._1GfoO > div:nth-of-type(6)
+${menu_homepage_accounts}               css=._2YhM7
+${text_homepage_langganan_count_number}    css=.count-number
 ${menu_homepage_movies}                 css=.FYgXF > div:nth-of-type(1)
 ${menu_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
 ${menu_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
@@ -40,9 +43,9 @@ Verify The App Navigates To Home Page
     Wait Until Element Is Visible       ${menu_homepage_home_hover}
     Element Text Should Be              ${menu_homepage_home_hover}         ${HOME}
 
-Open Beli Paket Menu
-    Wait Until Element Is Visible       ${menu_homepage_accounts}
-    Click Element                       ${menu_homepage_accounts}
+Open Beli Akses Menu
+    Wait Until Element Is Visible       ${menu_homepage_beli_akses}
+    Click Element                       ${menu_homepage_beli_akses}
     Wait Until Element Is Visible       ${links_homepage_menu_beli_akses}
     Click Element                       ${links_homepage_menu_beli_akses}
 
@@ -62,6 +65,8 @@ Click Next Button And Skip Inbox Onboarding
     Click Element                       ${menu_homepage_accounts}
 
 Open Login Page
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
 

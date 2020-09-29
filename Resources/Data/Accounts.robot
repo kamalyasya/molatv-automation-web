@@ -18,6 +18,8 @@ ${ACCOUNT_MIA2_EMAIL}                       yeremia.ayunda@mola.tv
 ${ACCOUNT_MIA2_PASSWORD}                    admin1234
 ${ACCOUNT_GANGGA_EMAIL}                     reza.gangga@mola.tv
 ${ACCOUNT_GANGGA_PASSWORD}                  Password01
+${ACCOUNT_ZAKI_EMAIL}                       zaki@mola.tv
+${ACCOUNT_ZAKI_PASSWORD}                    mola123
 ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            123123
 
@@ -35,6 +37,12 @@ ${ACCOUNT_SUPERMOLA4_EMAIL}                 supermola4@sapisuper.com
 ${ACCOUNT_SUPERMOLA4_PASSWORD}              sapisuper4
 ${ACCOUNT_SUPERMOLA5_EMAIL}                 supermola5@sapisuper.com
 ${ACCOUNT_SUPERMOLA5_PASSWORD}              sapisuper5
+${ACCOUNT_SUPERMOLA21_EMAIL}                supermola21@sapisuper.com
+${ACCOUNT_SUPERMOLA21_PASSWORD}             sapisuper21
+${ACCOUNT_SUPERMOLA31_EMAIL}                supermola31@sapisuper.com
+${ACCOUNT_SUPERMOLA31_PASSWORD}             sapisuper31
+${ACCOUNT_SUPERMOLA32_EMAIL}                supermola32@sapisuper.com
+${ACCOUNT_SUPERMOLA32_PASSWORD}             sapisuper32
 ${ACCOUNT_SUPERMOLA50_EMAIL}                supermola50@sapisuper.com
 ${ACCOUNT_SUPERMOLA50_PASSWORD}             sapisuper50
 
