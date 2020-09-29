@@ -11,6 +11,7 @@ ${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${TITLE_MOVIE}                          Apocalypto
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd92288792
+${EXPECTED_TEXT_MENU_HOME}              Home
 ${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
 ${EXPECTED_CHANGE_QUALITY_576}          576
 ${EXPECTED_CHANGE_QUALITY_270}          270
@@ -19,14 +20,23 @@ ${EXPECTED_CHANGE_QUALITY_720}          720
 ${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
 
 *** Test Cases ***
-Delivery - Video Player: Video playback without sign in
+Delivery - Vod: Match detail
+    [Documentation]     Verify the details page of a Live/Replay/Highlights match
+    [Tags]              Regression  Smoke
+
+    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
+
+Delivery - Vod: Video playback without sign in
     [Documentation]     Select an asset for video playback (Live/Reply/Movie)
     [Tags]              Regression  Smoke
 
     MovieDetailPage.Select an asset for video playback (Live/Reply/Movie)      ${URL_MOVIE_DETAIL}
     MovieDetailPage.Verify login blocker if not sign in before
 
-Delivery - Video player: Buffering
+Delivery - Vod: Buffering
     [Documentation]  Buffering when movie played
     [Tags]           Regression     Smoke
 
@@ -39,7 +49,7 @@ Delivery - Video player: Buffering
     MovieDetailPage.Forward Progress Bar
     MovieDetailPage.Verify Loading Indicator
 
-Delivery - Video player: Playback Control
+Delivery - Vod: Playback Control
     [Documentation]  Playback control movie
     [Tags]           Regression     Smoke
 
@@ -52,7 +62,7 @@ Delivery - Video player: Playback Control
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     MovieDetailPage.Auto Play Next Episode
 
-Delivery - Video player: Quality Control
+Delivery - Vod: Quality Control
     [Documentation]  Change Quality Control
     [Tags]           Regression     Smoke
 
@@ -64,7 +74,7 @@ Delivery - Video player: Quality Control
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
 
-Delivery - Video player: Closed Caption (Subtitles) Control
+Delivery - Vod: Closed Caption (Subtitles) Control
     [Documentation]  Check about closed caption from video player
     [Tags]           Regression     Smoke
 
@@ -81,7 +91,7 @@ Delivery - Video player: Closed Caption (Subtitles) Control
     MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
     MovieDetailPage.Verify Closed Caption is Not Shown
 
-Delivery - Video player: Volume Control
+Delivery - Vod: Volume Control
      [Documentation]  Change volume during video playback
      [Tags]           Regression    Smoke
 
@@ -92,7 +102,7 @@ Delivery - Video player: Volume Control
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Change volume during video playback
 
-Delivery - Video player: Fullscreen mode
+Delivery - Vod: Fullscreen mode
     [Documentation]  Video player can be played in minimize and maximize
     [Tags]           Regression     Smoke
 
@@ -104,7 +114,7 @@ Delivery - Video player: Fullscreen mode
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
 
-Delivery - VOD Player - Video Metadata
+Delivery - Vod: Video Metadata
     [Documentation]  Shown player content from VOD
     [Tags]           Regression     Smoke
 

@@ -10,7 +10,7 @@ ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
 ${ACCOUNT_PUTRA_PASSWORD}                   admin123
 ${ACCOUNT_KAMAL_EMAIL}                      kamal.yasha@mola.tv
-${ACCOUNT_KAMAL_PASSWORD}                   1234567890
+${ACCOUNT_KAMAL_PASSWORD}                   12345678
 ${ACCOUNT_JERRY_EMAIL}                      jerry.hartono@mola.tv
 ${ACCOUNT_JERRY_PASSWORD}                   password
 ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
@@ -61,3 +61,7 @@ ${ACCOUNT_GOOGLE_PASSWORD}                  molajaya
 # FACEBOOK ACCOUNTS
 ${ACCOUNT_FACEBOOK_EMAIL}                   cincin.jati+fb@tokopedia.com
 ${ACCOUNT_FACEBOOK_PASSWORD}                tokopedia
+
+# HBO ACCOUNTS
+${ACCOUNTS_HBO_EMAIL}                       t.hbo@mola.tv
+${ACCOUNTS_HBO_PASSWORD}                    M0L4h8o!

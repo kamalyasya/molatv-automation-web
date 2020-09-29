@@ -1,5 +1,6 @@
 *** Settings ***
 Library         	    SeleniumLibrary
+Library                 String
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
@@ -31,8 +32,34 @@ ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
 ${frame_homepage_inbox_onboarding}      css=.__floater__body
 ${text_homepage_title_onboarding}       css=._2u2aj
 ${text_homepage_content_onboarding}     css=._1fO2X
+
 ${button_homepage_skip_inbox_onboarding}        id=skip
 ${button_homepage_finish_inbox_onboarding}      id=next
+
+${rail_banner_matches_page}                     css=.css-11xe1ut.css-nch242.slider  .slider-list
+${matches_date_filter_toggle}                   css=._2CCM2
+${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
+${view_all_match_card}                          css=._3mEMU > a
+${page_match_view_all}                          css=._2dFXJ
+
+${matches_all_competition}                      css=div#allCompetition
+${matches_footer}                               css=._32NSr
+${matches_status_match}                         css=.k1LdU
+${matches_slider_frame}                         css=div:nth-of-type(3) > div > .DgfMr
+${matches_page_hover}                           css=#match-wrapper
+${matches_calendar}                             css=ul > div:nth-of-type(14)
+${list_calendar}                                css=div#list__date
+${list_next_calendar}                           css=div:nth-of-type(12) > ._13AG-.calendar_item
+${expected_title_movie_detail}                  css=h1
+
+${dropdown_all_competition}                     css=._1UnU5
+${toggle_on_of_all_competition}                 css=._33UoQ ._1VH-8._334Zm
+${button_apply_all_competition}                 css=._3NXCX
+${page_all_competition}                         xpath=//div[@id='match-wrapper']/div[3]/div
+${checkbox_1}                                   css=.checkbox0
+${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3.checkbox0
+
+${currently_playing}                            xpath=/html//div[@id='match-wrapper']/div[3]/div/div[@class='DgfMr']//h3[.='Currently Playing']
 
 *** Keywords ***
 Verify The App Navigates To Home Page
@@ -113,3 +140,74 @@ Open Inbox Page
 Open Search Page
     Wait Until Element Is Visible       ${menu_homepage_search}
     Click Element                       ${menu_homepage_search}
+
+Open Matches Page
+    Wait Until Element Is Visible       ${menu_homepage_matches}
+    Click Element                       ${menu_homepage_matches}
+
+Verify UI Layout of Matches page
+    Wait Until Element Is Visible       ${menu_homepage_home_hover}
+    Element Should Be Visible           ${menu_homepage_search}
+    Element Should Be Visible           ${menu_homepage_home}
+    Element Should Be Visible           ${menu_homepage_browse}
+    Element Should Be Visible           ${menu_homepage_matches}
+    Element Should Be Visible           ${menu_homepage_beli_akses}
+    Element Should Be Visible           ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${rail_banner_matches_page}     30
+    Element Should Be Visible           ${rail_banner_matches_page}
+    Element Should Be Visible           ${matches_date_filter_toggle}
+    Element Should Be Visible           ${match_card}
+
+Click view all button
+    Scroll Element Into View            ${view_all_match_card}
+    Click Element                       ${view_all_match_card}
+    Wait Until Element Is Visible       ${page_match_view_all}
+
+Verify all the matches of categories will shown up from the beginning time
+    Element Should Be Visible           ${page_match_view_all}
+
+Choose any upcoming match
+    Wait Until Element Is Visible       ${matches_calendar}    30
+    Mouse Over                          ${matches_page_hover}
+    Scroll Element Into View            ${matches_footer}
+
+Check Upcoming Matches
+    Element Should Be Visible           ${matches_status_match}
+    Click Element                       ${matches_status_match}
+    Wait Until Element Is Visible       ${expected_title_movie_detail}
+
+Click Next Day
+    Scroll Element Into View            ${list_calendar}
+    Click Element                       ${list_next_calendar}
+    Sleep                               2
+    Check Upcoming Matches
+
+Tap Drop Down Filter Competition
+    Click Element                       ${dropdown_all_competition}
+
+Change Filter Competition
+    Click Element                       ${toggle_on_of_all_competition}
+    Click Element                       ${toggle_on_of_all_competition}
+    Sleep                               2
+
+Click Button Apply
+    Scroll Element Into View            ${button_apply_all_competition}
+    Click Element                       ${button_apply_all_competition}
+
+Dont't Click Button Apply
+    Click Element                       ${dropdown_all_competition}
+    Click Element                       ${dropdown_all_competition}
+
+Verify displayed the live match schedule according to the filter
+    Page Should Contain Element         ${page_all_competition}
+
+Verify Filter Not Saved
+    Page Should Contain Element         ${page_all_competition}
+    Scroll Element Into View            ${checkbox_1}
+    Element Should Be Visible           ${checkbox_1}
+    Element Should Not Be Visible       ${uncheckbox_1}
+
+Choose any live match
+    Wait Until Element Is Visible       ${matches_calendar}    30
+    Mouse Over                          ${matches_page_hover}
+    Scroll Element Into View            ${currently_playing}
