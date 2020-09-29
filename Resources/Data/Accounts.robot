@@ -8,7 +8,7 @@ ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
 ${ACCOUNT_PUTRA_PASSWORD}                   admin123
 ${ACCOUNT_KAMAL_EMAIL}                      kamal.yasha@mola.tv
-${ACCOUNT_KAMAL_PASSWORD}                   1234567890
+${ACCOUNT_KAMAL_PASSWORD}                   12345678
 ${ACCOUNT_JERRY_EMAIL}                      jerry.hartono@mola.tv
 ${ACCOUNT_JERRY_PASSWORD}                   password
 ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
