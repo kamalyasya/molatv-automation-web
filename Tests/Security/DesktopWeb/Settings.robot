@@ -216,7 +216,7 @@ TC016 Video Playback Test Non-DRM
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose Non-DRM Playback
     MovieDetailPage.Change Video Quality
-#    MovieDetailPage.Verify Video Quality 720
+    MovieDetailPage.Verify Video Quality 720
 
 TC016 Video Playback Test DRM
     [Documentation]         Check device compatibility for Mola TV video formats
@@ -229,5 +229,5 @@ TC016 Video Playback Test DRM
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose DRM Playback
     MovieDetailPage.Change Video Quality
-#    MovieDetailPage.Verify Video Quality 720
-#    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    MovieDetailPage.Verify Video Quality 720
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
