@@ -7,15 +7,15 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                  https://mola.tv/accounts/login
+${URL}                              https://mola.tv/accounts/login
 
-${EMAIL}                kamal.yasha+001@mola
-${PASSWORD}             11111444
-${PHONE}                6281297186666
-${GENDER}               Pria
-${BULAN}                January
-${TAHUN}                2000
-${TANGGAL}              8
+${EMAIL}                            kamal.yasha+001@mola
+${PASSWORD}                         11111444
+${PHONE}                            6281297186666
+${GENDER}                           Pria
+${BULAN}                            January
+${TAHUN}                            2000
+${TANGGAL}                          8
 
 ${EMAIL_REGISTERED1}                dyah.paramitha@mola.tv
 ${PASSWORD_REGISTERED1}             1234567890
@@ -25,15 +25,15 @@ ${EMAIL_REGISTERED2}                putri.nuradibah@mola.tv
 ${PASSWORD_REGISTERED2}             0987654321
 ${PHONE_REGISTERED2}                6281297185678
 
-${EMAIL}                        kamal.yasha+001@mola
-${PASSWORD}                     11115555
-${PHONE}                        6281297112345
-${GENDER_INVALID}               Wanita
-${BULAN_INVALID}                January
-${TAHUN_INVALID}                1900
-${TANGGAL_INVALID}              1
+${EMAIL}                            kamal.yasha+001@mola
+${PASSWORD}                         11115555
+${PHONE}                            6281297112345
+${GENDER_INVALID}                   Wanita
+${BULAN_INVALID}                    January
+${TAHUN_INVALID}                    1900
+${TANGGAL_INVALID}                  1
 
-${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
+${SAMPLE_MOVIE_URL}                 https://mola.tv/watch?v=vd75626478
 
 *** Test Cases ***
 TC001 Registration with email and password
