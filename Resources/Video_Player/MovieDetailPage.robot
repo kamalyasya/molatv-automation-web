@@ -24,7 +24,7 @@ ${movie_quality_list_270}               css=div#vpcc-quality > div > div:nth-of-
 ${movie_quality_list_360}               css=div#vpcc-quality > div > div:nth-of-type(4)
 ${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-type(2)
 ${movie_quality_list_auto}              css=div > div:nth-of-type(6)
-
+${movie_quality_selected}               css=.css-2v9r2y.tickIcon
 ${movie_quality_title}                  css=.quality_title
 ${autoplay_next_movie}                  css=.content
 ${autoplay_button_Play_next}            css=.play
@@ -120,8 +120,7 @@ Verify The progress bar and elapsed time are updating when playing a content
     Page Should Contain Element         ${movie_progress_bar}
 
 Auto Play Next Episode
-    Sleep                               110
-    Wait Until Element Is Visible       ${autoplay_next_movie}
+    Wait Until Element Is Visible       ${autoplay_next_movie}              120
 
 Verify Auto Play Next Episode
     Page Should Contain Element         ${autoplay_next_movie}
@@ -129,6 +128,12 @@ Verify Auto Play Next Episode
     Capture Element Screenshot          ${autoplay_button_Play_next}
     Page Should Contain Element         ${autoplay_button_skip}
     Capture Element Screenshot          ${autoplay_button_skip}
+
+Verify Auto Play Not Displayed
+    sleep                                   65
+    Page Should Not Contain Element         ${autoplay_next_movie}
+    Page Should Not Contain Element         ${autoplay_button_Play_next}
+    Page Should Not Contain Element         ${autoplay_button_skip}
 
 Change Video Quality
     Mouse Over                          ${movie_mouse_over}
@@ -256,3 +261,11 @@ Verify Default Control
     Element Should Be Visible           ${movie_detail_duration}
     Element Should Be Visible           ${button_fullscreen}
     Element Should Be Visible           ${movie_quality_control}
+
+Verify Video Quality 720
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_quality_control}
+    Click Element                       ${movie_quality_control}
+    Wait Until Element Is Visible       ${movie_change_quality}
+    Element Should Contain              ${movie_quality_selected}           720
+    sleep                               3

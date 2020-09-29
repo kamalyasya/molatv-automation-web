@@ -12,7 +12,7 @@ ${field_halaman_verifikasi_otp_5}                   css=div:nth-of-type(5) > .eK
 ${field_halaman_verifikasi_otp_6}                   css=div:nth-of-type(6) > .eKKpu
 ${button_halaman_verifikasi_verifikasi}             css=._1NNY7._3C-S2
 ${text_halaman_verifikasi_invalid_token}            css=.VYG-B p
-${button_halaman_verifikasi_kirim_ulang}            xpath=//*[text()=' Kirim ulang']
+${button_halaman_verifikasi_kirim_ulang}            xpath=//a[text()='Kirim ulang']
 ${text_halaman_verifikasi_kirim_ulang_countdown}    xpath=//*[@style='cursor: auto; color: rgb(131, 133, 134);']
 
 *** Keywords ***

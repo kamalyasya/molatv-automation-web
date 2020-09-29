@@ -3,6 +3,8 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 # MOLATV TESTER
+${ACCOUNT_HBO_EMAIL}                        t.hbo@mola.tv
+${ACCOUNT_HBO_PASSWORD}                     M0L4h8o!
 ${ACCOUNT_CINCIN_EMAIL}                     cincin.jati@mola.tv
 ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
@@ -18,6 +20,8 @@ ${ACCOUNT_MIA2_EMAIL}                       yeremia.ayunda@mola.tv
 ${ACCOUNT_MIA2_PASSWORD}                    admin1234
 ${ACCOUNT_GANGGA_EMAIL}                     reza.gangga@mola.tv
 ${ACCOUNT_GANGGA_PASSWORD}                  Password01
+${ACCOUNT_ZAKI_EMAIL}                       zaki@mola.tv
+${ACCOUNT_ZAKI_PASSWORD}                    mola123
 ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            123123
 
@@ -35,8 +39,20 @@ ${ACCOUNT_SUPERMOLA4_EMAIL}                 supermola4@sapisuper.com
 ${ACCOUNT_SUPERMOLA4_PASSWORD}              sapisuper4
 ${ACCOUNT_SUPERMOLA5_EMAIL}                 supermola5@sapisuper.com
 ${ACCOUNT_SUPERMOLA5_PASSWORD}              sapisuper5
+${ACCOUNT_SUPERMOLA21_EMAIL}                supermola21@sapisuper.com
+${ACCOUNT_SUPERMOLA21_PASSWORD}             sapisuper21
+${ACCOUNT_SUPERMOLA31_EMAIL}                supermola31@sapisuper.com
+${ACCOUNT_SUPERMOLA31_PASSWORD}             sapisuper31
+${ACCOUNT_SUPERMOLA32_EMAIL}                supermola32@sapisuper.com
+${ACCOUNT_SUPERMOLA32_PASSWORD}             sapisuper32
 ${ACCOUNT_SUPERMOLA50_EMAIL}                supermola50@sapisuper.com
 ${ACCOUNT_SUPERMOLA50_PASSWORD}             sapisuper50
+${ACCOUNT_SUPERMOLA69_EMAIL}                supermola69@sapisuper.com
+${ACCOUNT_SUPERMOLA69_PASSWORD}             sapisuper69
+${ACCOUNT_SUPERMOLA6969_EMAIL}              supermola6969@sapisuper.com
+${ACCOUNT_SUPERMOLA6969_PASSWORD}           sapisuper6969
+${ACCOUNT_SUPERMOLA69690_EMAIL}             supermola69690@sapisuper.com
+${ACCOUNT_SUPERMOLA69690_PASSWORD}          sapisuper69690
 
 # GOOGLE ACCOUNTS
 ${ACCOUNT_GOOGLE_EMAIL}                     molatv.tester@gmail.com
