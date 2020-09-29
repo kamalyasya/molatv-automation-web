@@ -113,7 +113,7 @@ TC008 Registration from special assets
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Select any special assets or content                                       ${SAMPLE_MOVIE_URL}
-    VideoPlaybackWithoutSignIn.Click Links Login
+    MovieDetailPage.Login from movie detail
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button

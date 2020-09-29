@@ -91,7 +91,7 @@ TC010 Sign in from special asset
     [Tags]  Regression  Smoke
 
     SignInPage.Select Special Asset                                 ${SAMPLE_MOVIE_URL}
-    VideoPlaybackWithoutSignIn.Click Links Login
+    MovieDetailPage.Login from movie detail
     SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA1_EMAIL}             ${ACCOUNT_SUPERMOLA1_PASSWORD}
     SignInPage.Verify User Is Redirected Back To The Same Movie Detail Page Automatically                   ${EXPECTED_SAMPLE_MOVIE_URL}
 
