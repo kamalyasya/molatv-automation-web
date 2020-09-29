@@ -51,7 +51,6 @@ Delivery - Video player: Playback Control
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     MovieDetailPage.Auto Play Next Episode
-    MovieDetailPage.Verify Auto Play Next Episode
 
 Delivery - Video player: Quality Control
     [Documentation]  Change Quality Control

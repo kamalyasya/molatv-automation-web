@@ -3,6 +3,8 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 # MOLATV TESTER
+${ACCOUNT_HBO_EMAIL}                        t.hbo@mola.tv
+${ACCOUNT_HBO_PASSWORD}                     M0L4h8o!
 ${ACCOUNT_CINCIN_EMAIL}                     cincin.jati@mola.tv
 ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
@@ -37,6 +39,12 @@ ${ACCOUNT_SUPERMOLA5_EMAIL}                 supermola5@sapisuper.com
 ${ACCOUNT_SUPERMOLA5_PASSWORD}              sapisuper5
 ${ACCOUNT_SUPERMOLA50_EMAIL}                supermola50@sapisuper.com
 ${ACCOUNT_SUPERMOLA50_PASSWORD}             sapisuper50
+${ACCOUNT_SUPERMOLA69_EMAIL}                supermola69@sapisuper.com
+${ACCOUNT_SUPERMOLA69_PASSWORD}             sapisuper69
+${ACCOUNT_SUPERMOLA6969_EMAIL}              supermola6969@sapisuper.com
+${ACCOUNT_SUPERMOLA6969_PASSWORD}           sapisuper6969
+${ACCOUNT_SUPERMOLA69690_EMAIL}             supermola69690@sapisuper.com
+${ACCOUNT_SUPERMOLA69690_PASSWORD}          sapisuper69690
 
 # GOOGLE ACCOUNTS
 ${ACCOUNT_GOOGLE_EMAIL}                     molatv.tester@gmail.com
