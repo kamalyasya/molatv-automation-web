@@ -17,7 +17,7 @@ ${field_placeholder_tanggal_lahir_agerestriction}   css=._2vBjh
 ${button_tutup_agerestriction}                      css=._1aJ2n
 
 *** Keywords ***
-AgeRestrictionPage.Select 18+ Movie Content
+Select 18+ Movie Content
     [Arguments]                             ${URL_MOVIE_DETAIL_18+}
     Sleep                                   1
     Go To                                   ${URL_MOVIE_DETAIL_18+}
@@ -26,7 +26,7 @@ AgeRestrictionPage.Select 18+ Movie Content
     Sleep                                   1
     Click Element                           ${text_login_movie}
 
-AgeRestrictionPage.Verify Show Age blocker
+Verify Show Age blocker
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
     Sleep                                   1
@@ -35,13 +35,13 @@ AgeRestrictionPage.Verify Show Age blocker
     Sleep                                   1
     Click Element                           ${button_setuju_tutup_konten_dewasa}
 
-AgeRestrictionPage.Select NON18+ Movie Content
+Select NON18+ Movie Content
     [Arguments]                             ${URL_MOVIE_DETAIL_NON18+}
     Sleep                                   2
     Go To                                   ${URL_MOVIE_DETAIL_NON18+}
     Sleep                                   2
 
-AgeRestrictionPage.Verify Movie Detail
+Verify Movie Detail
     [Arguments]  ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
     Sleep                               5
     Location Should Be                  ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
@@ -51,26 +51,26 @@ AgeRestrictionPage.Verify Movie Detail
     Click Element                       ${button_mulai_dari_awal_agerestriction}
     Sleep                               10
 
-AgeRestrictionPage.Play Content Movie
+Play Content Movie
     Page Should Contain Element             ${movie_button_play}
     Wait Until Element Is Visible           ${movie_button_play}
     Element Should Be Focused               ${movie_button_play}
     Click Element                           ${movie_button_play}
     Sleep                                   5
 
-AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
+Verify Show Age blocker "CLOSE or TUTUP" button
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
     Sleep                                   1
     Click Element                           ${button_setuju_tutup_konten_dewasa}
 
-AgeRestrictionPage.Can't Play Button
+Can't Play Button
     Page Should Contain Element             ${button_play_cannot_action}
     Wait Until Element Is Visible           ${button_play_cannot_action}
     Click Element                           ${button_play_cannot_action}
-    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
+    Verify Show Age blocker "CLOSE or TUTUP" button
 
-AgeRestrictionPage.using account didn't have DOB
+using account didn't have DOB
     [Arguments]                             ${URL_MOVIE_DETAIL_18+}
     Sleep                                   1
     Go To                                   ${URL_MOVIE_DETAIL_18+}
@@ -82,13 +82,13 @@ AgeRestrictionPage.using account didn't have DOB
     Capture Element Screenshot              ${text_kalimat_verifikasi_umur}
     Wait Until Element Is Visible           ${text_kalimat_verifikasi_umur}
 
-AgeRestrictionPage.Verify Show Age blocker DOB
+Verify Show Age blocker DOB
     Wait Until Element Is Visible           ${label_tanggal_lahir_agerestriction}
     Page Should Contain Element             ${label_tanggal_lahir_agerestriction}
     Wait Until Element Is Visible           ${field_placeholder_tanggal_lahir_agerestriction}
     Click Element                           ${field_placeholder_tanggal_lahir_agerestriction}
 
-AgeRestrictionPage.Click Button Tutup
+Click Button Tutup
     Wait Until Element Is Visible           ${button_tutup_agerestriction}
     Page Should Contain Element             ${button_tutup_agerestriction}
     Click Element                           ${button_tutup_agerestriction}
