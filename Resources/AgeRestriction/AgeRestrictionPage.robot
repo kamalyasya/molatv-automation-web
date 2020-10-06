@@ -1,0 +1,94 @@
+*** Settings ***
+Library             SeleniumLibrary
+Resource            ../../Frameworks/Routers.robot
+
+*** Variables ***
+${text_login_movie}                                 css=.css-1atyaon a
+${frame_konten_dewasa_agerestriction}               css=._1dvQ5.undefined > ._21BQA.styles_modal__gNwvD
+${frame_kalimat_konten_dewasa_agerestriction}       css=._27W52 > p
+${button_setuju_tutup_konten_dewasa}                css=._3UpwF
+${text_lanjutkan_menonton_agerestriction}           css=.gJE3n p
+${button_mulai_dari_awal_agerestriction}            css=._3QaU2
+${button_play_cannot_action}                        css=._2zwq4
+${text_verifikasi_umur_agerestriction}              css=.zVnMA h1
+${text_kalimat_verifikasi_umur}                     css=.zVnMA  p
+${label_tanggal_lahir_agerestriction}               css=label[label='Tanggal Lahir']
+${field_placeholder_tanggal_lahir_agerestriction}   css=._2vBjh
+${button_tutup_agerestriction}                      css=._1aJ2n
+
+*** Keywords ***
+AgeRestrictionPage.Select 18+ Movie Content
+    [Arguments]                             ${URL_MOVIE_DETAIL_18+}
+    Sleep                                   1
+    Go To                                   ${URL_MOVIE_DETAIL_18+}
+    Page Should Contain Element             ${login_blocker_garselep1}
+    Capture Element Screenshot              ${login_blocker_garselep1}
+    Sleep                                   1
+    Click Element                           ${text_login_movie}
+
+AgeRestrictionPage.Verify Show Age blocker
+    Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
+    Sleep                                   1
+    Wait Until Page Contains Element        ${frame_kalimat_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_kalimat_konten_dewasa_agerestriction}
+    Sleep                                   1
+    Click Element                           ${button_setuju_tutup_konten_dewasa}
+
+AgeRestrictionPage.Select NON18+ Movie Content
+    [Arguments]                             ${URL_MOVIE_DETAIL_NON18+}
+    Sleep                                   2
+    Go To                                   ${URL_MOVIE_DETAIL_NON18+}
+    Sleep                                   2
+
+AgeRestrictionPage.Verify Movie Detail
+    [Arguments]  ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
+    Sleep                               5
+    Location Should Be                  ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
+    Wait Until Element Is Visible       ${text_lanjutkan_menonton_agerestriction}
+    Page Should Contain Element         ${text_lanjutkan_menonton_agerestriction}
+    wait until element is visible       ${button_mulai_dari_awal_agerestriction}
+    Click Element                       ${button_mulai_dari_awal_agerestriction}
+    Sleep                               10
+
+AgeRestrictionPage.Play Content Movie
+    Page Should Contain Element             ${movie_button_play}
+    Wait Until Element Is Visible           ${movie_button_play}
+    Element Should Be Focused               ${movie_button_play}
+    Click Element                           ${movie_button_play}
+    Sleep                                   5
+
+AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
+    Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
+    Sleep                                   1
+    Click Element                           ${button_setuju_tutup_konten_dewasa}
+
+AgeRestrictionPage.Can't Play Button
+    Page Should Contain Element             ${button_play_cannot_action}
+    Wait Until Element Is Visible           ${button_play_cannot_action}
+    Click Element                           ${button_play_cannot_action}
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
+
+AgeRestrictionPage.using account didn't have DOB
+    [Arguments]                             ${URL_MOVIE_DETAIL_18+}
+    Sleep                                   1
+    Go To                                   ${URL_MOVIE_DETAIL_18+}
+    Page Should Contain Element             ${text_verifikasi_umur_agerestriction}
+    Capture Element Screenshot              ${text_verifikasi_umur_agerestriction}
+    Wait Until Element Is Visible           ${text_verifikasi_umur_agerestriction}
+    Sleep                                   1
+    Page Should Contain Element             ${text_kalimat_verifikasi_umur}
+    Capture Element Screenshot              ${text_kalimat_verifikasi_umur}
+    Wait Until Element Is Visible           ${text_kalimat_verifikasi_umur}
+
+AgeRestrictionPage.Verify Show Age blocker DOB
+    Wait Until Element Is Visible           ${label_tanggal_lahir_agerestriction}
+    Page Should Contain Element             ${label_tanggal_lahir_agerestriction}
+    Wait Until Element Is Visible           ${field_placeholder_tanggal_lahir_agerestriction}
+    Click Element                           ${field_placeholder_tanggal_lahir_agerestriction}
+
+AgeRestrictionPage.Click Button Tutup
+    Wait Until Element Is Visible           ${button_tutup_agerestriction}
+    Page Should Contain Element             ${button_tutup_agerestriction}
+    Click Element                           ${button_tutup_agerestriction}
