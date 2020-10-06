@@ -7,6 +7,7 @@ Resource            Configs.robot
 
 # Resource
 Resource            ../Resources/Accounts/ProfilePage.robot
+Resource            ../Resources/AgeRestriction/AgeRestrictionPage.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Data/Accounts.robot
 Resource            ../Resources/Hbo/HboContentRestriction.robot

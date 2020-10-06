@@ -3,14 +3,12 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 # MOLATV TESTER
-${ACCOUNT_HBO_EMAIL}                        t.hbo@mola.tv
-${ACCOUNT_HBO_PASSWORD}                     M0L4h8o!
 ${ACCOUNT_CINCIN_EMAIL}                     cincin.jati@mola.tv
 ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
 ${ACCOUNT_PUTRA_PASSWORD}                   admin123
 ${ACCOUNT_KAMAL_EMAIL}                      kamal.yasha@mola.tv
-${ACCOUNT_KAMAL_PASSWORD}                   12345678
+${ACCOUNT_KAMAL_PASSWORD}                   1234567890
 ${ACCOUNT_JERRY_EMAIL}                      jerry.hartono@mola.tv
 ${ACCOUNT_JERRY_PASSWORD}                   password
 ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
@@ -24,6 +22,14 @@ ${ACCOUNT_ZAKI_EMAIL}                       zaki@mola.tv
 ${ACCOUNT_ZAKI_PASSWORD}                    mola123
 ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            123123
+${ACCOUNT_WITHDOB_EMAIL}                    tiafathiahesty@gmail.com
+${ACCOUNT_WITHDOB_PASSWORD}                 12345678
+${ACCOUNT_WITHOUTDOB_EMAIL}                 tiafathiahesty1@gmail.com
+${ACCOUNT_WITHOUTDOB_PASSWORD}              12345678
+${ACCOUNT_WITHDOB101_EMAIL}                 jerry.hartono+101@mola.tv
+${ACCOUNT_WITHDOB101_PASSWORD}              111111
+${ACCOUNT_WITHOUTDOB102_EMAIL}              jerry.hartono+102@mola.tv
+${ACCOUNT_WITHOUTDOB102_PASSWORD}           111111
 
 # MOLATV SUPERMOLA
 ${ACCOUNT_SUPERMOLA1_EMAIL}                 supermola1@sapisuper.com
