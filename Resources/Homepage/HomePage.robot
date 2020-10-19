@@ -5,6 +5,8 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${logo_homepage_molatv}                 css=._1qzw_ > img[alt='logo Mola']
+${text_homepage_selected_menu}          css=.Trssw._2yKxK
+${menu_homepage_selected_menu}          css=._3lT3U
 ${menu_homepage_search}                 css=div:nth-of-type(1) > .SwWJf
 ${menu_homepage_home}                   css=._1GfoO > div:nth-of-type(2)
 ${menu_homepage_home_hover}             css=div:nth-of-type(2) > ._2yKxK
@@ -140,6 +142,7 @@ Open Inbox Page
 Open Search Page
     Wait Until Element Is Visible       ${menu_homepage_search}
     Click Element                       ${menu_homepage_search}
+    Mouse Over                          ${menu_homepage_movies}
 
 Open Matches Page
     Wait Until Element Is Visible       ${menu_homepage_matches}

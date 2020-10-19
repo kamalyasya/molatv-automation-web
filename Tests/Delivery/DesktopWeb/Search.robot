@@ -15,55 +15,55 @@ ${KEYWORD_SPACE}                                ${SPACE}
 ${KEYWORD_USD}                                  $$$
 
 *** Test Cases ***
-Delivery - Search: UI of the Search page
-    [Documentation]  UI layout of Search page
+TC001 UI of the Search page
+    [Documentation]  UI Verification from the search page
     [Tags]           Regression  Smoke
 
     HomePage.Open Search Page
     SearchPage.Verify UI Search Page
 
-Delivery - Search: Keyword predictions
-    [Documentation]  Keyword predictions
+TC002 Keyword predictions
+    [Documentation]  Verify Prediction keywords are displayed when entering one character in the search text box
     [Tags]           Regression  Smoke
 
     HomePage.Open Search Page
     SearchPage.Input Search Keyword             Go Back to
     SearchPage.Verify Keyword Predictions       go back to china
 
-Delivery - Search: Search by title
-    [Documentation]  Search by title
+TC004 Search by title
+    [Documentation]  Verify Search by title is shown by specific catalogue
     [Tags]           Regression  Smoke
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
-    Verify Search Result                        ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
+    SearchPage.Verify Search Result             ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
 
-Delivery - Search: Search by special characters ($$$)
-    [Documentation]  Search by special characters
+TC006 Search by special characters ($$$)
+    [Documentation]  Verify Search by special characters will not shown
     [Tags]           Regression
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${KEYWORD_USD}
     SearchPage.Verify No Result Found           ${KEYWORD_USD}
 
-Delivery - Search: Search by special characters (Space)
-    [Documentation]  Search by special characters
+TC006 Search by special characters (Space)
+    [Documentation]  Verify Search by special characters will not shown
     [Tags]           Regression
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${SPACE}
     SearchPage.Verify No Result Found           ${SPACE}
 
-Delivery - Search: No search results
-    [Documentation]  Shown No search results
+TC007 No search results
+    [Documentation]  Verify The message appears after a search with invalid keywords
     [Tags]           Regression  Smoke
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${KEYWORD_NO_RESULT}
     SearchPage.Verify No Result Found           ${KEYWORD_NO_RESULT}
 
-Delivery - Search: Navigate from search results to content details page
-    [Documentation]  Navigate from search results to content details page
+TC008 Navigate from search results to content details page
+    [Documentation]  Verify Navigate from the "Search Results" page to the content detail page
     [Tags]           Regression     Smoke
 
     HomePage.Open Search Page
@@ -71,6 +71,14 @@ Delivery - Search: Navigate from search results to content details page
     SearchPage.Verify Search Result                             ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
     SearchPage.Open Related Movie
     MovieDetailPage.Verify Movie Details Page Is Shown          ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
+
+TC010 Search Suggestion
+    [Documentation]  Verify the list of suggestion will appear while typing some keywords
+    [Tags]           Regression     Smoke
+
+    HomePage.Open Search Page
+    SearchPage.Input Search Keyword                             Go Back to
+    SearchPage.Verify Search Suggestion                         go back to china
 
 Delivery - Search: Keyword clearance
     [Documentation]  Search by special characters
