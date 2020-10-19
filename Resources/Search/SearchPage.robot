@@ -7,7 +7,7 @@ ${field_search_search}                          css=._2dD7w
 ${button_search_do_search}                      css=._2j-ks
 ${text_search_keyword_prediction}               css=._1cT7L
 ${text_search_popular_suggestions}              css=.CHm7J
-${text_search_title_recent_search}              xpath=//div[@innertext='Pencarian Terakhir']
+${text_search_title_recent_search}              css=._1nDIL > div:nth-of-type(1)
 ${text_search_result_recent_search}             css=._1cT7L
 ${image_search_search_result_1}                 css=.bannerImage
 ${text_search_search_result_1}                  css=.title
@@ -84,9 +84,9 @@ Verify Clear Keywords
 Verify Recent Search Is Shown
     [Arguments]    ${TEXT_RECENT_KEYWORD}
     Wait Until Element Is Visible               ${field_search_search}
-    Sleep                                       3
     Click Element                               ${field_search_search}
     Wait Until Element Is Visible               ${text_search_title_recent_search}
     Element Should Be Visible                   ${text_search_title_recent_search}
+    Element Text Should Be                      ${text_search_title_recent_search}          Pencarian Terakhir
     Wait Until Element Is Visible               ${text_search_result_recent_search}
     Element Should Be Visible                   ${text_search_result_recent_search}

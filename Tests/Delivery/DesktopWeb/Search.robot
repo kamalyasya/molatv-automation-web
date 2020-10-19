@@ -72,6 +72,17 @@ TC008 Navigate from search results to content details page
     SearchPage.Open Related Movie
     MovieDetailPage.Verify Movie Details Page Is Shown          ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
 
+TC009 Recent Search
+    [Documentation]  Verify Search results will be displayed below the search field
+    [Tags]           Regression     Smoke
+
+    HomePage.Open Search Page
+    SearchPage.Search Using Keyword                             garuda
+    SearchPage.Clear Keywords On Search Field
+    HomePage.Open Login Page
+    HomePage.Open Search Page
+    SearchPage.Verify Recent Search Is Shown                    garuda
+
 TC010 Search Suggestion
     [Documentation]  Verify the list of suggestion will appear while typing some keywords
     [Tags]           Regression     Smoke
