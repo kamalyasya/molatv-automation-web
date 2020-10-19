@@ -3,6 +3,7 @@ Library             SeleniumLibrary
 Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***
+${text_movie_detail_title_vod}          css=h1
 ${button_movies_categories}             css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
 ${login_blocker_garselep1}              link=login
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
@@ -222,8 +223,8 @@ Verify Video Metadata
 
 Verify Movie Details Page Is Shown
     [Arguments]     ${EXPECTED_TITLE_CONTENT}
-    Wait Until Element Is Visible       ${title_movie_detail}
-    Element Should Contain              ${title_movie_detail}               ${EXPECTED_TITLE_CONTENT}
+    Wait Until Element Is Visible       ${text_movie_detail_title_vod}
+    Element Should Contain              ${text_movie_detail_title_vod}               ${EXPECTED_TITLE_CONTENT}
 
 Pause And Resume Live Matches
     Click Element                       ${movie_pause_button}
