@@ -39,7 +39,7 @@ TC002 Watermark On Video Player
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     MovieDetailPage.Go To Movie Detail                          ${URL_MOVIE_DETAIL_Watermark}
-    AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    MovieDetailPage.Play Content From Movie Detail
     UserBanningPage.Verify Watermark in VOD
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69690_EMAIL}
     HomePage.Open Login Page
@@ -61,8 +61,7 @@ TC004 Check Watermark on Free Content Video using Account without package
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA6969_EMAIL}      ${ACCOUNT_SUPERMOLA6969_PASSWORD}
     MovieDetailPage.Go To Movie Detail                          ${URL_MOVIE_DETAIL_Watermark}
-#    MovieDetailPage.Play Content From Movie Detail
-    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    MovieDetailPage.Play Content From Movie Detail
     UserBanningPage.Verify Watermark in VOD
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA6969_EMAIL}
     HomePage.Open Login Page
@@ -107,9 +106,8 @@ TC008 Check Watermark on Premium Content Video using Account with package
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_18+}
     AgeRestrictionPage.Verify Show Age blocker
-    AgeRestrictionPage.Verify Movie Detail
+    AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_18+}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
 
@@ -120,8 +118,7 @@ TC009 Check on-demand fingerprint / watermark
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_Watermark}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
-    AgeRestrictionPage.Verify Movie Detail
+    AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
     UserBanningPage.Verify Watermark in VOD
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
