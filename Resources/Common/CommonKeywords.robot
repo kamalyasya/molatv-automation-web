@@ -20,4 +20,6 @@ Open Mola TV
     Run Keyword If      '${BROWSER}' == 'mychrome'              Open Mychrome Browser                       ${URL}
     ...    ELSE IF      '${BROWSER}' == 'myheadlesschrome'      Open Myheadlesschrome Browser               ${URL}
     ...    ELSE IF      '${BROWSER}' == 'chromemobile'          Open Chromemobile Browser                   ${URL}
+    ...    ELSE IF      '${BROWSER}' == 'myfirefox'             Open Myfirefox Browser                      ${URL}
+    ...    ELSE IF      '${BROWSER}' == 'myheadlessfirefox'     Open Myheadlessfirefox Browser              ${URL}
     ...    ELSE                                                 Open Normal Browser                         ${URL}
