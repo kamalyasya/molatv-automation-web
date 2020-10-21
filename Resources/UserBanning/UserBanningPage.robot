@@ -64,8 +64,8 @@ Click Lihat Paket Lainnya
     Sleep                                   2
 
 Verify In Subscription Package Page
-    Wait Until Element Is Visible           ${text_free_membership_user_banning}    1
-    Wait Until Page Contains Element        ${text_free_membership_user_banning}    1
-    Page Should Contain Element             ${text_free_membership_user_banning}    1
-    Element Should Be Visible               ${text_free_membership_user_banning}    1
+    Wait Until Element Is Visible           ${text_free_membership_user_banning}
+    Wait Until Page Contains Element        ${text_free_membership_user_banning}
+    Page Should Contain Element             ${text_free_membership_user_banning}
+    Element Should Be Visible               ${text_free_membership_user_banning}
     Click Element                           ${text_free_membership_user_banning}

@@ -123,8 +123,7 @@ TC009 Check on-demand fingerprint / watermark
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
-    MovieDetailPage.Play Content From Movie Detail
-#    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
