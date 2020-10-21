@@ -20,7 +20,7 @@ TC001 Access 18+ content without login
     [Tags]              Regression  Smoke
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials                  ${ACCOUNT_HBO_EMAIL}    ${ACCOUNT_HBO_PASSWORD}
+    SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker
 
 TC002 Access non 18+ content

@@ -9,6 +9,7 @@ ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
 ${ACCOUNT_PUTRA_PASSWORD}                   admin123
 ${ACCOUNT_KAMAL_EMAIL}                      kamal.yasha@mola.tv
 ${ACCOUNT_KAMAL_PASSWORD}                   1234567890
+${ACCOUNT_KAMAL_USERID}                     pwFSHwlYciO9cN8unZAvdZRWcTIKZf
 ${ACCOUNT_JERRY_EMAIL}                      jerry.hartono@mola.tv
 ${ACCOUNT_JERRY_PASSWORD}                   password
 ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
@@ -55,10 +56,20 @@ ${ACCOUNT_SUPERMOLA50_EMAIL}                supermola50@sapisuper.com
 ${ACCOUNT_SUPERMOLA50_PASSWORD}             sapisuper50
 ${ACCOUNT_SUPERMOLA69_EMAIL}                supermola69@sapisuper.com
 ${ACCOUNT_SUPERMOLA69_PASSWORD}             sapisuper69
+${ACCOUNT_SUPERMOLA690_EMAIL}               supermola690@sapisuper.com
+${ACCOUNT_SUPERMOLA690_PASSWORD}            sapisuper690
+${ACCOUNT_SUPERMOLA690_USERID}              molasuper690
 ${ACCOUNT_SUPERMOLA6969_EMAIL}              supermola6969@sapisuper.com
 ${ACCOUNT_SUPERMOLA6969_PASSWORD}           sapisuper6969
+${ACCOUNT_SUPERMOLA6969_USERID}             molasuper6969
 ${ACCOUNT_SUPERMOLA69690_EMAIL}             supermola69690@sapisuper.com
 ${ACCOUNT_SUPERMOLA69690_PASSWORD}          sapisuper69690
+${ACCOUNT_SUPERMOLA69690_USERID}            molasuper69690
+
+
+# BANNED ACCOUNTS
+${ACCOUNT_BANNED_EMAIL}                     supermola100@sapisuper.com
+${ACCOUNT_BANNED_PASSWORD}                  sapisuper100
 
 # GOOGLE ACCOUNTS
 ${ACCOUNT_GOOGLE_EMAIL}                     molatv.tester@gmail.com
