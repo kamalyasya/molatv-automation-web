@@ -7,3 +7,4 @@ Results/
 *.xml
 .pabotsuitenames
 Frameworks/Configs.robot
+geckodriver.log
