@@ -19,8 +19,8 @@ ${EXPECTED_URL_MOVIE_DETAIL_18+}                ${URL_MOVIE_DETAIL_18+}
 
 *** Test Cases ***
 TC001 Check Watermark and Banned Account Process
-    [Documentation]     User already have an account and sign in
-	[Tags]              Regression  Smoke
+    [Documentation]         User already have an account and sign in
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_BANNED_EMAIL}     ${ACCOUNT_BANNED_PASSWORD}
@@ -32,21 +32,21 @@ TC001 Check Watermark and Banned Account Process
     HomePage.Open Login Page
 
 TC002 Watermark On Video Player
-    [Documentation]     Check watermark on video player.
-    ...                 User already have an account and sign in.
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on video player.
+    ...                     User already have an account and sign in.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    MovieDetailPage.Go To Movie Detail                          ${URL_MOVIE_DETAIL_Watermark}
-    MovieDetailPage.Play Content From Movie Detail
-    UserBanningPage.Verify Watermark in VOD
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
+    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_SUPERMOLA69690_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69690_EMAIL}
     HomePage.Open Login Page
 
 TC003 Check Watermark on Free Content Video without Login
-    [Documentation]     Check watermark on free content video without Login
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on free content video without Login
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Without_Login}
@@ -54,71 +54,77 @@ TC003 Check Watermark on Free Content Video without Login
     UserBanningPage.Verify Login To Wacth
 
 TC004 Check Watermark on Free Content Video using Account without package
-    [Documentation]     Check watermark on free content video using account without package
-    ...                 Already login and account didn't have a package.
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on free content video using account without package
+    ...                     Already login and account didn't have a package.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA6969_EMAIL}      ${ACCOUNT_SUPERMOLA6969_PASSWORD}
-    MovieDetailPage.Go To Movie Detail                          ${URL_MOVIE_DETAIL_Watermark}
-    MovieDetailPage.Play Content From Movie Detail
-    UserBanningPage.Verify Watermark in VOD
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
+    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_SUPERMOLA6969_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA6969_EMAIL}
     HomePage.Open Login Page
 
 TC005 Check Watermark on Free Content Video using Account with package
-    [Documentation]     Check watermark on free content video using account with package
-    ...                 Already login and account have a package.
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on free content video using account with package
+    ...                     Already login and account have a package.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
 
 TC006 Check Watermark on Premium Content Video without Login
-    [Documentation]     Check watermark on premium content video without login
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on premium content video without login
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     UserBanningPage.login Untuk Menonton
+    UserBanningPage.Verify Login To Wacth
 
 TC007 Check Watermark on Premium Content Video using Account without package
-    [Documentation]     Check watermark on premium content video using account without package
-    ...                 Already login and account didn't have a package.
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on premium content video using account without package
+    ...                     Already login and account didn't have a package.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA690_EMAIL}       ${ACCOUNT_SUPERMOLA690_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     UserBanningPage.login Untuk Menonton
-    UserBanningPage.Pilih Paket
+    UserBanningPage.Verify Pilih Paket
+    UserBanningPage.Click Lihat Paket Lainnya
+    UserBanningPage.Verify In Subscription Package Page
 
 TC008 Check Watermark on Premium Content Video using Account with package
-    [Documentation]     Check watermark on premium content video using account with package
-    ...                 Already login and account have a package.
-	[Tags]              Regression  Smoke
+    [Documentation]         Check watermark on premium content video using account with package
+    ...                     Already login and account have a package.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
 
 TC009 Check on-demand fingerprint / watermark
-    [Documentation]  Shows up watermark at the moment.
-	[Tags]  Regression  Smoke
+    [Documentation]         Shows up watermark at the moment.
+	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
-    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_Watermark}
-    AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
-    UserBanningPage.Verify Watermark in VOD
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
+    MovieDetailPage.Play Content From Movie Detail
+#    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Login Page
