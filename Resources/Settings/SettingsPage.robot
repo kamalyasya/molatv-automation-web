@@ -69,17 +69,6 @@ ${text_konten_dewasa_setuju_settings}                   css=._3UpwF
 
 
 *** Keywords ***
-Login Using Credentials
-    [Arguments]     ${ACCOUNT_SUPERMOLA69_EMAIL}  ${ACCOUNT_SUPERMOLA69_PASSWORD}
-    Wait Until Element Is Visible       ${field_login_email}
-    sleep                               10
-    Input Text                          ${field_login_email}            ${ACCOUNT_KAMAL_EMAIL}
-    sleep                               10
-    Input Text                          ${field_login_password}         ${ACCOUNT_KAMAL_PASSWORD}
-    sleep                               10
-    Click Element                       ${button_login_login}
-    sleep                               10
-
 Show Status Berlangganan
     Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
