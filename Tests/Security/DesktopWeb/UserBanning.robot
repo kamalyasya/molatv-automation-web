@@ -28,8 +28,6 @@ TC001 Check Watermark and Banned Account Process
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_BANNED}
     MovieDetailPage.Play Content From Movie Detail
     UserBanningPage.Verify banned account in VOD
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_BANNED_EMAIL}
-    HomePage.Open Login Page
 
 TC002 Watermark On Video Player
     [Documentation]         Check watermark on video player.
@@ -41,8 +39,6 @@ TC002 Watermark On Video Player
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_SUPERMOLA69690_USERID}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69690_EMAIL}
-    HomePage.Open Login Page
 
 TC003 Check Watermark on Free Content Video without Login
     [Documentation]         Check watermark on free content video without Login
@@ -51,7 +47,7 @@ TC003 Check Watermark on Free Content Video without Login
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Without_Login}
     UserBanningPage.Login Untuk Menonton
-    UserBanningPage.Verify Login To Wacth
+    UserBanningPage.Verify Login To Watch
 
 TC004 Check Watermark on Free Content Video using Account without package
     [Documentation]         Check watermark on free content video using account without package
@@ -63,8 +59,6 @@ TC004 Check Watermark on Free Content Video using Account without package
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_SUPERMOLA6969_USERID}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA6969_EMAIL}
-    HomePage.Open Login Page
 
 TC005 Check Watermark on Free Content Video using Account with package
     [Documentation]         Check watermark on free content video using account with package
@@ -77,8 +71,6 @@ TC005 Check Watermark on Free Content Video using Account with package
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
-    HomePage.Open Login Page
 
 TC006 Check Watermark on Premium Content Video without Login
     [Documentation]         Check watermark on premium content video without login
@@ -87,7 +79,7 @@ TC006 Check Watermark on Premium Content Video without Login
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     UserBanningPage.login Untuk Menonton
-    UserBanningPage.Verify Login To Wacth
+    UserBanningPage.Verify Login To Watch
 
 TC007 Check Watermark on Premium Content Video using Account without package
     [Documentation]         Check watermark on premium content video using account without package
@@ -113,8 +105,6 @@ TC008 Check Watermark on Premium Content Video using Account with package
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_18+}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
-    HomePage.Open Login Page
 
 TC009 Check on-demand fingerprint / watermark
     [Documentation]         Shows up watermark at the moment.
@@ -125,5 +115,3 @@ TC009 Check on-demand fingerprint / watermark
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_Watermark}
     UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
-    HomePage.Open Login Page

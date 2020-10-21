@@ -23,18 +23,17 @@ Verify banned account in VOD
     Page Should Contain Element             ${text_process_banned_the_account}
 
 Verify Watermark in VOD
-    [Arguments]     ${ACCOUNT_SUPERMOLA69690_USERID}
+    [Arguments]     ${TEXT_ACCOUNT_USERID}
     Wait Until Element Is Visible           ${frame_video_user_banning}
     Wait Until Page Contains Element        ${frame_video_user_banning}
     Page Should Contain Element             ${frame_video_user_banning}
     Element Should Be Visible               ${frame_video_user_banning}
     Sleep                                   2
-    Get Text                                ${text_Watermark_account_user_banning}
-    Wait Until Element Is Visible           ${text_Watermark_account_user_banning}
+    Wait Until Element Is Visible           ${text_Watermark_account_user_banning}      300
     Wait Until Page Contains Element        ${text_Watermark_account_user_banning}
     Page Should Contain Element             ${text_Watermark_account_user_banning}
     Element Should Be Visible               ${text_Watermark_account_user_banning}
-    Element Text Should Be                  ${text_Watermark_account_user_banning}      ${ACCOUNT_SUPERMOLA69690_USERID}
+    Element Text Should Be                  ${text_Watermark_account_user_banning}      ${TEXT_ACCOUNT_USERID}
     Sleep                                   15
 
 Login Untuk Menonton
@@ -44,10 +43,10 @@ Login Untuk Menonton
     Click Element                           ${text_login_untuk_menonton_user_banning}
     Sleep                                   5
 
-Verify Login To Wacth
-    Wait Until Element Is Visible           ${frame_login_to_wacth_movie_user_banning}  2
-    Wait Until Page Contains Element        ${frame_login_to_wacth_movie_user_banning}  2
-    Page Should Contain Element             ${frame_login_to_wacth_movie_user_banning}  2
+Verify Login To Watch
+    Wait Until Element Is Visible           ${frame_login_to_wacth_movie_user_banning}
+    Wait Until Page Contains Element        ${frame_login_to_wacth_movie_user_banning}
+    Page Should Contain Element             ${frame_login_to_wacth_movie_user_banning}
 
 Verify Pilih Paket
     Wait Until Element Is Visible           ${frame_pilih_paket_berikut_untuk_menikmati_tayangan}   5
