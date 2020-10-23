@@ -39,12 +39,12 @@ ${button_homepage_finish_inbox_onboarding}      id=next
 ${rail_banner_matches_page}                     css=.css-11xe1ut.css-nch242.slider  .slider-list
 ${matches_date_filter_toggle}                   css=._2CCM2
 ${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
-${view_all_match_card}                          css=._3mEMU > a
+${view_all_match_card}                          css=div:nth-of-type(2) > .DgfMr > ._3mEMU > a
 ${page_match_view_all}                          css=._2dFXJ
 
 ${matches_all_competition}                      css=div#allCompetition
 ${matches_footer}                               css=._32NSr
-${matches_status_match}                         css=.k1LdU
+${matches_status_match}                         css=p[class$='k1LdU']
 ${matches_slider_frame}                         css=div:nth-of-type(3) > div > .DgfMr
 ${matches_page_hover}                           css=#match-wrapper
 ${matches_calendar}                             css=ul > div:nth-of-type(14)
@@ -52,14 +52,14 @@ ${list_calendar}                                css=div#list__date
 ${list_next_calendar}                           css=div:nth-of-type(12) > ._13AG-.calendar_item
 ${expected_title_movie_detail}                  css=h1
 
-${dropdown_all_competition}                     css=._1UnU5
+${dropdown_all_competition}                     css=._30NbM
 ${toggle_on_of_all_competition}                 css=._33UoQ ._1VH-8._334Zm
 ${button_apply_all_competition}                 css=._3NXCX
-${page_all_competition}                         xpath=//div[@id='match-wrapper']/div[3]/div
+${page_all_competition}                         css=div#match-wrapper > div:nth-of-type(2)
 ${checkbox_1}                                   css=.checkbox0
 ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3.checkbox0
 
-${currently_playing}                            xpath=/html//div[@id='match-wrapper']/div[3]/div/div[@class='DgfMr']//h3[.='Currently Playing']
+${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
 *** Keywords ***
 Verify The App Navigates To Home Page
@@ -169,7 +169,9 @@ Verify all the matches of categories will shown up from the beginning time
 Choose any upcoming match
     Wait Until Element Is Visible       ${matches_calendar}    30
     Mouse Over                          ${matches_page_hover}
-    Scroll Element Into View            ${matches_footer}
+    Sleep                               2
+    Scroll Element Into View            ${matches_status_match}
+    Sleep                               3
 
 Check Upcoming Matches
     Element Should Be Visible           ${matches_status_match}
@@ -179,7 +181,7 @@ Check Upcoming Matches
 Click Next Day
     Scroll Element Into View            ${list_calendar}
     Click Element                       ${list_next_calendar}
-    Sleep                               2
+    Sleep                               3
     Check Upcoming Matches
 
 Tap Drop Down Filter Competition
@@ -210,4 +212,5 @@ Verify Filter Not Saved
 Choose any live match
     Wait Until Element Is Visible       ${matches_calendar}    30
     Mouse Over                          ${matches_page_hover}
-    Scroll Element Into View            ${currently_playing}
+    Sleep                               2
+    Scroll Element Into View            ${view_all_match_card}
