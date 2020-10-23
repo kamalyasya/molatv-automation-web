@@ -56,7 +56,7 @@ Verify User Is Redirected Back To The Same Movie Detail Page Automatically
     Sleep                               1
     Wait Until Element Is Not Visible   ${field_login_email}
     Location Should Be                  ${EXPECTED_URL_SAMPLE_MOVIE}
-    Element Should Not Be Visible       ${movie_detail_login_blocker}
+    Element Text Should Not Be          ${movie_detail_login_blocker}               Login untuk menonton
 
 Click Button Google Login
     Wait Until Element Is Visible       ${button_login_google}
