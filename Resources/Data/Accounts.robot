@@ -16,7 +16,7 @@ ${ACCOUNT_MIA_EMAIL}                        testmiaakun1@gmail.com
 ${ACCOUNT_MIA_VALID_PASSWORD}               admin1234
 ${ACCOUNT_MIA_WRONG_PASSWORD}               123123123
 ${ACCOUNT_MIA2_EMAIL}                       yeremia.ayunda@mola.tv
-${ACCOUNT_MIA2_PASSWORD}                    admin1234
+${ACCOUNT_MIA2_PASSWORD}                    111111
 ${ACCOUNT_GANGGA_EMAIL}                     reza.gangga@mola.tv
 ${ACCOUNT_GANGGA_PASSWORD}                  Password01
 ${ACCOUNT_ZAKI_EMAIL}                       zaki@mola.tv
@@ -79,6 +79,24 @@ ${ACCOUNT_GOOGLE_PASSWORD}                  molajaya
 ${ACCOUNT_FACEBOOK_EMAIL}                   cincin.jati+fb@tokopedia.com
 ${ACCOUNT_FACEBOOK_PASSWORD}                tokopedia
 
-# HBO ACCOUNTS
+# HBO SHARING ACCOUNTS
 ${ACCOUNTS_HBO_EMAIL}                       t.hbo@mola.tv
 ${ACCOUNTS_HBO_PASSWORD}                    M0L4h8o!
+${ACCOUNTS_MOLA_TESTING14_EMAIL}            molatesting14@gmail.com
+${ACCOUNTS_MOLA_TESTING14_PASSWORD}         12345678test
+
+# HBO TE ACCOUNTS
+${ACCOUNTS_MOLA_TESTING15_EMAIL}            molatesting15@gmail.com
+${ACCOUNTS_MOLA_TESTING15_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING16_EMAIL}            molatesting16@gmail.com
+${ACCOUNTS_MOLA_TESTING16_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING17_EMAIL}            molatesting17@gmail.com
+${ACCOUNTS_MOLA_TESTING17_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING18_EMAIL}            molatesting18@gmail.com
+${ACCOUNTS_MOLA_TESTING18_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING19_EMAIL}            molatesting19@gmail.com
+${ACCOUNTS_MOLA_TESTING19_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING20_EMAIL}            molatesting20@gmail.com
+${ACCOUNTS_MOLA_TESTING20_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING21_EMAIL}            molatesting21@gmail.com
+${ACCOUNTS_MOLA_TESTING21_PASSWORD}         12345678test

@@ -8,11 +8,18 @@ Test Teardown                   CommonKeywords.End Testing
 *** Variables ***
 ${URL}                                  https://mola.tv
 ${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
+${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
+${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${TITLE_MOVIE}                          Apocalypto
-${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd92288792
+${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
+${URL_MOVIE_DETAIL3}                    https://mola.tv/watch?v=vd61951986
+${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
+${EXPECTED_LOCATION_NEXT_EPISODE}       https://mola.tv/watch?v=vd71200807&autoplay=1
+${EXPECTED_TITLE_SAME_EPISODES}         Dr. Panda Season 1 Episode 2: A New Chicken Shed for Moo
+${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
 ${EXPECTED_TEXT_MENU_HOME}              Home
-${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
+${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
 ${EXPECTED_CHANGE_QUALITY_576}          576
 ${EXPECTED_CHANGE_QUALITY_270}          270
 ${EXPECTED_CHANGE_QUALITY_360}          360
@@ -20,109 +27,245 @@ ${EXPECTED_CHANGE_QUALITY_720}          720
 ${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
 
 *** Test Cases ***
-Delivery - Vod: Match detail
-    [Documentation]     Verify the details page of a Live/Replay/Highlights match
+Delivery - Video Player: TC001 Movie Details page
+    [Documentation]     Verify the content details page of a movie
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL2}
 
-Delivery - Vod: Video playback without sign in
-    [Documentation]     Select an asset for video playback (Live/Reply/Movie)
+Delivery - Video Player: TC002 Play the content
+    [Documentation]     Verify the VOD can be played
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Select an asset for video playback (Live/Reply/Movie)      ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify login blocker if not sign in before
+    MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials         ${ACCOUNT_PUTRA_EMAIL}          ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
 
-Delivery - Vod: Buffering
-    [Documentation]  Buffering when movie played
-    [Tags]           Regression     Smoke
+Delivery - Video Player: TC003 Trailer Asset
+    [Documentation]     Verify the VOD Trailer can be played
+    [Tags]              Regression  Smoke
 
-    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Go To Movie Detail                               ${URL_TRAILER_DETAIL}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_TRAILER_DETAIL}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+
+Delivery - Video Player: TC004 Default Controls
+    [Documentation]     Verify the player is using the default control
+    [Tags]              Regression  Smoke
+
+    MovieDetailPage.Go To Movie Detail                               ${URL_TRAILER_DETAIL}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify Default Control
+
+Delivery - Video Player: TC005 Buffering
+    [Documentation]  Verify there is a loading indicator when buffering
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail         ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Forward Progress Bar
     MovieDetailPage.Verify Loading Indicator
 
-Delivery - Vod: Playback Control
-    [Documentation]  Playback control movie
-    [Tags]           Regression     Smoke
+Delivery - Video Player: TC006 Fullscreen Mode
+    [Documentation]  Verify the content can be played in fullscreen mode
+    [Tags]           Regression   Smoke
 
-    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Mouse Hover To Movie
-    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
-    MovieDetailPage.Auto Play Next Episode
-
-Delivery - Vod: Quality Control
-    [Documentation]  Change Quality Control
-    [Tags]           Regression     Smoke
-
-    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}                  ${ACCOUNT_KAMAL_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Change Video Quality
-    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
-
-Delivery - Vod: Closed Caption (Subtitles) Control
-    [Documentation]  Check about closed caption from video player
-    [Tags]           Regression     Smoke
-
-    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_MIA2_EMAIL}                   ${ACCOUNT_MIA2_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                  ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Verify Content not Supporting Closed Caption
-    MovieDetailPage.Play a content which is not supporting closed caption                               ${URL_MOVIE_DETAIL2}
-    MovieDetailPage.Verify Close Caption Icon
-    MovieDetailPage.Play a content which is supporting closed caption
-    MovieDetailPage.Verify Subtitle
-    MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
-    MovieDetailPage.Verify Closed Caption is Not Shown
-
-Delivery - Vod: Volume Control
-     [Documentation]  Change volume during video playback
-     [Tags]           Regression    Smoke
-
-    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}                     ${ACCOUNT_CINCIN_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Change volume during video playback
-
-Delivery - Vod: Fullscreen mode
-    [Documentation]  Video player can be played in minimize and maximize
-    [Tags]           Regression     Smoke
-
-    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}                      ${ACCOUNT_PUTRA_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
 
-Delivery - Vod: Video Metadata
-    [Documentation]  Shown player content from VOD
-    [Tags]           Regression     Smoke
+Delivery - Video Player: TC007 Playback Control
+    [Documentation]  Playback control movie
+    [Tags]           Regression   Smoke
 
-    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}                      ${ACCOUNT_KAMAL_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Play a content in fullscreen mode
-    MovieDetailPage.Verify fullscreen icon
-    MovieDetailPage.Verify Video Metadata
+    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                  ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Mouse Hover To Movie
+    MovieDetailPage.Verify Pause And Resume Live Matches
+
+Delivery - Video Player: TC008 Playback - progress bar
+    [Documentation]  Verify the progress bar and elapsed time are updating when playing a content
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}                  ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Mouse Hover To Movie
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+
+Delivery - Video Player: TC009 Playback - Forward/Backward
+    [Documentation]  Verify the content resumes after fast forwarded or backward
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Mouse Hover To Movie
+    MovieDetailPage.Click button Forward/backward movie
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+
+Delivery - Video Player: TC010 Auto Next Video - Same Categories
+    [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                 ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Click Button Play Next Auto Play
+    MovieDetailPage.Verify Categories Movie
+
+Delivery - Video Player: TC011 Auto Next Video - Same Categories
+    [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}                  ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify Next Episode Same Category As VOD    ${EXPECTED_TITLE_SAME_EPISODES}
+
+Delivery - Video Player: TC012 Auto Next Video - Countdown
+    [Documentation]  Verify AutoPlay Next Episode with countdown to 0
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify Countdown Auto Play      ${EXPECTED_LOCATION_NEXT_EPISODE}
+
+Delivery - Video Player: TC013 Auto Next Video - Skip
+    [Documentation]  verify the pop up next video will disappear after click skip
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                  ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Click Button Skip Auto Play
+    MovieDetailPage.Verify Button Replay Auto Play
+
+Delivery - Video Player: TC014 Auto Next Video button in Player
+    [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}                  ${ACCOUNT_CINCIN_PASSWORD}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Next Video Beside Volume
+    MovieDetailPage.Verify Categories Movie
+
+Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
+    [Documentation]  Verify the pop up next video will disappear after scrub progress bar
+    [Tags]           Regression   Smoke
+
+    MovieDetailPage.Go To Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Verify Direct To Login Page
+    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Click Button Skip Auto Play
+    MovieDetailPage.Verify Button Replay Auto Play
+    MovieDetailPage.Mouse Hover To Movie
+    MovieDetailPage.Click Button Play Default Control
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify No Autoplay Vanished
+
+#Delivery - Vod: Quality Control
+#    [Documentation]  Change Quality Control
+#    [Tags]           Regression
+#
+#    MovieDetailPage.Login from movie detail         ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}                  ${ACCOUNT_KAMAL_PASSWORD}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Change Video Quality
+#    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}      ${EXPECTED_CHANGE_QUALITY_AUTO}
+#
+#Delivery - Vod: Closed Caption (Subtitles) Control
+#    [Documentation]  Check about closed caption from video player
+#    [Tags]           Regression
+#
+#    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials                          ${ACCOUNT_MIA2_EMAIL}                   ${ACCOUNT_MIA2_PASSWORD}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                  ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Verify Content not Supporting Closed Caption
+#    MovieDetailPage.Play a content which is not supporting closed caption                               ${URL_MOVIE_DETAIL2}
+#    MovieDetailPage.Verify Close Caption Icon
+#    MovieDetailPage.Play a content which is supporting closed caption
+#    MovieDetailPage.Verify Subtitle
+#    MovieDetailPage.No closed caption is shown when the 'Closed Caption' is off
+#    MovieDetailPage.Verify Closed Caption is Not Shown
+
+#Delivery - Vod: Volume Control
+#     [Documentation]  Change volume during video playback
+#     [Tags]           Regression
+#
+#    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}                     ${ACCOUNT_CINCIN_PASSWORD}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Change volume during video playback
+#
+
+#Delivery - Vod: Video Metadata
+#    [Documentation]  Shown player content from VOD
+#    [Tags]           Regression
+#
+#    MovieDetailPage.Login from movie detail                     ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}                      ${ACCOUNT_KAMAL_PASSWORD}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Play a content in fullscreen mode
+#    MovieDetailPage.Verify fullscreen icon
+#    MovieDetailPage.Verify Video Metadata
