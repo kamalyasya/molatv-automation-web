@@ -19,7 +19,7 @@ ${movie_detail_duration}                css=.duration
 ${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
 ${movie_pause_button}                   css=.css-1nkv7aa.pauseIcon
 
-${movie_mouse_over}                     css=.css-q60n54
+${movie_mouse_over}                     css=div#video-child > .css-q60n54
 ${movie_quality_control}                css=div#vpcc-quality
 ${movie_change_quality}                 css=.quality_popup
 ${movie_quality_list_576}               css=div#vpcc-quality > div > div:nth-of-type(3)
@@ -36,7 +36,7 @@ ${autoplay_button_skip}                 css=.close
 ${close_caption}                        css=div#vpcc-subtitle
 ${subtitle_title}                       css=.subtitle_title
 ${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
-${subtitle_list_off}                    css=.subtitle_popup .subtitle_list:nth-of-type(3)
+${subtitle_list_off}                    xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
 ${movie2_play_button}                   css=.css-xvdnxx.playIcon
 ${movie_volume_bar}                     css=input#vpcc-volume
@@ -46,7 +46,7 @@ ${button_play_player_control}           css=.css-1nkv7aa.playIcon
 
 ${expected_buffering}                   css=code
 ${expected_close_caption_icon}          css=div#vpcc-subtitle
-${expected_subtitle_on_screen}          css=.css-du9w46
+${expected_subtitle_on_screen}          css=[class='hide css-1okjqaq']
 ${expected_volume_bar}                  xpath=//*[@id="vpcc-volume" and @value="0.49"]
 ${expected_fullscreen_icon}             css=#vpcc-fullscreen .withTooltip
 ${expected_pleyer_control_hide}         css=div#video-child > .css-zv9wgj.hide
@@ -73,6 +73,8 @@ ${button_next_video_beside_volume}      css=.css-1nkv7aa.upcommingIcon
 ${expected_title_same_episode}          css=.upc-video-title
 ${expected_countdown_autoplay}          link=Play next movie in 3
 ${expected_autoplay_movie}              css=.container
+
+${button_close_login_movie_detail}      css=._3Pjgd
 
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
@@ -127,12 +129,11 @@ Play Content Video Or Play Video From Begining
 Forward Progress Bar
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
+    Click Element                       ${button_forward_movie_detail}
 
 Verify Loading Indicator
     Mouse Over                          ${movie_mouse_over}
-    Wait Until Element Is Visible       ${expected_buffering}
     Element Should Be Visible           ${expected_buffering}
-    Capture Element Screenshot          ${expected_buffering}
     sleep                               3
 
 Mouse Hover To Movie
@@ -207,29 +208,34 @@ Play a content which is supporting closed caption
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${subtitle_list_Indonesia}
 
-Verify Subtitle
+Verify Subtitle On Screen
     Wait Until Element Is Visible       ${expected_subtitle_on_screen}
-    Page Should Contain Element         ${expected_subtitle_on_screen}
+    Element Should Be Visible           ${expected_subtitle_on_screen}
     Capture Element Screenshot          ${expected_subtitle_on_screen}
 
-No closed caption is shown when the 'Closed Caption' is off
+Choose Closed Caption off
     Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${close_caption}
+    Wait Until Element Is Visible       ${subtitle_list_off}
     Click Element                       ${subtitle_list_off}
     Sleep                               5
 
 Verify Closed Caption is Not Shown
     Page Should Not Contain Element     ${expected_subtitle_on_screen}
 
-Change volume during video playback
+Verify Change volume during video playback
     Mouse Over                          ${movie_mouse_over}
-    Click Element                       ${movie_volume_bar}
     Sleep                               2
     Element Should Be Visible           ${expected_volume}
+    Capture Element Screenshot          ${expected_volume}
     Click Element                       ${volume_button}
     Sleep                               2
     Element Should Be Visible           ${volume_button}
+    Capture Element Screenshot          ${expected_volume}
 
 Play a content in fullscreen mode
+    Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_fullscreen}
     Mouse Over                          ${button_fullscreen}
@@ -241,9 +247,9 @@ Verify fullscreen icon
 
 Verify Video Metadata
     Sleep                               10
-    Page Should Contain Element         ${expected_pleyer_control_hide}
+    Element Should Not Be Visible       ${expected_player_control_unhide}
     Mouse Over                          ${movie_mouse_over}
-    Page Should Contain Element         ${expected_player_control_unhide}
+    Element Should Be Visible           ${expected_player_control_unhide}
 
 Verify Movie Details Page Is Shown
     [Arguments]     ${EXPECTED_TITLE_CONTENT}
@@ -341,14 +347,24 @@ Seek bar Volume
     Mouse Over                          ${movie_mouse_over}
     Sleep                               2
 
-    # Get Element Size Seek Volume
+    # Get Element Size Seek Volume Down
     ${width}	${height} =   Get Element Size            ${button_seek_volume}
-    ${result} =   Evaluate                    (${width}/2) - 5
+    ${result} =   Evaluate                    (${width}/2) - 15
     Drag And Drop By Offset     ${button_seek_volume}       ${result}         0
 
     # Capture To Verify
     Mouse Over                          ${movie_mouse_over}
-    Capture Element Screenshot          ${expected_player_control_unhide}
+    Capture Element Screenshot          ${expected_volume}
+    sleep                               2
+
+    # Get Element Size Seek Volume Up
+    ${width}	${height} =   Get Element Size            ${button_seek_volume}
+    ${result} =   Evaluate                    (${width}/2)
+    Drag And Drop By Offset     ${button_seek_volume}       ${result}         0
+
+    # Capture To Verify
+    Mouse Over                          ${movie_mouse_over}
+    Capture Element Screenshot          ${expected_volume}
 
 Verify Next Episode Same Category As VOD
     [Arguments]     ${EXPECTED_TITLE_SAME_EPISODES}
@@ -380,3 +396,11 @@ Click Button Next Video Beside Volume
     Mouse Over                           ${movie_mouse_over}
     Wait Until Element Is Visible        ${button_next_video_beside_volume}
     Click Element                        ${button_next_video_beside_volume}
+
+Verify Message Prompt To Sign In
+    [Arguments]     ${URL}
+    Wait Until Element Is Visible       ${movie_detail_login_blocker}
+    Element Should Be Visible           ${movie_detail_login_blocker}
+    Click Element                       ${movie_detail_login_blocker}
+    Click Element                       ${button_close_login_movie_detail}
+    Verify Is Redirected Back To The Same Movie Detail      ${URL}
