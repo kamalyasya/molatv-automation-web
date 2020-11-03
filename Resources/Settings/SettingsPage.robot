@@ -26,12 +26,12 @@ ${text_ubah_akun_settings}                              css=._2Ctc-
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
 ${button_keluar_settings}                               css=._3qxwB
-${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(3)
+${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_ubah_password_settings}                          css=._3XA-Q > div:nth-of-type(1)
 ${field_masukan_sandi_sekarang_settings}                css=input#currentPassword
-${label_view_password1}                                  css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
-${label_view_password2}                                  css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
-${label_view_password3}                                  css=div:nth-of-type(4) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password1}                                 css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password2}                                 css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password3}                                 css=div:nth-of-type(4) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
 ${field_masukkan_sandi_baru_settings}                   css=input#password
 ${field_masukkan_ulang_sandi_baru_settings}             css=input#confirmPassword
 ${button_simpan_password_disabled_seeting}              css=._1mcYA._3C-S2.nA5CF
@@ -41,7 +41,7 @@ ${button_ubah_password_settings}                        css=._1xbSc
 ${text_ubah_password_salah_settings}                    css=._2Ctc-
 ${text_konfirmasi_password_salah_settings}              css=.css-e2n7zw
 ${field_masukkan_same_sandi_baru_settings}              css-=input#password
-${label_menu_langganan}                                 css=._16YQ- > div:nth-of-type(4)
+${label_menu_langganan}                                 css=._16YQ- > div:nth-of-type(5)
 ${text_package_user_use}                                css=h1
 ${text_package_status}                                  css=._3rG-7
 ${text_package_expired_date}                            css=.dAXnq > p
@@ -90,6 +90,8 @@ The Ubah button is shown under user info
     Click Element                       ${button_batal_ubah_profil_settings}
 
 Select User icon
+    Wait Until Element Is Visible                   ${menu_homepage_accounts}
+    Element Should Be Visible                       ${menu_homepage_accounts}
     Click Element                                   ${menu_homepage_accounts}
     Sleep                                           5
 
@@ -191,7 +193,7 @@ Input wrong Old Password
 
 User Unsuccessfully Ubah Password
     Wait Until Element Is Visible                   ${text_ubah_password_salah_settings}
-    Element Text Should Be                          ${text_ubah_password_salah_settings}           Password Anda salah
+    Element Text Should Be                          ${text_ubah_password_salah_settings}           Password lama anda salah
     sleep                                           10
 
 Input different case at New Password and Password Confirmation
@@ -288,9 +290,12 @@ Choose Non-DRM Playback
     sleep                                           2
 
 Choose DRM Playback
+    Wait Until Element Is Visible                   ${test_video_playback_drm_settings}
     Click Element                                   ${test_video_playback_drm_settings}
+    Wait Until Element Is Visible                   ${text_konten_dewasa_setuju_settings}
     Click Element                                   ${text_konten_dewasa_setuju_settings}
     sleep                                           3
-    wait until element is visible                   ${play_movies_non_drm_settings}
-    Click Element                                   ${play_movies_non_drm_settings}
-    sleep                                           30
+#
+#    wait until element is visible                   ${play_movies_non_drm_settings}
+#    Click Element                                   ${play_movies_non_drm_settings}
+#    sleep                                           30

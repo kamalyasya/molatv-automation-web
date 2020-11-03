@@ -17,9 +17,9 @@ ${BULAN}                            January
 ${TAHUN}                            2000
 ${TANGGAL}                          8
 
-${EMAIL_REGISTERED1}                dyah.paramitha@mola.tv
+${EMAIL_REGISTERED1}                kamalputriandini@mola.tv
 ${PASSWORD_REGISTERED1}             1234567890
-${PHONE_REGISTERED1}                6281297181234
+${PHONE_REGISTERED1}                62812971234567
 
 ${EMAIL_REGISTERED2}                putri.nuradibah@mola.tv
 ${PASSWORD_REGISTERED2}             0987654321
@@ -47,8 +47,7 @@ TC001 Registration with email and password
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
-    RegistrationPage.User Successfully Register
-
+    RegistrationPage.Verify Masukkan Kode Verifikasi Page
 
 #TC002 Input OTP number after Registration process
 #    [Documentation]         Already go through registration process
@@ -56,13 +55,16 @@ TC001 Registration with email and password
 #
 #    Reason Can't Automated ?        Cause , Test Automation Can Not Handle OTP (Random Number)
 
-
 TC003 Input wrong OTP number after Registration process
     [Documentation]         Input wrong OTP number at registration flow.
     [Tags]                  Regression  Smoke
+    ${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
+    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
@@ -72,9 +74,13 @@ TC004 Resend OTP number code
     [Documentation]                 Click Kirim Ulang to get the OTP number code
     ...                             User already finish input all the field at Register page.
     [Tags]                          Regression  Smoke
+    ${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
+    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}    ${PHONE_REGISTERED2}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
     RegistrationPage.Click Kirim Ulang
     RegistrationPage.Verify User Kode verifikasi terkirim
@@ -117,7 +123,7 @@ TC008 Registration from special assets
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
-    RegistrationPage.User Successfully Register
+    RegistrationPage.Verify Masukkan Kode Verifikasi Page
 
 TC009 Registration from Beli Paket Page
     [Documentation]                 User is able to register their email and password from the website.
@@ -133,4 +139,4 @@ TC009 Registration from Beli Paket Page
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
     RegistrationPage.Click Register Button
-    RegistrationPage.User Successfully Register
+    RegistrationPage.Verify Masukkan Kode Verifikasi Page
