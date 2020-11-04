@@ -12,8 +12,8 @@ ${URL}				                    https://mola.tv/accounts/login
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
 ${EXPECTED_TITLE_RESET_PASSWORD}        Masukan Kode Verifikasi
-${EXPECTED_TEXT_INVALID_TOKEN}          INVALID_OTP
-${EXPECTED_TEXT_INVALID_TOKEN2}         Kode verifikasi salah
+${EXPECTED_TEXT_INVALID_TOKEN}          Kode verifikasi tidak sesuai
+${EXPECTED_TEXT_INVALID_TOKEN2}         INVALID_OTP
 ${EXPECTED_TEXT_MENU_HOME}              Home
 ${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
 ${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
