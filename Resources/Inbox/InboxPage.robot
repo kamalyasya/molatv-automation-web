@@ -41,9 +41,9 @@ ${text_inbox_title_empty_message}                   css=.title
 ${text_inbox_text_empty_message}                    css=.text
 ${button_inbox_muat_lebih}                          css=.button_load_more
 ${text_inbox_date_last_message}                     css=div:nth-of-type(12) > a  small
-${button_inbox_detail_back}                         css=.inbox--back_button
-${text_inbox_detail_title_message}                  css=.inbox--title
-${text_inbox_detail_content_message}                css=.inbox--description
+${button_inbox_detail_back}                         css=.inbox__back_button
+${text_inbox_detail_title_message}                  css=.inbox__title
+${text_inbox_detail_content_message}                css=.inbox__description
 
 ${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}   Filter per Kategori
 ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}           Sort By
