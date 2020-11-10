@@ -107,6 +107,7 @@ Button Simpan
     Click Element                                   ${button_simpan_settings}
 
 User Successfully Ubah
+    Wait Until Element Is Visible                   ${text_ubah_akun_settings}
     Element Text Should Be                          ${text_ubah_akun_settings}           Update profil berhasil
 
 Make changes to default value
@@ -274,10 +275,10 @@ Click Internet Speed Test
     Wait Until Element Is Visible                   ${text_logo_title_mola_speed_pengaturan_settings}
     Wait Until Element Is Visible                   ${button_reload_mola_speed_pengaturan_settings}         30
     Wait Until Location Contains                    ${URL_mola_speed}
-    Sleep                                           10
-    Page Should Contain Element                     ${speed_ping_mxs01_vod}
-    Sleep                                           10
-    Page Should Contain Element                     ${speed_ping_mola02_live}
+    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 30
+    Element Should Be Visible                       ${speed_ping_mxs01_vod}
+    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               30
+    Element Should Be Visible                       ${speed_ping_mola02_live}
     Click Element                                   ${button_reload_mola_speed_pengaturan_settings}
 
 Click Video Playback Test
