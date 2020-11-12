@@ -76,6 +76,7 @@ Show Status Berlangganan
     sleep                               3
 
 The account information is shown in Profile page
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Click Element                       ${links_homepage_menu_profil}
     Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_nama_pengguna_settings}
@@ -86,7 +87,9 @@ The account information is shown in Profile page
     Element Should Be Visible           ${text_profil_akun_lokasi_settings}
 
 The Ubah button is shown under user info
+    Wait Until Element Is Visible       ${button_ubah_button_settings}
     Click Element                       ${button_ubah_button_settings}
+    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}
     Click Element                       ${button_batal_ubah_profil_settings}
 
 Select User icon
@@ -96,14 +99,16 @@ Select User icon
     Sleep                                           5
 
 Select Ubah button
+    Wait Until Element Is Visible                   ${button_ubah_button_settings}
     Click Element                                   ${button_ubah_button_settings}
 
 Make some changes and Save
-    [Arguments]     ${m}
+    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_lokasi_default_settings}
 
 Button Simpan
+    Wait Until Element Is Visible                   ${button_simpan_settings}
     Click Element                                   ${button_simpan_settings}
 
 User Successfully Ubah
@@ -137,8 +142,8 @@ Make some changes 01
     Click Element                                   ${label_lokasi_change01_settings}
 
 Click Back button
+    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}
     Click Element                                   ${button_batal_ubah_profil_settings}
-    Sleep                                           5
 
 Select Pengaturan
     Wait Until Element Is Visible                   ${text_pengaturan_settings}
@@ -162,6 +167,7 @@ Input Old, New and Confirm Password at the field
     Click Element                                   ${label_view_password3}
 
 Select Simpan button
+    Wait Until Element Is Visible                   ${button_simpan_password_seeting}
     Click Element                                   ${button_simpan_password_seeting}
 
 User Successfully Ubah Password
@@ -177,6 +183,7 @@ Changes To Default Input Old, New and Confirm Password at the field
     User Successfully Ubah Password
 
 Unselected Simpan button
+    Wait Until Element Is Visible                   ${button_ubah_password_settings}
     Click Element                                   ${button_ubah_password_settings}
 
 Input wrong Old Password
@@ -271,20 +278,23 @@ Verify Autoplay toggle button is turn on
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
+    Wait Until Element Is Visible                   ${text_internet_speed_test_pengaturan_settings}
     Click Element                                   ${text_internet_speed_test_pengaturan_settings}
     Wait Until Element Is Visible                   ${text_logo_title_mola_speed_pengaturan_settings}
     Wait Until Element Is Visible                   ${button_reload_mola_speed_pengaturan_settings}         30
     Wait Until Location Contains                    ${URL_mola_speed}
-    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 30
+    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 120
     Element Should Be Visible                       ${speed_ping_mxs01_vod}
-    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               30
+    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               120
     Element Should Be Visible                       ${speed_ping_mola02_live}
     Click Element                                   ${button_reload_mola_speed_pengaturan_settings}
 
 Click Video Playback Test
+    Wait Until Element Is Visible                   ${text_video_playback_test_pengaturan_settings}
     Click Element                                   ${text_video_playback_test_pengaturan_settings}
 
 Choose Non-DRM Playback
+    Wait Until Element Is Visible                   ${test_video_playback_non_drm_settings}
     Click Element                                   ${test_video_playback_non_drm_settings}
     wait until element is visible                   ${play_movies_non_drm_settings}
     Click Element                                   ${play_movies_non_drm_settings}
