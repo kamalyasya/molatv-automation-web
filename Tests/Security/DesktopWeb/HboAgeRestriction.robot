@@ -28,7 +28,6 @@ TC001 : Access 21+ content without login
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}       ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_HBO_MOVIE_DETAIL_21+}
     HboContentRestriction.Verify Title Movie
     HboContentRestriction.Play Hbo Content
     HboPlayback.Verify User able to play HBO Go movies
@@ -41,7 +40,6 @@ TC002 : Access non 21+ content
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}       ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_HBO_MOVIE_DETAIL_NON21+}
     HboContentRestriction.Verify Title Movie
     HboContentRestriction.Play Hbo Content
     HboPlayback.Verify User able to play HBO Go movies

@@ -66,6 +66,8 @@ ${popup_lanjutkan_nonton_movie_detail}  css=.gJE3n p
 ${button_mulai_popup_movie_detail}      css=._3QaU2
 ${button_lanjutkan_popup_movie_detail}  css=._1H-wq
 ${frame_movie_detail_device_limit}      css=.styles_modal__gNwvD
+${frame_movie_detail_adult_content_18}  css=.styles_modal__gNwvD
+${button_movie_detail_accept_adult_content}    css=._3UpwF
 
 ${button_seek_bar}                      xpath=/html//input[@id='vpcc-seek']
 ${button_seek_volume}                   css=input#vpcc-volume
@@ -124,9 +126,13 @@ Play Content 'Mulai Dari Awal'
     Sleep                               3
 
 Play Content Video Or Play Video From Begining
+    ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
+    Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
+
     ${play}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
     Run Keyword If      '${play}' == 'True'         Play Content 'Mulai Dari Awal'
     ...     ELSE                                    Play Content From Movie Detail
+
 
     ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       10
     Run Keyword If      '${CHECK_LIMIT}'=='True'                Play Content Again
@@ -135,6 +141,10 @@ Play Content Again
     Sleep    10
     Reload Page
     Play Content Video Or Play Video From Begining
+
+Accept Adult Content
+    Wait Until Element Is Visible       ${button_movie_detail_accept_adult_content}
+    Click Element                       ${button_movie_detail_accept_adult_content}
 
 Forward Progress Bar
     Click Element                       ${button_forward_movie_detail}
