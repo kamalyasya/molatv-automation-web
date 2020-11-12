@@ -80,8 +80,8 @@ TC007 Page Navigation after sign in
 TC009 Sign Out
     [Documentation]  TC009 Sign Out
 	[Tags]  Regression  Smoke
-    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA3_EMAIL}            ${ACCOUNT_SUPERMOLA3_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_SUPERMOLA3_EMAIL}
+    SignInPage.Login Using Credentials                              ${ACCOUNT_PUTRA_EMAIL}           ${ACCOUNT_PUTRA_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_PUTRA_EMAIL}
     ProfilePage.Sign Out
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Sign Out
