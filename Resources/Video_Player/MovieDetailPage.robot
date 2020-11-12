@@ -65,6 +65,7 @@ ${expected_volume}                      css=.volume
 ${popup_lanjutkan_nonton_movie_detail}  css=.gJE3n p
 ${button_mulai_popup_movie_detail}      css=._3QaU2
 ${button_lanjutkan_popup_movie_detail}  css=._1H-wq
+${frame_movie_detail_device_limit}      css=.styles_modal__gNwvD
 
 ${button_seek_bar}                      xpath=/html//input[@id='vpcc-seek']
 ${button_seek_volume}                   css=input#vpcc-volume
@@ -102,8 +103,9 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
-    Sleep                               5
+    Wait Until Location Is              ${URL}
     Location Should Be                  ${URL}
+    Wait Until Element Is Visible       ${expected_title_movie_detail}
     Element Should Be Visible           ${expected_title_movie_detail}
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
@@ -113,7 +115,7 @@ Verify Is Redirected Back To The Same Movie Detail
 
 Play Content From Movie Detail
     Wait Until Element Is Visible       ${expected_title_movie_detail}
-    sleep                               2
+    Wait Until Element Is Visible       ${movie_detail_play_button}
     Click Element                       ${movie_detail_play_button}
 
 Play Content 'Mulai Dari Awal'
@@ -122,9 +124,17 @@ Play Content 'Mulai Dari Awal'
     Sleep                               3
 
 Play Content Video Or Play Video From Begining
-    ${play} =   run keyword and return status   element should be visible    ${button_mulai_popup_movie_detail}
-    run keyword if  '${play}' == 'True'      Play Content 'Mulai Dari Awal'
-    ...             ELSE    Play Content From Movie Detail
+    ${play}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
+    Run Keyword If      '${play}' == 'True'         Play Content 'Mulai Dari Awal'
+    ...     ELSE                                    Play Content From Movie Detail
+
+    ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       10
+    Run Keyword If      '${CHECK_LIMIT}'=='True'                Play Content Again
+
+Play Content Again
+    Sleep    10
+    Reload Page
+    Play Content Video Or Play Video From Begining
 
 Forward Progress Bar
     Click Element                       ${button_forward_movie_detail}
@@ -146,6 +156,7 @@ Verify The progress bar and elapsed time are updating when playing a content
     Page Should Contain Element         ${movie_progress_bar}
 
 Auto Play Next Episode
+    Seek To Last 10s
     Wait Until Element Is Visible       ${autoplay_next_movie}              120
 
 Verify Auto Play Next Episode
@@ -156,7 +167,7 @@ Verify Auto Play Next Episode
     Capture Element Screenshot          ${autoplay_button_skip}
 
 Verify Auto Play Not Displayed
-    sleep                                   65
+    Seek To Last 10s
     Page Should Not Contain Element         ${autoplay_next_movie}
     Page Should Not Contain Element         ${autoplay_button_Play_next}
     Page Should Not Contain Element         ${autoplay_button_skip}

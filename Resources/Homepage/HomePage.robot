@@ -23,10 +23,11 @@ ${menu_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
 
 ${links_homepage_menu_profil}           xpath=//div[text()='Profil']
 ${links_homepage_menu_inbox}            xpath=//div[text()='Pesan Masuk']
+${links_homepage_menu_tontonan_saya}    xpath=//div[text()='Tontonan Saya']
 ${links_homepage_menu_pengaturan}       xpath=//div[text()='Pengaturan']
 ${links_homepage_menu_langganan}        xpath=//div[text()='Langganan']
 ${links_homepage_menu_order_history}    xpath=//div[text()='Riwayat Pembelian']
-${links_homepage_menu_beli_akses}       xpath=//div[text()='Beli Akses']
+${links_homepage_menu_beli_akses}       xpath=//div[text()='Beli Akses' and not(@class='_2yKxK')]
 
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
@@ -98,6 +99,8 @@ Open Login Page
     Mouse Over                          ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
+    Mouse Over                          ${links_homepage_menu_profil}
 
 Verify The UI Of The User Icon Without Login
     Wait Until Element Is Visible       ${menu_homepage_accounts}
