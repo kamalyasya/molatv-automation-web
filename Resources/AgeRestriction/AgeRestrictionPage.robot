@@ -24,8 +24,7 @@ Select 18+ Movie Content
     Page Should Contain Element             ${login_blocker_garselep1}
     Capture Element Screenshot              ${login_blocker_garselep1}
     Sleep                                   1
-    Wait Until Element Is Visible           ${login_blocker_garselep1}
-    Click Element                           ${login_blocker_garselep1}
+    Click Element                           ${text_login_movie}
 
 Verify Show Age blocker
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}

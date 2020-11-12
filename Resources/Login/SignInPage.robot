@@ -18,7 +18,7 @@ Login Using Credentials
     [Arguments]     ${EMAIL}    ${PASSWORD}
     Wait Until Element Is Visible       ${field_login_email}
     Input Text                          ${field_login_email}            ${EMAIL}
-    Input Password                      ${field_login_password}         ${PASSWORD}
+    Input Text                          ${field_login_password}         ${PASSWORD}
     Click Element                       ${button_login_login}
 
 Verify A Error Message Show Up

@@ -29,8 +29,8 @@ TC002 Access non 18+ content
     [Tags]              Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}      ${ACCOUNT_PUTRA_PASSWORD}
-    AgeRestrictionPage.Select NON18+ Movie Content          ${URL_MOVIE_DETAIL_NON18+}
+    SignInPage.Login Using Credentials                              ${ACCOUNT_PUTRA_EMAIL}  ${ACCOUNT_PUTRA_PASSWORD}
+    AgeRestrictionPage.Select NON18+ Movie Content                        ${URL_MOVIE_DETAIL_NON18+}
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
 
 TC003 Access 18+ content using 18+ account
