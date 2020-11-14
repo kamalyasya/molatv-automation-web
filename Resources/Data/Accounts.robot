@@ -6,7 +6,7 @@ Resource                ../../Frameworks/Routers.robot
 ${ACCOUNT_CINCIN_EMAIL}                     cincin.jati@mola.tv
 ${ACCOUNT_CINCIN_PASSWORD}                  12345678
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
-${ACCOUNT_PUTRA_PASSWORD}                   admin123
+${ACCOUNT_PUTRA_PASSWORD}                   12345678
 ${ACCOUNT_KAMAL_EMAIL}                      kamal.yasha@mola.tv
 ${ACCOUNT_KAMAL_PASSWORD}                   1234567890
 ${ACCOUNT_KAMAL_USERID}                     pwFSHwlYciO9cN8unZAvdZRWcTIKZf
@@ -89,7 +89,7 @@ ${ACCOUNTS_MOLA_TESTING14_PASSWORD}         12345678test
 ${ACCOUNTS_MOLA_TESTING15_EMAIL}            molatesting15@gmail.com
 ${ACCOUNTS_MOLA_TESTING15_PASSWORD}         12345678test
 ${ACCOUNTS_MOLA_TESTING16_EMAIL}            molatesting16@gmail.com
-${ACCOUNTS_MOLA_TESTING16_PASSWORD}         12345678test
+${ACCOUNTS_MOLA_TESTING16_PASSWORD}         1234567test
 ${ACCOUNTS_MOLA_TESTING17_EMAIL}            molatesting17@gmail.com
 ${ACCOUNTS_MOLA_TESTING17_PASSWORD}         12345678test
 ${ACCOUNTS_MOLA_TESTING18_EMAIL}            molatesting18@gmail.com

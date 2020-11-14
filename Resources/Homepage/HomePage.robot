@@ -51,7 +51,7 @@ ${matches_slider_frame}                         css=div:nth-of-type(3) > div > .
 ${matches_page_hover}                           css=#match-wrapper
 ${matches_calendar}                             css=ul > div:nth-of-type(14)
 ${list_calendar}                                css=div#list__date
-${list_next_calendar}                           css=div:nth-of-type(12) > ._13AG-.calendar_item
+${list_next_calendar}                           css=div:nth-of-type(13) > ._13AG-.calendar_item
 ${expected_title_movie_detail}                  css=h1
 
 ${dropdown_all_competition}                     css=._30NbM

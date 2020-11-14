@@ -5,7 +5,6 @@ Library                         SeleniumLibrary
 Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
-
 *** Variables ***
 ${URL}                      https://mola.tv
 ${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO023714X0
@@ -13,7 +12,7 @@ ${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO023714X0
 *** Test Cases ***
 HBO Playback - Play The Content
     [Documentation]     Verify User able to play HBO Go movies
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
@@ -22,7 +21,7 @@ HBO Playback - Play The Content
 
 HBO Playback - Default Controls
     [Documentation]     verify user able to using all the default controls
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
@@ -32,7 +31,7 @@ HBO Playback - Default Controls
 
 HBO Playback - Fullscreen Mode
     [Documentation]     Verify user able to played HBO go in fullscreen mode
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
@@ -41,7 +40,7 @@ HBO Playback - Fullscreen Mode
 
 HBO Playback - Playback Control
     [Documentation]     Verify the content on HBO Go player resumes after pausing
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_JERRY_EMAIL}     ${ACCOUNT_JERRY_PASSWORD}
@@ -50,7 +49,7 @@ HBO Playback - Playback Control
 
 HBO Playback - progress bar
     [Documentation]     Verify the progress bar and elapsed time on HBO Go player are updating when playing a content
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
@@ -59,7 +58,7 @@ HBO Playback - progress bar
 
 HBO Playback - Forward/Rewound
     [Documentation]     Verify the content resumes after fast forwarded or rewound
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
@@ -68,7 +67,7 @@ HBO Playback - Forward/Rewound
 
 HBO Playback - Subtitle Turn Off
     [Documentation]     Verify No closed caption/Subtitle is shown when the 'Closed Caption' is off
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
@@ -77,7 +76,7 @@ HBO Playback - Subtitle Turn Off
 
 HBO Playback - Subtitle Turn On
     [Documentation]     Verify the closed caption/Subtitle is shown based on the selected language
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_JERRY_EMAIL}     ${ACCOUNT_JERRY_PASSWORD}
@@ -86,7 +85,7 @@ HBO Playback - Subtitle Turn On
 
 HBO Playback - Volume Controls
     [Documentation]     Verify User able to set volume up/down on HBO Go player
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
@@ -95,7 +94,7 @@ HBO Playback - Volume Controls
 
 HBO Playback - Movie Rating
     [Documentation]     Verify User able to see HBO movie rating on movie detail
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  HBO
 
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
