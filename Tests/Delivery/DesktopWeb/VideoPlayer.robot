@@ -15,6 +15,7 @@ ${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
 ${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
+${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
 ${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
 ${EXPECTED_LOCATION_NEXT_EPISODE}       https://mola.tv/watch?v=vd71200807&autoplay=1
@@ -34,8 +35,9 @@ Delivery - Video Player: TC001 Movie Details page
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}             ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC002 Play the content
     [Documentation]     Verify the VOD can be played
@@ -44,10 +46,11 @@ Delivery - Video Player: TC002 Play the content
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials           ${ACCOUNTS_MOLA_TESTING16_EMAIL}            ${ACCOUNTS_MOLA_TESTING16_PASSWORD}
+    SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC003 Trailer Asset
     [Documentation]     Verify the VOD Trailer can be played
@@ -73,12 +76,13 @@ Delivery - Video Player: TC005 Buffering
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}                 ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Forward Progress Bar
     MovieDetailPage.Verify Loading Indicator
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC006 Fullscreen Mode
     [Documentation]  Verify the content can be played in fullscreen mode
@@ -87,7 +91,7 @@ Delivery - Video Player: TC006 Fullscreen Mode
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING17_EMAIL}                 ${ACCOUNTS_MOLA_TESTING17_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode
@@ -100,11 +104,12 @@ Delivery - Video Player: TC007 Playback Control
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}        ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify Pause And Resume Live Matches
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC008 Playback - progress bar
     [Documentation]  Verify the progress bar and elapsed time are updating when playing a content
@@ -113,11 +118,12 @@ Delivery - Video Player: TC008 Playback - progress bar
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                 ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC009 Playback - Forward/Backward
     [Documentation]  Verify the content resumes after fast forwarded or backward
@@ -126,12 +132,13 @@ Delivery - Video Player: TC009 Playback - Forward/Backward
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Click button Forward/backward movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC010 Auto Next Video - Same Categories
     [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
@@ -140,11 +147,13 @@ Delivery - Video Player: TC010 Auto Next Video - Same Categories
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING19_EMAIL}        ${ACCOUNTS_MOLA_TESTING19_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail           ${EXPECTED_URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify Categories Movie
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC011 Auto Next Video - Episodes
     [Documentation]  Verify the Next continued Episode VOD is play in the same Category as a VOD before
@@ -153,11 +162,12 @@ Delivery - Video Player: TC011 Auto Next Video - Episodes
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING16_EMAIL}                 ${ACCOUNTS_MOLA_TESTING16_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Verify Next Episode Same Category As VOD                                ${EXPECTED_TITLE_SAME_EPISODES}
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC012 Auto Next Video - Countdown
     [Documentation]  Verify AutoPlay Next Episode with countdown to 0
@@ -166,11 +176,12 @@ Delivery - Video Player: TC012 Auto Next Video - Countdown
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                  ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Verify Countdown Auto Play      ${EXPECTED_LOCATION_NEXT_EPISODE}
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC013 Auto Next Video - Skip
     [Documentation]  verify the pop up next video will disappear after click skip
@@ -179,12 +190,13 @@ Delivery - Video Player: TC013 Auto Next Video - Skip
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}        ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Skip Auto Play
     MovieDetailPage.Verify Button Replay Auto Play
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC014 Auto Next Video button in Player
     [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
@@ -193,10 +205,11 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING17_EMAIL}                 ${ACCOUNTS_MOLA_TESTING17_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Click Button Next Video Beside Volume
     MovieDetailPage.Verify Categories Movie
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
     [Documentation]  Verify the pop up next video will disappear after scrub progress bar
@@ -205,7 +218,7 @@ Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRA_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
@@ -215,6 +228,7 @@ Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
     MovieDetailPage.Click Button Play Default Control
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Verify No Autoplay Vanished
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     [Documentation]  verify the notification Age Disclaimer consists of disclaimer information, "Tutup" and "Setuju" buttons is shown
@@ -223,12 +237,13 @@ Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL18+}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_JERRY_EMAIL}                 ${ACCOUNT_JERRY_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
     AgeRestrictionPage.Verify Show Age blocker
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC017 Quality Control
     [Documentation]     Verify the quality control is enabled
@@ -237,11 +252,12 @@ Delivery - Video Player: TC017 Quality Control
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING16_EMAIL}                  ${ACCOUNTS_MOLA_TESTING16_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}      ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC018 Subtitle - not support
     [Documentation]     Verify VOD not supporting closed caption/subtitle
@@ -250,10 +266,11 @@ Delivery - Video Player: TC018 Subtitle - not support
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}                 ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content not Supporting Closed Caption
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC019 Subtitle - turn off
     [Documentation]     Verify VOD not supporting closed caption/subtitle
@@ -262,11 +279,12 @@ Delivery - Video Player: TC019 Subtitle - turn off
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                  ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Choose Closed Caption off
     MovieDetailPage.Verify Closed Caption is Not Shown
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC020 Subtitle - Turn on
     [Documentation]     Verify the closed caption/Subtitle is shown based on the selected language
@@ -275,11 +293,12 @@ Delivery - Video Player: TC020 Subtitle - Turn on
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING16_EMAIL}                  ${ACCOUNTS_MOLA_TESTING16_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content which is supporting closed caption
     MovieDetailPage.Verify Subtitle On Screen
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC021 Volume Controls
     [Documentation]     Verify Change volume during video playback
@@ -288,11 +307,12 @@ Delivery - Video Player: TC021 Volume Controls
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING17_EMAIL}                  ${ACCOUNTS_MOLA_TESTING17_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek bar Volume
     MovieDetailPage.Verify Change volume during video playback
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC023 Video Metadata
     [Documentation]  Verify the video metadata is shown in player
@@ -301,7 +321,7 @@ Delivery - Video Player: TC023 Video Metadata
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING18_EMAIL}                  ${ACCOUNTS_MOLA_TESTING18_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode

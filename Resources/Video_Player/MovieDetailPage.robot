@@ -74,7 +74,7 @@ ${button_seek_volume}                   css=input#vpcc-volume
 ${button_next_video_beside_volume}      css=.css-1nkv7aa.upcommingIcon
 
 ${expected_title_same_episode}          css=.upc-video-title
-${expected_countdown_autoplay}          link=Play next movie in 3
+${expected_countdown_autoplay}          css=.css-oht1a4 span
 ${expected_autoplay_movie}              css=.container
 
 ${button_close_login_movie_detail}      css=._3Pjgd
@@ -116,11 +116,13 @@ Verify Is Redirected Back To The Same Movie Detail
     Scroll Element Into View            ${expected_title_movie_detail}
 
 Play Content From Movie Detail
+    sleep                               10
     Wait Until Element Is Visible       ${expected_title_movie_detail}
     Wait Until Element Is Visible       ${movie_detail_play_button}
     Click Element                       ${movie_detail_play_button}
 
 Play Content 'Mulai Dari Awal'
+    sleep                               10
     Wait Until Element Is Visible       ${popup_lanjutkan_nonton_movie_detail}
     Click Element                       ${button_mulai_popup_movie_detail}
     Sleep                               3

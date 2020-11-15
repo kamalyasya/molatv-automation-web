@@ -22,7 +22,7 @@ ${EXPECTED_URL_HBO_MOVIE_DETAIL_NON21+}         ${URL_HBO_MOVIE_DETAIL_NON21+}
 *** Test Cases ***
 TC001 : Access 21+ content without login
     [Documentation]     Choose 21+ video content
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  Smoke   HBO
 
     MovieDetailPage.Go To Movie Detail              ${URL_HBO_MOVIE_DETAIL_21+}
     MovieDetailPage.Login from movie detail
@@ -34,7 +34,7 @@ TC001 : Access 21+ content without login
 
 TC002 : Access non 21+ content
     [Documentation]     Choose Non 21+ video content
-    [Tags]              Regression  Smoke
+    [Tags]              Regression  Smoke   HBO
 
     MovieDetailPage.Go To Movie Detail              ${URL_HBO_MOVIE_DETAIL_NON21+}
     MovieDetailPage.Login from movie detail
