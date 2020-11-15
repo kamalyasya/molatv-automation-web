@@ -1,5 +1,5 @@
 *** Settings ***
-Library             SeleniumLibrary
+Library     SeleniumLibrary     plugins=CryptoLibrary.Plugin
 
 ### Import Resource ###
 # Frameworks

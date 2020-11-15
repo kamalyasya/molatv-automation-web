@@ -26,12 +26,12 @@ ${text_ubah_akun_settings}                              css=._2Ctc-
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
 ${button_keluar_settings}                               css=._3qxwB
-${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(3)
+${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_ubah_password_settings}                          css=._3XA-Q > div:nth-of-type(1)
 ${field_masukan_sandi_sekarang_settings}                css=input#currentPassword
-${label_view_password1}                                  css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
-${label_view_password2}                                  css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
-${label_view_password3}                                  css=div:nth-of-type(4) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password1}                                 css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password2}                                 css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
+${label_view_password3}                                 css=div:nth-of-type(4) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
 ${field_masukkan_sandi_baru_settings}                   css=input#password
 ${field_masukkan_ulang_sandi_baru_settings}             css=input#confirmPassword
 ${button_simpan_password_disabled_seeting}              css=._1mcYA._3C-S2.nA5CF
@@ -41,7 +41,7 @@ ${button_ubah_password_settings}                        css=._1xbSc
 ${text_ubah_password_salah_settings}                    css=._2Ctc-
 ${text_konfirmasi_password_salah_settings}              css=.css-e2n7zw
 ${field_masukkan_same_sandi_baru_settings}              css-=input#password
-${label_menu_langganan}                                 css=._16YQ- > div:nth-of-type(4)
+${label_menu_langganan}                                 css=._16YQ- > div:nth-of-type(5)
 ${text_package_user_use}                                css=h1
 ${text_package_status}                                  css=._3rG-7
 ${text_package_expired_date}                            css=.dAXnq > p
@@ -76,6 +76,7 @@ Show Status Berlangganan
     sleep                               3
 
 The account information is shown in Profile page
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Click Element                       ${links_homepage_menu_profil}
     Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_nama_pengguna_settings}
@@ -86,25 +87,32 @@ The account information is shown in Profile page
     Element Should Be Visible           ${text_profil_akun_lokasi_settings}
 
 The Ubah button is shown under user info
+    Wait Until Element Is Visible       ${button_ubah_button_settings}
     Click Element                       ${button_ubah_button_settings}
+    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}
     Click Element                       ${button_batal_ubah_profil_settings}
 
 Select User icon
+    Wait Until Element Is Visible                   ${menu_homepage_accounts}
+    Element Should Be Visible                       ${menu_homepage_accounts}
     Click Element                                   ${menu_homepage_accounts}
     Sleep                                           5
 
 Select Ubah button
+    Wait Until Element Is Visible                   ${button_ubah_button_settings}
     Click Element                                   ${button_ubah_button_settings}
 
 Make some changes and Save
-    [Arguments]     ${m}
+    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_lokasi_default_settings}
 
 Button Simpan
+    Wait Until Element Is Visible                   ${button_simpan_settings}
     Click Element                                   ${button_simpan_settings}
 
 User Successfully Ubah
+    Wait Until Element Is Visible                   ${text_ubah_akun_settings}
     Element Text Should Be                          ${text_ubah_akun_settings}           Update profil berhasil
 
 Make changes to default value
@@ -134,8 +142,8 @@ Make some changes 01
     Click Element                                   ${label_lokasi_change01_settings}
 
 Click Back button
+    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}
     Click Element                                   ${button_batal_ubah_profil_settings}
-    Sleep                                           5
 
 Select Pengaturan
     Wait Until Element Is Visible                   ${text_pengaturan_settings}
@@ -159,6 +167,7 @@ Input Old, New and Confirm Password at the field
     Click Element                                   ${label_view_password3}
 
 Select Simpan button
+    Wait Until Element Is Visible                   ${button_simpan_password_seeting}
     Click Element                                   ${button_simpan_password_seeting}
 
 User Successfully Ubah Password
@@ -174,6 +183,7 @@ Changes To Default Input Old, New and Confirm Password at the field
     User Successfully Ubah Password
 
 Unselected Simpan button
+    Wait Until Element Is Visible                   ${button_ubah_password_settings}
     Click Element                                   ${button_ubah_password_settings}
 
 Input wrong Old Password
@@ -191,7 +201,7 @@ Input wrong Old Password
 
 User Unsuccessfully Ubah Password
     Wait Until Element Is Visible                   ${text_ubah_password_salah_settings}
-    Element Text Should Be                          ${text_ubah_password_salah_settings}           Password Anda salah
+    Element Text Should Be                          ${text_ubah_password_salah_settings}           Password lama anda salah
     sleep                                           10
 
 Input different case at New Password and Password Confirmation
@@ -268,29 +278,35 @@ Verify Autoplay toggle button is turn on
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
+    Wait Until Element Is Visible                   ${text_internet_speed_test_pengaturan_settings}
     Click Element                                   ${text_internet_speed_test_pengaturan_settings}
     Wait Until Element Is Visible                   ${text_logo_title_mola_speed_pengaturan_settings}
     Wait Until Element Is Visible                   ${button_reload_mola_speed_pengaturan_settings}         30
     Wait Until Location Contains                    ${URL_mola_speed}
-    Sleep                                           10
-    Page Should Contain Element                     ${speed_ping_mxs01_vod}
-    Sleep                                           10
-    Page Should Contain Element                     ${speed_ping_mola02_live}
+    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 120
+    Element Should Be Visible                       ${speed_ping_mxs01_vod}
+    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               120
+    Element Should Be Visible                       ${speed_ping_mola02_live}
     Click Element                                   ${button_reload_mola_speed_pengaturan_settings}
 
 Click Video Playback Test
+    Wait Until Element Is Visible                   ${text_video_playback_test_pengaturan_settings}
     Click Element                                   ${text_video_playback_test_pengaturan_settings}
 
 Choose Non-DRM Playback
+    Wait Until Element Is Visible                   ${test_video_playback_non_drm_settings}
     Click Element                                   ${test_video_playback_non_drm_settings}
     wait until element is visible                   ${play_movies_non_drm_settings}
     Click Element                                   ${play_movies_non_drm_settings}
     sleep                                           2
 
 Choose DRM Playback
+    Wait Until Element Is Visible                   ${test_video_playback_drm_settings}
     Click Element                                   ${test_video_playback_drm_settings}
+    Wait Until Element Is Visible                   ${text_konten_dewasa_setuju_settings}
     Click Element                                   ${text_konten_dewasa_setuju_settings}
     sleep                                           3
-    wait until element is visible                   ${play_movies_non_drm_settings}
-    Click Element                                   ${play_movies_non_drm_settings}
-    sleep                                           30
+#
+#    wait until element is visible                   ${play_movies_non_drm_settings}
+#    Click Element                                   ${play_movies_non_drm_settings}
+#    sleep                                           30

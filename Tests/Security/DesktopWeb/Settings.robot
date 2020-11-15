@@ -59,7 +59,7 @@ TC002 Edit Profile
     SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Ubah button
-    SettingsPage.Make some changes and Save             ${PHONE}
+    SettingsPage.Make some changes and Save
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
     SettingsPage.Make changes to default value
@@ -69,7 +69,7 @@ TC003 Edit Profile without saving it
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon 01
     SettingsPage.Select Ubah button 01
     SettingsPage.Make some changes 01
@@ -143,7 +143,7 @@ TC010 Subscription view
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials                  ${ACCOUNT_HBO_EMAIL}  ${ACCOUNT_HBO_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
@@ -165,7 +165,7 @@ TC013 System Info
     [Documentation]         Check System page at My Account page
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click System Info
@@ -174,13 +174,13 @@ TC014 Autoplay off
     [Documentation]         Check toggle button function to enable and disable autoplay
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Turn on / off Autoplay toggle button
     SettingsPage.Verify Autoplay toggle button is turn off
     SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Auto Play Not Displayed
 
 TC014 Autoplay on
@@ -192,7 +192,7 @@ TC014 Autoplay on
     SettingsPage.Select Pengaturan
     SettingsPage.Verify Autoplay toggle button is turn on
     SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Auto Play Next Episode
     MovieDetailPage.Verify Auto Play Next Episode
 
@@ -200,7 +200,7 @@ TC015 Internet Speed Test
     [Documentation]         check the internet connection that is connected to mola tv
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Internet Speed Test              ${URL_mola_speed}
@@ -210,24 +210,25 @@ TC016 Video Playback Test Non-DRM
     ...                     User already login
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}  ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose Non-DRM Playback
     MovieDetailPage.Change Video Quality
-    MovieDetailPage.Verify Video Quality 720
+#    MovieDetailPage.Verify Video Quality 720
 
 TC016 Video Playback Test DRM
     [Documentation]         Check device compatibility for Mola TV video formats
     ...                     User already login
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}  ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose DRM Playback
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
-    MovieDetailPage.Verify Video Quality 720
+#    MovieDetailPage.Verify Video Quality 720
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content

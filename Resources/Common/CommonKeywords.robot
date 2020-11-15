@@ -10,13 +10,14 @@ Start Testing
     [Arguments]     ${URL}
     Open Mola TV                ${URL}
     Set Selenium Timeout        ${DEFAULT_TIMEOUT}
-    Set Selenium Speed	        0.25
+    Set Selenium Speed	        ${DELAY}
 
 End Testing
     Close Browser
 
 Open Mola TV
     [Arguments]     ${URL}
+    ${BROWSER}      Convert To Lower Case    ${BROWSER}
     Run Keyword If      '${BROWSER}' == 'mychrome'              Open Mychrome Browser                       ${URL}
     ...    ELSE IF      '${BROWSER}' == 'myheadlesschrome'      Open Myheadlesschrome Browser               ${URL}
     ...    ELSE IF      '${BROWSER}' == 'chromemobile'          Open Chromemobile Browser                   ${URL}

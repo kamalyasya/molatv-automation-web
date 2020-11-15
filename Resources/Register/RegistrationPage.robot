@@ -23,6 +23,7 @@ ${dropdown_register_tanggal_lahir_tahun_ke}                     css=.react-datep
 ${field_register_tanggal_lahir_tanggal_ke}                      css=div:nth-of-type(2) > div:nth-of-type(7)
 ${checkbox_register_saya_menjamin}                              css=._1GnU3._5k2bC
 ${button_register_tanggal_lahir_register}                       css=._3C-S2
+${text_masukkan_kode_verifikasi}                                css=._13cs1 > ._1YiyZ
 ${text_register_akun_berhasil}                                  css=._2Ctc-
 
 ${field_register_otp_1}                                         css=div:nth-of-type(1) > .eKKpu
@@ -82,6 +83,12 @@ Input all the field and tick the agreement
 
 Click Register Button
     Click Element                                   ${button_register_tanggal_lahir_register}
+    Sleep                                           5
+
+Verify Masukkan Kode Verifikasi Page
+    Wait Until Element Is Visible           ${text_masukkan_kode_verifikasi}
+    Wait Until Page Contains Element        ${text_masukkan_kode_verifikasi}
+    Page Should Contain Element             ${text_masukkan_kode_verifikasi}
 
 User Successfully Register
     Wait Until Element Is Visible                   ${text_register_akun_berhasil}
@@ -103,7 +110,7 @@ Click Verifikasi
 
 User Input Incorrect Verification Code
     Wait Until Element Is Visible                   ${text_register_kode_verifikas_salah}
-    Element Text Should Be                          ${text_register_kode_verifikas_salah}           You have entered invalid OTP
+    Element Text Should Be                          ${text_register_kode_verifikas_salah}           Kode verifikasi tidak sesuai
 
 Click Verifikasi Again
     Click Verifikasi
@@ -113,7 +120,7 @@ User Input Incorrect Verification Code Again
     Sleep                                            15
 
 Click Kirim Ulang
-    Wait Until Element Is Visible                   ${button_register_verifikasi_kirim_ulang}
+    Wait Until Element Is Visible                   ${button_register_verifikasi_kirim_ulang}       64
     Click Element                                   ${button_register_verifikasi_kirim_ulang}
 
 Verify User Kode verifikasi terkirim
@@ -166,7 +173,7 @@ Input the field with invalid fields format and tick the agreement
 
 User Cannot Register
     Wait Until Element Is Visible                   ${text_register_akun_invalid}
-    Element Text Should Be                          ${text_register_akun_invalid}           "birthdate" must be larger than or equal to "Mon Jan 01 1945 00:00:00 GMT+0000 (UTC)"
+    Element Text Should Be                          ${text_register_akun_invalid}           Email Already Exists
     Sleep                                           15
 
 Select any special assets or content
