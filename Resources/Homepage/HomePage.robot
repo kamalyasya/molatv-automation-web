@@ -42,7 +42,7 @@ ${button_homepage_finish_inbox_onboarding}      id=next
 ${rail_banner_matches_page}                     css=.css-11xe1ut.css-nch242.slider  .slider-list
 ${matches_date_filter_toggle}                   css=._2CCM2
 ${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
-${view_all_match_card}                          css=div:nth-of-type(2) > .DgfMr > ._3mEMU > a
+${view_all_match_card}                          link=View All
 ${page_match_view_all}                          css=._2dFXJ
 
 ${matches_all_competition}                      css=div#allCompetition
