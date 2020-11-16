@@ -24,7 +24,7 @@ Delivery - Matches: TC001 Homepage UI
     [Tags]              Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                              ${ACCOUNT_MIA2_EMAIL}            ${ACCOUNT_MIA2_PASSWORD}
+    SignInPage.Login Using Credentials                              ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     HomePage.Open Matches Page
     HomePage.Verify UI Layout of Matches page
@@ -34,7 +34,7 @@ Delivery - Matches: TC002 View All Categories
     [Tags]              Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                              ${ACCOUNT_PUTRA_EMAIL}            ${ACCOUNT_PUTRA_PASSWORD}
+    SignInPage.Login Using Credentials                              ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     HomePage.Open Matches Page
     HomePage.Verify UI Layout of Matches page
@@ -48,7 +48,7 @@ Delivery - Matches: TC003 Match detail page
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials         ${ACCOUNTS_HBO_EMAIL}          ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
 
 Delivery - Matches: TC004 Video Metadata
@@ -58,7 +58,7 @@ Delivery - Matches: TC004 Video Metadata
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_MIA2_EMAIL}                      ${ACCOUNT_MIA2_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Play a content in fullscreen mode
@@ -67,31 +67,32 @@ Delivery - Matches: TC004 Video Metadata
 
 Delivery - Matches: TC005 Default Controls
     [Documentation]  Verify the default control in player working correctly
-    [Tags]           Regression     Smoke       Prod Sync
+    [Tags]           Regression     Smoke       Prod_Sync
 
     HomePage.Open Matches Page
-    HomePage.Choose any upcoming match
+    HomePage.Choose any live match
     ${status} =        Run Keyword And Continue On Failure    Get Text  ${matches_status_match}
     Run Keyword If	   '${status}' == 'LIVE NOW'      Check Upcoming Matches
     ...                ELSE IF	'${status}' != 'LIVE NOW'    Go To Another Live Match     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}                      ${ACCOUNT_PUTRA_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Verify Default Control
 
-Delivery - Matches: TC006 Buffering
-    [Documentation]  Buffering when movie played
-    [Tags]           Regression     Smoke
-
-    MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
-    MovieDetailPage.Login from movie detail
-    MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials         ${ACCOUNT_CINCIN_EMAIL}          ${ACCOUNT_CINCIN_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
-    MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Mouse Hover To Movie
-    MovieDetailPage.Forward Progress Bar
-    MovieDetailPage.Verify Loading Indicator
+#Delivery - Matches: TC006 Buffering
+#    [Documentation]  Buffering when movie played
+#    [Tags]           Regression     Smoke
+#
+#    MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
+#    MovieDetailPage.Login from movie detail
+#    MovieDetailPage.Verify Direct To Login Page
+#    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}         ${ACCOUNTS_HBO_PASSWORD}
+#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
+#    MovieDetailPage.Play Content From Movie Detail
+#    MovieDetailPage.Mouse Hover To Movie
+#    MovieDetailPage.Forward Progress Bar
+#    MovieDetailPage.Verify Loading Indicator
 
 Delivery - Matches: TC007 Full Screen Mode
     [Documentation]  Video player can be played in minimize and maximize
@@ -100,7 +101,7 @@ Delivery - Matches: TC007 Full Screen Mode
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_MIA2_EMAIL}                      ${ACCOUNT_MIA2_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Play a content in fullscreen mode
@@ -113,11 +114,11 @@ Delivery - Matches: TC009 Playback Control
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}                  ${ACCOUNT_PUTRa_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Mouse Hover To Movie
-    MovieDetailPage.Pause And Resume Live Matches
+    MovieDetailPage.Verify Pause And Resume Live Matches
 
 Delivery - Matches: TC010 Quality Control
     [Documentation]  Change Quality Control
@@ -126,7 +127,7 @@ Delivery - Matches: TC010 Quality Control
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_JERRY_EMAIL}                  ${ACCOUNT_JERRY_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Change Video Quality
@@ -139,30 +140,30 @@ Delivery - Matches: TC011 Volume Control
     MovieDetailPage.Go To Movie Detail                               ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_CINCIN_EMAIL}                     ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                     ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                                      ${EXPECTED_URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content From Movie Detail
-    MovieDetailPage.Change volume during video playback
+    MovieDetailPage.Seek bar Volume
+    MovieDetailPage.Verify Change volume during video playback
 
 Delivery - Matches: TC012 Upcoming match details page
     [Documentation]     Verify the details page of a Upcoming match
-    [Tags]              Regression  Smoke   Prod Sync
+    [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
     HomePage.Choose any upcoming match
 
-    ${status} =        Run Keyword And Continue On Failure    Get Text  ${matches_status_match}
+    ${status} =  Run Keyword And Return Status   Get Text    ${matches_status_match}
     Run Keyword If	   '${status}' == 'Upcoming'      Check Upcoming Matches
-    ...                ELSE IF	'${status}' == 'LIVE NOW'    Click Next Day
-    ...                ELSE IF  '${status}' == 'Full Time'   Click Next Day
+    ...                ELSE     Click Next Day
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials                          ${ACCOUNT_PUTRA_EMAIL}                      ${ACCOUNT_PUTRA_PASSWORD}
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Upcoming Live Matches
 
 Delivery - Matches: TC013 Filter Live Matches
     [Documentation]     Verify filter live matches
-    [Tags]              Regression  Smoke   Prod Sync
+    [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
     HomePage.Tap Drop Down Filter Competition
@@ -172,7 +173,7 @@ Delivery - Matches: TC013 Filter Live Matches
 
 Delivery - Matches: TC014 Filter live matches not saved
     [Documentation]     Verify filter live matches
-    [Tags]              Regression  Smoke   Prod Sync
+    [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
     HomePage.Tap Drop Down Filter Competition

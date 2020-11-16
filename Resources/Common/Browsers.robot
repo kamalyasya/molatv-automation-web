@@ -1,5 +1,6 @@
 *** Settings ***
 Library         	            SeleniumLibrary
+Library                         XvfbRobot
 Resource                        ../../Frameworks/Routers.robot
 
 *** Keywords ***
@@ -35,6 +36,7 @@ Open Myheadlesschrome Browser
     [Arguments]    ${URL}
     ${chrome_options}       Evaluate        sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${window_size}          Set Variable    window-size=1920,1080
+#    start virtual display  1920     1080
     Call Method    ${chrome_options}    add_argument    test-type
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
@@ -70,10 +72,10 @@ Open Chromemobile Browser
 
 Open Myfirefox Browser
     [Arguments]    ${URL}
-    ${firefox options}      Evaluate    sys.modules['selenium.webdriver'].firefox.webdriver.Options()    sys, selenium.webdriver
-    ${firefox_path}         Evaluate    sys.modules['selenium.webdriver'].firefox.firefox_binary.FirefoxBinary(firefox_path='${CURDIR}/../../Webdrivers/geckodriver_0270_mac', log_file=None)   sys
+#    ${firefox options}      Evaluate    sys.modules['selenium.webdriver'].firefox.webdriver.Options()    sys, selenium.webdriver
+#    ${firefox_path}         Evaluate    sys.modules['selenium.webdriver'].firefox.firefox_binary.FirefoxBinary(firefox_path='${CURDIR}/../../Webdrivers/geckodriver_0270_mac', log_file=None)   sys
 
-    Create Webdriver    Firefox    firefox_options=${firefox options}
+    Open Browser	    ${URL}	    Firefox	    ff_profile_dir=/Users/te3/Library/Application Support/Firefox/Profiles/4xoqzcu6.default-release
     Maximize Browser Window
     Go To          ${URL}
 

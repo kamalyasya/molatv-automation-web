@@ -13,6 +13,12 @@ ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_google}              css=._3Zzdj > button:nth-of-type(1)
 ${button_login_fb}                  xpath=//button[2]
 ${text_login_email_error_message}   css=.css-e2n7zw
+
+${sidebar_home}                     css=._1GfoO
+${button_profile_home}              css=._2YhM7
+${button_accounts_logout}           css=._3qxwB
+${icon_menu_home}                   css=div:nth-of-type(2) > .SwWJf
+
 *** Keywords ***
 Login Using Credentials
     [Arguments]     ${EMAIL}    ${PASSWORD}
@@ -70,3 +76,12 @@ Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}
     Element Should Be Visible           ${text_login_email_error_message}
     ELement Text Should Be              ${text_login_email_error_message}           Format email salah
+
+Logout Account
+    Scroll Element Into View            ${sidebar_home}
+    Wait Until Element Is Visible       ${button_profile_home}
+    Click Element                       ${button_profile_home}
+    Wait Until Element Is Visible       ${button_accounts_logout}
+    Click Element                       ${button_accounts_logout}
+    Wait Until Element Is Visible       ${icon_menu_home}   5
+    Element Should Be Visible           ${icon_menu_home}

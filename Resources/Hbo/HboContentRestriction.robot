@@ -33,6 +33,8 @@ Play Hbo Content Non 21+
 
 Play Hbo Content
     Wait Until Element Is Visible       ${hbo_movie_detail_title}
+    ${CHECK_ADULT_BLOCKER}              Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
+    Run Keyword If                      '${CHECK_ADULT_BLOCKER}'=='True'    Accept Adult Content
     Sleep                               10
     # Get VIDEOID
     ${VIDEO_ID}                         Get Location
@@ -43,7 +45,7 @@ Play Hbo Content
     Wait Until Element Is Visible       ${hbo_movie_button_play}
     Click Element                       ${hbo_movie_button_play}
     Sleep                               10
-    ${CHECK_LIMIT}                      Run Keyword And Return Status               Wait Until Element Is Visible       ${frame_movie_detail_device_limit}        10
+    ${CHECK_LIMIT}                      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_device_limit}        10
     Run Keyword If                      '${CHECK_LIMIT}'=='True'        Play Again Hbo Content
     Sleep                               5
 

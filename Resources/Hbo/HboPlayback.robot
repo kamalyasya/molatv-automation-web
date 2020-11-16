@@ -8,12 +8,12 @@ ${mouse_hover_sidebar}                  css=._1GfoO
 ${mouse_hover_movie}                    css=video
 ${sidebar_accounts_menu}                css=._2YhM7 > ._2yKxK
 ${menu_movies}                          css=.FYgXF ._11ipt:nth-of-type(1)
-${mola_hub_hbo}                         css=[class] ._1ofG3:nth-of-type(2) .fadeIn
+${mola_hub_hbo}                         css=.css-ch8pw7 > .css-1mmkue0 > a:nth-of-type(3) > .css-1wegyzv > .css-3joiye.css-tqv6h2.imageWrapper.loaded > img
 ${movie_detail_title}                   css=h1
 ${movie_button_play}                    css=.control_buttons_play
 ${movie_button_pause}                   css=.control_buttons_play_pause
 ${Movie_hbo_logo}                       css=.splash-img-container
-${select_frame}                         css=.css-19clezo > iframe[title='HBO GO Asia']
+${select_frame}                         css=.css-uz10iv > iframe[title='HBO GO Asia']
 
 ${movie_button_close_caption}           css=.control_buttons_cc
 ${movie_button_cc_audio}                css=.cc-audio
@@ -46,8 +46,11 @@ User able to play HBO Go movies
     Wait Until Element Is Visible   ${mola_hub_hbo}
     Click Element                   ${mola_hub_hbo}
     Go To                           ${URL_HBO_MOVIE}
+
+Play HBO Movies
     Sleep                           10
     Select Frame                    ${select_frame}
+    Wait Until Element Is Visible   ${movie_button_play}    5
     Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_play}
     Sleep                           5
@@ -58,6 +61,7 @@ Verify User able to play HBO Go movies
     Page Should Contain Element     ${Movie_hbo_logo}
 
 Verify default control
+    Mouse Over                      ${mouse_hover_movie}
     Page Should Contain Element     ${movie_button_volume}
     Page Should Contain Element     ${movie_button_close_caption}
     Click Element                   ${movie_button_close_caption}
@@ -68,10 +72,12 @@ Verify user able to played HBO go in fullscreen mode
     Wait Until Element Is Visible   ${movie_button_fullscreen}
     Page Should Contain Element     ${movie_button_fullscreen}
     Click Element                   ${movie_button_fullscreen}
-    Sleep                           2
+    Click Element                   ${mouse_hover_movie}
     Page Should Contain Element     ${movie_button_minimize}
+    Click Element                   ${movie_button_minimize}
 
 Verify the content on HBO Go player resumes after pausing
+    Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_pause}
     Page Should Contain Element     ${movie_control_button_time}
     Capture Element Screenshot      ${movie_control_button_time}
@@ -84,6 +90,7 @@ Verify the progress bar and elapsed time on HBO Go player are updating when play
     Capture Element Screenshot      ${movie_control_button_time}
 
 Verify the content resumes after fast forwarded or rewound
+    Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_control_button_forward}
     Page Should Contain Element     ${movie_control_button_time}
     Capture Element Screenshot      ${movie_control_button_time}
@@ -93,6 +100,7 @@ Verify the content resumes after fast forwarded or rewound
     Capture Element Screenshot      ${movie_control_button_time}
 
 Verify No closed caption/Subtitle is shown when the 'Closed Caption' is off
+    Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_close_caption}
     Page Should Contain Element     ${movie_button_cc_subtitle}
     Click Element                   ${movie_button_cc_subtitle_key_off}
@@ -100,6 +108,7 @@ Verify No closed caption/Subtitle is shown when the 'Closed Caption' is off
     Capture Element Screenshot      ${movie_button_cc_subtitle_key_off}
 
 Verify the closed caption/Subtitle is shown based on the selected language
+    Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_close_caption}
     Page Should Contain Element     ${movie_button_cc_subtitle}
     Click Element                   ${movie_button_cc_subtitle_key_id}
@@ -131,3 +140,6 @@ Verify User able to set volume up/down on HBO Go player
     Log To Console                  ${B}
     Should Contain                  ${A}    6.57895%
     Should Be True                  ${B}    >0
+
+Unselect Frame From Video
+    Unselect Frame
