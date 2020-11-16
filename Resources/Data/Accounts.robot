@@ -2,7 +2,7 @@
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-# MOLATV TESTER
+# MOLATV TESTER (INI kasih semua Mal)
 ${ACCOUNT_CINCIN_EMAIL}                     cincin.jati@mola.tv
 ${ACCOUNT_CINCIN_PASSWORD}                  crypt:eLI28vmqKS4EWz78O2F84cX9l9PtFDzM53tUrD+u9UVVW4Pgj6NYMEtkmQxg8mKAsepTmODJnhI=
 ${ACCOUNT_PUTRA_EMAIL}                      putra.pratama@mola.tv
@@ -32,7 +32,7 @@ ${ACCOUNT_WITHDOB101_PASSWORD}              crypt:k/sZy5o0MQU6mxaKYA7k/juh03frtJ
 ${ACCOUNT_WITHOUTDOB102_EMAIL}              jerry.hartono+102@mola.tv
 ${ACCOUNT_WITHOUTDOB102_PASSWORD}           crypt:k/sZy5o0MQU6mxaKYA7k/juh03frtJrsW1esMOwHimfanwRPlQVi3m6t93korXM6+z0FQejF
 
-# MOLATV SUPERMOLA
+# MOLATV SUPERMOLA (Yang Ini Gak usah di kasih ke mereka Mal)
 ${ACCOUNT_SUPERMOLA1_EMAIL}                 supermola1@sapisuper.com
 ${ACCOUNT_SUPERMOLA1_PASSWORD}              sapisuper1
 ${ACCOUNT_SUPERMOLA1_WRONG_PASSWORD}        sapisuper
@@ -67,25 +67,25 @@ ${ACCOUNT_SUPERMOLA69690_PASSWORD}          sapisuper69690
 ${ACCOUNT_SUPERMOLA69690_USERID}            molasuper69690
 
 
-# BANNED ACCOUNTS
+# BANNED ACCOUNTS (Yang Ini Gak usah di kasih ke mereka Mal)
 ${ACCOUNT_BANNED_EMAIL}                     supermola100@sapisuper.com
 ${ACCOUNT_BANNED_PASSWORD}                  sapisuper100
 
-# GOOGLE ACCOUNTS
+# GOOGLE ACCOUNTS (Yang Ini Gak usah di kasih ke mereka Mal)
 ${ACCOUNT_GOOGLE_EMAIL}                     molatv.tester@gmail.com
 ${ACCOUNT_GOOGLE_PASSWORD}                  crypt:sIbMIdtAYFhUQyBrHEuPQW/vj6NbrWKfnytDfWgQLVZdGW1q1XxBQ2B7wk5gzcYHH0etBQPZWtk=
 
-# FACEBOOK ACCOUNTS
+# FACEBOOK ACCOUNTS (Yang Ini Gak usah di kasih ke mereka Mal)
 ${ACCOUNT_FACEBOOK_EMAIL}                   cincin.jati+fb@tokopedia.com
 ${ACCOUNT_FACEBOOK_PASSWORD}                crypt:mSCthBUwOKDxh0bx5qEUfG4udyT2gYZFOtqcMITwBU1uP+KMLJ/VLz2MxOhZYZPzRbbYEv8YuAu1
 
-# HBO SHARING ACCOUNTS
+# HBO SHARING ACCOUNTS (INI kasih semua Mal)
 ${ACCOUNTS_HBO_EMAIL}                       t.hbo@mola.tv
 ${ACCOUNTS_HBO_PASSWORD}                    crypt:MT2ktPPC4mb4OvqnoJdxIgFUveOX6DUVvV7qlO9pjnYwxii8JicVUfj+1mL8oPs7T91wryNP7NU=
 ${ACCOUNTS_MOLA_TESTING14_EMAIL}            molatesting14@gmail.com
 ${ACCOUNTS_MOLA_TESTING14_PASSWORD}         crypt:6E+hXB4+6Qsy7OvJuX6HT1mdgu/6ZiW72FIMWITFdy5r1JwLZlzf5XWrApuHNg11IaWaUS0wrzTVUVPj
 
-# HBO TE ACCOUNTS
+# HBO TE ACCOUNTS (Yang Ini Gak usah di kasih ke mereka Mal)
 ${ACCOUNTS_MOLA_TESTING15_EMAIL}            molatesting15@gmail.com
 ${ACCOUNTS_MOLA_TESTING15_PASSWORD}         crypt:6E+hXB4+6Qsy7OvJuX6HT1mdgu/6ZiW72FIMWITFdy5r1JwLZlzf5XWrApuHNg11IaWaUS0wrzTVUVPj
 ${ACCOUNTS_MOLA_TESTING16_EMAIL}            molatesting16@gmail.com
