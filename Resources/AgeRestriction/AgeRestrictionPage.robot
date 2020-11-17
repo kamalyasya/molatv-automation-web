@@ -28,15 +28,10 @@ Select 18+ Movie Content
     Click Element                           ${login_blocker_garselep1}
 
 Verify Show Age blocker
-    [Arguments]                             ${URL_MOVIE_DETAIL_18+}
-    Sleep                                   5
-    Go To                                   ${URL_MOVIE_DETAIL_18+}
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
-    Sleep                                   1
     Wait Until Page Contains Element        ${frame_kalimat_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_kalimat_konten_dewasa_agerestriction}
-    Sleep                                   1
     Click Element                           ${button_setuju_tutup_konten_dewasa}
 
 Select NON18+ Movie Content
