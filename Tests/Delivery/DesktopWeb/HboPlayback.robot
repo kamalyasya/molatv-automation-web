@@ -67,16 +67,20 @@ HBO Playback - Playback Control
     HboPlayback.Unselect Frame From Video
     SignInPage.Logout Account
 
-#HBO Playback - progress bar
-#    [Documentation]     Verify the progress bar and elapsed time on HBO Go player are updating when playing a content
-#    [Tags]              Regression  HBO
-#
-#    HboPlayback.Go To Login Page
-#    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
-#    HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-#    HboPlayback.verify the progress bar and elapsed time on HBO Go player are updating when playing a content
-#    SignInPage.Logout Account
-#
+HBO Playback - progress bar
+    [Documentation]     Verify the progress bar and elapsed time on HBO Go player are updating when playing a content
+    [Tags]              Regression  HBO
+
+    HboPlayback.Go To Login Page
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
+    HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
+    AgeRestrictionPage.Verify Show Age blocker
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    HboPlayback.Play HBO Movies
+    HboPlayback.verify the progress bar and elapsed time on HBO Go player are updating when playing a content
+    HboPlayback.Unselect Frame From Video
+    SignInPage.Logout Account
+
 HBO Playback - Forward/Rewound
     [Documentation]     Verify the content resumes after fast forwarded or rewound
     [Tags]              Regression  HBO
@@ -119,16 +123,20 @@ HBO Playback - Subtitle Turn On
     HboPlayback.Unselect Frame From Video
     SignInPage.Logout Account
 
-#HBO Playback - Volume Controls
-#    [Documentation]     Verify User able to set volume up/down on HBO Go player
-#    [Tags]              Regression  HBO
-#
-#    HboPlayback.Go To Login Page
-#    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
-#    HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-#    HboPlayback.Verify User able to set volume up/down on HBO Go player
-#    SignInPage.Logout Account
-#
+HBO Playback - Volume Controls
+    [Documentation]     Verify User able to set volume up/down on HBO Go player
+    [Tags]              Regression  HBO
+
+    HboPlayback.Go To Login Page
+    SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
+    HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
+    AgeRestrictionPage.Verify Show Age blocker
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    HboPlayback.Play HBO Movies
+    HboPlayback.Verify User able to set volume up/down on HBO Go player
+    HboPlayback.Unselect Frame From Video
+    SignInPage.Logout Account
+
 HBO Playback - Movie Rating
     [Documentation]     Verify User able to see HBO movie rating on movie detail
     [Tags]              Regression  HBO
