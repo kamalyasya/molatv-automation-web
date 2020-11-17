@@ -59,6 +59,7 @@ TC005 Access 18+ content using account didn't have date of birth
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker      ${URL_MOVIE_DETAIL_18+}
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_18+}
+    AgeRestrictionPage.Verify Show Age blocker
     MovieDetailPage.Play Content Video Or Play Video From Begining
     ProfilePage.Sign Out
