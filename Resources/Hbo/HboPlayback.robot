@@ -29,9 +29,10 @@ ${movie_rating}                         xpath=/html//div[@id='video-player-root'
 
 ${movie_button_volume_mute}             css=.control_button.control_buttons_volume.mute
 ${movie_button_volume}                  css=.control_button.control_buttons_volume
-${movie_button_volume_bar}              css=.shaka-video-container div:nth-child(6)
+${movie_button_volume_bar}              css=.volume_bar
 ${movie_button_volume_dot}              xpath=/html//div[@id='root']/div/div/div[2]/div/div/div/div[5]/div[@class='volume_bar']/div[@class='volume_bar_current volume_bar_current_dot']
 ${volume_before}                        css=.volume_bar > .volume_bar_current.volume_bar_current_dot::before
+${expected_volume_hbo}                  css=.embed.shaka-video-container > .volume_bar_container
 
 *** Keywords ***
 Go To Login Page
@@ -128,18 +129,30 @@ User able to see HBO movie rating on movie detail
     Capture Element Screenshot      ${movie_rating}
 
 Verify User able to set volume up/down on HBO Go player
-    Page Should Contain Element     ${movie_button_volume_mute}
-    Click Element                   ${movie_button_volume}
-    Sleep                           2
-    Click Element                   ${movie_button_volume_dot}
-    Drag And Drop By Offset         ${movie_button_volume_dot}  8   100
-    Page Should Contain Element     ${movie_button_volume}
-    ${A}=    Get Element Attribute   css=.volume_bar_current_dot  style
-    Log To Console                  ${A}
-    ${B}=    Remove String          ${A}    height:     %;
-    Log To Console                  ${B}
-    Should Contain                  ${A}    6.57895%
-    Should Be True                  ${B}    >0
+
+    # Mouse Over To Movie
+    Click Element                     ${mouse_hover_movie}
+    Sleep                               2
+    Click Element                     ${movie_button_volume}
+
+    # Get Element Size Seek Volume Down
+    ${width}	${height} =   Get Element Size            ${movie_button_volume_bar}
+    ${result} =   Evaluate                    (${height}/2) - 50
+    Drag And Drop By Offset     ${movie_button_volume_bar}       0          0
+
+    # Capture To Verify
+#    Mouse Over                          ${movie_mouse_over}
+    Capture Element Screenshot          ${movie_button_volume_bar}
+    sleep                               2
+
+    # Get Element Size Seek Volume Up
+    ${width}	${height} =   Get Element Size            ${movie_button_volume_bar}
+    ${result} =   Evaluate                    (${height}/2) - 30
+    Drag And Drop By Offset     ${movie_button_volume_bar}       0          70
+
+    # Capture To Verify
+#    Mouse Over                          ${mouse_hover_movie}
+    Capture Element Screenshot          ${movie_button_volume_bar}
 
 Unselect Frame From Video
     Unselect Frame
