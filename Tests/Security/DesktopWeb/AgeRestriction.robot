@@ -58,7 +58,7 @@ TC005 Access 18+ content using account didn't have date of birth
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB102_EMAIL}      ${ACCOUNT_WITHOUTDOB102_PASSWORD}
-    AgeRestrictionPage.using account didn't have DOB        ${URL_MOVIE_DETAIL_18+}
-    AgeRestrictionPage.Verify Show Age blocker DOB
-    AgeRestrictionPage.Click Button Tutup
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
+    AgeRestrictionPage.Verify Show Age blocker      ${URL_MOVIE_DETAIL_18+}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    ProfilePage.Sign Out

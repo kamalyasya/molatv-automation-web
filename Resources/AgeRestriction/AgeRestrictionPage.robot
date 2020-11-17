@@ -28,6 +28,9 @@ Select 18+ Movie Content
     Click Element                           ${login_blocker_garselep1}
 
 Verify Show Age blocker
+    [Arguments]                             ${URL_MOVIE_DETAIL_18+}
+    Sleep                                   5
+    Go To                                   ${URL_MOVIE_DETAIL_18+}
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
     Sleep                                   1
@@ -73,15 +76,13 @@ Can't Play Button
 
 using account didn't have DOB
     [Arguments]                             ${URL_MOVIE_DETAIL_18+}
-    Sleep                                   1
     Go To                                   ${URL_MOVIE_DETAIL_18+}
+    Wait Until Element Is Visible           ${text_verifikasi_umur_agerestriction}
     Page Should Contain Element             ${text_verifikasi_umur_agerestriction}
     Capture Element Screenshot              ${text_verifikasi_umur_agerestriction}
-    Wait Until Element Is Visible           ${text_verifikasi_umur_agerestriction}
-    Sleep                                   1
+    Wait Until Element Is Visible           ${text_kalimat_verifikasi_umur}
     Page Should Contain Element             ${text_kalimat_verifikasi_umur}
     Capture Element Screenshot              ${text_kalimat_verifikasi_umur}
-    Wait Until Element Is Visible           ${text_kalimat_verifikasi_umur}
 
 Verify Show Age blocker DOB
     Wait Until Element Is Visible           ${label_tanggal_lahir_agerestriction}
