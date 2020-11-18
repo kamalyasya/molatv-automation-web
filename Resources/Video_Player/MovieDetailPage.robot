@@ -79,6 +79,11 @@ ${expected_autoplay_movie}              css=.container
 
 ${button_close_login_movie_detail}      css=._3Pjgd
 
+# Package Blocker
+${text_movie_detail_blocker_package}            css=._2Wg44 p
+${button_movie_detail_blocker_beli_akses}       css=._33Xwm
+${button_movie_detail_blocker_tukar_voucher}    css=.rgSjS
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -93,6 +98,7 @@ Verify login blocker if not sign in before
 
 Go To Movie Detail
     [Arguments]  ${URL_MOVIE_DETAIL}
+    Sleep    1
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
@@ -427,3 +433,10 @@ Verify Message Prompt To Sign In
     Click Element                       ${movie_detail_login_blocker}
     Click Element                       ${button_close_login_movie_detail}
     Verify Is Redirected Back To The Same Movie Detail      ${URL}
+
+Verify Subscription Blocker Is Shown
+    Wait Until Element Is Visible       ${button_movie_detail_blocker_beli_akses}
+    Element Should Be Visible           ${button_movie_detail_blocker_beli_akses}
+    Element Should Contain              ${button_movie_detail_blocker_beli_akses}       Beli Akses
+    Element Should Be Visible           ${button_movie_detail_blocker_tukar_voucher}
+    Element Should Contain              ${button_movie_detail_blocker_tukar_voucher}    Tukar Voucher

@@ -82,6 +82,7 @@ ${ACCOUNT_FACEBOOK_PASSWORD}                crypt:mSCthBUwOKDxh0bx5qEUfG4udyT2gY
 # HBO SHARING ACCOUNTS
 ${ACCOUNTS_HBO_EMAIL}                       t.hbo@mola.tv
 ${ACCOUNTS_HBO_PASSWORD}                    crypt:MT2ktPPC4mb4OvqnoJdxIgFUveOX6DUVvV7qlO9pjnYwxii8JicVUfj+1mL8oPs7T91wryNP7NU=
+${ACCOUNTS_HBO_USERID}                      oh3LPpxcczo0n6V7P5hHZ9MvfAv3xJ
 ${ACCOUNTS_MOLA_TESTING14_EMAIL}            molatesting14@gmail.com
 ${ACCOUNTS_MOLA_TESTING14_PASSWORD}         crypt:6E+hXB4+6Qsy7OvJuX6HT1mdgu/6ZiW72FIMWITFdy5r1JwLZlzf5XWrApuHNg11IaWaUS0wrzTVUVPj
 
