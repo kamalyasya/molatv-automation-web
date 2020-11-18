@@ -13,7 +13,7 @@ Start Testing
     Set Selenium Speed	        ${DELAY}
 
 End Testing
-    Close Browser
+    Close All Browsers
 
 Open Mola TV
     [Arguments]     ${URL}
