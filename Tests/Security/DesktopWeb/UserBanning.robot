@@ -89,10 +89,7 @@ TC007 Check Watermark on Premium Content Video using Account without package
     HomePage.Open Login Page
     SignInPage.Login Using Credentials      ${ACCOUNT_SUPERMOLA690_EMAIL}       ${ACCOUNT_SUPERMOLA690_PASSWORD}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
-    UserBanningPage.login Untuk Menonton
-    UserBanningPage.Verify Pilih Paket
-    UserBanningPage.Click Lihat Paket Lainnya
-    UserBanningPage.Verify In Subscription Package Page
+    MovieDetailPage.Verify Subscription Blocker Is Shown
 
 TC008 Check Watermark on Premium Content Video using Account with package
     [Documentation]         Check watermark on premium content video using account with package
@@ -100,11 +97,12 @@ TC008 Check Watermark on Premium Content Video using Account with package
 	[Tags]                  Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials      ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials      ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail      ${EXPECTED_URL_MOVIE_DETAIL_18+}
-    UserBanningPage.Verify Watermark in VOD             ${ACCOUNT_KAMAL_USERID}
+    UserBanningPage.Verify Watermark in VOD             ${ACCOUNTS_HBO_USERID}
+    ProfilePage.Sign Out
 
 TC009 Check on-demand fingerprint / watermark
     [Documentation]         Shows up watermark at the moment.
