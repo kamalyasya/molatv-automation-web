@@ -24,6 +24,7 @@ Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
+Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/UserBanning/UserBanningPage.robot

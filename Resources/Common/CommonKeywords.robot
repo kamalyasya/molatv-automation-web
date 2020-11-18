@@ -14,7 +14,7 @@ Start Testing
     
 
 End Testing
-    Close Browser
+    Close All Browsers
 
 Open Mola TV
     [Arguments]     ${URL}
