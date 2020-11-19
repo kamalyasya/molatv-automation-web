@@ -64,6 +64,7 @@ ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3
 
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
+${button_homepage_live_chat}                    css=.helpButtonEnabled.uiButton > .embeddedServiceIcon
 *** Keywords ***
 Verify The App Navigates To Home Page
     [Arguments]     ${HOME}
@@ -99,8 +100,8 @@ Open Login Page
     Mouse Over                          ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
-    Wait Until Element Is Visible       ${links_homepage_menu_profil}
-    Mouse Over                          ${links_homepage_menu_profil}
+    Wait Until Element Is Visible       ${button_homepage_live_chat}
+    Mouse Over                          ${button_homepage_live_chat}
 
 Verify The UI Of The User Icon Without Login
     Wait Until Element Is Visible       ${menu_homepage_accounts}
@@ -116,7 +117,9 @@ Verify The UI Of The User Icon Without Login
 Verify Menu After Logged In
     Wait Until Element Is Not Visible   ${field_login_email}
     Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
+    Mouse Over                          ${button_homepage_live_chat}
     Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_inbox}
