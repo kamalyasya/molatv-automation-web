@@ -11,6 +11,7 @@ Start Testing
     Open Mola TV                ${URL}
     Set Selenium Timeout        ${DEFAULT_TIMEOUT}
     Set Selenium Speed	        ${DELAY}
+    
 
 End Testing
     Close All Browsers
