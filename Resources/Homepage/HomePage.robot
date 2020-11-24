@@ -21,6 +21,8 @@ ${menu_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
 ${menu_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
 ${menu_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
 
+# Profile Page
+${links_homepage_menu_selected}         css=._1NGTJ
 ${links_homepage_menu_profil}           xpath=//div[text()='Profil']
 ${links_homepage_menu_inbox}            xpath=//div[text()='Pesan Masuk']
 ${links_homepage_menu_tontonan_saya}    xpath=//div[text()='Tontonan Saya']
@@ -65,6 +67,13 @@ ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
 ${button_homepage_live_chat}                    css=.helpButtonEnabled.uiButton > .embeddedServiceIcon
+
+# Favorit Saya
+${links_homepage_view_all_favorit_saya}         css=[href='\/accounts\/profile\?tab\=watchList']
+
+# Just Added
+${links_homepage_view_all_just_added}           css=[href='\/categories\/fea-justadded']
+
 *** Keywords ***
 Verify The App Navigates To Home Page
     [Arguments]     ${HOME}
@@ -102,6 +111,7 @@ Open Login Page
     Click Element                       ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${button_homepage_live_chat}
     Mouse Over                          ${button_homepage_live_chat}
+    Mouse Out                           ${button_homepage_live_chat}
 
 Verify The UI Of The User Icon Without Login
     Wait Until Element Is Visible       ${menu_homepage_accounts}
@@ -223,3 +233,25 @@ Choose any live match
     Mouse Over                          ${matches_page_hover}
     Sleep                               2
     Scroll Element Into View            ${view_all_match_card}
+
+Open Profile Page
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${button_homepage_live_chat}
+    Mouse Over                          ${button_homepage_live_chat}
+
+Open Tontonan Saya Page
+    Open Profile Page
+    Wait Until Element Is Visible       ${links_homepage_menu_tontonan_saya}
+    Click Element                       ${links_homepage_menu_tontonan_saya}
+
+Go To Homepage
+    Wait Until Element Is Visible       ${logo_homepage_molatv}
+    Click Element                       ${logo_homepage_molatv}
+
+Click View All On Favorit Saya
+    Wait Until Element Is Visible       ${links_homepage_view_all_favorit_saya}
+    Scroll Element Into View            ${links_homepage_view_all_just_added}
+    Click Element                       ${links_homepage_view_all_favorit_saya}
