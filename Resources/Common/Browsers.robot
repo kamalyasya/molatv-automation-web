@@ -17,6 +17,8 @@ Open Mychrome Browser
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
     Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-notifications
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
 #    Optional using user profile
 #    Call Method    ${chrome_options}    add_argument    --user-data-dir\=/Users/molatv/Library/Application Support/Google/Chrome/
 
