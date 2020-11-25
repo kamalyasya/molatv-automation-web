@@ -11,11 +11,13 @@ ${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
 ${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
 ${URL_MOVIE_DETAIL3}                    https://mola.tv/watch?v=vd61951986
+${URL_MOVIE_DETAIL4}                    https://mola.tv/watch?v=vd03702876
 ${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
 ${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
 ${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
+${EXPECTED_URL_MOVIE_DETAIL4}           ${URL_MOVIE_DETAIL4}
 ${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
 ${EXPECTED_LOCATION_NEXT_EPISODE}       https://mola.tv/watch?v=vd71200807&autoplay=1
@@ -144,11 +146,11 @@ Delivery - Video Player: TC010 Auto Next Video - Same Categories
     [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
     [Tags]           Regression   Smoke
 
-    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL4}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail           ${EXPECTED_URL_MOVIE_DETAIL3}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail           ${EXPECTED_URL_MOVIE_DETAIL4}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
@@ -202,7 +204,7 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
     [Documentation]  Verify the Next VOD is play in the same Category as a VOD before
     [Tags]           Regression   Smoke
 
-    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL4}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}

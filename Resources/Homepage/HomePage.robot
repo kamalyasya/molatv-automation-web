@@ -204,14 +204,17 @@ Click Next Day
     Check Upcoming Matches
 
 Tap Drop Down Filter Competition
+    Wait Until Element Is Visible       ${dropdown_all_competition}
     Click Element                       ${dropdown_all_competition}
 
 Change Filter Competition
+    Wait Until Element Is Visible       ${toggle_on_of_all_competition}
     Click Element                       ${toggle_on_of_all_competition}
     Click Element                       ${toggle_on_of_all_competition}
     Sleep                               2
 
 Click Button Apply
+    Wait Until Element Is Visible       ${button_apply_all_competition}
     Scroll Element Into View            ${button_apply_all_competition}
     Click Element                       ${button_apply_all_competition}
 
