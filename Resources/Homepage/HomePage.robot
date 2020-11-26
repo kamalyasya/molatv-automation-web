@@ -1,68 +1,93 @@
 *** Settings ***
 Library         	    SeleniumLibrary
+Library                 String
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-${logo_homepage_molatv}                 css=._3v45A .fadeIn
-${menu_homepage_featured}               css=a[title='Featured'] > div[title='Featured']
-${menu_homepage_movies}                 css=a[title='Movies'] > div[title='Movies']
-${menu_homepage_living}                 css=a[title='Living'] > div[title='Living']
-${menu_homepage_sports}                 css=a[title='Sports'] > div[title='Sports']
-${menu_homepage_kids}                   css=a[title='Kids'] > div[title='Kids']
-${menu_homepage_games}                  css=a[title='Games'] > div[title='Games']
-${menu_homepage_live_schedule}          css=a[title='Live Schedule'] > div[title='Live Schedule']
-${menu_homepage_beli_paket}             css=a[title='Beli Paket Berlangganan'] > div[title='Beli Paket Berlangganan']
-${button_homepage_account}              css=.ncb37
-${button_homepage_login}                css=._2ov9c
-${text_homepage_account_email}          css=.lQ9ux
-${links_homepage_menu_ubah_profile}     link=Ubah Profil
-${links_homepage_menu_inbox}            link=Inbox
-${links_homepage_menu_subscription}     link=Subscription
-${links_homepage_menu_order_history}    css=._17k4N ._3qTet:nth-child(6)
-${links_homepage_menu_beli_paket}       xpath=//html//div[@id='app']/div[2]//a[@href='/accounts/profile?tab=subscriptionPackage']
-${links_homepage_menu_pengaturan}       link=Pengaturan
-${links_homepage_menu_keluar}           css=._2hHhe
+${logo_homepage_molatv}                 css=._1qzw_ > img[alt='logo Mola']
+${text_homepage_selected_menu}          css=.Trssw._2yKxK
+${menu_homepage_selected_menu}          css=._3lT3U
+${menu_homepage_search}                 css=div:nth-of-type(1) > .SwWJf
+${menu_homepage_home}                   css=._1GfoO > div:nth-of-type(2)
+${menu_homepage_home_hover}             css=div:nth-of-type(2) > ._2yKxK
+${menu_homepage_browse}                 css=._1GfoO > div:nth-of-type(3)
+${menu_homepage_matches}                css=._1GfoO > div:nth-of-type(4)
+${menu_homepage_beli_akses}             css=._1GfoO > div:nth-of-type(5)
+${menu_homepage_redeem_voucher}         css=._1GfoO > div:nth-of-type(6)
+${menu_homepage_accounts}               css=._2YhM7
+${text_homepage_langganan_count_number}    css=.count-number
+${menu_homepage_movies}                 css=.FYgXF > div:nth-of-type(1)
+${menu_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
+${menu_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
+${menu_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
+
+# Profile Page
+${links_homepage_menu_selected}         css=._1NGTJ
+${links_homepage_menu_profil}           xpath=//div[text()='Profil']
+${links_homepage_menu_inbox}            xpath=//div[text()='Pesan Masuk']
+${links_homepage_menu_tontonan_saya}    xpath=//div[text()='Tontonan Saya']
+${links_homepage_menu_pengaturan}       xpath=//div[text()='Pengaturan']
+${links_homepage_menu_langganan}        xpath=//div[text()='Langganan']
+${links_homepage_menu_order_history}    xpath=//div[text()='Riwayat Pembelian']
+${links_homepage_menu_beli_akses}       xpath=//div[text()='Beli Akses' and not(@class='_2yKxK')]
 
 ${links_homepage_privasi}               css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}  css=[href='\/terms-conditions']
+
 ${frame_homepage_inbox_onboarding}      css=.__floater__body
-${text_homepage_title_onboarding}       css=h4
-${text_homepage_content_onboarding}     css=div[role='alertdialog'] > div:nth-of-type(1) > div
-${button_homepage_next_inbox_onboarding}    css=div:nth-of-type(2) > button[role='button']
+${text_homepage_title_onboarding}       css=._2u2aj
+${text_homepage_content_onboarding}     css=._1fO2X
+
+${button_homepage_skip_inbox_onboarding}        id=skip
+${button_homepage_finish_inbox_onboarding}      id=next
+
+${rail_banner_matches_page}                     css=.css-11xe1ut.css-nch242.slider  .slider-list
+${matches_date_filter_toggle}                   css=._2CCM2
+${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
+${view_all_match_card}                          link=View All
+${page_match_view_all}                          css=._2dFXJ
+
+${matches_all_competition}                      css=div#allCompetition
+${matches_footer}                               css=._32NSr
+${matches_status_match}                         css=p[class$='k1LdU']
+${matches_slider_frame}                         css=div:nth-of-type(3) > div > .DgfMr
+${matches_page_hover}                           css=#match-wrapper
+${matches_calendar}                             css=ul > div:nth-of-type(14)
+${list_calendar}                                css=div#list__date
+${list_next_calendar}                           css=div:nth-of-type(13) > ._13AG-.calendar_item
+${expected_title_movie_detail}                  css=h1
+
+${dropdown_all_competition}                     css=._30NbM
+${toggle_on_of_all_competition}                 css=._33UoQ ._1VH-8._334Zm
+${button_apply_all_competition}                 css=._3NXCX
+${page_all_competition}                         css=div#match-wrapper > div:nth-of-type(2)
+${checkbox_1}                                   css=.checkbox0
+${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3.checkbox0
+
+${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
+
+${button_homepage_live_chat}                    css=.helpButtonEnabled.uiButton > .embeddedServiceIcon
+
+# Favorit Saya
+${links_homepage_view_all_favorit_saya}         css=[href='\/accounts\/profile\?tab\=watchList']
+
+# Just Added
+${links_homepage_view_all_just_added}           css=[href='\/categories\/fea-justadded']
 
 *** Keywords ***
-Verify Logged In Using Correct Account
-    [Arguments]     ${EXPECTED_ACCOUNT_EMAIL}
+Verify The App Navigates To Home Page
+    [Arguments]     ${HOME}
     Wait Until Element Is Not Visible   ${field_login_email}
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Sleep                               1
-    Wait Until Element Is Visible       ${text_homepage_account_email}
-    Element Text Should Be              ${text_homepage_account_email}           ${EXPECTED_ACCOUNT_EMAIL}
-    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Visible       ${menu_homepage_home}
+    Mouse Over                          ${menu_homepage_home}
+    Wait Until Element Is Visible       ${menu_homepage_home_hover}
+    Element Text Should Be              ${menu_homepage_home_hover}         ${HOME}
 
-Verify The App Navigates To Featured Page
-    [Arguments]     ${FEATURED}
-    Wait Until Element Is Visible       ${menu_homepage_featured}
-    Element Text Should Be              ${menu_homepage_featured}         ${FEATURED}
-
-Sign Out
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${links_homepage_menu_keluar}
-    Click Element                       ${links_homepage_menu_keluar}
-
-Verify Sign Out
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${button_homepage_login}
-    Element Should Be Visible           ${button_homepage_login}
-
-Open Beli Paket Menu
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${links_homepage_menu_beli_paket}
-    Click Element                       ${links_homepage_menu_beli_paket}
+Open Beli Akses Menu
+    Wait Until Element Is Visible       ${menu_homepage_beli_akses}
+    Click Element                       ${menu_homepage_beli_akses}
+    Wait Until Element Is Visible       ${links_homepage_menu_beli_akses}
+    Click Element                       ${links_homepage_menu_beli_akses}
 
 Open Privasi Page
     Wait Until Element Is Visible       ${links_homepage_privasi}
@@ -73,51 +98,163 @@ Open Syarat Dan Ketentuan Page
     Click Element                       ${links_homepage_syarat_dan_ketentuan}
 
 Click Next Button And Skip Inbox Onboarding
+    Wait Until Page Contains Element    ${frame_homepage_inbox_onboarding}
     Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
-    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
-    Click Element                       ${button_homepage_next_inbox_onboarding}
-    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Visible       ${button_homepage_finish_inbox_onboarding}
+    Click Element                       ${button_homepage_finish_inbox_onboarding}
+    Click Element                       ${menu_homepage_accounts}
 
 Open Login Page
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${button_homepage_login}
-    Click Element                       ${button_homepage_login}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${button_homepage_live_chat}
+    Mouse Over                          ${button_homepage_live_chat}
+    Mouse Out                           ${button_homepage_live_chat}
 
 Verify The UI Of The User Icon Without Login
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${button_homepage_login}
-    Element Should Be Visible           ${button_homepage_login}
-    Element Should Be Visible           ${links_homepage_menu_beli_paket}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
+    Element Should Be Visible           ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
-    Click Element                       ${button_homepage_account}
+    Element Should Be Visible           ${links_homepage_menu_beli_akses}
+    Element Should Be Visible           ${field_login_email}
+    Element Should Be Visible           ${field_login_password}
+
 
 Verify Menu After Logged In
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
-    Wait Until Element Is Visible       ${text_homepage_account_email}
-    Element Should Be Visible           ${text_homepage_account_email}
-    Element Should Be Visible           ${links_homepage_menu_ubah_profile}
+    Wait Until Element Is Not Visible   ${field_login_email}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
+    Mouse Over                          ${button_homepage_live_chat}
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
+    Element Should Be Visible           ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_inbox}
-    Element Should Be Visible           ${links_homepage_menu_subscription}
-    Element Should Be Visible           ${links_homepage_menu_order_history}
-    Element Should Be Visible           ${links_homepage_menu_beli_paket}
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
-    Element Should Be Visible           ${links_homepage_menu_keluar}
+    Element Should Be Visible           ${links_homepage_menu_langganan}
+    Element Should Be Visible           ${links_homepage_menu_order_history}
+    Element Should Be Visible           ${links_homepage_menu_beli_akses}
 
 Verify Inbox Onboarding On Homepage
     [Arguments]  ${EXPECTED_TEXT_TITLE_ONBOARDING}  ${EXPECTED_TEXT_CONTENT_ONBOARDING}
     Wait Until Element Is Visible       ${frame_homepage_inbox_onboarding}
-    Wait Until Element Is Visible       ${button_homepage_next_inbox_onboarding}
+    Wait Until Element Is Visible       ${button_homepage_finish_inbox_onboarding}
     Element Should Be Visible           ${text_homepage_title_onboarding}
     Element Text Should Be              ${text_homepage_title_onboarding}                   ${EXPECTED_TEXT_TITLE_ONBOARDING}
     Element Should Be Visible           ${text_homepage_content_onboarding}
     Element Text Should Be              ${text_homepage_content_onboarding}                 ${EXPECTED_TEXT_CONTENT_ONBOARDING}
-    Element Should Be Visible           ${button_homepage_next_inbox_onboarding}
+    Element Should Be Visible           ${button_homepage_finish_inbox_onboarding}
 
 Open Inbox Page
-    Wait Until Element Is Visible       ${button_homepage_account}
-    Click Element                       ${button_homepage_account}
+    Wait Until Element Is Not Visible   ${field_login_email}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
     Wait Until Element Is Visible       ${links_homepage_menu_inbox}
     Click Element                       ${links_homepage_menu_inbox}
+
+Open Search Page
+    Wait Until Element Is Visible       ${menu_homepage_search}
+    Click Element                       ${menu_homepage_search}
+    Mouse Over                          ${menu_homepage_movies}
+
+Open Matches Page
+    Wait Until Element Is Visible       ${menu_homepage_matches}
+    Click Element                       ${menu_homepage_matches}
+
+Verify UI Layout of Matches page
+    Wait Until Element Is Visible       ${menu_homepage_home_hover}
+    Element Should Be Visible           ${menu_homepage_search}
+    Element Should Be Visible           ${menu_homepage_home}
+    Element Should Be Visible           ${menu_homepage_browse}
+    Element Should Be Visible           ${menu_homepage_matches}
+    Element Should Be Visible           ${menu_homepage_beli_akses}
+    Element Should Be Visible           ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${rail_banner_matches_page}     30
+    Element Should Be Visible           ${rail_banner_matches_page}
+    Element Should Be Visible           ${matches_date_filter_toggle}
+    Element Should Be Visible           ${match_card}
+
+Click view all button
+    Scroll Element Into View            ${view_all_match_card}
+    Click Element                       ${view_all_match_card}
+    Wait Until Element Is Visible       ${page_match_view_all}
+
+Verify all the matches of categories will shown up from the beginning time
+    Element Should Be Visible           ${page_match_view_all}
+
+Choose any upcoming match
+    Wait Until Element Is Visible       ${matches_calendar}    30
+    Mouse Over                          ${matches_page_hover}
+    Sleep                               2
+    Scroll Element Into View            ${matches_status_match}
+    Sleep                               3
+
+Check Upcoming Matches
+    Element Should Be Visible           ${matches_status_match}
+    Click Element                       ${matches_status_match}
+    Wait Until Element Is Visible       ${expected_title_movie_detail}
+
+Click Next Day
+    Scroll Element Into View            ${list_calendar}
+    Click Element                       ${list_next_calendar}
+    Sleep                               3
+    Check Upcoming Matches
+
+Tap Drop Down Filter Competition
+    Wait Until Element Is Visible       ${dropdown_all_competition}
+    Click Element                       ${dropdown_all_competition}
+
+Change Filter Competition
+    Wait Until Element Is Visible       ${toggle_on_of_all_competition}
+    Click Element                       ${toggle_on_of_all_competition}
+    Click Element                       ${toggle_on_of_all_competition}
+    Sleep                               2
+
+Click Button Apply
+    Wait Until Element Is Visible       ${button_apply_all_competition}
+    Scroll Element Into View            ${button_apply_all_competition}
+    Click Element                       ${button_apply_all_competition}
+
+Dont't Click Button Apply
+    Click Element                       ${dropdown_all_competition}
+    Click Element                       ${dropdown_all_competition}
+
+Verify displayed the live match schedule according to the filter
+    Page Should Contain Element         ${page_all_competition}
+
+Verify Filter Not Saved
+    Page Should Contain Element         ${page_all_competition}
+    Scroll Element Into View            ${checkbox_1}
+    Element Should Be Visible           ${checkbox_1}
+    Element Should Not Be Visible       ${uncheckbox_1}
+
+Choose any live match
+    Wait Until Element Is Visible       ${matches_calendar}    30
+    Mouse Over                          ${matches_page_hover}
+    Sleep                               2
+    Scroll Element Into View            ${view_all_match_card}
+
+Open Profile Page
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Mouse Over                          ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Click Element                       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${button_homepage_live_chat}
+    Mouse Over                          ${button_homepage_live_chat}
+
+Open Tontonan Saya Page
+    Open Profile Page
+    Wait Until Element Is Visible       ${links_homepage_menu_tontonan_saya}
+    Click Element                       ${links_homepage_menu_tontonan_saya}
+
+Go To Homepage
+    Wait Until Element Is Visible       ${logo_homepage_molatv}
+    Click Element                       ${logo_homepage_molatv}
+
+Click View All On Favorit Saya
+    Wait Until Element Is Visible       ${links_homepage_view_all_favorit_saya}
+    Scroll Element Into View            ${links_homepage_view_all_just_added}
+    Click Element                       ${links_homepage_view_all_favorit_saya}
