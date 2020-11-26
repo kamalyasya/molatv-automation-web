@@ -122,19 +122,19 @@ Verify Is Redirected Back To The Same Movie Detail
     Scroll Element Into View            ${expected_title_movie_detail}
 
 Play Content From Movie Detail
-    sleep                               10
+    sleep                               20
     Wait Until Element Is Visible       ${expected_title_movie_detail}
     Wait Until Element Is Visible       ${movie_detail_play_button}
     Click Element                       ${movie_detail_play_button}
 
 Play Content 'Mulai Dari Awal'
-    sleep                               10
+    sleep                               20
     Wait Until Element Is Visible       ${popup_lanjutkan_nonton_movie_detail}
     Click Element                       ${button_mulai_popup_movie_detail}
-    Sleep                               3
+    Sleep                               5
 
 Play Content Video Or Play Video From Begining
-    ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
+    ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    10
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
     ${play}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
@@ -142,7 +142,7 @@ Play Content Video Or Play Video From Begining
     ...     ELSE                                    Play Content From Movie Detail
 
 
-    ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       10
+    ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       15
     Run Keyword If      '${CHECK_LIMIT}'=='True'                Play Content Again
 
 Play Content Again

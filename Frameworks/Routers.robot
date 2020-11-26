@@ -27,5 +27,6 @@ Resource            ../Resources/Search/SearchPage.robot
 Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
+Resource            ../Resources/Subscriptions/SubscriptionPage.robot
 Resource            ../Resources/UserBanning/UserBanningPage.robot
 Resource            ../Resources/Video_Player/MovieDetailPage.robot

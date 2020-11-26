@@ -21,8 +21,6 @@ ${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
 ${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
 ${EXPECTED_URL_MOVIE_DETAIL_Watermark}  ${URL_MOVIE_DETAIL_Watermark}
-${EXPECTED_LOCATION_NEXT_EPISODE}       https://mola.tv/watch?v=vd71200807&autoplay=1
-${EXPECTED_TITLE_SAME_EPISODES}         Dr. Panda Season 1 Episode 2: A New Chicken Shed for Moo
 ${EXPECTED_TEXT_MENU_HOME}              Home
 
 *** Test Cases ***
