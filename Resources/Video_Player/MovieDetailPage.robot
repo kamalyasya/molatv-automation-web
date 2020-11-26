@@ -33,7 +33,7 @@ ${autoplay_next_movie}                  css=.content
 ${autoplay_button_Play_next}            css=.play
 ${autoplay_button_skip}                 css=.close
 
-${close_caption}                        css=div#vpcc-subtitle
+${close_caption}                        css=#vpcc-quality
 ${subtitle_title}                       css=.subtitle_title
 ${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
 ${subtitle_list_off}                    xpath=//div[@id='vpcc-subtitle']//div[.='Off']
@@ -227,6 +227,7 @@ Verify Close Caption Icon
     Page Should Contain Element         ${expected_close_caption_icon}
 
 Play a content which is supporting closed caption
+    Mouse Over                          ${movie_mouse_over}
     Click Element                       ${close_caption}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${subtitle_list_Indonesia}
