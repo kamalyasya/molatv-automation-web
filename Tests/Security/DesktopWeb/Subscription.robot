@@ -58,11 +58,11 @@ TC002 Check video quality
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
-    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL4}
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
-    MovieDetailPage.Change Video Quality
-    MovieDetailPage.Verify Video Quality 720
-    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+#    MovieDetailPage.Change Video Quality
+#    MovieDetailPage.Verify Video Quality 720
+#    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     SignInPage.Logout Account
 
 TC003 There's no ads banner in every package
@@ -76,7 +76,7 @@ TC003 There's no ads banner in every package
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
-    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL5}
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     SignInPage.Logout Account
 
@@ -91,6 +91,31 @@ TC004 There's no pre roll banner in every package
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
-    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL6}
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    SignInPage.Logout Account
+
+TC005 Subscription Blocker before user buy package
+    [Documentation]     Subscription blocker shown if user don't have a package
+    ...             User already have an account and sign in
+    [Tags]      Regression  Smoke
+
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                  ${ACCOUNTS_MOLA_TESTING17_EMAIL}        ${ACCOUNTS_MOLA_TESTING17_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_MOLA_TESTING17_EMAIL}
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
+    SubscriptionPage.Verify Choose content that need a package
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL}
+    SignInPage.Logout Account
+
+TC006 Subscription Blocker after user buy package
+    [Documentation]     Subscription blocker not shown if user already buy package
+    ...             User already have an account with package and sign in
+    [Tags]      Regression  Smoke
+
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}       ${ACCOUNTS_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
+    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     SignInPage.Logout Account
