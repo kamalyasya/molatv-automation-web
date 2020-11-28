@@ -60,9 +60,9 @@ TC002 Check video quality
     SettingsPage.Select Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
-#    MovieDetailPage.Change Video Quality
-#    MovieDetailPage.Verify Video Quality 720
-#    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    MovieDetailPage.Change Video Quality
+    MovieDetailPage.Verify Video Quality 720
+    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     SignInPage.Logout Account
 
 TC003 There's no ads banner in every package
