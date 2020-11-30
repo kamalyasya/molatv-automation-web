@@ -47,15 +47,15 @@ ${movie2_play_button}                   css=.css-18dkaks.playIcon
 ${movie_volume_bar}                     css=input#vpcc-volume
 ${volume_button}                        css=#volume-button
 ${button_fullscreen}                    css=#vpcc-fullscreen
-${button_play_player_control}           css=.css-1nkv7aa.playIcon
+${button_play_player_control}           css=.playIcon
 
 ${expected_buffering}                   css=code
 ${expected_close_caption_icon}          css=div#vpcc-subtitle
 ${expected_subtitle_on_screen}          css=[class='hide css-1okjqaq']
 ${expected_volume_bar}                  xpath=//*[@id="vpcc-volume" and @value="0.49"]
 ${expected_fullscreen_icon}             css=#vpcc-fullscreen .withTooltip
-${expected_pleyer_control_hide}         css=div#video-child > .css-zv9wgj.hide
-${expected_player_control_unhide}       css=div#video-child > .css-zv9wgj
+${expected_pleyer_control_hide}         css=div#video-child > .css-cui6p1.hide
+${expected_player_control_unhide}       css=div#video-child > .css-cui6p1
 ${expected_categories_movie_detail}     css=.sub-header > span:nth-of-type(2)
 
 ${expected_title_movie_detail}          css=h1
@@ -76,7 +76,7 @@ ${button_movie_detail_accept_adult_content}    css=._3UpwF
 
 ${button_seek_bar}                      xpath=/html//input[@id='vpcc-seek']
 ${button_seek_volume}                   css=input#vpcc-volume
-${button_next_video_beside_volume}      css=.css-1nkv7aa.upcommingIcon
+${button_next_video_beside_volume}      css=.upcommingIcon
 
 ${expected_title_same_episode}          css=.upc-video-title
 ${expected_countdown_autoplay}          css=.css-oht1a4 span
@@ -241,6 +241,7 @@ Verify Close Caption Icon
     Page Should Contain Element         ${expected_close_caption_icon}
 
 Play a content which is supporting closed caption
+    Mouse Over                          ${close_caption}
     Click Element                       ${close_caption}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${subtitle_list_Indonesia}
