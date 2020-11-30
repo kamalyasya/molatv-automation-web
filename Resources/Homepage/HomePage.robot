@@ -120,6 +120,7 @@ Verify The UI Of The User Icon Without Login
     Element Should Be Visible           ${links_homepage_menu_profil}
     Element Should Be Visible           ${links_homepage_menu_pengaturan}
     Element Should Be Visible           ${links_homepage_menu_beli_akses}
+    Wait Until Element Is Visible       ${field_login_email}
     Element Should Be Visible           ${field_login_email}
     Element Should Be Visible           ${field_login_password}
 

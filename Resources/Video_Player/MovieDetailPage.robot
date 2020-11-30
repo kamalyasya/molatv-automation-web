@@ -18,8 +18,8 @@ ${field_login_email}                    id=email
 ${field_login_password}                 id=password
 ${movie_detail_play_button}             css=.css-18dkaks.playIcon
 ${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
-${button_forward_movie_detail}          css=.css-1nkv7aa.forwardIcon
-${button_backward_movie_detail}         css=.backwardIcon.css-1nkv7aa
+${button_forward_movie_detail}          css=.forwardIcon
+${button_backward_movie_detail}         css=.backwardIcon
 ${movie_detail_duration}                css=.duration
 ${movie_progress_bar}                   css=.progressbar_progress
 ${movie_pause_button}                   css=.pauseIcon
@@ -295,6 +295,7 @@ Verify Movie Details Page Is Shown
     Element Should Contain              ${text_movie_detail_title}               ${EXPECTED_TITLE_CONTENT}
 
 Verify Pause And Resume Live Matches
+    Mouse Over                          ${movie_pause_button}
     Click Element                       ${movie_pause_button}
     Wait Until Element Is Visible       ${button_play_player_control}
     Page Should Contain Element         ${button_play_player_control}
