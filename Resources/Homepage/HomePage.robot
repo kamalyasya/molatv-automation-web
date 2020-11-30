@@ -66,7 +66,7 @@ ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3
 
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
-${button_homepage_live_chat}                    css=.helpButtonEnabled.uiButton > .embeddedServiceIcon
+${button_homepage_live_chat}                    css=.embeddedServiceIcon
 
 # Favorit Saya
 ${links_homepage_view_all_favorit_saya}         css=[href='\/accounts\/profile\?tab\=watchList']
