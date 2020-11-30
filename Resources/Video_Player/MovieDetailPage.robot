@@ -10,7 +10,7 @@ ${button_movie_detail_favorit}          css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}   css=.md-favorite-icon
 ${button_movie_detail_favorit_active}   css=.md-favorite-icon-active
 
-${login_blocker_garselep1}              css=.Cig54._3J12S
+${login_blocker_garselep1}              xpath=//*[contains(text(),'Login untuk')]
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
 ${text_login_login_page}                css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}             css=._3Z4PZ
