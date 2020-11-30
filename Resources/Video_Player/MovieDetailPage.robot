@@ -10,21 +10,21 @@ ${button_movie_detail_favorit}          css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}   css=.md-favorite-icon
 ${button_movie_detail_favorit_active}   css=.md-favorite-icon-active
 
-${login_blocker_garselep1}              css=._33Xwm
+${login_blocker_garselep1}              xpath=//*[contains(text(),'Login untuk')]
 ${movie_detail_login_blocker}           ${login_blocker_garselep1}
 ${text_login_login_page}                css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}             css=._3Z4PZ
 ${field_login_email}                    id=email
 ${field_login_password}                 id=password
-${movie_detail_play_button}             css=.css-zy8jsc
+${movie_detail_play_button}             css=.css-18dkaks.playIcon
 ${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
 ${button_forward_movie_detail}          css=.css-1nkv7aa.forwardIcon
 ${button_backward_movie_detail}         css=.backwardIcon.css-1nkv7aa
 ${movie_detail_duration}                css=.duration
-${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
-${movie_pause_button}                   css=.css-1nkv7aa.pauseIcon
+${movie_progress_bar}                   css=.progressbar_progress
+${movie_pause_button}                   css=.pauseIcon
 
-${movie_mouse_over}                     css=div#video-child > .css-q60n54
+${movie_mouse_over}                     css=#video-child
 ${movie_quality_control}                css=div#vpcc-quality
 ${movie_change_quality}                 css=.quality_popup
 ${movie_quality_list_576}               css=div#vpcc-quality > div > div:nth-of-type(3)
@@ -43,7 +43,7 @@ ${subtitle_title}                       css=.subtitle_title
 ${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
 ${subtitle_list_off}                    xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
-${movie2_play_button}                   css=.css-xvdnxx.playIcon
+${movie2_play_button}                   css=.css-18dkaks.playIcon
 ${movie_volume_bar}                     css=input#vpcc-volume
 ${volume_button}                        css=#volume-button
 ${button_fullscreen}                    css=#vpcc-fullscreen

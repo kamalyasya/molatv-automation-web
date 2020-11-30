@@ -63,7 +63,6 @@ ${speed_ping_mxs01_vod}                                 css=div:nth-of-type(1) >
 ${speed_ping_mola02_live}                               css=div:nth-of-type(2) > .section__cdn
 ${text_video_playback_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(4)
 ${test_video_playback_non_drm_settings}                 css=._3XA-Q > div:nth-of-type(2)
-${play_movies_non_drm_settings}                         css=.css-xvdnxx.playIcon
 ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of-type(1)
 ${text_konten_dewasa_setuju_settings}                   css=._3UpwF
 
@@ -283,9 +282,9 @@ Click Internet Speed Test
     Wait Until Element Is Visible                   ${text_logo_title_mola_speed_pengaturan_settings}
     Wait Until Element Is Visible                   ${button_reload_mola_speed_pengaturan_settings}         30
     Wait Until Location Contains                    ${URL_mola_speed}
-    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 120
+    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 60
     Element Should Be Visible                       ${speed_ping_mxs01_vod}
-    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               120
+    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               60
     Element Should Be Visible                       ${speed_ping_mola02_live}
     Click Element                                   ${button_reload_mola_speed_pengaturan_settings}
 
@@ -296,8 +295,8 @@ Click Video Playback Test
 Choose Non-DRM Playback
     Wait Until Element Is Visible                   ${test_video_playback_non_drm_settings}
     Click Element                                   ${test_video_playback_non_drm_settings}
-    wait until element is visible                   ${play_movies_non_drm_settings}
-    Click Element                                   ${play_movies_non_drm_settings}
+    wait until element is visible                   ${movie_detail_play_button}
+    Click Element                                   ${movie_detail_play_button}
     sleep                                           2
 
 Choose DRM Playback
