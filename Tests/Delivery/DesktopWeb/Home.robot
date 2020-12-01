@@ -117,9 +117,9 @@ TC013 Handling Empty Rail
 
     HomePage.Verify No empty raiis shown in any page
 
-TC014 Handling Empty Title/Thumbnail
-    [Documentation]  Verify that no empty tile found in content list/page
-    [Tags]  Regression  Smoke
-
-    HomePage.Click View All
-    HomePage.Verify that no empty tile found in content list/page
+#TC014 Handling Empty Title/Thumbnail
+#    [Documentation]  Verify that no empty tile found in content list/page
+#    [Tags]  Regression  Smoke
+#
+#    HomePage.Click View All
+#    HomePage.Verify that no empty tile found in content list/page
