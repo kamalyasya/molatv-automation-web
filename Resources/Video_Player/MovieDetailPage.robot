@@ -139,7 +139,7 @@ Play Content 'Mulai Dari Awal'
     sleep                               10
     Wait Until Element Is Visible       ${popup_lanjutkan_nonton_movie_detail}
     Click Element                       ${button_mulai_popup_movie_detail}
-    Sleep                               3
+    Sleep                               5
 
 Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
