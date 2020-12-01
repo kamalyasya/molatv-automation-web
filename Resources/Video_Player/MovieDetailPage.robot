@@ -38,7 +38,7 @@ ${autoplay_next_movie}                      css=.content
 ${autoplay_button_Play_next}                css=.play
 ${autoplay_button_skip}                     css=.close
 
-${close_caption}                            css=#vpcc-quality
+${close_caption}                            css=#vpcc-subtitle
 ${subtitle_title}                           css=.subtitle_title
 ${subtitle_list_Indonesia}                  css=.subtitle_popup div:nth-of-type(2)
 ${subtitle_list_off}                        xpath=//div[@id='vpcc-subtitle']//div[.='Off']
@@ -51,7 +51,7 @@ ${button_play_player_control}               css=.playIcon
 
 ${expected_buffering}                       css=code
 ${expected_close_caption_icon}              css=div#vpcc-subtitle
-${expected_subtitle_on_screen}              css=[class='hide css-1okjqaq']
+${expected_subtitle_on_screen}              xpath=//div[@id='video-child']/div[3]
 ${expected_volume_bar}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
 ${expected_fullscreen_icon}                 css=#vpcc-fullscreen .withTooltip
 ${expected_pleyer_control_hide}             css=div#video-child > .css-cui6p1.hide
