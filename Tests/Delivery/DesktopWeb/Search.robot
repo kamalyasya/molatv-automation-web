@@ -9,7 +9,7 @@ Test Teardown                   CommonKeywords.End Testing
 *** Variables ***
 ${URL}                                          https://mola.tv
 
-${KEYWORD_MOVIE_GO_BACK_TO_CHINA}               Go Back to China
+${KEYWORD_MOVIE_GO_BACK_TO_CHINA}               GO BACK TO CHINA
 ${KEYWORD_NO_RESULT}                            Tahubakso
 ${KEYWORD_SPACE}                                ${SPACE}
 ${KEYWORD_USD}                                  $$$
