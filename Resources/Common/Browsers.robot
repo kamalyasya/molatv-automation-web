@@ -1,6 +1,5 @@
 *** Settings ***
 Library         	            SeleniumLibrary
-Library                         XvfbRobot
 Resource                        ../../Frameworks/Routers.robot
 
 *** Keywords ***
@@ -18,6 +17,8 @@ Open Mychrome Browser
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
     Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --disable-notifications
+    Call Method    ${chrome_options}    add_argument    --disable-infobars
 #    Optional using user profile
 #    Call Method    ${chrome_options}    add_argument    --user-data-dir\=/Users/molatv/Library/Application Support/Google/Chrome/
 
@@ -36,7 +37,6 @@ Open Myheadlesschrome Browser
     [Arguments]    ${URL}
     ${chrome_options}       Evaluate        sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${window_size}          Set Variable    window-size=1920,1080
-#    start virtual display  1920     1080
     Call Method    ${chrome_options}    add_argument    test-type
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking

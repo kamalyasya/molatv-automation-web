@@ -169,29 +169,29 @@ Input the field with invalid fields format and tick the agreement
     Click Element                                   ${dropdown_register_tanggal_lahir_tahun_ke_invalid}
     Click Element                                   ${field_register_tanggal_lahir_tanggal_ke_invalid}
     Click Element                                   ${checkbox_register_saya_menjamin}
-    Sleep                                           15
+#    Sleep                                           15
 
 User Cannot Register
     Wait Until Element Is Visible                   ${text_register_akun_invalid}
     Element Text Should Be                          ${text_register_akun_invalid}           Email Already Exists
-    Sleep                                           15
+#    Sleep                                           15
 
 Select any special assets or content
     [Arguments]                                     ${URL_SAMPLE_MOVIE}
     Go To                                           ${URL_SAMPLE_MOVIE}
-    Sleep                                           15
+#    Sleep                                           15
 
 Select Login
     Wait Until Element Is Visible                   ${links_login}
     Click Element                                   ${links_login}
-    Sleep                                           15
+#    Sleep                                           15
 
 Select Beli Paket
     Wait Until Element Is Visible                   ${text_register_peli_paket}
     Click Element                                   ${text_register_peli_paket}
-    Sleep                                           15
+#    Sleep                                           15
 
 Choose package
     Wait Until Element Is Visible                   ${button_register_peli_paket}
     Click Element                                   ${button_register_peli_paket}
-    Sleep                                           15
+#    Sleep                                           15

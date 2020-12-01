@@ -6,8 +6,10 @@ Library     SeleniumLibrary     plugins=CryptoLibrary.Plugin
 Resource            Configs.robot
 
 # Resource
+Resource            ../Resources/Accounts/FavoritePage.robot
 Resource            ../Resources/Accounts/ProfilePage.robot
 Resource            ../Resources/AgeRestriction/AgeRestrictionPage.robot
+Resource            ../Resources/Browse/MovieSeriesPage.robot
 Resource            ../Resources/Common/Browsers.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Data/Accounts.robot
@@ -24,6 +26,7 @@ Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
+Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/UserBanning/UserBanningPage.robot

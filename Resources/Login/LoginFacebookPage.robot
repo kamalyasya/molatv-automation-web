@@ -6,6 +6,7 @@ Resource                ../../Frameworks/Routers.robot
 ${field_login_facebook_email}                 id=email
 ${field_login_facebook_password}              id=pass
 ${button_login_facebook}                      id=loginbutton
+${button_login_facebook_confirm_ok}           name=__CONFIRM__
 
 *** Keywords ***
 Login Using Facebook Account
@@ -14,3 +15,5 @@ Login Using Facebook Account
     Input Text                              ${field_login_facebook_email}                         ${FACEBOOK_ACCOUNT_EMAIL}
     Input Password                          ${field_login_facebook_password}                      ${FACEBOOK_ACCOUNT_PASSWORD}
     Click Element                           ${button_login_facebook}
+    Wait Until Element Is Visible           ${button_login_facebook_confirm_ok}
+    Click Element                           ${button_login_facebook_confirm_ok}

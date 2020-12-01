@@ -3,82 +3,95 @@ Library             SeleniumLibrary
 Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***
-${text_movie_detail_title_vod}          css=h1
-${button_movies_categories}             css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
-${login_blocker_garselep1}              css=._33Xwm
-${movie_detail_login_blocker}           ${login_blocker_garselep1}
-${text_login_login_page}                css=._2WE07 > ._3CiJF
-${frame_login_movie_detail}             css=._3Z4PZ
-${field_login_email}                    id=email
-${field_login_password}                 id=password
-${movie_detail_play_button}             css=.css-zy8jsc
-${movie_detail_image_logo}              css=img[alt='Bug-logo Player']
-${button_forward_movie_detail}          css=.css-1nkv7aa.forwardIcon
-${button_backward_movie_detail}         css=.backwardIcon.css-1nkv7aa
-${movie_detail_duration}                css=.duration
-${movie_progress_bar}                   css=div#video-child  .progress > .progress_wrapper
-${movie_pause_button}                   css=.css-1nkv7aa.pauseIcon
+# Right Side
+${text_movie_detail_title}                  css=h1
+${button_movies_categories}                 css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
+${button_movie_detail_favorit}              css=.favorite-wrapper
+${button_movie_detail_favorit_non_active}   css=.md-favorite-icon
+${button_movie_detail_favorit_active}       css=.md-favorite-icon-active
 
-${movie_mouse_over}                     css=div#video-child > .css-q60n54
-${movie_quality_control}                css=div#vpcc-quality
-${movie_change_quality}                 css=.quality_popup
-${movie_quality_list_576}               css=div#vpcc-quality > div > div:nth-of-type(3)
-${movie_quality_list_270}               css=div#vpcc-quality > div > div:nth-of-type(5)
-${movie_quality_list_360}               css=div#vpcc-quality > div > div:nth-of-type(4)
-${movie_quality_list_720}               css=div#vpcc-quality > div > div:nth-of-type(2)
-${movie_quality_list_auto}              css=div > div:nth-of-type(6)
-${movie_quality_selected}               css=.css-2v9r2y.tickIcon
-${movie_quality_title}                  css=.quality_title
-${autoplay_next_movie}                  css=.content
-${autoplay_button_Play_next}            css=.play
-${autoplay_button_skip}                 css=.close
+${login_blocker_garselep1}                  xpath=//*[contains(text(),'Login untuk')]
+${movie_detail_login_blocker}               ${login_blocker_garselep1}
+${text_login_login_page}                    css=._2WE07 > ._3CiJF
+${frame_login_movie_detail}                 css=._3Z4PZ
+${field_login_email}                        id=email
+${field_login_password}                     id=password
+${movie_detail_play_button}                 css=.css-18dkaks.playIcon
+${movie_detail_image_logo}                  css=img[alt='Bug-logo Player']
+${button_forward_movie_detail}              css=.forwardIcon
+${button_backward_movie_detail}             css=.backwardIcon
+${movie_detail_duration}                    css=.duration
+${movie_progress_bar}                       css=.progressbar_progress
+${movie_pause_button}                       css=.pauseIcon
 
-${close_caption}                        css=#vpcc-quality
-${subtitle_title}                       css=.subtitle_title
-${subtitle_list_Indonesia}              css=.subtitle_popup div:nth-of-type(2)
-${subtitle_list_off}                    xpath=//div[@id='vpcc-subtitle']//div[.='Off']
+${movie_mouse_over}                         css=#video-child
+${movie_quality_control}                    css=div#vpcc-quality
+${movie_change_quality}                     css=.quality_popup
+${movie_quality_list_576}                   css=div#vpcc-quality > div > div:nth-of-type(3)
+${movie_quality_list_270}                   css=div#vpcc-quality > div > div:nth-of-type(5)
+${movie_quality_list_360}                   css=div#vpcc-quality > div > div:nth-of-type(4)
+${movie_quality_list_720}                   css=div#vpcc-quality > div > div:nth-of-type(2)
+${movie_quality_list_auto}                  css=div > div:nth-of-type(6)
+${movie_quality_selected}                   css=.css-2v9r2y.tickIcon
+${movie_quality_title}                      css=.quality_title
+${autoplay_next_movie}                      css=.content
+${autoplay_button_Play_next}                css=.play
+${autoplay_button_skip}                     css=.close
 
-${movie2_play_button}                   css=.css-xvdnxx.playIcon
-${movie_volume_bar}                     css=input#vpcc-volume
-${volume_button}                        css=#volume-button
-${button_fullscreen}                    css=#vpcc-fullscreen
-${button_play_player_control}           css=.css-1nkv7aa.playIcon
+${close_caption}                            css=#vpcc-quality
+${subtitle_title}                           css=.subtitle_title
+${subtitle_list_Indonesia}                  css=.subtitle_popup div:nth-of-type(2)
+${subtitle_list_off}                        xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
-${expected_buffering}                   css=code
-${expected_close_caption_icon}          css=div#vpcc-subtitle
-${expected_subtitle_on_screen}          css=[class='hide css-1okjqaq']
-${expected_volume_bar}                  xpath=//*[@id="vpcc-volume" and @value="0.49"]
-${expected_fullscreen_icon}             css=#vpcc-fullscreen .withTooltip
-${expected_pleyer_control_hide}         css=div#video-child > .css-zv9wgj.hide
-${expected_player_control_unhide}       css=div#video-child > .css-zv9wgj
-${expected_categories_movie_detail}     css=.sub-header > span:nth-of-type(2)
+${movie2_play_button}                       css=.css-18dkaks.playIcon
+${movie_volume_bar}                         css=input#vpcc-volume
+${volume_button}                            css=#volume-button
+${button_fullscreen}                        css=#vpcc-fullscreen
+${button_play_player_control}               css=.playIcon
 
-${expected_title_movie_detail}          css=h1
-${expected_movie_detail_play_button}    css=.css-zy8jsc
-${expected_movie_detail_synopsis}       css=.css-oa5ddb > div:nth-of-type(1)
-${expected_movie_detail_cast}           css=.css-oa5ddb > div:nth-of-type(2)
-${expected_movie_detail_related_video}  css=#detailBottom
+${expected_buffering}                       css=code
+${expected_close_caption_icon}              css=div#vpcc-subtitle
+${expected_subtitle_on_screen}              css=[class='hide css-1okjqaq']
+${expected_volume_bar}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
+${expected_fullscreen_icon}                 css=#vpcc-fullscreen .withTooltip
+${expected_pleyer_control_hide}             css=div#video-child > .css-cui6p1.hide
+${expected_player_control_unhide}           css=div#video-child > .css-cui6p1
+${expected_categories_movie_detail}         css=.sub-header > span:nth-of-type(2)
 
-${expected_movie_detail_countdown}      css=._3Qguo
-${expected_volume}                      css=.volume
+${expected_title_movie_detail}              css=h1
+${expected_movie_detail_play_button}        css=.css-zy8jsc
+${expected_movie_detail_synopsis}           css=.css-oa5ddb > div:nth-of-type(1)
+${expected_movie_detail_cast}               css=.css-oa5ddb > div:nth-of-type(2)
+${expected_movie_detail_related_video}      css=#detailBottom
 
-${popup_lanjutkan_nonton_movie_detail}  css=.gJE3n p
-${button_mulai_popup_movie_detail}      css=._3QaU2
-${button_lanjutkan_popup_movie_detail}  css=._1H-wq
-${frame_movie_detail_device_limit}      css=.styles_modal__gNwvD
-${frame_movie_detail_adult_content_18}  css=.styles_modal__gNwvD
+${expected_movie_detail_countdown}          css=._3Qguo
+${expected_volume}                          css=.volume
+
+${popup_lanjutkan_nonton_movie_detail}      css=.gJE3n p
+${button_mulai_popup_movie_detail}          css=._3QaU2
+${button_lanjutkan_popup_movie_detail}      css=._1H-wq
+${frame_movie_detail_device_limit}          css=.styles_modal__gNwvD
+${frame_movie_detail_adult_content_18}      css=.styles_modal__gNwvD
 ${button_movie_detail_accept_adult_content}    css=._3UpwF
 
-${button_seek_bar}                      xpath=/html//input[@id='vpcc-seek']
-${button_seek_volume}                   css=input#vpcc-volume
-${button_next_video_beside_volume}      css=.css-1nkv7aa.upcommingIcon
+${button_seek_bar}                              xpath=/html//input[@id='vpcc-seek']
+${button_seek_volume}                           css=input#vpcc-volume
+${button_next_video_beside_volume}              css=.upcommingIcon
 
-${expected_title_same_episode}          css=.upc-video-title
-${expected_countdown_autoplay}          css=.css-oht1a4 span
-${expected_autoplay_movie}              css=.container
+${expected_title_same_episode}                  css=.upc-video-title
+${expected_countdown_autoplay}                  css=.css-oht1a4 span
+${expected_autoplay_movie}                      css=.container
 
-${button_close_login_movie_detail}      css=._3Pjgd
+${button_close_login_movie_detail}              css=._3Pjgd
 
+# Package Blocker
+${text_movie_detail_blocker_package}            css=._2Wg44 p
+${button_movie_detail_blocker_beli_akses}       css=._33Xwm
+${button_movie_detail_blocker_tukar_voucher}    css=.rgSjS
+
+# Notification
+${text_movie_detail_favorit_message}            css=.snackbar-content-left
+${button_movie_detail_lihat_daftar_favorit}     css=.snackbar-content-right
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -93,6 +106,7 @@ Verify login blocker if not sign in before
 
 Go To Movie Detail
     [Arguments]  ${URL_MOVIE_DETAIL}
+    Sleep    1
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
@@ -149,6 +163,7 @@ Accept Adult Content
     Click Element                       ${button_movie_detail_accept_adult_content}
 
 Forward Progress Bar
+    Mouse Over                          ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
@@ -228,6 +243,7 @@ Verify Close Caption Icon
 
 Play a content which is supporting closed caption
     Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${close_caption}
     Click Element                       ${close_caption}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${subtitle_list_Indonesia}
@@ -277,10 +293,11 @@ Verify Video Metadata
 
 Verify Movie Details Page Is Shown
     [Arguments]     ${EXPECTED_TITLE_CONTENT}
-    Wait Until Element Is Visible       ${text_movie_detail_title_vod}
-    Element Should Contain              ${text_movie_detail_title_vod}               ${EXPECTED_TITLE_CONTENT}
+    Wait Until Element Is Visible       ${text_movie_detail_title}
+    Element Should Contain              ${text_movie_detail_title}               ${EXPECTED_TITLE_CONTENT}
 
 Verify Pause And Resume Live Matches
+    Mouse Over                          ${movie_pause_button}
     Click Element                       ${movie_pause_button}
     Wait Until Element Is Visible       ${button_play_player_control}
     Page Should Contain Element         ${button_play_player_control}
@@ -428,3 +445,53 @@ Verify Message Prompt To Sign In
     Click Element                       ${movie_detail_login_blocker}
     Click Element                       ${button_close_login_movie_detail}
     Verify Is Redirected Back To The Same Movie Detail      ${URL}
+
+Verify Subscription Blocker Is Shown
+    Wait Until Element Is Visible       ${button_movie_detail_blocker_beli_akses}
+    Element Should Be Visible           ${button_movie_detail_blocker_beli_akses}
+    Element Should Contain              ${button_movie_detail_blocker_beli_akses}       Beli Akses
+    Element Should Be Visible           ${button_movie_detail_blocker_tukar_voucher}
+    Element Should Contain              ${button_movie_detail_blocker_tukar_voucher}    Tukar Voucher
+
+Click Button Favorit
+    Wait Until Element Is Visible       ${button_movie_detail_favorit}
+    Click Element                       ${button_movie_detail_favorit}
+
+Verify Favorit Button Is Non Active
+    Wait Until Element Is Visible       ${button_movie_detail_favorit_non_active}
+    Element Should Be Visible           ${button_movie_detail_favorit_non_active}
+    Element Should Contain              ${button_movie_detail_favorit}                      Favorit
+
+Verify Favorit Button Is Active
+    Wait Until Element Is Visible       ${text_movie_detail_favorit_message}
+    Element Should Be Visible           ${text_movie_detail_favorit_message}
+    Element Text Should Be              ${text_movie_detail_favorit_message}                Disimpan sebagai favorit
+    Wait Until Element Is Visible       ${button_movie_detail_lihat_daftar_favorit}
+    Element Should Be Visible           ${button_movie_detail_lihat_daftar_favorit}
+    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Lihat daftar favorit
+    Wait Until Element Is Not Visible   ${text_movie_detail_favorit_message}                5
+    Wait Until Element Is Visible       ${button_movie_detail_favorit}
+    Element Should Be Visible           ${button_movie_detail_favorit}
+    Element Should Contain              ${button_movie_detail_favorit}                      Difavoritkan
+
+Verify Video Added To My Favorite In Daftar Tontonan Page
+    [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}
+    HomePage.Open Tontonan Saya Page
+    Wait Until Element Is Visible       //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
+    Click Element                       //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
+
+Verify Video Is Appeared At Favorite Video Section In Homepage
+    [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}
+    HomePage.Go To Homepage
+    Wait Until Element Is Visible       //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
+    Scroll Element Into View            //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
+
+Remove Favorit Video
+    Wait Until Element Is Visible       ${button_movie_detail_favorit_active}
+    Click Element                       ${button_movie_detail_favorit_active}
+    Wait Until Element Is Not Visible   ${button_movie_detail_favorit_active}
+
+Check Favorit Video
+    Wait Until Element Is Visible       ${button_movie_detail_favorit}
+    ${STATUS}           Run Keyword And Return Status       Element Should Be Visible       ${button_movie_detail_favorit_active}
+    Run Keyword If      '${STATUS}'=='True'                 Remove Favorit Video
