@@ -51,7 +51,7 @@ TC002 Play video (VOD) at more than 1 different device at the same times
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}      headlessfirefox
+    Open Browser                ${URL}          ${BROWSER}
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
@@ -73,7 +73,7 @@ TC004 Pause video and play at the other device
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify Pause And Resume Live Matches
     Sleep                               3
-    Open Browser                ${URL}      headlessfirefox
+    Open Browser                ${URL}          ${BROWSER}
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL3}
@@ -93,14 +93,14 @@ TC003 Play video (VOD) at more than 1 different device at the different times
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}      headlessfirefox
+    Open Browser                ${URL}          ${BROWSER}
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}      headlessfirefox
+    Open Browser                ${URL}          ${BROWSER}
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}

@@ -8,10 +8,6 @@ Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}                                  https://mola.tv/
-
-${ACCOUNT_HBO_EMAIL}                    t.hbo@mola.tv
-${ACCOUNT_HBO_PASSWORD}                 M0L4h8o!
-
 ${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd91851888
 ${URL_MOVIE_DETAIL1}                    https://mola.tv/watch?v=vd74299098
 ${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
@@ -21,7 +17,6 @@ ${URL_MOVIE_DETAIL5}                    https://mola.tv/watch?v=vd94115356
 ${URL_MOVIE_DETAIL6}                    https://mola.tv/watch?v=vd02317119
 ${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
 ${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
-${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
 ${URL_MOVIE_DETAIL_Watermark}           https://mola.tv/watch?v=vd93162909
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL1}           ${URL_MOVIE_DETAIL1}
@@ -29,7 +24,6 @@ ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
 ${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
 ${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${EXPECTED_MOVIE_DETAIL18+}             ${URL_MOVIE_DETAIL18+}
-${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
 ${EXPECTED_URL_MOVIE_DETAIL_Watermark}  ${URL_MOVIE_DETAIL_Watermark}
 ${EXPECTED_TEXT_MENU_HOME}              Home
 
