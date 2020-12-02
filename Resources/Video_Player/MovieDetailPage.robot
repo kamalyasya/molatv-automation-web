@@ -4,75 +4,75 @@ Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***
 # Right Side
-${text_movie_detail_title}                  css=h1
-${button_movies_categories}                 css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
-${button_movie_detail_favorit}              css=.favorite-wrapper
-${button_movie_detail_favorit_non_active}   css=.md-favorite-icon
-${button_movie_detail_favorit_active}       css=.md-favorite-icon-active
+${text_movie_detail_title}                      css=h1
+${button_movies_categories}                     css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
+${button_movie_detail_favorit}                  css=.favorite-wrapper
+${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
+${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 
-${login_blocker_garselep1}                  xpath=//*[contains(text(),'Login untuk')]
-${movie_detail_login_blocker}               ${login_blocker_garselep1}
-${text_login_login_page}                    css=._2WE07 > ._3CiJF
-${frame_login_movie_detail}                 css=._3Z4PZ
-${field_login_email}                        id=email
-${field_login_password}                     id=password
-${movie_detail_play_button}                 css=.css-18dkaks.playIcon
-${movie_detail_image_logo}                  css=img[alt='Bug-logo Player']
-${button_forward_movie_detail}              css=.forwardIcon
-${button_backward_movie_detail}             css=.backwardIcon
-${movie_detail_duration}                    css=.duration
-${movie_progress_bar}                       css=.progressbar_progress
-${movie_pause_button}                       css=.pauseIcon
+${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login untuk')]
+${movie_detail_login_blocker}                   ${login_blocker_garselep1}
+${text_login_login_page}                        css=._2WE07 > ._3CiJF
+${frame_login_movie_detail}                     css=._3Z4PZ
+${field_login_email}                            id=email
+${field_login_password}                         id=password
+${movie_detail_play_button}                     css=.css-18dkaks.playIcon
+${movie_detail_image_logo}                      css=img[alt='Bug-logo Player']
+${button_forward_movie_detail}                  css=.forwardIcon
+${button_backward_movie_detail}                 css=.backwardIcon
+${movie_detail_duration}                        css=.duration
+${movie_progress_bar}                           css=.progressbar_progress
+${movie_pause_button}                           css=.pauseIcon
 
-${movie_mouse_over}                         css=#video-child
-${movie_quality_control}                    css=div#vpcc-quality
-${movie_change_quality}                     css=.quality_popup
-${movie_quality_list_576}                   css=div#vpcc-quality > div > div:nth-of-type(3)
-${movie_quality_list_270}                   css=div#vpcc-quality > div > div:nth-of-type(5)
-${movie_quality_list_360}                   css=div#vpcc-quality > div > div:nth-of-type(4)
-${movie_quality_list_720}                   css=div#vpcc-quality > div > div:nth-of-type(2)
-${movie_quality_list_auto}                  css=div > div:nth-of-type(6)
-${movie_quality_selected}                   css=.css-2v9r2y.tickIcon
-${movie_quality_title}                      css=.quality_title
-${autoplay_next_movie}                      css=.content
-${autoplay_button_Play_next}                css=.play
-${autoplay_button_skip}                     css=.close
+${movie_mouse_over}                             css=#video-child
+${movie_quality_control}                        css=div#vpcc-quality
+${movie_change_quality}                         css=.quality_popup
+${movie_quality_list_576}                       css=div#vpcc-quality > div > div:nth-of-type(3)
+${movie_quality_list_270}                       css=div#vpcc-quality > div > div:nth-of-type(5)
+${movie_quality_list_360}                       css=div#vpcc-quality > div > div:nth-of-type(4)
+${movie_quality_list_720}                       css=div#vpcc-quality > div > div:nth-of-type(2)
+${movie_quality_list_auto}                      css=div > div:nth-of-type(6)
+${movie_quality_selected}                       css=.css-2v9r2y.tickIcon
+${movie_quality_title}                          css=.quality_title
+${autoplay_next_movie}                          css=.content
+${autoplay_button_Play_next}                    css=.play
+${autoplay_button_skip}                         css=.close
 
-${close_caption}                            css=#vpcc-subtitle
-${subtitle_title}                           css=.subtitle_title
-${subtitle_list_Indonesia}                  css=.subtitle_popup div:nth-of-type(2)
-${subtitle_list_off}                        xpath=//div[@id='vpcc-subtitle']//div[.='Off']
+${close_caption}                                css=#vpcc-subtitle
+${subtitle_title}                               css=.subtitle_title
+${subtitle_list_Indonesia}                      css=.subtitle_popup div:nth-of-type(2)
+${subtitle_list_off}                            xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
-${movie2_play_button}                       css=.css-18dkaks.playIcon
-${movie_volume_bar}                         css=input#vpcc-volume
-${volume_button}                            css=#volume-button
-${button_fullscreen}                        css=#vpcc-fullscreen
-${button_play_player_control}               css=.playIcon
+${movie2_play_button}                           css=.css-18dkaks.playIcon
+${movie_volume_bar}                             css=input#vpcc-volume
+${volume_button}                                css=#volume-button
+${button_fullscreen}                            css=#vpcc-fullscreen
+${button_play_player_control}                   css=.playIcon
 
-${expected_buffering}                       css=code
-${expected_close_caption_icon}              css=div#vpcc-subtitle
-${expected_subtitle_on_screen}              xpath=//div[@id='video-child']/div[3]
-${expected_volume_bar}                      xpath=//*[@id="vpcc-volume" and @value="0.49"]
-${expected_fullscreen_icon}                 css=#vpcc-fullscreen .withTooltip
-${expected_pleyer_control_hide}             css=div#video-child > .css-cui6p1.hide
-${expected_player_control_unhide}           css=div#video-child > .css-cui6p1
-${expected_categories_movie_detail}         css=.sub-header > span:nth-of-type(2)
+${expected_buffering}                           css=code
+${expected_close_caption_icon}                  css=div#vpcc-subtitle
+${expected_subtitle_on_screen}                  css=[class='css-1ry8yrj']
+${expected_volume_bar}                          xpath=//*[@id="vpcc-volume" and @value="0.49"]
+${expected_fullscreen_icon}                     css=#vpcc-fullscreen .withTooltip
+${expected_pleyer_control_hide}                 css=div#video-child > .css-cui6p1.hide
+${expected_player_control_unhide}               css=div#video-child > .css-cui6p1
+${expected_categories_movie_detail}             css=.sub-header > span:nth-of-type(2)
 
-${expected_title_movie_detail}              css=h1
-${expected_movie_detail_play_button}        css=.css-zy8jsc
-${expected_movie_detail_synopsis}           css=.css-oa5ddb > div:nth-of-type(1)
-${expected_movie_detail_cast}               css=.css-oa5ddb > div:nth-of-type(2)
-${expected_movie_detail_related_video}      css=#detailBottom
+${expected_title_movie_detail}                  css=h1
+${expected_movie_detail_play_button}            css=.css-zy8jsc
+${expected_movie_detail_synopsis}               css=.css-oa5ddb > div:nth-of-type(1)
+${expected_movie_detail_cast}                   css=.css-oa5ddb > div:nth-of-type(2)
+${expected_movie_detail_related_video}          css=#detailBottom
 
-${expected_movie_detail_countdown}          css=._3Qguo
-${expected_volume}                          css=.volume
+${expected_movie_detail_countdown}              css=._3Qguo
+${expected_volume}                              css=.volume
 
-${popup_lanjutkan_nonton_movie_detail}      css=.gJE3n p
-${button_mulai_popup_movie_detail}          css=._3QaU2
-${button_lanjutkan_popup_movie_detail}      css=._1H-wq
-${frame_movie_detail_device_limit}          css=.styles_modal__gNwvD
-${frame_movie_detail_adult_content_18}      css=.styles_modal__gNwvD
-${button_movie_detail_accept_adult_content}    css=._3UpwF
+${popup_lanjutkan_nonton_movie_detail}          css=.gJE3n p
+${button_mulai_popup_movie_detail}              css=._3QaU2
+${button_lanjutkan_popup_movie_detail}          css=._1H-wq
+${frame_movie_detail_device_limit}              css=.styles_modal__gNwvD
+${frame_movie_detail_adult_content_18}          css=.styles_modal__gNwvD
+${button_movie_detail_accept_adult_content}     css=._3UpwF
 
 ${button_seek_bar}                              xpath=/html//input[@id='vpcc-seek']
 ${button_seek_volume}                           css=input#vpcc-volume
@@ -92,6 +92,7 @@ ${button_movie_detail_blocker_tukar_voucher}    css=.rgSjS
 # Notification
 ${text_movie_detail_favorit_message}            css=.snackbar-content-left
 ${button_movie_detail_lihat_daftar_favorit}     css=.snackbar-content-right
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -262,7 +263,7 @@ Choose Closed Caption off
     Sleep                               5
 
 Verify Closed Caption is Not Shown
-    Page Should Contain Element         ${expected_subtitle_on_screen}
+    Page Should Not Contain Element     ${expected_subtitle_on_screen}
 
 Verify Change volume during video playback
     Mouse Over                          ${movie_mouse_over}
