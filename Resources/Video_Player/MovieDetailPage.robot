@@ -262,7 +262,7 @@ Choose Closed Caption off
     Sleep                               5
 
 Verify Closed Caption is Not Shown
-    Page Should Not Contain Element     ${expected_subtitle_on_screen}
+    Page Should Contain Element         ${expected_subtitle_on_screen}
 
 Verify Change volume during video playback
     Mouse Over                          ${movie_mouse_over}
