@@ -92,10 +92,7 @@ The Ubah button is shown under user info
     Click Element                       ${button_batal_ubah_profil_settings}
 
 Select User icon
-    Wait Until Element Is Visible                   ${menu_homepage_accounts}
-    Element Should Be Visible                       ${menu_homepage_accounts}
-    Click Element                                   ${menu_homepage_accounts}
-    Sleep                                           5
+    Open Profile Page
 
 Select Ubah button
     Wait Until Element Is Visible                   ${button_ubah_button_settings}
