@@ -266,11 +266,13 @@ Verify Closed Caption is Not Shown
 
 Verify Change volume during video playback
     Mouse Over                          ${movie_mouse_over}
-    Sleep                               2
+    Wait Until Element Is Visible       ${expected_volume}
+    Mouse Over                          ${expected_volume}
     Element Should Be Visible           ${expected_volume}
     Capture Element Screenshot          ${expected_volume}
+    Mouse Over                          ${volume_button}
+    Wait Until Element Is Visible       ${volume_button}
     Click Element                       ${volume_button}
-    Sleep                               2
     Element Should Be Visible           ${volume_button}
     Capture Element Screenshot          ${expected_volume}
 
