@@ -210,7 +210,7 @@ TC016 Video Playback Test Non-DRM
     ...                     User already login
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
@@ -223,7 +223,7 @@ TC016 Video Playback Test DRM
     ...                     User already login
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
