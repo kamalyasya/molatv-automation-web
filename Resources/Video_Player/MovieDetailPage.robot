@@ -303,6 +303,7 @@ Verify Pause And Resume Live Matches
     Wait Until Element Is Visible       ${button_play_player_control}
     Page Should Contain Element         ${button_play_player_control}
     Sleep                               2
+    Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_play_player_control}
     Wait Until Element Is Visible       ${movie_pause_button}
     Page Should Contain Element         ${movie_pause_button}
