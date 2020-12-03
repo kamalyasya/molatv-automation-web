@@ -49,7 +49,7 @@ TC002 Check video quality
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
-    SettingsPage.Select User icon
+    HomePage.Open Profile Page
     SettingsPage.Select Subscription
     SettingsPage.Select Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}

@@ -7,14 +7,14 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                    https://mola.tv/accounts/login
-${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
-${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
-${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
-${URL_MOVIE_DETAIL3}                    https://mola.tv/watch?v=vd61951986
-${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
-${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
-${URL_MOVIE_DETAIL_Watermark}           https://mola.tv/watch?v=vd93162909
+${URL}				                    ${HOST}/accounts/login
+${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd74299098
+${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd98467304
+${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
+${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=vd61951986
+${URL_MOVIE_DETAIL18+}                  ${HOST}/watch?v=vd86229032
+${URL_MOVIE_DETAIL_EPISODES}            ${HOST}/watch?v=vd71200689
+${URL_MOVIE_DETAIL_Watermark}           ${HOST}/watch?v=vd93162909
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
 ${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
@@ -33,11 +33,11 @@ TC001 Login at more than 1 different device
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
     Sleep                               1
-    Open Browser                ${URL}      ff
+    CommonKeywords.Start Testing                        ${URL}
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
     ProfilePage.Sign Out
-    HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
+    HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Sign Out
 
 TC002 Play video (VOD) at more than 1 different device at the same times
@@ -46,18 +46,18 @@ TC002 Play video (VOD) at more than 1 different device at the same times
 	[Tags]  Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_PUTRA_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL_Watermark}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}          ${BROWSER}
-    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Watermark}
+    CommonKeywords.Start Testing                        ${URL}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_PUTRA_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL_Watermark}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     ProfilePage.Sign Out
-    HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
+    HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Sign Out
 
 TC004 Pause video and play at the other device
@@ -66,20 +66,20 @@ TC004 Pause video and play at the other device
 	[Tags]  Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL3}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_ZAKI_EMAIL}     ${ACCOUNT_ZAKI_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_ZAKI_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify Pause And Resume Live Matches
     Sleep                               3
-    Open Browser                ${URL}          ${BROWSER}
-    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL3}
+    CommonKeywords.Start Testing                        ${URL}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_ZAKI_EMAIL}     ${ACCOUNT_ZAKI_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_ZAKI_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     ProfilePage.Sign Out
-    HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
+    HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
     ProfilePage.Verify Sign Out
 
 TC003 Play video (VOD) at more than 1 different device at the different times
@@ -93,14 +93,14 @@ TC003 Play video (VOD) at more than 1 different device at the different times
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}          ${BROWSER}
+    CommonKeywords.Start Testing                        ${URL}
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
-    Open Browser                ${URL}          ${BROWSER}
+    CommonKeywords.Start Testing                        ${URL}
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
