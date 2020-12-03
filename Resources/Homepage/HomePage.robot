@@ -282,6 +282,7 @@ Verify UI Layout of Matches page
     Element Should Be Visible           ${match_card}
 
 Click view all button
+    Wait Until Element Is Visible       ${matches_calendar}
     Scroll Element Into View            ${matches_calendar}
     Click Element                       ${view_all_match_card}
     Wait Until Element Is Visible       ${page_match_view_all}

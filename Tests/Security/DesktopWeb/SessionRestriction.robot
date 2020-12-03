@@ -27,7 +27,7 @@ ${EXPECTED_TEXT_MENU_HOME}              Home
 TC001 Login at more than 1 different device
     [Documentation]     Login using the same user with 2 different devices
     ...         Go through login process at 2 devices with same account
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Pending
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
@@ -43,7 +43,7 @@ TC001 Login at more than 1 different device
 TC002 Play video (VOD) at more than 1 different device at the same times
     [Documentation]     Play VOD using 1 account and login in 2 / 3 different device
     ...         Account had been login at 2 / 3 different device
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Pending
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
@@ -63,7 +63,7 @@ TC002 Play video (VOD) at more than 1 different device at the same times
 TC004 Pause video and play at the other device
     [Documentation]     Account had been login at 2 / 3 different device
     ...         (try it to third device , if the package used allow access for 2 devices)
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Pending
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_ZAKI_EMAIL}     ${ACCOUNT_ZAKI_PASSWORD}
@@ -85,7 +85,7 @@ TC004 Pause video and play at the other device
 TC003 Play video (VOD) at more than 1 different device at the different times
     [Documentation]     Play VOD using 1 user and login in 2 / 3 different device
     ...         Account had been login at 2 / 3 different device
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Pending
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}

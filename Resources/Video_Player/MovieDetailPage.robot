@@ -32,7 +32,7 @@ ${movie_quality_list_270}                   css=div#vpcc-quality > div > div:nth
 ${movie_quality_list_360}                   css=div#vpcc-quality > div > div:nth-of-type(4)
 ${movie_quality_list_720}                   css=div#vpcc-quality > div > div:nth-of-type(2)
 ${movie_quality_list_auto}                  css=div > div:nth-of-type(6)
-${movie_quality_selected}                   css=.css-2v9r2y.tickIcon
+${movie_quality_selected}                   css=.quality_list.active
 ${movie_quality_title}                      css=.quality_title
 ${autoplay_next_movie}                      css=.content
 ${autoplay_button_Play_next}                css=.play
@@ -339,7 +339,7 @@ Verify Default Control
 Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
-    Click Element                       ${movie_quality_control}
+#    Click Element                       ${movie_quality_control}
     Wait Until Element Is Visible       ${movie_change_quality}
     Element Should Contain              ${movie_quality_selected}           720
     Sleep                               3
