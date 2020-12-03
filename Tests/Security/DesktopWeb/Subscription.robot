@@ -34,8 +34,8 @@ TC001 Status after activating Subscription
     [Tags]      Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
@@ -47,8 +47,8 @@ TC002 Check video quality
     [Tags]      Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
@@ -65,8 +65,8 @@ TC003 There's no ads banner in every package
     [Tags]      Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
@@ -80,8 +80,8 @@ TC004 There's no pre roll banner in every package
     [Tags]      Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
