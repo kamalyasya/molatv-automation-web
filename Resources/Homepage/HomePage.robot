@@ -500,29 +500,29 @@ Verify that no empty tile found in content list/page
     END
 
 Verify Progress Bar Will Appear
-    Wait Until Element Is Visible           ${progress_bar_continues_watching}
-    Element Should Be Visible               ${progress_bar_continues_watching}
-    Capture Element Screenshot              ${progress_bar_continues_watching}
+    Wait Until Element Is Visible               ${progress_bar_continues_watching}
+    Element Should Be Visible                   ${progress_bar_continues_watching}
+    Capture Element Screenshot                  ${progress_bar_continues_watching}
 
 Open Profile Page
-    Wait Until Element Is Visible           ${menu_homepage_accounts}
-    Mouse Over                              ${menu_homepage_accounts}
-    Wait Until Element Is Visible           ${menu_homepage_accounts}
-    Click Element                           ${menu_homepage_accounts}
-    Wait Until Element Is Visible           ${button_homepage_live_chat}
-    Mouse Over                              ${button_homepage_live_chat}
+    Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Mouse Over                                  ${menu_homepage_accounts}
+    Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Click Element                               ${menu_homepage_accounts}
+    Wait Until Element Is Visible               ${button_homepage_live_chat}
+    Mouse Over                                  ${button_homepage_live_chat}
 
 Open Tontonan Saya Page
     Open Profile Page
-    Wait Until Element Is Visible           ${links_homepage_menu_tontonan_saya}
-    Click Element                           ${links_homepage_menu_tontonan_saya}
+    Wait Until Element Is Visible               ${links_homepage_menu_tontonan_saya}
+    Click Element                               ${links_homepage_menu_tontonan_saya}
 
 Go To Homepage
-    Wait Until Element Is Visible           ${logo_homepage_molatv}
-    Click Element                           ${logo_homepage_molatv}
+    Wait Until Element Is Visible               ${logo_homepage_molatv}
+    Click Element                               ${logo_homepage_molatv}
 
 Click View All On Favorit Saya
-    Wait Until Element Is Visible           ${links_homepage_view_all_favorit_saya}
-    Scroll Element Into View                ${links_homepage_view_all_just_added}
-    Click Element                           ${links_homepage_view_all_favorit_saya}
+    Wait Until Element Is Visible               ${links_homepage_view_all_favorit_saya}
+    Scroll Element Into View                    ${links_homepage_view_all_just_added}
+    Click Element                               ${links_homepage_view_all_favorit_saya}
 
