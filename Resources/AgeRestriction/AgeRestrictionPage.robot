@@ -21,6 +21,7 @@ Select 18+ Movie Content
     [Arguments]                             ${URL_MOVIE_DETAIL_18+}
     Sleep                                   1
     Go To                                   ${URL_MOVIE_DETAIL_18+}
+    Wait Until Element Is Visible           ${login_blocker_garselep1}
     Page Should Contain Element             ${login_blocker_garselep1}
     Capture Element Screenshot              ${login_blocker_garselep1}
     Sleep                                   1
