@@ -53,7 +53,7 @@ ${button_view_all6}                             css=div:nth-of-type(6) > .css-17
 ${categories_homepage7}                         css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k
 ${rail_banner_content_homepage7}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7) .carouselWrapper
 ${button_view_all7}                             css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k > a
-${rail_banner_continue_watching}                css=.css-w9iiky:nth-of-type(1) [tabindex='-1']:nth-of-type(1) .imageBorder
+${rail_banner_continue_watching}                css=li:nth-of-type(1)  .resumeWrapper
 ${image_content_homepage}                       css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
 
 #Rail Banner In All Menu
@@ -409,7 +409,7 @@ Click Banner & Verify Banner Can Be Selected
 
 Verify Continue Watching Displayed Under The Banner
     Click Element                               ${logo_homepage_molatv}
-    Sleep                                       3
+    Wait Until Element Is Visible               ${rail_banner_continue_watching}
     Scroll Element Into View                    ${rail_banner_continue_watching}
     Element Should Be Visible                   ${rail_banner_continue_watching}
 
