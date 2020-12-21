@@ -47,6 +47,7 @@ Verify UI Sports Top Bar Menu
     Element Should Be Visible                                       ${menu_top_bar_homepage_living}
     Element Should Be Visible                                       ${menu_top_bar_homepage_sports}
     Element Should Be Visible                                       ${menu_top_bar_homepage_kids}
+    Element Should Be Visible                                       ${menu_top_bar_homepage_bold}
     Element Should Be Visible                                       ${rail_banner_sports_libraries}
 
 Verify Categories And Content Sports Is Shown
