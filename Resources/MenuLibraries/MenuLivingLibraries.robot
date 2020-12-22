@@ -92,6 +92,7 @@ Verify The Banner Can Be Selected
     Page Should Contain Element                                     ${match_card_banner_living_libraries}
 
 Click View All Button In The Category/Series Thumbnail In The living Page
+    Scroll Element Into View                                        ${rail_banner_content_living_libraries3}
     Click Element                                                   ${link_text_view_all_living_libraries}
     Wait Until Element Is Visible                                   ${title_view_all_living_libraries}
     Element Should Be Visible                                       ${title_view_all_living_libraries}
