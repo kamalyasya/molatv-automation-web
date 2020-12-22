@@ -410,7 +410,7 @@ Click Banner & Verify Banner Can Be Selected
 
 Verify Continue Watching Displayed Under The Banner
     Click Element                               ${logo_homepage_molatv}
-    Sleep                                       3
+    Wait Until Element Is Visible               ${rail_banner_continue_watching}
     Scroll Element Into View                    ${rail_banner_continue_watching}
     Element Should Be Visible                   ${rail_banner_continue_watching}
 
