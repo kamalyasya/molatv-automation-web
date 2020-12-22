@@ -67,6 +67,7 @@ Verify Categories And Content Living Is Shown
     Element Should Be Visible                                       ${rail_banner_content_living_libraries3}
     Scroll Element Into View                                        ${rail_banner_mid_living_libraries}
     Element Should Be Visible                                       ${rail_banner_mid_living_libraries}
+    Scroll Element Into View                                        ${title_categories_living_libraries4}
     Element Should Be Visible                                       ${title_categories_living_libraries4}
     Scroll Element Into View                                        ${title_categories_living_libraries4}
     Element Should Be Visible                                       ${rail_banner_content_living_libraries4}
