@@ -27,6 +27,7 @@ Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
 Resource            ../Resources/MenuLibraries/MenuSportsLibraries.robot
 Resource            ../Resources/MenuLibraries/MenuLivingLibraries.robot
+Resource            ../Resources/MolaClassement/MolaClassementPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
 Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
