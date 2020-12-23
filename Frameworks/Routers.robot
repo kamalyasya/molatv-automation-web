@@ -24,6 +24,7 @@ Resource            ../Resources/Login/LoginFacebookPage.robot
 Resource            ../Resources/Login/LoginGooglePage.robot
 Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
+Resource            ../Resources/MolaClassement/MolaClassementPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
 Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
