@@ -361,37 +361,29 @@ Verify Categories And Content Is Shown
     Element Should Be Visible                   ${categories_homepage1}
     Scroll Element Into View                    ${rail_banner_content_homepage1}
     Element Should Be Visible                   ${rail_banner_content_homepage1}
-    Element Should Be Visible                   ${button_view_all1}
     Scroll Element Into View                    ${categories_homepage2}
     Element Should Be Visible                   ${categories_homepage2}
     Scroll Element Into View                    ${rail_banner_content_homepage2}
     Element Should Be Visible                   ${rail_banner_content_homepage2}
-    Element Should Be Visible                   ${button_view_all2}
     Scroll Element Into View                    ${categories_homepage3}
     Element Should Be Visible                   ${categories_homepage3}
     Scroll Element Into View                    ${rail_banner_content_homepage3}
     Element Should Be Visible                   ${rail_banner_content_homepage3}
-    Element Should Be Visible                   ${button_view_all3}
     Scroll Element Into View                    ${categories_homepage4}
     Element Should Be Visible                   ${categories_homepage4}
     Scroll Element Into View                    ${rail_banner_content_homepage4}
-    Element Should Be Visible                   ${rail_banner_content_homepage4}
-    Element Should Be Visible                   ${button_view_all4}
     Scroll Element Into View                    ${categories_homepage5}
     Element Should Be Visible                   ${categories_homepage5}
     Scroll Element Into View                    ${rail_banner_content_homepage5}
     Element Should Be Visible                   ${rail_banner_content_homepage5}
-    Element Should Be Visible                   ${button_view_all5}
     Scroll Element Into View                    ${categories_homepage6}
     Element Should Be Visible                   ${categories_homepage6}
     Scroll Element Into View                    ${rail_banner_content_homepage6}
     Element Should Be Visible                   ${rail_banner_content_homepage6}
-    Element Should Be Visible                   ${button_view_all6}
     Scroll Element Into View                    ${categories_homepage7}
     Element Should Be Visible                   ${categories_homepage7}
     Scroll Element Into View                    ${rail_banner_content_homepage7}
     Element Should Be Visible                   ${rail_banner_content_homepage7}
-    Element Should Be Visible                   ${button_view_all7}
 
 Verify Rail Banner Homepage
     Wait Until Element Is Visible               ${rail_banner_homepage}
