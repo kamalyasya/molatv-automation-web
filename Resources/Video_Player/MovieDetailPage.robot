@@ -165,6 +165,7 @@ Accept Adult Content
 
 Forward Progress Bar
     Mouse Over                          ${button_forward_movie_detail}
+    Mouse Over                          ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
