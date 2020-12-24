@@ -9,6 +9,8 @@ ${banner_image_fadein_sports}                           xpath=/html//div[@id='ap
 ${banner_image_sport_not_visible}                       css=a:nth-of-type(3)  p
 ${text_catalog_sport_competitions}                      xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']/div[1]/div//h3[.='Football Competitions']
 ${view_all_sport_competitions}                          css=[href='\/categories\/leaguecomp']
+${frame_match_card_slider_sports}                       css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .carouselWrapper
+${frame_live_this_week_slider_sports}                   css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
 ${header_premier_league}                                css=.headTitle
 ${premier_league_place_holder}                          css=div:nth-of-type(1) > div > * > * > .imageWrapper.loaded > .imageBorder
 ${rail_banner_premier_league}                           css=.css-vtf346
@@ -57,7 +59,9 @@ Click Premiere League Football Competitions
     Scroll Element Into View            ${text_catalog_sport_competitions}
     Element Should Be Visible           ${text_catalog_sport_competitions}
     Wait Until Element Is Visible       ${text_catalog_sport_competitions}
+    Scroll Element Into View            ${frame_match_card_slider_sports}
     Element Should Be Visible           ${view_all_sport_competitions}
+    Scroll Element Into View            ${frame_live_this_week_slider_sports}
     Wait Until Element Is Visible       ${view_all_sport_competitions}
     Click Element                       ${view_all_sport_competitions}
     Wait Until Element Is Visible       ${header_premier_league}
