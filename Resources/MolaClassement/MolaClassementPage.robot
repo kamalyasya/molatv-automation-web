@@ -61,7 +61,6 @@ Click Premiere League Football Competitions
     Wait Until Element Is Visible       ${text_catalog_sport_competitions}
     Scroll Element Into View            ${frame_match_card_slider_sports}
     Element Should Be Visible           ${view_all_sport_competitions}
-    Scroll Element Into View            ${frame_live_this_week_slider_sports}
     Wait Until Element Is Visible       ${view_all_sport_competitions}
     Click Element                       ${view_all_sport_competitions}
     Wait Until Element Is Visible       ${header_premier_league}
@@ -117,6 +116,7 @@ Click mola standings gameweek sorting option in the left sides
     Scroll Element Into View                ${text_catalog_live_this_week}
     Element Should Be Visible               ${text_catalog_live_this_week}
     Wait Until Element Is Visible           ${text_catalog_live_this_week}
+    Scroll Element Into View            ${frame_live_this_week_slider_sports}
 
     Element Should Be Visible               ${view_all_live_this_week}
     Wait Until Element Is Visible           ${view_all_live_this_week}
