@@ -30,13 +30,15 @@ ${text_header_standings_title}                          css=.standingsTitle
 ${column_standings_heading_filer}                       css=.standingsHeading-filer
 ${scroll_column_table_standings_premier_league}         css=tbody > tr:nth-of-type(20)
 ${scroll_column_table_standings_premier_league1}        css=tbody > tr:nth-of-type(1)
-${click_calendar_item_in_premier_league}                xpath=//div[@id='container__desktop']/ul[@class='_1NzSC']/div[10]/div
+${click_calendar_item_in_premier_league}                xpath=._30NbM
 ${list_container_desktop_date}                          css=div#container__desktop > ._1NzSC
 ${click_image_trophy_icon}                              css=._3SmIq
 ${click_dropdown_list_premier_league}                   css=div:nth-of-type(1) > .s-text
 ${click_dropdown_list_premier_league1}                  css=div:nth-of-type(1) > .s-menu  button[type='button']
 ${click_view_all_premier_league}                        css=div:nth-of-type(1) > .DgfMr > ._3mEMU > a
 ${button_sliding_premier_league_standings}              css=.css-u1zq1d.default
+
+${text_content_title_matches}                           css=div:nth-of-type(1) > h3
 
 *** Keywords ***
 Click Browse In Sidebar
@@ -144,8 +146,9 @@ Click trophy icon
     Mouse Over                              ${menu_side_bar_homepage_matches}
     Sleep                                   2
     Wait Until Page Contains Element        ${list_container_desktop_date}
-    Mouse Out                               ${menu_side_bar_homepage_matches}
-    Click Element                           ${click_calendar_item_in_premier_league}
+#    Mouse Out                               ${menu_side_bar_homepage_matches}
+    Mouse Over                                  ${matches_page_hover}
+#    Click Element                           ${click_calendar_item_in_premier_league}
     Wait Until Element Is Visible           ${click_image_trophy_icon}
     Element Should Be Visible               ${click_image_trophy_icon}
     Sleep                                   2
@@ -161,8 +164,8 @@ Click trophy icon
 
 Click "view all" on premiere league section
     Sleep                                   3
-    Mouse Over                              ${click_calendar_item_in_premier_league}
-    Click Element                           ${click_calendar_item_in_premier_league}
+    Mouse Over                                  ${matches_page_hover}
+#    Click Element                           ${click_calendar_item_in_premier_league}
     Wait Until Element Is Visible           ${click_view_all_premier_league}
     Element Should Be Visible               ${click_view_all_premier_league}
     Click Element                           ${click_view_all_premier_league}
@@ -170,10 +173,19 @@ Click "view all" on premiere league section
 #    Wait Until Element Is Visible           ${click_dropdown_list_premier_league}
 #    Element Should Be Visible               ${click_dropdown_list_premier_league}
 #    Click Element                           ${click_dropdown_list_premier_league}
-#
 #    Wait Until Element Is Visible           ${click_dropdown_list_premier_league1}
 #    Element Should Be Visible               ${click_dropdown_list_premier_league1}
 #    Click Element                           ${click_dropdown_list_premier_league1}
+
+test1
+    ${status} =        Run Keyword And Return Status    Get Text  ${text_content_title_matches}
+    Run Keyword If	   '${status}' == 'Premier League'      Click "view all" on premiere league section     AND     Click "view full table" on standings card
+    ...                ELSE IF	'${status}' != 'Premier League'    Logout Account
+
+test2
+    ${status} =        Run Keyword And Return Status    Get Text  ${text_content_title_matches}
+    Run Keyword If	   '${status}' == 'Premier League'      Click "view all" on premiere league section     AND     Scroll to the right/left on standings card
+    ...                ELSE IF	'${status}' != 'Premier League'    Logout Account
 
 Click "view full table" on standings card
     Wait Until Element Is Not Visible    ${premier_league_place_holder}
