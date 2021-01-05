@@ -1,5 +1,5 @@
 *** Settings ***
-Library             SeleniumLibrary     plugins=CryptoLibrary.Plugin
+Library     SeleniumLibrary     plugins=CryptoLibrary.Plugin
 
 ### Import Resource ###
 # Frameworks
@@ -9,8 +9,7 @@ Resource            Configs.robot
 Resource            ../Resources/Accounts/FavoritePage.robot
 Resource            ../Resources/Accounts/ProfilePage.robot
 Resource            ../Resources/AgeRestriction/AgeRestrictionPage.robot
-Resource            ../Resources/Browse/Movies/MoviePlaylistPage.robot
-Resource            ../Resources/Browse/Movies/MovieSeriesSeasonPage.robot
+Resource            ../Resources/Browse/MovieSeriesPage.robot
 Resource            ../Resources/Common/Browsers.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Data/Accounts.robot
@@ -25,10 +24,6 @@ Resource            ../Resources/Login/LoginFacebookPage.robot
 Resource            ../Resources/Login/LoginGooglePage.robot
 Resource            ../Resources/Login/OtpPage.robot
 Resource            ../Resources/Login/SignInPage.robot
-Resource            ../Resources/MenuLibraries/MenuSportsLibrariesPage.robot
-Resource            ../Resources/MenuLibraries/MenuLivingLibrariesPage.robot
-Resource            ../Resources/Microsite/MicrositePage.robot
-Resource            ../Resources/MolaClassement/MolaClassementPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
 Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
