@@ -12,7 +12,6 @@ Open Normal Browser
 Open Mychrome Browser
     [Arguments]    ${URL}
     ${chrome_options}       Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    ${window_size}          Set Variable    window-size=1920,1080
     Call Method    ${chrome_options}    add_argument    test-type
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
@@ -20,7 +19,6 @@ Open Mychrome Browser
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-notifications
     Call Method    ${chrome_options}    add_argument    --disable-infobars
-    Call Method    ${chrome_options}    add_argument    ${window_size}
 #    Optional using user profile
 #    Call Method    ${chrome_options}    add_argument    --user-data-dir\=/Users/molatv/Library/Application Support/Google/Chrome/
 
@@ -32,7 +30,7 @@ Open Mychrome Browser
 
     Run Keyword If    os.sep == '/'    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}    executable_path=${CURDIR}/../../Webdrivers/${chrometype}
     ...    ELSE                        Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}
-#    Maximize Browser Window
+    Maximize Browser Window
     Go To          ${URL}
 
 Open Myheadlesschrome Browser
