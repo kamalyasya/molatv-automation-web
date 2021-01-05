@@ -4,7 +4,7 @@ Library                 String
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-
+#Menu Mola TV Web
 ${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
 ${text_homepage_selected_menu}                  css=.Trssw._2yKxK
 ${menu_homepage_selected_menu}                  css=._3lT3U
@@ -21,6 +21,7 @@ ${menu_top_bar_homepage_movies}                 css=.FYgXF > div:nth-of-type(1)
 ${menu_top_bar_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
 ${menu_top_bar_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
 ${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
+${menu_top_bar_homepage_bold}                   css=._392KM
 
 ${links_homepage_menu_profil}                   xpath=//div[text()='Profil']
 ${links_homepage_menu_inbox}                    xpath=//div[text()='Pesan Masuk']
@@ -53,7 +54,7 @@ ${button_view_all6}                             css=div:nth-of-type(6) > .css-17
 ${categories_homepage7}                         css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k
 ${rail_banner_content_homepage7}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7) .carouselWrapper
 ${button_view_all7}                             css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k > a
-${rail_banner_continue_watching}                css=li:nth-of-type(1)  .resumeWrapper
+${rail_banner_continue_watching}                css=.css-w9iiky
 ${image_content_homepage}                       css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
 
 #Rail Banner In All Menu
@@ -360,37 +361,29 @@ Verify Categories And Content Is Shown
     Element Should Be Visible                   ${categories_homepage1}
     Scroll Element Into View                    ${rail_banner_content_homepage1}
     Element Should Be Visible                   ${rail_banner_content_homepage1}
-    Element Should Be Visible                   ${button_view_all1}
     Scroll Element Into View                    ${categories_homepage2}
     Element Should Be Visible                   ${categories_homepage2}
     Scroll Element Into View                    ${rail_banner_content_homepage2}
     Element Should Be Visible                   ${rail_banner_content_homepage2}
-    Element Should Be Visible                   ${button_view_all2}
     Scroll Element Into View                    ${categories_homepage3}
     Element Should Be Visible                   ${categories_homepage3}
     Scroll Element Into View                    ${rail_banner_content_homepage3}
     Element Should Be Visible                   ${rail_banner_content_homepage3}
-    Element Should Be Visible                   ${button_view_all3}
     Scroll Element Into View                    ${categories_homepage4}
     Element Should Be Visible                   ${categories_homepage4}
     Scroll Element Into View                    ${rail_banner_content_homepage4}
-    Element Should Be Visible                   ${rail_banner_content_homepage4}
-    Element Should Be Visible                   ${button_view_all4}
     Scroll Element Into View                    ${categories_homepage5}
     Element Should Be Visible                   ${categories_homepage5}
     Scroll Element Into View                    ${rail_banner_content_homepage5}
     Element Should Be Visible                   ${rail_banner_content_homepage5}
-    Element Should Be Visible                   ${button_view_all5}
     Scroll Element Into View                    ${categories_homepage6}
     Element Should Be Visible                   ${categories_homepage6}
     Scroll Element Into View                    ${rail_banner_content_homepage6}
     Element Should Be Visible                   ${rail_banner_content_homepage6}
-    Element Should Be Visible                   ${button_view_all6}
     Scroll Element Into View                    ${categories_homepage7}
     Element Should Be Visible                   ${categories_homepage7}
     Scroll Element Into View                    ${rail_banner_content_homepage7}
     Element Should Be Visible                   ${rail_banner_content_homepage7}
-    Element Should Be Visible                   ${button_view_all7}
 
 Verify Rail Banner Homepage
     Wait Until Element Is Visible               ${rail_banner_homepage}
@@ -525,4 +518,3 @@ Click View All On Favorit Saya
     Wait Until Element Is Visible               ${links_homepage_view_all_favorit_saya}
     Scroll Element Into View                    ${links_homepage_view_all_just_added}
     Click Element                               ${links_homepage_view_all_favorit_saya}
-

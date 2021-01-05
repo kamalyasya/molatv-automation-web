@@ -165,6 +165,7 @@ Accept Adult Content
 
 Forward Progress Bar
     Mouse Over                          ${button_forward_movie_detail}
+    Mouse Over                          ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
@@ -350,6 +351,7 @@ Click button Forward/backward movie
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Sleep                               3
+    Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_backward_movie_detail}
     Click Element                       ${button_backward_movie_detail}

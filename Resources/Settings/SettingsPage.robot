@@ -302,7 +302,3 @@ Choose DRM Playback
     Wait Until Element Is Visible                   ${text_konten_dewasa_setuju_settings}
     Click Element                                   ${text_konten_dewasa_setuju_settings}
     sleep                                           3
-#
-#    wait until element is visible                   ${play_movies_non_drm_settings}
-#    Click Element                                   ${play_movies_non_drm_settings}
-#    sleep                                           30
