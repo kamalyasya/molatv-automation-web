@@ -14,7 +14,7 @@ ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}                          In Search Of Fellini
 ${SAMPLE_MOVIE_URL_FAVORITE2}                               ${HOST}/watch?v=vd94027038
 ${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}                         Asterix & Obelix
 ${SAMPLE_SERIES_URL}                                        ${HOST}/categories/KE
-${SAMPLE_SERIES_TITLE}                                      Streaming Killing Eve
+${SAMPLE_SERIES_TITLE}                                      KILLING EVE
 ${SAMPLE_SERIES_SESSION_URL}                                ${HOST}/categories/KE-S1
 ${SAMPLE_SERIES_SESSION_TITLE}                              KILLING EVE S1
 ${SAMPLE_SERIES_SESSION_URL2}                               ${HOST}/categories/KE-S2
