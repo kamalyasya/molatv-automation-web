@@ -30,7 +30,7 @@ ${links_homepage_menu_pengaturan}               xpath=//div[text()='Pengaturan']
 ${links_homepage_menu_langganan}                xpath=//div[text()='Langganan']
 ${links_homepage_menu_order_history}            xpath=//div[text()='Riwayat Pembelian']
 ${links_homepage_menu_beli_akses}               xpath=//div[text()='Beli Akses' and not(@class='_2yKxK')]
-${rail_banner_homepage}                         css=.css-11xe1ut.css-nch242.slider > .slider-frame
+${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
 
 #Categories And Content In Home Page
 ${categories_homepage1}                         css=div:nth-of-type(1) > .css-17v1w3x > .css-1q8d97k
@@ -58,7 +58,7 @@ ${rail_banner_continue_watching}                css=.css-w9iiky
 ${image_content_homepage}                       css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
 
 #Rail Banner In All Menu
-${rail_banner_all_menu}                         css=.css-11xe1ut.css-nch242.slider > .slider-frame
+${rail_banner_all_menu}                         css=.css-5k1n5e
 
 #All Match Card
 ${page_match_card}                              css=.css-1et68jm
@@ -109,9 +109,9 @@ ${button_homepage_skip_inbox_onboarding}        id=skip
 ${button_homepage_finish_inbox_onboarding}      id=next
 
 ${button_arrow_right_rail_banner_homepage}      css=.arrowWrapper.css-13o605i
-${expected_arrow_right_rail_banner_homepage}    css=.css-cbkx8b [tabindex='-1']:nth-of-type(2) .bannerImage
-${button_arrow_left_rail_banner_homepage}       css=.arrowWrapper.css-rolnv2
-${expected_arrow_left_rail_banner_homepage}     css=.css-cbkx8b [tabindex='-1']:nth-of-type(1) .bannerImage
+${expected_arrow_right_rail_banner_homepage}    css=div:nth-of-type(1) > .css-1bl7jfg > .css-11xe1ut.css-utu171.slider > .slider-control-centerright .arrowWrapper.css-13o605i
+${button_arrow_left_rail_banner_homepage}       css=._2HGOE > div:nth-of-type(1) .css-rolnv2
+${expected_arrow_left_rail_banner_homepage}     css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 
 ${banner_homepage_content1}                     css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide  .css-1et68jm
 ${banner_homepage_content2}                     css=div:nth-of-type(2) > .css-17v1w3x > .carouselWrapper.css-o5xff6 > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide  .css-1et68jm
@@ -401,6 +401,7 @@ Click Banner & Verify Banner Can Be Selected
     Location Should Contain                     ${LOCATION1}
 
 Verify Continue Watching Displayed Under The Banner
+    Wait Until Element Is Visible               ${logo_homepage_molatv}
     Click Element                               ${logo_homepage_molatv}
     Wait Until Element Is Visible               ${rail_banner_continue_watching}
     Scroll Element Into View                    ${rail_banner_continue_watching}
