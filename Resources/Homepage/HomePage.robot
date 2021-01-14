@@ -117,7 +117,7 @@ ${banner_homepage_content1}                     css=div:nth-of-type(1) > .css-17
 ${banner_homepage_content2}                     css=div:nth-of-type(2) > .css-17v1w3x > .carouselWrapper.css-o5xff6 > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide  .css-1et68jm
 ${banner_homepage_content3}                     css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-o5xff6 > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > li:nth-of-type(3)  .css-1et68jm
 
-${rail_banner_matches_page}                     css=.css-11xe1ut.css-nch242.slider  .slider-list
+${rail_banner_matches_page}                     css=.css-11xe1ut.css-utu171.slider > .slider-frame
 ${matches_date_filter_toggle}                   css=._2CCM2
 ${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
 ${view_all_match_card}                          link=View All
@@ -275,6 +275,7 @@ Verify UI Layout of Matches page
     Element Should Be Visible                   ${menu_side_bar_homepage_matches}
     Element Should Be Visible                   ${menu_side_bar_homepage_beli_akses}
     Element Should Be Visible                   ${menu_side_bar_homepage_accounts}
+    Mouse Over                                  ${rail_banner_matches_page}
     Wait Until Element Is Visible               ${rail_banner_matches_page}     30
     Element Should Be Visible                   ${rail_banner_matches_page}
     Element Should Be Visible                   ${matches_date_filter_toggle}
