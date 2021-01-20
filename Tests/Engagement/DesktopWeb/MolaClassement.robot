@@ -143,9 +143,6 @@ TC009 - Discover mola standings from matches page
     MolaClassementPage.Click trophy icon
     HomePage.Open Matches Page
     MolaClassementPage.test1
-#    MolaClassementPage.Click "view all" on premiere league section
-#    MolaClassementPage.Click "view full table" on standings card
-#    Logout Account
 
 TC010 - Discover mola card standings in matches page
     [Documentation]     User can discover mola card standings from https://mola.tv/league-matches/league-epl
@@ -156,7 +153,5 @@ TC010 - Discover mola card standings in matches page
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Matches Page
-#    MolaClassementPage.Click "view all" on premiere league section
     MolaClassementPage.test2
-#    MolaClassementPage.Scroll to the right/left on standings card
-#    Logout Account
+
