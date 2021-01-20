@@ -1,6 +1,7 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
 
+Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 

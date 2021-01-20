@@ -3,6 +3,7 @@ Resource                ../../../Frameworks/Routers.robot
 Library         	    SeleniumLibrary
 Library 				String
 
+Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
@@ -32,7 +33,7 @@ ${ULANG_PASSWORD03}                 sapisuper69690
 ${ACCOUNT_HBO_EMAIL}                t.hbo@mola.tv
 ${ACCOUNT_HBO_PASSWORD}             M0L4h8o!
 
-${URL_MOVIE_DETAIL}                 https://mola.tv/watch?v=vd91851888
+${URL_MOVIE_DETAIL}                 https://mola.tv/watch?v=vd93496274
 ${EXPECTED_URL_MOVIE_DETAIL}        ${URL_MOVIE_DETAIL}
 
 ${URL_mola_speed}                   https://mola.tv/diag/speed
@@ -78,7 +79,7 @@ TC003 Edit Profile without saving it
 TC004 Change Password with user that login by email and password
     [Documentation]         Make a password change
     ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Pending
 
     ${RANDOM_NUMBER}    Generate random string    5    123456789
     ${PASSWORD}			Catenate	sapisuper${RANDOM_NUMBER}
@@ -95,7 +96,7 @@ TC004 Change Password with user that login by email and password
 TC006 Change Password without saving it
     [Documentation]         Make a password change and don't save it
     ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Pending
 
     SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -106,7 +107,7 @@ TC006 Change Password without saving it
 
 TC007 Change Password with wrong Old Password
     [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Pending
 
     SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -117,7 +118,7 @@ TC007 Change Password with wrong Old Password
 
 TC008 Change Password with different input at New Password and Password Confirmation
     [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Pending
 
     SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -128,7 +129,7 @@ TC008 Change Password with different input at New Password and Password Confirma
 
 TC009 Change Password with same input at Old and New Password
     [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Pending
 
     SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -165,7 +166,7 @@ TC013 System Info
     [Documentation]         Check System page at My Account page
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69_EMAIL}     ${ACCOUNT_SUPERMOLA69_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click System Info
@@ -216,7 +217,6 @@ TC016 Video Playback Test Non-DRM
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose Non-DRM Playback
     MovieDetailPage.Change Video Quality
-#    MovieDetailPage.Verify Video Quality 720
 
 TC016 Video Playback Test DRM
     [Documentation]         Check device compatibility for Mola TV video formats
@@ -230,5 +230,4 @@ TC016 Video Playback Test DRM
     SettingsPage.Choose DRM Playback
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
-#    MovieDetailPage.Verify Video Quality 720
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content

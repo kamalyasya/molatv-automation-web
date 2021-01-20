@@ -3,6 +3,7 @@ Resource                ../../../Frameworks/Routers.robot
 Library         	    SeleniumLibrary
 Library 				String
 
+Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
@@ -46,15 +47,44 @@ TC002 Play video (VOD) at more than 1 different device at the same times
 	[Tags]  Regression  Smoke   Pending
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_PUTRA_EMAIL}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL_Watermark}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
     CommonKeywords.Start Testing                        ${URL}
-    SignInPage.Login Using Credentials                  ${ACCOUNT_PUTRA_EMAIL}     ${ACCOUNT_PUTRA_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_PUTRA_EMAIL}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL_Watermark}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    ProfilePage.Sign Out
+    HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
+    ProfilePage.Verify Sign Out
+
+TC003 Play video (VOD) at more than 1 different device at the different times
+    [Documentation]     Play VOD using 1 user and login in 2 / 3 different device
+    ...         Account had been login at 2 / 3 different device
+	[Tags]  Regression  Smoke   Pending
+
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    Sleep                               1
+    CommonKeywords.Start Testing                        ${URL}
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Play Content 'Mulai Dari Awal'
+#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    Sleep                               1
+    CommonKeywords.Start Testing                        ${URL}
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}     ${ACCOUNT_CINCIN_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
+    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     ProfilePage.Sign Out
     HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
@@ -76,34 +106,6 @@ TC004 Pause video and play at the other device
     CommonKeywords.Start Testing                        ${URL}
     SignInPage.Login Using Credentials                  ${ACCOUNT_ZAKI_EMAIL}     ${ACCOUNT_ZAKI_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_ZAKI_EMAIL}
-    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    ProfilePage.Sign Out
-    HomePage.Verify The App Navigates To Home Page      ${EXPECTED_TEXT_MENU_HOME}
-    ProfilePage.Verify Sign Out
-
-TC003 Play video (VOD) at more than 1 different device at the different times
-    [Documentation]     Play VOD using 1 user and login in 2 / 3 different device
-    ...         Account had been login at 2 / 3 different device
-	[Tags]  Regression  Smoke   Pending
-
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
-    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    Sleep                               1
-    CommonKeywords.Start Testing                        ${URL}
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
-    MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    Sleep                               1
-    CommonKeywords.Start Testing                        ${URL}
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_KAMAL_EMAIL}     ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_KAMAL_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     ProfilePage.Sign Out
