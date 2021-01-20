@@ -95,8 +95,8 @@ TC005 Subscription Blocker before user buy package
     [Tags]      Regression  Smoke
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNTS_MOLA_TESTING17_EMAIL}        ${ACCOUNTS_MOLA_TESTING17_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_MOLA_TESTING17_EMAIL}
+    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA69_EMAIL}        ${ACCOUNT_SUPERMOLA69_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     SubscriptionPage.Verify Choose content that need a package
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL}

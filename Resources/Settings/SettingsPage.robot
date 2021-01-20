@@ -27,6 +27,8 @@ ${label_jenis_kelamin_f_settings}                       css=select[name='gender'
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
 ${button_keluar_settings}                               css=._3qxwB
 ${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
+${text_alert_dialog_atur_password}                      css=div[role='alertdialog']
+${button_nanti_saja_atur_password}                      css=div#skip
 ${text_ubah_password_settings}                          css=._3XA-Q > div:nth-of-type(1)
 ${field_masukan_sandi_sekarang_settings}                css=input#currentPassword
 ${label_view_password1}                                 css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
@@ -144,6 +146,12 @@ Click Back button
 Select Pengaturan
     Wait Until Element Is Visible                   ${text_pengaturan_settings}
     Click Element                                   ${text_pengaturan_settings}
+    Sleep                                           3
+    Wait Until Element Is Visible                   ${text_alert_dialog_atur_password}
+    Element Should Be Visible                       ${text_alert_dialog_atur_password}
+    Wait Until Element Is Visible                   ${button_nanti_saja_atur_password}
+    Element Should Be Visible                       ${button_nanti_saja_atur_password}
+    Click Element                                   ${button_nanti_saja_atur_password}
 
 Select Ubah Password
     Wait Until Element Is Visible                   ${text_ubah_password_settings}
@@ -248,6 +256,7 @@ Make phone number change
     Click Element                                   ${button_simpan_settings}
 
 Click System Info
+    Wait Until Element Is Visible                   ${button_system_info_pengaturan_settings}
     Click Element                                   ${button_system_info_pengaturan_settings}
     Wait Until Element Is Visible                      ${text_Browser}
     Element Should Be Visible                          ${text_Browser}
