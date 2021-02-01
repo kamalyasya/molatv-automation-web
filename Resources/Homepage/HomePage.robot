@@ -25,7 +25,7 @@ ${menu_top_bar_homepage_bold}                   css=._392KM
 
 ${links_homepage_menu_profil}                   xpath=//div[text()='Profil']
 ${links_homepage_menu_inbox}                    xpath=//div[text()='Inbox']
-${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Watch Lists']
+${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
 ${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
 ${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
 ${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']

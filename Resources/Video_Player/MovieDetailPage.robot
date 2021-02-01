@@ -155,9 +155,15 @@ Play Content Video Or Play Video From Begining
     Run Keyword If      '${CHECK_LIMIT}'=='True'                Play Content Again
 
 Play Content Again
-    Sleep    10
+    Sleep    20
     Reload Page
-    Play Content Video Or Play Video From Begining
+#    Play Content Video Or Play Video From Begining
+    ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
+    Run Keyword If              '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
+
+    ${play}                     Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
+    Run Keyword If              '${play}' == 'True'                     Play Content 'Mulai Dari Awal'
+    ...     ELSE                                                        Play Content From Movie Detail
 
 Accept Adult Content
     Wait Until Element Is Visible       ${button_movie_detail_accept_adult_content}
