@@ -45,7 +45,7 @@ ${subtitle_list_off}                            xpath=//div[@id='vpcc-subtitle']
 
 ${movie2_play_button}                           css=.css-18dkaks.playIcon
 ${movie_volume_bar}                             css=input#vpcc-volume
-${volume_button}                                css=#volume-button
+${volume_button}                                css=div#volume-button
 ${button_fullscreen}                            css=#vpcc-fullscreen
 ${button_play_player_control}                   css=.playIcon
 
@@ -203,9 +203,9 @@ Verify Auto Play Next Episode
 
 Verify Auto Play Not Displayed
     Seek To Last 10s
-    Page Should Not Contain Element         ${autoplay_next_movie}
-    Page Should Not Contain Element         ${autoplay_button_Play_next}
-    Page Should Not Contain Element         ${autoplay_button_skip}
+    Page Should Not Contain Element     ${autoplay_next_movie}
+    Page Should Not Contain Element     ${autoplay_button_Play_next}
+    Page Should Not Contain Element     ${autoplay_button_skip}
 
 Change Video Quality
     Mouse Over                          ${movie_mouse_over}
@@ -439,16 +439,16 @@ Verify Button Replay Auto Play
     Element Should Be Visible           ${button_play_player_control}
 
 Click Button Play Default Control
-     Wait Until Element Is Visible       ${button_play_player_control}
-     Click Element                       ${button_play_player_control}
+     Wait Until Element Is Visible      ${button_play_player_control}
+     Click Element                      ${button_play_player_control}
 
 Verify No Autoplay Vanished
-    Element Should Not Be Visible        ${expected_autoplay_movie}
+    Element Should Not Be Visible       ${expected_autoplay_movie}
 
 Click Button Next Video Beside Volume
-    Mouse Over                           ${movie_mouse_over}
-    Wait Until Element Is Visible        ${button_next_video_beside_volume}
-    Click Element                        ${button_next_video_beside_volume}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_next_video_beside_volume}
+    Click Element                       ${button_next_video_beside_volume}
 
 Verify Message Prompt To Sign In
     [Arguments]     ${URL}

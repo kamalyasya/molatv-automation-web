@@ -70,8 +70,8 @@ TC007 Continue Watching
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials           ${ACCOUNT_PUTRA_EMAIL}            ${ACCOUNT_PUTRA_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail            ${EXPECTED_URL_MOVIE}
+    SignInPage.Login Using Credentials           ${ACCOUNT_PUTRA_EMAIL}             ${ACCOUNT_PUTRA_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HomePage.Verify Continue Watching Displayed Under The Banner
     HomePage.Verify Title VOD In Continues Watching
