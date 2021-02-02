@@ -169,17 +169,10 @@ Click trophy icon
 Click "view all" on premiere league section
     Sleep                                   3
     Mouse Over                                  ${matches_page_hover}
-#    Click Element                           ${click_calendar_item_in_premier_league}
     Wait Until Element Is Visible           ${click_view_all_premier_league}
     Element Should Be Visible               ${click_view_all_premier_league}
     Click Element                           ${click_view_all_premier_league}
 
-#    Wait Until Element Is Visible           ${click_dropdown_list_premier_league}
-#    Element Should Be Visible               ${click_dropdown_list_premier_league}
-#    Click Element                           ${click_dropdown_list_premier_league}
-#    Wait Until Element Is Visible           ${click_dropdown_list_premier_league1}
-#    Element Should Be Visible               ${click_dropdown_list_premier_league1}
-#    Click Element                           ${click_dropdown_list_premier_league1}
 
 test1
     ${status} =        Run Keyword And Return Status    Get Text  ${text_content_title_matches}

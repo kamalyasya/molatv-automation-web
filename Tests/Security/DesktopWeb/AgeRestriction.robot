@@ -23,6 +23,7 @@ TC001 Access 18+ content without login
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
     SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker
+    Logout Account
 
 TC002 Access non 18+ content
     [Documentation]     Account already had a package and login
@@ -33,6 +34,7 @@ TC002 Access non 18+ content
     SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}      ${ACCOUNT_PUTRA_PASSWORD}
     AgeRestrictionPage.Select NON18+ Movie Content          ${URL_MOVIE_DETAIL_NON18+}
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
+    Logout Account
 
 TC003 Access 18+ content using 18+ account
     [Documentation]     Account already had a package and login
@@ -43,6 +45,7 @@ TC003 Access 18+ content using 18+ account
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}  ${ACCOUNT_KAMAL_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker
     AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    Logout Account
 
 TC004 Access 18+ content using under 18+ account
     [Documentation]     Account already had a package and login
@@ -50,9 +53,10 @@ TC004 Access 18+ content using under 18+ account
     [Tags]              Regression  Smoke   Prod_Sync
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials              ${ACCOUNT_WITHDOB_EMAIL}    ${ACCOUNT_WITHDOB_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING4_EMAIL}    ${ACCOUNTS_MOLA_TESTING4_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     AgeRestrictionPage.Can't Play Button
+    Logout Account
 
 TC005 Access 18+ content using account didn't have date of birth
     [Documentation]     Account already had a package and login
