@@ -24,13 +24,13 @@ ${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
 ${menu_top_bar_homepage_bold}                   css=._392KM
 
 ${links_homepage_menu_profil}                   xpath=//div[text()='Profil']
-${links_homepage_menu_inbox}                    xpath=//div[text()='Pesan Masuk']
-${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Tontonan Saya']
-${links_homepage_menu_pengaturan}               xpath=//div[text()='Pengaturan']
-${links_homepage_menu_langganan}                xpath=//div[text()='Langganan']
-${links_homepage_menu_order_history}            xpath=//div[text()='Riwayat Pembelian']
-${links_homepage_menu_beli_akses}               xpath=//div[text()='Beli Akses' and not(@class='_2yKxK')]
-${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
+${links_homepage_menu_inbox}                    xpath=//div[text()='Inbox']
+${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
+${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
+${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
+${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']
+${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscribe Now' and not(@class='_2yKxK')]
+${rail_banner_homepage}                         css=.css-11xe1ut.css-nch242.slider > .slider-frame
 
 #Categories And Content In Home Page
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)

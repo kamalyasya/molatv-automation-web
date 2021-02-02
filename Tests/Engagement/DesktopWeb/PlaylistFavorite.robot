@@ -11,7 +11,7 @@ ${URL}				                                        ${HOST}
 ${SAMPLE_MOVIE_URL_NON_LOGIN}                               ${HOST}/watch?v=vd94714791
 ${SAMPLE_MOVIE_URL_NON_LOGIN_TITLE}                         The Professor And The Madman
 ${SAMPLE_MOVIE_URL_FAVORITE}                                ${HOST}/watch?v=vd95509092
-${SAMPLE_MOVIE_URL_FAVORITE_TITLE}                          In Search Of Fellini
+${SAMPLE_MOVIE_URL_FAVORITE_TITLE}                          IN SEARCH OF FELLINI
 ${SAMPLE_MOVIE_URL_FAVORITE2}                               ${HOST}/watch?v=vd94027038
 ${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}                         Asterix & Obelix
 ${SAMPLE_SERIES_URL}                                        ${HOST}/categories/KE

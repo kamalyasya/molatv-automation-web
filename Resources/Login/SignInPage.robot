@@ -77,7 +77,7 @@ Click Button Facebook Login
 Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}
     Element Should Be Visible           ${text_login_email_error_message}
-    ELement Text Should Be              ${text_login_email_error_message}           Format email salah
+    ELement Text Should Be              ${text_login_email_error_message}           Wrong email format
 
 Logout Account
     Scroll Element Into View            ${sidebar_home}
