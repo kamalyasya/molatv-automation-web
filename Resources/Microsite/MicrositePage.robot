@@ -17,7 +17,7 @@ ${button_microsite_sofa_kuning_daftar_sekarang}     xpath=//p[contains(text(),'D
 ${button_microsite_sofa_kuning_download_sekarang}   css=._3D1tk .button
 
 # Paket HBO
-${text_microsite_hbo_title}                         css=.hero-title-text
+${text_microsite_hbo_title}                         css=.title-text
 ${text_microsite_hbo_description}                   css=.hero-description-text > p
 ${button_microsite_hbo_mulai_dari}                  css=.hero-button
 
@@ -53,11 +53,11 @@ Verify Successfully Access MolaTv Microsite Sofa Kuning
 Verify Successfully Access MolaTv Microsite HBO
     Wait Until Element Is Visible               ${text_microsite_hbo_title}
     Element Should Be Visible                   ${text_microsite_hbo_title}
-    Element Should Contain                      ${text_microsite_hbo_title}                     THE ULTIMATE ENTERTAINMENT SERVICE
-    Element Should Be Visible                   ${text_microsite_hbo_description}
-    Element Should Contain                      ${text_microsite_hbo_description}               Dari tayangan olahraga, film, tayangan inspiratif, hingga tayangan edukasi anak yang menghibur. Semua ada di Mola, aplikasi TV dengan banyak pilihan tontonan yang bebas disaksikan kapanpun Anda berkenan.
+    Element Should Contain                      ${text_microsite_hbo_title}                     Semua Tayangan Dalam Satu Layanan
+#    Element Should Be Visible                   ${text_microsite_hbo_description}
+#    Element Should Contain                      ${text_microsite_hbo_description}               Dari tayangan olahraga, film, tayangan inspiratif, hingga tayangan edukasi anak yang menghibur. Semua ada di Mola, aplikasi TV dengan banyak pilihan tontonan yang bebas disaksikan kapanpun Anda berkenan.
     Element Should Be Visible                   ${button_microsite_hbo_mulai_dari}
-    Element Should Contain                      ${button_microsite_hbo_mulai_dari}                  MULAI DARI Rp12.500
+    Element Should Contain                      ${button_microsite_hbo_mulai_dari}              Mulai Dari Rp12.500
 
 Click Langganan Sekarang Button On Microsite Untuk Kamu
     Wait Until Element Is Visible               ${button_microsite_untuk_kamu_langganan_sekarang}

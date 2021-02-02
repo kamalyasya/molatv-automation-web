@@ -106,5 +106,5 @@ Delivery - Search: Search HBO Movies
     [Tags]           Regression  Smoke  HBO
 
     HomePage.Open Search Page
-    SearchPage.Search Using Keyword             RICHARD SAYS GOODBYE
-    Verify Search Result                        RICHARD SAYS GOODBYE
+    SearchPage.Search Using Keyword             FIVE DAYS
+    Verify Search Result                        FIVE DAYS

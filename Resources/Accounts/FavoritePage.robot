@@ -24,7 +24,7 @@ ${text_favorit_empty_state_text}                css=.cardTour > .text
 *** Keywords ***
 Verify Tontonan Saya Is Opened
     Wait Until Element Is Visible               ${links_homepage_menu_selected}
-    Element Should Contain                      ${links_homepage_menu_selected}             Tontonan Saya
+    Element Should Contain                      ${links_homepage_menu_selected}             Favorite
     Wait Until Element Is Visible               ${text_favorit_title}
     Element Should Be Visible                   ${text_favorit_title}
     Element Should Be Visible                   ${text_favorit_shortdesc}

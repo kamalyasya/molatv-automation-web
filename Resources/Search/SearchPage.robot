@@ -52,7 +52,7 @@ Verify Search Result
 
 Verify No Result Found
     [Arguments]    ${EXPECTED_TEXT_SEARCH_RESULT}
-    ${TEXT_NO_RESULT}           Catenate        Pencarian untuk "${EXPECTED_TEXT_SEARCH_RESULT}" tidak ditemukan,
+    ${TEXT_NO_RESULT}           Catenate        Oops, your search for "${EXPECTED_TEXT_SEARCH_RESULT}" not found,
     Wait Until Element Is Visible               ${text_search_search_no_result}
     Element Should Be Visible                   ${text_search_search_no_result}
     Element Should Contain                      ${text_search_search_no_result}             ${TEXT_NO_RESULT}
@@ -87,6 +87,6 @@ Verify Recent Search Is Shown
     Click Element                               ${field_search_search}
     Wait Until Element Is Visible               ${text_search_title_recent_search}
     Element Should Be Visible                   ${text_search_title_recent_search}
-    Element Text Should Be                      ${text_search_title_recent_search}          Pencarian Terakhir
+    Element Text Should Be                      ${text_search_title_recent_search}          Search history
     Wait Until Element Is Visible               ${text_search_result_recent_search}
     Element Should Be Visible                   ${text_search_result_recent_search}
