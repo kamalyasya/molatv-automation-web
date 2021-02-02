@@ -38,7 +38,7 @@ Delivery - Video Player: TC001 Movie Details page
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}             ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}               ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     SignInPage.Logout Account
 
@@ -49,7 +49,7 @@ Delivery - Video Player: TC002 Play the content
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}              ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
@@ -60,7 +60,7 @@ Delivery - Video Player: TC003 Trailer Asset
     [Tags]              Regression  Smoke
 
     MovieDetailPage.Go To Movie Detail              ${URL_TRAILER_DETAIL}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_TRAILER_DETAIL}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_TRAILER_DETAIL}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
 
@@ -79,8 +79,8 @@ Delivery - Video Player: TC005 Buffering
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Forward Progress Bar
@@ -94,8 +94,8 @@ Delivery - Video Player: TC006 Fullscreen Mode
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
@@ -107,8 +107,8 @@ Delivery - Video Player: TC007 Playback Control
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify Pause And Resume Live Matches
@@ -121,8 +121,8 @@ Delivery - Video Player: TC008 Playback - progress bar
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
@@ -135,8 +135,8 @@ Delivery - Video Player: TC009 Playback - Forward/Backward
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Click button Forward/backward movie
@@ -150,8 +150,8 @@ Delivery - Video Player: TC010 Auto Next Video - Same Categories
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL4}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail           ${EXPECTED_URL_MOVIE_DETAIL4}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL4}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
@@ -165,11 +165,11 @@ Delivery - Video Player: TC011 Auto Next Video - Episodes
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
-    MovieDetailPage.Verify Next Episode Same Category As VOD                                ${EXPECTED_TITLE_SAME_EPISODES}
+    MovieDetailPage.Verify Next Episode Same Category As VOD                        ${EXPECTED_TITLE_SAME_EPISODES}
     SignInPage.Logout Account
 
 Delivery - Video Player: TC012 Auto Next Video - Countdown
@@ -179,8 +179,8 @@ Delivery - Video Player: TC012 Auto Next Video - Countdown
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Verify Countdown Auto Play      ${EXPECTED_LOCATION_NEXT_EPISODE}
@@ -193,8 +193,8 @@ Delivery - Video Player: TC013 Auto Next Video - Skip
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Skip Auto Play
@@ -208,7 +208,7 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL4}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Click Button Next Video Beside Volume
     MovieDetailPage.Verify Categories Movie
@@ -221,8 +221,8 @@ Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
     MovieDetailPage.Go To Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Skip Auto Play
@@ -240,7 +240,7 @@ Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL18+}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
@@ -252,25 +252,25 @@ Delivery - Video Player: TC017 Quality Control
     [Documentation]     Verify the quality control is enabled
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
-    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}      ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}
+    MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}  ${EXPECTED_CHANGE_QUALITY_360}  ${EXPECTED_CHANGE_QUALITY_720}
     SignInPage.Logout Account
 
 Delivery - Video Player: TC018 Subtitle - not support
     [Documentation]     Verify VOD not supporting closed caption/subtitle
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                 ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content not Supporting Closed Caption
     SignInPage.Logout Account
@@ -279,11 +279,11 @@ Delivery - Video Player: TC019 Subtitle - turn off
     [Documentation]     Verify VOD not supporting closed caption/subtitle
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Choose Closed Caption off
     MovieDetailPage.Verify Closed Caption is Not Shown
@@ -293,11 +293,11 @@ Delivery - Video Player: TC020 Subtitle - Turn on
     [Documentation]     Verify the closed caption/Subtitle is shown based on the selected language
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content which is supporting closed caption
     MovieDetailPage.Verify Subtitle On Screen
@@ -307,11 +307,11 @@ Delivery - Video Player: TC021 Volume Controls
     [Documentation]     Verify Change volume during video playback
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail           ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${URL_MOVIE_DETAIL3}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek bar Volume
     MovieDetailPage.Verify Change volume during video playback
@@ -324,8 +324,8 @@ Delivery - Video Player: TC023 Video Metadata
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}                  ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                      ${EXPECTED_URL_MOVIE_DETAIL2}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify Video Metadata
@@ -335,4 +335,4 @@ Delivery - Video Player: TC024 Video playback for NOT sign in user
     [Tags]           Regression   Smoke
 
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
-    MovieDetailPage.Verify Message Prompt To Sign In                                        ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Verify Message Prompt To Sign In                                ${URL_MOVIE_DETAIL2}

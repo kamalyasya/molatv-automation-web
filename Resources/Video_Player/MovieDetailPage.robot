@@ -45,7 +45,7 @@ ${subtitle_list_off}                            xpath=//div[@id='vpcc-subtitle']
 
 ${movie2_play_button}                           css=.css-18dkaks.playIcon
 ${movie_volume_bar}                             css=input#vpcc-volume
-${volume_button}                                css=#volume-button
+${volume_button}                                css=div#volume-button
 ${button_fullscreen}                            css=#vpcc-fullscreen
 ${button_play_player_control}                   css=.playIcon
 

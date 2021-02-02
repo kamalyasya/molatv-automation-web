@@ -33,32 +33,34 @@ ${links_homepage_menu_beli_akses}               xpath=//div[text()='Beli Akses' 
 ${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
 
 #Categories And Content In Home Page
-${categories_homepage1}                         css=div:nth-of-type(1) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage1}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(1) .carouselWrapper
-${button_view_all1}                             css=div:nth-of-type(1) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage2}                         css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage2}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .carouselWrapper
-${button_view_all2}                             css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage3}                         css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage3}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
-${button_view_all3}                             css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage4}                         css=div:nth-of-type(4) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage4}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(4) .carouselWrapper
-${button_view_all4}                             css=div:nth-of-type(4) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage5}                         css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage5}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(5) .carouselWrapper
-${button_view_all5}                             css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage6}                         css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage6}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(6) .carouselWrapper
-${button_view_all6}                             css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage7}                         css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k
-${rail_banner_content_homepage7}                css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7) .carouselWrapper
-${button_view_all7}                             css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k > a
-${rail_banner_continue_watching}                css=.css-w9iiky
-${image_content_homepage}                       css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide .css-tqv6h2.imageWrapper.loaded > .imageBorder
+${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
+${categories_homepage1}                         css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k
+${content_homepage1}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .carouselWrapper
+${button_view_all1}                             css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage2}                         css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k
+${content_homepage2}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
+${button_view_all2}                             css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k > a
+${rail_banner_content_homepage1}                css=.css-21l0kp
+${categories_homepage3}                         css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k
+${content_homepage3}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(5) .carouselWrapper
+${button_view_all3}                             css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage4}                         css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k
+${content_homepage4}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(6) .carouselWrapper
+${button_view_all4}                             css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage5}                         css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k
+${content_homepage5}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7) .carouselWrapper
+${button_view_all5}                             css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage6}                         css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k
+${content_homepage6}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(8) .carouselWrapper
+${button_view_all6}                             css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage7}                         css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k
+${content_homepage7}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(9) .carouselWrapper
+${button_view_all7}                             css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k > a
+${rail_banner_content_homepage2}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(10)
+${image_content_homepage}                       css=.css-hq095j
 
 #Rail Banner In All Menu
-${rail_banner_all_menu}                         css=.css-5k1n5e
+${rail_banner_all_menu}                         css=.css-1bl7jfg
 
 #All Match Card
 ${page_match_card}                              css=.css-1et68jm
@@ -113,9 +115,9 @@ ${expected_arrow_right_rail_banner_homepage}    css=div:nth-of-type(1) > .css-1b
 ${button_arrow_left_rail_banner_homepage}       css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 ${expected_arrow_left_rail_banner_homepage}     css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 
-${banner_homepage_content1}                     css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-axq52g > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide  .css-1et68jm
-${banner_homepage_content2}                     css=div:nth-of-type(2) > .css-17v1w3x > .carouselWrapper.css-o5xff6 > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > .slide-current.slide-visible.slider-slide  .css-1et68jm
-${banner_homepage_content3}                     css=div:nth-of-type(1) > .css-17v1w3x > .carouselWrapper.css-o5xff6 > .css-11xe1ut.css-d0ps81.slider > .slider-frame > .slider-list > li:nth-of-type(3)  .css-1et68jm
+${banner_homepage_content1}                     css=.css-17v1w3x
+${banner_homepage_content2}                     css=.css-17v1w3x
+${banner_homepage_content3}                     css=.css-17v1w3x
 
 ${rail_banner_matches_page}                     css=.css-11xe1ut.css-utu171.slider > .slider-frame
 ${matches_date_filter_toggle}                   css=._2CCM2
@@ -153,7 +155,7 @@ ${button_sorting_playlist_view_all}             css=.sortHeadWrapper
 ${rail_assets_thumbnails_view_all}              css=.css-h3a6c7 > div:nth-of-type(2)
 ${footer_view_all}                              css=._32NSr
 ${background_view_all}                          css=body
-${mola_hub}                                     css=.css-ch8pw7.css-jk6p7n.css-qd8pk2
+${mola_hub}                                     css=.css-ch8pw7.css-jk6p7n
 
 ${button_homepage_live_chat}                    css=.embeddedServiceIcon
 
@@ -360,31 +362,35 @@ Verify UI Homepage Top Bar Menu
 
 Verify Categories And Content Is Shown
     Element Should Be Visible                   ${categories_homepage1}
-    Scroll Element Into View                    ${rail_banner_content_homepage1}
-    Element Should Be Visible                   ${rail_banner_content_homepage1}
+    Scroll Element Into View                    ${content_homepage1}
+    Element Should Be Visible                   ${content_homepage1}
     Scroll Element Into View                    ${categories_homepage2}
     Element Should Be Visible                   ${categories_homepage2}
-    Scroll Element Into View                    ${rail_banner_content_homepage2}
-    Element Should Be Visible                   ${rail_banner_content_homepage2}
+    Scroll Element Into View                    ${content_homepage2}
+    Element Should Be Visible                   ${content_homepage2}
+    Scroll Element Into View                    ${rail_banner_content_homepage1}
+    Element Should Be Visible                   ${rail_banner_content_homepage1}
     Scroll Element Into View                    ${categories_homepage3}
     Element Should Be Visible                   ${categories_homepage3}
-    Scroll Element Into View                    ${rail_banner_content_homepage3}
-    Element Should Be Visible                   ${rail_banner_content_homepage3}
+    Scroll Element Into View                    ${content_homepage3}
+    Element Should Be Visible                   ${content_homepage3}
     Scroll Element Into View                    ${categories_homepage4}
     Element Should Be Visible                   ${categories_homepage4}
-    Scroll Element Into View                    ${rail_banner_content_homepage4}
+    Scroll Element Into View                    ${content_homepage4}
     Scroll Element Into View                    ${categories_homepage5}
     Element Should Be Visible                   ${categories_homepage5}
-    Scroll Element Into View                    ${rail_banner_content_homepage5}
-    Element Should Be Visible                   ${rail_banner_content_homepage5}
+    Scroll Element Into View                    ${content_homepage5}
+    Element Should Be Visible                   ${content_homepage5}
     Scroll Element Into View                    ${categories_homepage6}
     Element Should Be Visible                   ${categories_homepage6}
-    Scroll Element Into View                    ${rail_banner_content_homepage6}
-    Element Should Be Visible                   ${rail_banner_content_homepage6}
+    Scroll Element Into View                    ${content_homepage6}
+    Element Should Be Visible                   ${content_homepage6}
     Scroll Element Into View                    ${categories_homepage7}
     Element Should Be Visible                   ${categories_homepage7}
-    Scroll Element Into View                    ${rail_banner_content_homepage7}
-    Element Should Be Visible                   ${rail_banner_content_homepage7}
+    Scroll Element Into View                    ${content_homepage7}
+    Element Should Be Visible                   ${content_homepage7}
+    Scroll Element Into View                    ${rail_banner_content_homepage2}
+    Element Should Be Visible                   ${rail_banner_content_homepage2}
 
 Verify Rail Banner Homepage
     Wait Until Element Is Visible               ${rail_banner_homepage}
