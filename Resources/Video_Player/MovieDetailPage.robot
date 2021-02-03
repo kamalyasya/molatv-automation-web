@@ -495,6 +495,7 @@ Verify Video Added To My Favorite In Daftar Tontonan Page
 Verify Video Is Appeared At Favorite Video Section In Homepage
     [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}
     HomePage.Go To Homepage
+    HomePage.Mouse Over To Live Chat
     Wait Until Element Is Visible       //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
     Scroll Element Into View            //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
 

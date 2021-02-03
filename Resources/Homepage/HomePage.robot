@@ -202,9 +202,9 @@ Open Login Page
     Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
     Click Element                               ${menu_side_bar_homepage_accounts}
     Wait Until Element Is Visible               ${links_homepage_menu_profil}
-    Mouse Over                                  ${links_homepage_menu_profil}
+#    Mouse Over                                  ${links_homepage_menu_profil}
     Wait Until Element Is Visible               ${menu_homepage_accounts}
-    Mouse Over                                  ${menu_homepage_accounts}
+#    Mouse Over                                  ${menu_homepage_accounts}
     Wait Until Element Is Visible               ${menu_homepage_accounts}
     Click Element                               ${menu_homepage_accounts}
     Wait Until Element Is Visible               ${button_homepage_live_chat}
@@ -526,3 +526,7 @@ Click View All On Favorit Saya
     Wait Until Element Is Visible               ${links_homepage_view_all_favorit_saya}
     Scroll Element Into View                    ${links_homepage_view_all_just_added}
     Click Element                               ${links_homepage_view_all_favorit_saya}
+
+Mouse Over To Live Chat
+    Wait Until Element Is Visible               ${button_homepage_live_chat}
+    Mouse Over                                  ${button_homepage_live_chat}
