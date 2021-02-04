@@ -14,8 +14,8 @@ ${dropdown_series_sort}                         id=sortingContainer
 ${dropdown_series_sort_selected_name}           css=.sortSelectedName
 ${dropdown_series_sort_active}                  css=.nameActive
 ${dropdown_series_sort_default}                 xpath=//span[contains(text(),'Default')]
-${dropdown_series_sort_terbaru}                 xpath=//span[contains(text(),'Terbaru')]
-${dropdown_series_sort_terlama}                 xpath=//span[contains(text(),'Terlama')]
+${dropdown_series_sort_terbaru}                 xpath=//span[contains(text(),'Latest')]
+${dropdown_series_sort_terlama}                 xpath=//span[contains(text(),'Oldest')]
 ${dropdown_series_sort_a_z}                     xpath=//span[contains(text(),'A - Z')]
 ${dropdown_series_sort_z-a}                     xpath=//span[contains(text(),'Z - A')]
 
@@ -37,14 +37,14 @@ Click Button Favorit On Series
 Verify Favorit Button Is Active On Series
     Wait Until Element Is Visible       ${button_movie_detail_lihat_daftar_favorit}
     Element Should Be Visible           ${button_movie_detail_lihat_daftar_favorit}
-    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Lihat daftar favorit
+    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Favorite List
     Wait Until Element Is Visible       ${text_movie_detail_favorit_message}
     Element Should Be Visible           ${text_movie_detail_favorit_message}
-    Element Text Should Be              ${text_movie_detail_favorit_message}                Disimpan sebagai favorit
+    Element Text Should Be              ${text_movie_detail_favorit_message}                Favorited
     Wait Until Element Is Not Visible   ${text_movie_detail_favorit_message}                5
     Wait Until Element Is Visible       ${button_series_favorit}
     Element Should Be Visible           ${button_series_favorit}
-    Element Should Contain              ${button_series_favorit}                            Difavoritkan
+    Element Should Contain              ${button_series_favorit}                            Favorited
 
 Remove Favorit Series
     Wait Until Element Is Visible       ${button_series_favorit_active}
@@ -83,10 +83,10 @@ Sorting By Terbaru On Series
 
 Verify Sorting By Terbaru On Series
     Wait Until Element Is Visible       ${dropdown_series_sort_selected_name}
-    Element Should Contain              ${dropdown_series_sort_selected_name}               Terbaru
+    Element Should Contain              ${dropdown_series_sort_selected_name}               Latest
     Click Sorting Button On Series
     Wait Until Element Is Visible       ${dropdown_series_sort_active}
-    Element Should Contain              ${dropdown_series_sort_active}                      Terbaru
+    Element Should Contain              ${dropdown_series_sort_active}                      Latest
 
 Sorting By Terlama On Series
     Click Sorting Button On Series
@@ -96,10 +96,10 @@ Sorting By Terlama On Series
 
 Verify Sorting By Terlama On Series
     Wait Until Element Is Visible       ${dropdown_series_sort_selected_name}
-    Element Should Contain              ${dropdown_series_sort_selected_name}               Terlama
+    Element Should Contain              ${dropdown_series_sort_selected_name}               Oldest
     Click Sorting Button On Series
     Wait Until Element Is Visible       ${dropdown_series_sort_active}
-    Element Should Contain              ${dropdown_series_sort_active}                      Terlama
+    Element Should Contain              ${dropdown_series_sort_active}                      Oldest
 
 Sorting By A-Z On Series
     Click Sorting Button On Series

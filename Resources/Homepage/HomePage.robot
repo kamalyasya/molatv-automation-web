@@ -23,7 +23,7 @@ ${menu_top_bar_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
 ${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
 ${menu_top_bar_homepage_bold}                   css=._392KM
 
-${links_homepage_menu_profil}                   xpath=//div[text()='Profil']
+${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(text(),'Profile')]
 ${links_homepage_menu_inbox}                    xpath=//div[text()='Inbox']
 ${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
 ${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
