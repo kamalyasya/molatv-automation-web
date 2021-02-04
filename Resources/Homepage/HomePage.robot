@@ -29,7 +29,7 @@ ${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
 ${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
 ${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
 ${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']
-${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscribe Now' and not(@class='_2yKxK')]
+${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscription Plan' and not (@class='_2yKxK')]
 ${rail_banner_homepage}                         css=.css-11xe1ut.css-nch242.slider > .slider-frame
 
 #Categories And Content In Home Page
@@ -178,6 +178,7 @@ Open Beli Akses Menu
     Click Element                               ${menu_side_bar_homepage_beli_akses}
     Wait Until Element Is Visible               ${links_homepage_menu_beli_akses}
     Click Element                               ${links_homepage_menu_beli_akses}
+    HomePage.Mouse Over To Live Chat
 
 Open Privasi Page
     Wait Until Element Is Visible               ${links_homepage_privasi}

@@ -3,7 +3,7 @@ Library         	    SeleniumLibrary
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-${field_login_email}                id=email
+${field_login_email}                id=identity
 ${field_login_password}             id=password
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_login}               css=._3C-S2
