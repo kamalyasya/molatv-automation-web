@@ -11,8 +11,8 @@ Test Teardown           CommonKeywords.End Testing
 ${URL}				                    https://mola.tv/accounts/login
 
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
-${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  You have exceeded maximum limit for failed login. Please contact our support team
-${EXPECTED_TITLE_RESET_PASSWORD}        Enter Verification Code
+${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  Too many attempts to enter. Please try again in 10 minutes
+${EXPECTED_TITLE_RESET_PASSWORD}        Enter OTP Code that has been sent to
 ${EXPECTED_TEXT_INVALID_TOKEN}          Verification code is incorrect or has expired
 ${EXPECTED_TEXT_INVALID_TOKEN2}         INVALID_OTP
 ${EXPECTED_TEXT_MENU_HOME}              Home
@@ -67,6 +67,7 @@ TC006 Resend OTP number code
     ForgotPasswordPage.Input Email                                  ${EMAIL}
     ForgotPasswordPage.Click Button Reset Password
     OtpPage.Verify Direct to Masukkan Kode Verifikasi Page          ${EXPECTED_TITLE_RESET_PASSWORD}
+    OtpPage.Verify Countdown Is Appeared
     OtpPage.Click Resend OTP
     OtpPage.Verify Countdown Is Appeared
 

@@ -3,7 +3,7 @@ Library         	    SeleniumLibrary
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-${text_halaman_verifikasi_title_kode_verifikasi}    css=._1vsfR > ._2xrN3
+${text_halaman_verifikasi_title_kode_verifikasi}    css=* > ._2Oduq
 ${field_halaman_verifikasi_otp_1}                   css=div:nth-of-type(1) > .eKKpu
 ${field_halaman_verifikasi_otp_2}                   css=div:nth-of-type(2) > .eKKpu
 ${field_halaman_verifikasi_otp_3}                   css=div:nth-of-type(3) > .eKKpu
@@ -12,8 +12,8 @@ ${field_halaman_verifikasi_otp_5}                   css=div:nth-of-type(5) > .eK
 ${field_halaman_verifikasi_otp_6}                   css=div:nth-of-type(6) > .eKKpu
 ${button_halaman_verifikasi_verifikasi}             css=._1NNY7._3C-S2
 ${text_halaman_verifikasi_invalid_token}            css=.VYG-B p
-${button_halaman_verifikasi_kirim_ulang}            xpath=//a[text()='Resend']
-${text_halaman_verifikasi_kirim_ulang_countdown}    xpath=//*[@style='cursor: auto; color: rgb(131, 133, 134);']
+${button_halaman_verifikasi_kirim_ulang}            link=Resend OTP
+${text_halaman_verifikasi_kirim_ulang_countdown}    css=._17JiS
 
 *** Keywords ***
 Verify Direct to Masukkan Kode Verifikasi Page
@@ -41,9 +41,11 @@ Verify Invalid Token Message Show Up
     Element Text Should Be                      ${text_halaman_verifikasi_invalid_token}                ${TEXT}
 
 Click Resend OTP
-    Wait Until Element Is Visible               ${button_halaman_verifikasi_kirim_ulang}                70
+    Wait Until Element Does Not Contain         ${text_halaman_verifikasi_kirim_ulang_countdown}        :               65
+    Wait Until Element Is Visible               ${button_halaman_verifikasi_kirim_ulang}
     Click Element                               ${button_halaman_verifikasi_kirim_ulang}
 
 Verify Countdown Is Appeared
     Wait Until Element Is Visible               ${text_halaman_verifikasi_kirim_ulang_countdown}
     Element Should Be Visible                   ${text_halaman_verifikasi_kirim_ulang_countdown}
+    Element Should Contain                      ${text_halaman_verifikasi_kirim_ulang_countdown}        Resend OTP 00:

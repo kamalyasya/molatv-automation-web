@@ -45,9 +45,9 @@ ${button_inbox_detail_back}                         css=.inbox__back_button
 ${text_inbox_detail_title_message}                  css=.inbox__title
 ${text_inbox_detail_content_message}                css=.inbox__description
 
-${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}   Filter per Kategori
+${EXPECTED_TEXT_TITLE_FILTER_KATEGORI_ONBOARDING}   Filter by Category
 ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}           Sort By
-${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}      Daftar Pesan
+${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}      Message List
 
 *** Keywords ***
 Click Next Button On Inbox Filter Per Kategori Onboarding
@@ -201,9 +201,9 @@ Verify Empty State Is Shown
     Wait Until Element Is Visible                   ${image_inbox_image_empty_message}
     Element Should Be Visible                       ${image_inbox_image_empty_message}
     Element Should Be Visible                       ${text_inbox_title_empty_message}
-    Element Text Should Be                          ${text_inbox_title_empty_message}           Tidak ada pesan
+    Element Text Should Be                          ${text_inbox_title_empty_message}           No Message
     Element Should Be Visible                       ${text_inbox_text_empty_message}
-    Element Text Should Be                          ${text_inbox_text_empty_message}            Anda tidak memiliki riwayat pesan.
+    Element Text Should Be                          ${text_inbox_text_empty_message}            You can receive information about our promo and service here.
 
 Open Message
     Wait Until Element Is Visible                   ${text_inbox_list_title_inbox}

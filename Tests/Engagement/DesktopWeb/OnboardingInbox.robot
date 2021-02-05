@@ -11,12 +11,12 @@ ${URL}				                                        https://mola.tv/
 
 ${EXPECTED_TEXT_TITLE_ONBOARDING}                           Notif Badge
 ${EXPECTED_TEXT_CONTENT_ONBOARDING}                         Klik tombol account untuk melihat menu Inbox
-${EXPECTED_TEXT_TITLE_FILTER_PERKATEGORI_ONBOARDING}        Filter per Kategori
-${EXPECTED_TEXT_CONTENT_FILTER_PERKATEGORI_ONBOARDING}      Kamu bisa menyaring pesan berdasarkan dari promo, pesan dari Mola, status berlangganan kamu, dan status pembayaran kamu.
+${EXPECTED_TEXT_TITLE_FILTER_PERKATEGORI_ONBOARDING}        Filter by Category
+${EXPECTED_TEXT_CONTENT_FILTER_PERKATEGORI_ONBOARDING}      You can filter messages based on promotions, messages from Mola, your subscription status, and your payment status.
 ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}                   Sort By
-${EXPECTED_TEXT_CONTENT_SORT_BY_ONBOARDING}                 Urutkan daftar pesan kamu berdasarkan tempo waktu tertentu
-${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}              Daftar Pesan
-${EXPECTED_TEXT_CONTENT_DAFTAR_PESAN_ONBOARDING}            Semua daftar pesan Kamu, bisa lihat disini ya!
+${EXPECTED_TEXT_CONTENT_SORT_BY_ONBOARDING}                 Sort your list of messages based on a certain time.
+${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}              Message List
+${EXPECTED_TEXT_CONTENT_DAFTAR_PESAN_ONBOARDING}            All your message lists, can see here!
 *** Test Cases ***
 #TC001 - Show onboarding for notif badge
 #    [Documentation]  User can see inbox onboarding from homepage

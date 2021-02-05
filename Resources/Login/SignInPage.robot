@@ -3,7 +3,7 @@ Library         	    SeleniumLibrary
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-${field_login_email}                id=email
+${field_login_email}                id=identity
 ${field_login_password}             id=password
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_login}               css=._3C-S2
@@ -12,7 +12,7 @@ ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_google}              css=._3Zzdj > button:nth-of-type(1)
 ${button_login_fb}                  xpath=//button[2]
-${text_login_email_error_message}   css=.css-e2n7zw
+${text_login_email_error_message}   css=.ch-Xo
 
 ${sidebar_home}                     css=._1GfoO
 ${button_profile_home}              css=._2YhM7
@@ -77,7 +77,7 @@ Click Button Facebook Login
 Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}
     Element Should Be Visible           ${text_login_email_error_message}
-    ELement Text Should Be              ${text_login_email_error_message}           Wrong email format
+    ELement Text Should Be              ${text_login_email_error_message}           "email" must be a valid email
 
 Logout Account
     Scroll Element Into View            ${sidebar_home}
