@@ -155,4 +155,3 @@ TC010 - Discover mola card standings in matches page
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Matches Page
     MolaClassementPage.test2
-

@@ -5,7 +5,7 @@ Resource                ../../Frameworks/Routers.robot
 
 
 *** Variables ***
-${field_login_email}                                    id=email
+${field_login_email}                                    id=identity
 ${field_login_password}                                 id=password
 ${button_login_login}                                   css=._3C-S2
 ${status_berlangganan_profile_settings}                 css=._2vnbY > h1
@@ -22,7 +22,7 @@ ${label_no_telepon_settings}                            id=phone
 ${label_jenis_kelamin_m_settings}                       css=select[name='gender'] > option[value='m']
 ${label_lokasi_default_settings}                        css=select[name='location'] > option[value='Indonesia']
 ${button_simpan_settings}                               css=._27srK._3C-S2
-${text_ubah_akun_settings}                              css=._2Ctc-
+${text_ubah_akun_settings}                              css=._3MuQu
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
 ${button_keluar_settings}                               css=._3qxwB
@@ -45,9 +45,9 @@ ${text_konfirmasi_password_salah_settings}              css=.css-e2n7zw
 ${field_masukkan_same_sandi_baru_settings}              css-=input#password
 ${label_menu_langganan}                                 css=._16YQ- > div:nth-of-type(5)
 ${text_package_user_use}                                css=h1
-${text_package_status}                                  css=._3rG-7
-${text_package_expired_date}                            css=.dAXnq > p
-${text_package_description}                             css=._2PEBx > p
+${text_package_status}                                  css=._3S18-
+${text_package_expired_date}                            css=._2A5Zs > p
+${text_package_description}                             css=.Gys-8 > p
 ${button_system_info_pengaturan_settings}               css=._3XA-Q > div:nth-of-type(5)
 ${text_Browser}                                         css=._27xxD > div:nth-of-type(1)
 ${text_OS}                                              css=._27xxD > div:nth-of-type(2)
@@ -67,6 +67,10 @@ ${text_video_playback_test_pengaturan_settings}         css=._3XA-Q > div:nth-of
 ${test_video_playback_non_drm_settings}                 css=._3XA-Q > div:nth-of-type(2)
 ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of-type(1)
 ${text_konten_dewasa_setuju_settings}                   css=._3UpwF
+
+${text_wrong_otp_number_code}                           xpath=/html//div[@id='app']/div[@class='_3e0P_']//form[@class='_3HpB6']//p[.='Verification code is incorrect or has expired']
+${button_resend_otp_number_code}                        css=._3HpB6 a
+${label_otp_wait_countdown_60_second}                   xpath=/html//div[@id='app']/div[@class='_3e0P_']//form[@class='_3HpB6']//div[@class='HqfQm']
 
 
 *** Keywords ***
@@ -111,7 +115,7 @@ Button Simpan
 
 User Successfully Ubah
     Wait Until Element Is Visible                   ${text_ubah_akun_settings}
-    Element Text Should Be                          ${text_ubah_akun_settings}           Update profil berhasil
+    Element Text Should Be                          ${text_ubah_akun_settings}           Profile update was successful
 
 Make changes to default value
     Select Ubah button
@@ -227,49 +231,49 @@ User Konfirmasi password salah
 
 Input same case at Old and New Password
     [Arguments]     ${PASSWORD_SEKARANG}    ${PASSWORD_BARU02}    ${ULANG_PASSWORD03}
-    Wait Until Element Is Visible                   ${field_masukan_sandi_sekarang_settings}
-    Input Text                                      ${field_masukan_sandi_sekarang_settings}        ${PASSWORD_SEKARANG}
-    Sleep                                           1
-    Click Element                                   ${label_view_password1}
-    Input Text                                      ${field_masukkan_sandi_baru_settings}           ${PASSWORD_BARU02}
-    Sleep                                           1
-    Click Element                                   ${label_view_password2}
-    Input Text                                      ${field_masukkan_ulang_sandi_baru_settings}     ${ULANG_PASSWORD03}
-    Sleep                                           1
-    Click Element                                   ${label_view_password3}
+    Wait Until Element Is Visible               ${field_masukan_sandi_sekarang_settings}
+    Input Text                                  ${field_masukan_sandi_sekarang_settings}        ${PASSWORD_SEKARANG}
+    Sleep                                       1
+    Click Element                               ${label_view_password1}
+    Input Text                                  ${field_masukkan_sandi_baru_settings}           ${PASSWORD_BARU02}
+    Sleep                                       1
+    Click Element                               ${label_view_password2}
+    Input Text                                  ${field_masukkan_ulang_sandi_baru_settings}     ${ULANG_PASSWORD03}
+    Sleep                                       1
+    Click Element                               ${label_view_password3}
 
 Select Subscription
-    Wait Until Element Is Visible                   ${label_menu_langganan}
-    Click Element                                   ${label_menu_langganan}
-    Sleep                                           3
+    Wait Until Element Is Visible               ${label_menu_langganan}
+    Click Element                               ${label_menu_langganan}
+    Sleep                                       3
 
 Select Status
-    Wait Until Element Is Visible                   ${text_package_user_use}
-    Element Should Be Visible                       ${text_package_user_use}
-    Element Should Be Visible                       ${text_package_status}
-    Element Should Be Visible                       ${text_package_expired_date}
-    Element Should Be Visible                       ${text_package_description}
+    Wait Until Element Is Visible               ${text_package_user_use}
+    Element Should Be Visible                   ${text_package_user_use}
+    Element Should Be Visible                   ${text_package_status}
+    Element Should Be Visible                   ${text_package_expired_date}
+    Element Should Be Visible                   ${text_package_description}
 
 Make phone number change
     [Arguments]         ${PHONE}
-    Input Text                                      ${label_no_telepon_settings}        ${PHONE}    PHONE ALREADY EXIST
-    Click Element                                   ${button_simpan_settings}
+    Input Text                                  ${label_no_telepon_settings}        ${PHONE}    PHONE ALREADY EXIST
+    Click Element                               ${button_simpan_settings}
 
 Click System Info
-    Wait Until Element Is Visible                   ${button_system_info_pengaturan_settings}
-    Click Element                                   ${button_system_info_pengaturan_settings}
-    Wait Until Element Is Visible                      ${text_Browser}
-    Element Should Be Visible                          ${text_Browser}
-    Element Should Be Visible                          ${text_OS}
-    Element Should Be Visible                          ${text_Location}
-    Element Should Be Visible                          ${text_ISP}
-    Element Should Be Visible                          ${text_IP}
-    Element Should Be Visible                          ${text_Date & Time}
-    Element Should Be Visible                          ${text_Version}
+    Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}
+    Click Element                               ${button_system_info_pengaturan_settings}
+    Wait Until Element Is Visible               ${text_Browser}
+    Element Should Be Visible                   ${text_Browser}
+    Element Should Be Visible                   ${text_OS}
+    Element Should Be Visible                   ${text_Location}
+    Element Should Be Visible                   ${text_ISP}
+    Element Should Be Visible                   ${text_IP}
+    Element Should Be Visible                   ${text_Date & Time}
+    Element Should Be Visible                   ${text_Version}
 
 Turn on / off Autoplay toggle button
-    Wait Until Element Is Visible                   ${button_settings_autoplay}
-    Click Element                                   ${button_settings_autoplay}
+    Wait Until Element Is Visible               ${button_settings_autoplay}
+    Click Element                               ${button_settings_autoplay}
 
 Verify Autoplay toggle button is turn off
     ${A}=    Get Element Attribute   id=autoPlay  data-tip
@@ -283,31 +287,43 @@ Verify Autoplay toggle button is turn on
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
-    Wait Until Element Is Visible                   ${text_internet_speed_test_pengaturan_settings}
-    Click Element                                   ${text_internet_speed_test_pengaturan_settings}
-    Wait Until Element Is Visible                   ${text_logo_title_mola_speed_pengaturan_settings}
-    Wait Until Element Is Visible                   ${button_reload_mola_speed_pengaturan_settings}         30
-    Wait Until Location Contains                    ${URL_mola_speed}
-    Wait Until Element Is Visible                   ${speed_ping_mxs01_vod}                                 60
-    Element Should Be Visible                       ${speed_ping_mxs01_vod}
-    Wait Until Element Is Visible                   ${speed_ping_mola02_live}                               60
-    Element Should Be Visible                       ${speed_ping_mola02_live}
-    Click Element                                   ${button_reload_mola_speed_pengaturan_settings}
+    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}
+    Click Element                               ${text_internet_speed_test_pengaturan_settings}
+    Wait Until Element Is Visible               ${text_logo_title_mola_speed_pengaturan_settings}
+    Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}         30
+    Wait Until Location Contains                ${URL_mola_speed}
+    Wait Until Element Is Visible               ${speed_ping_mxs01_vod}                                 60
+    Element Should Be Visible                   ${speed_ping_mxs01_vod}
+    Wait Until Element Is Visible               ${speed_ping_mola02_live}                               60
+    Element Should Be Visible                   ${speed_ping_mola02_live}
+    Click Element                               ${button_reload_mola_speed_pengaturan_settings}
 
 Click Video Playback Test
-    Wait Until Element Is Visible                   ${text_video_playback_test_pengaturan_settings}
-    Click Element                                   ${text_video_playback_test_pengaturan_settings}
+    Wait Until Element Is Visible               ${text_video_playback_test_pengaturan_settings}
+    Click Element                               ${text_video_playback_test_pengaturan_settings}
 
 Choose Non-DRM Playback
-    Wait Until Element Is Visible                   ${test_video_playback_non_drm_settings}
-    Click Element                                   ${test_video_playback_non_drm_settings}
-    wait until element is visible                   ${movie_detail_play_button}
-    Click Element                                   ${movie_detail_play_button}
-    sleep                                           2
+    Wait Until Element Is Visible               ${test_video_playback_non_drm_settings}
+    Click Element                               ${test_video_playback_non_drm_settings}
+    wait until element is visible               ${movie_detail_play_button}
+    Click Element                               ${movie_detail_play_button}
+    sleep                                       2
 
 Choose DRM Playback
-    Wait Until Element Is Visible                   ${test_video_playback_drm_settings}
-    Click Element                                   ${test_video_playback_drm_settings}
-    Wait Until Element Is Visible                   ${text_konten_dewasa_setuju_settings}
-    Click Element                                   ${text_konten_dewasa_setuju_settings}
-    sleep                                           3
+    Wait Until Element Is Visible               ${test_video_playback_drm_settings}
+    Click Element                               ${test_video_playback_drm_settings}
+    Wait Until Element Is Visible               ${text_konten_dewasa_setuju_settings}
+    Click Element                               ${text_konten_dewasa_setuju_settings}
+    sleep                                       3
+
+Verify Input Wrong OTP Number Code
+    Wait Until Element Is Visible               ${text_wrong_otp_number_code}
+    Element Text Should Be                      ${text_wrong_otp_number_code}           Verification code is incorrect or has expired
+
+Click Resend OTP Number Code
+    Wait Until Element Is Visible               ${button_resend_otp_number_code}       64
+    Click Element                               ${button_resend_otp_number_code}
+
+Verify Resend OTP Number Code 60 Second
+    Wait Until Element Is Visible               ${label_otp_wait_countdown_60_second}
+    Element Should Be Visible                   ${label_otp_wait_countdown_60_second}

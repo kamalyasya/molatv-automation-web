@@ -12,27 +12,15 @@ ${URL}                              https://mola.tv/accounts/login
 
 ${EMAIL}                            kamal.yasha+001@mola
 ${PASSWORD}                         11111444
-${PHONE}                            6281297186666
-${GENDER}                           Pria
-${BULAN}                            January
-${TAHUN}                            2000
-${TANGGAL}                          8
 
 ${EMAIL_REGISTERED1}                kamalputriandini@mola.tv
 ${PASSWORD_REGISTERED1}             1234567890
-${PHONE_REGISTERED1}                62812971234567
 
-${EMAIL_REGISTERED2}                putri.nuradibah@mola.tv
+${EMAIL_REGISTERED2}                putri.nuradibah@mola
 ${PASSWORD_REGISTERED2}             0987654321
-${PHONE_REGISTERED2}                6281297185678
 
 ${EMAIL}                            kamal.yasha+001@mola
 ${PASSWORD}                         11115555
-${PHONE}                            6281297112345
-${GENDER_INVALID}                   Wanita
-${BULAN_INVALID}                    January
-${TAHUN_INVALID}                    1900
-${TANGGAL_INVALID}                  1
 
 ${SAMPLE_MOVIE_URL}                 https://mola.tv/watch?v=vd75626478
 
@@ -43,12 +31,11 @@ TC001 Registration with email and password
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button
-    RegistrationPage.Verify Masukkan Kode Verifikasi Page
+    RegistrationPage.Verify Enter OTP Code
 
 #TC002 Input OTP number after Registration process
 #    [Documentation]         Already go through registration process
@@ -62,10 +49,9 @@ TC003 Input wrong OTP number after Registration process
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
@@ -78,22 +64,27 @@ TC004 Resend OTP number code
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button
-    RegistrationPage.Click Kirim Ulang
-    RegistrationPage.Verify User Kode verifikasi terkirim
+    RegistrationPage.Input OTP                                       1       2      3       4      5       6
+    RegistrationPage.Click Verifikasi
+    SettingsPage.Verify Input Wrong OTP Number Code
+    SettingsPage.Click Resend OTP Number Code
+    SettingsPage.Verify Resend OTP Number Code 60 Second
 
 TC005 Registration without required information
     [Documentation]                 User is unable to register their email and password from the application.
     [Tags]                          Regression  Smoke
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input the field with empty mandatory fields and tick the agreement         ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}
     RegistrationPage.Click Register Button
     RegistrationPage.Can Not click button Register
+    Reload Page
+    Go Back
+    Reload Page
 
 #TC006 No auto login after Registration
 #    [Documentation]         After register process, user should input email address and password to login.
@@ -106,9 +97,12 @@ TC007 Registration with wrong information
     [Tags]                          Regression  Smoke
 
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED1}     ${PASSWORD_REGISTERED1}    ${PHONE_REGISTERED1}    ${GENDER_INVALID}   ${BULAN_INVALID}    ${TAHUN_INVALID}    ${TANGGAL_INVALID}
+    RegistrationPage.Input the field with invalid fields format and tick the agreement          ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}
     RegistrationPage.Click Register Button
-    RegistrationPage.User Cannot Register
+    RegistrationPage.Can Not click button Register
+    Reload Page
+    Go Back
+    Reload Page
 
 TC008 Registration from special assets
     [Documentation]                 User is able to register their email and password from the website.
@@ -117,14 +111,16 @@ TC008 Registration from special assets
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Select any special assets or content                                       ${SAMPLE_MOVIE_URL}
     MovieDetailPage.Login from movie detail
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button
-    RegistrationPage.Verify Masukkan Kode Verifikasi Page
+    RegistrationPage.Verify Enter OTP Code
+    Reload Page
+    Go Back
+    Reload Page
 
 TC009 Registration from Beli Paket Page
     [Documentation]                 User is able to register their email and password from the website.
@@ -133,11 +129,13 @@ TC009 Registration from Beli Paket Page
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
-    ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
     RegistrationPage.Select Beli Paket
     RegistrationPage.Choose package
     RegistrationPage.Click Register Sekarang
-    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}    ${PHONE}    ${GENDER}   ${BULAN}    ${TAHUN}    ${TANGGAL}
+    RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button
-    RegistrationPage.Verify Masukkan Kode Verifikasi Page
+    RegistrationPage.Verify Enter OTP Code
+    Reload Page
+    Go Back
+    Reload Page
