@@ -39,7 +39,6 @@ ${click_dropdown_list_premier_league}                   css=div:nth-of-type(1) >
 ${click_dropdown_list_premier_league1}                  css=div:nth-of-type(1) > .s-menu  button[type='button']
 ${click_view_all_premier_league}                        css=div:nth-of-type(1) > .DgfMr > ._3mEMU > a
 ${button_sliding_premier_league_standings}              css=.css-u1zq1d.default
-
 ${text_content_title_matches}                           css=div:nth-of-type(1) > h3
 
 *** Keywords ***
@@ -55,7 +54,7 @@ Click Sports
     Click Element                       ${banner_image_fadein_sports}
 
 Click Premiere League Football Competitions
-    Wait Until Element Is Not Visible    ${banner_image_sport_not_visible}
+    Wait Until Element Is Not Visible   ${banner_image_sport_not_visible}
     Scroll Element Into View            ${text_catalog_sport_competitions}
     Element Should Be Visible           ${text_catalog_sport_competitions}
     Wait Until Element Is Visible       ${text_catalog_sport_competitions}
@@ -71,34 +70,34 @@ Click Premiere League
     Go To                               ${HOST}/categories/epl
 
 Click "View Full Table" In Mola Card Standings
-    Wait Until Element Is Not Visible    ${premier_league_place_holder}
-    Wait Until Element Is Visible       ${rail_banner_premier_league}
-    Scroll Element Into View            ${content_standing_table}
-    Element Should Be Visible           ${text_view_full_table}
-    Click Element                       ${text_view_full_table}
+    Wait Until Element Is Not Visible       ${premier_league_place_holder}
+    Wait Until Element Is Visible           ${rail_banner_premier_league}
+    Scroll Element Into View                ${content_standing_table}
+    Element Should Be Visible               ${text_view_full_table}
+    Click Element                           ${text_view_full_table}
 
 Click next/previous arrow in right and left sides of carousel
-    Wait Until Element Is Not Visible    ${banner_image_fadein_sports}
+    Wait Until Element Is Not Visible       ${banner_image_fadein_sports}
     Sleep                                   3
-    Scroll Element Into View            ${button_sliding_mola_card1}
-    Element Should Be Visible           ${button_sliding_mola_card1}
-    Click Element                       ${button_sliding_mola_card1}
+    Scroll Element Into View                ${button_sliding_mola_card1}
+    Element Should Be Visible               ${button_sliding_mola_card1}
+    Click Element                           ${button_sliding_mola_card1}
 
-    Scroll Element Into View            ${button_sliding_mola_card2}
-    Element Should Be Visible           ${button_sliding_mola_card2}
-    Click Element                       ${button_sliding_mola_card2}
+    Scroll Element Into View                ${button_sliding_mola_card2}
+    Element Should Be Visible               ${button_sliding_mola_card2}
+    Click Element                           ${button_sliding_mola_card2}
 
-    Scroll Element Into View            ${button_sliding_mola_card3}
-    Element Should Be Visible           ${button_sliding_mola_card3}
-    Click Element                       ${button_sliding_mola_card3}
+    Scroll Element Into View                ${button_sliding_mola_card3}
+    Element Should Be Visible               ${button_sliding_mola_card3}
+    Click Element                           ${button_sliding_mola_card3}
 
-    Scroll Element Into View            ${button_sliding_mola_card4}
-    Element Should Be Visible           ${button_sliding_mola_card4}
-    Click Element                       ${button_sliding_mola_card4}
+    Scroll Element Into View                ${button_sliding_mola_card4}
+    Element Should Be Visible               ${button_sliding_mola_card4}
+    Click Element                           ${button_sliding_mola_card4}
 
-    Scroll Element Into View            ${button_sliding_mola_card5}
-    Element Should Be Visible           ${button_sliding_mola_card5}
-    Click Element                       ${button_sliding_mola_card5}
+    Scroll Element Into View                ${button_sliding_mola_card5}
+    Element Should Be Visible               ${button_sliding_mola_card5}
+    Click Element                           ${button_sliding_mola_card5}
 
 Select the league in dropdown that you want to show
     Wait Until Element Is Not Visible       ${view_all_sport_competitions}
@@ -119,7 +118,6 @@ Click mola standings gameweek sorting option in the left sides
 
     Element Should Be Visible               ${view_all_live_this_week}
     Scroll Element Into View                ${frame_live_this_week_slider_sports}
-#    Wait Until Element Is Visible           ${view_all_live_this_week}
     Click Element                           ${view_all_live_this_week}
 
     Wait Until Element Is Visible           ${header_premier_league}
@@ -150,9 +148,7 @@ Click trophy icon
     Mouse Over                              ${menu_side_bar_homepage_matches}
     Sleep                                   2
     Wait Until Page Contains Element        ${list_container_desktop_date}
-#    Mouse Out                               ${menu_side_bar_homepage_matches}
-    Mouse Over                                  ${matches_page_hover}
-#    Click Element                           ${click_calendar_item_in_premier_league}
+    Mouse Over                              ${matches_page_hover}
     Wait Until Element Is Visible           ${click_image_trophy_icon}
     Element Should Be Visible               ${click_image_trophy_icon}
     Sleep                                   2
@@ -168,11 +164,10 @@ Click trophy icon
 
 Click "view all" on premiere league section
     Sleep                                   3
-    Mouse Over                                  ${matches_page_hover}
+    Mouse Over                              ${matches_page_hover}
     Wait Until Element Is Visible           ${click_view_all_premier_league}
     Element Should Be Visible               ${click_view_all_premier_league}
     Click Element                           ${click_view_all_premier_league}
-
 
 test1
     ${status} =        Run Keyword And Return Status    Get Text  ${text_content_title_matches}
@@ -185,10 +180,10 @@ test2
     ...                ELSE IF	'${status}' != 'Premier League'    Logout Account
 
 Click "view full table" on standings card
-    Wait Until Element Is Not Visible    ${premier_league_place_holder}
-    Wait Until Element Is Visible       ${text_title_premier_league}
-    Element Should Be Visible           ${text_view_full_table}
-    Click Element                       ${text_view_full_table}
+    Wait Until Element Is Not Visible       ${premier_league_place_holder}
+    Wait Until Element Is Visible           ${text_title_premier_league}
+    Element Should Be Visible               ${text_view_full_table}
+    Click Element                           ${text_view_full_table}
 
 Scroll to the right/left on standings card
     Wait Until Element Is Not Visible       ${click_view_all_premier_league}
