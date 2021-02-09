@@ -59,9 +59,9 @@ Verify Condition When My Favorite Is Empty
     Wait Until Element Is Visible               ${icon_favorit_empty_state}
     Element Should Be Visible                   ${icon_favorit_empty_state}
     Element Should Be Visible                   ${text_favorit_empty_state_title}
-    Element Should Contain                      ${text_favorit_empty_state_title}           Tidak ada Video Favorite
+    Element Should Contain                      ${text_favorit_empty_state_title}           No Favorites
     Element Should Be Visible                   ${text_favorit_empty_state_text}
-    Element Should Contain                      ${text_favorit_empty_state_text}            Anda belum memiliki Video Favorit apapun.
+    Element Should Contain                      ${text_favorit_empty_state_text}            You have no favorite videos
 
 Remove Favorit Video From Tontonan Saya
     [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}

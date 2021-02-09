@@ -44,7 +44,8 @@ TC003 Access 18+ content using 18+ account
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}  ${ACCOUNT_KAMAL_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker
-    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                       ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     Logout Account
 
 TC004 Access 18+ content using under 18+ account
@@ -53,9 +54,8 @@ TC004 Access 18+ content using under 18+ account
     [Tags]              Regression  Smoke   Prod_Sync
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING4_EMAIL}    ${ACCOUNTS_MOLA_TESTING4_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
-    AgeRestrictionPage.Can't Play Button
+    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING4_EMAIL}   ${ACCOUNTS_MOLA_TESTING4_PASSWORD}
+    AgeRestrictionPage.Verify Using Under 18+ Account
     Logout Account
 
 TC005 Access 18+ content using account didn't have date of birth

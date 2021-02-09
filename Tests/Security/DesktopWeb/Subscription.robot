@@ -100,7 +100,6 @@ TC005 Subscription Blocker before user buy package
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     SubscriptionPage.Verify Choose content that need a package
-    MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL}
     SignInPage.Logout Account
 
 TC006 Subscription Blocker after user buy package

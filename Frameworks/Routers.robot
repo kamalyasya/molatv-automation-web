@@ -32,7 +32,6 @@ Resource            ../Resources/Microsite/MicrositePage.robot
 Resource            ../Resources/MolaClassement/MolaClassementPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Search/SearchPage.robot
-Resource            ../Resources/SessionRestriction/SessionRestrictionPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/Subscriptions/SubscriptionPage.robot

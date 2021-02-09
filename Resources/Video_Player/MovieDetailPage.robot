@@ -10,7 +10,7 @@ ${button_movie_detail_favorit}                  css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
 ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 
-${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login untuk')]
+${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to watch')]
 ${movie_detail_login_blocker}                   ${login_blocker_garselep1}
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}                     css=._3Z4PZ
@@ -479,14 +479,14 @@ Verify Favorit Button Is Non Active
 Verify Favorit Button Is Active
     Wait Until Element Is Visible       ${text_movie_detail_favorit_message}
     Element Should Be Visible           ${text_movie_detail_favorit_message}
-    Element Text Should Be              ${text_movie_detail_favorit_message}                Disimpan sebagai favorit
+    Element Text Should Be              ${text_movie_detail_favorit_message}                Favorited
     Wait Until Element Is Visible       ${button_movie_detail_lihat_daftar_favorit}
     Element Should Be Visible           ${button_movie_detail_lihat_daftar_favorit}
-    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Lihat daftar favorit
+    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Favorite List
     Wait Until Element Is Not Visible   ${text_movie_detail_favorit_message}                5
     Wait Until Element Is Visible       ${button_movie_detail_favorit}
     Element Should Be Visible           ${button_movie_detail_favorit}
-    Element Should Contain              ${button_movie_detail_favorit}                      Difavoritkan
+    Element Should Contain              ${button_movie_detail_favorit}                      Favorited
 
 Verify Video Added To My Favorite In Daftar Tontonan Page
     [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}
@@ -497,6 +497,7 @@ Verify Video Added To My Favorite In Daftar Tontonan Page
 Verify Video Is Appeared At Favorite Video Section In Homepage
     [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}
     HomePage.Go To Homepage
+    HomePage.Mouse Over To Live Chat
     Wait Until Element Is Visible       //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
     Scroll Element Into View            //p[contains(text(),'${TEXT_EXPECTED_MOVIE_TITLE}')]
 

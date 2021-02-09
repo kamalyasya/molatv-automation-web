@@ -231,3 +231,29 @@ TC016 Video Playback Test DRM
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+
+TC020 Atur Password input wrong OTP number code
+    [Documentation]         Input wrong OTP number at Atur Password flow.
+    [Tags]                  Regression  Smoke
+
+    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SettingsPage.Select User icon
+    SettingsPage.Select Pengaturan
+    SettingsPage.Select Ubah Password
+    RegistrationPage.Input OTP                                       1       2      3       4      5       6
+    RegistrationPage.Click Verifikasi
+    SettingsPage.Verify Input Wrong OTP Number Code
+
+TC021 TC021 Atur Password resend OTP number code
+    [Documentation]         countdown for 60 second
+    [Tags]                  Regression  Smoke
+
+    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SettingsPage.Select User icon
+    SettingsPage.Select Pengaturan
+    SettingsPage.Select Ubah Password
+    RegistrationPage.Input OTP                                       1       2      3       4      5       6
+    RegistrationPage.Click Verifikasi
+    SettingsPage.Verify Input Wrong OTP Number Code
+    SettingsPage.Click Resend OTP Number Code
+    SettingsPage.Verify Resend OTP Number Code 60 Second

@@ -13,7 +13,7 @@ ${SAMPLE_MOVIE_URL_NON_LOGIN_TITLE}                         The Professor And Th
 ${SAMPLE_MOVIE_URL_FAVORITE}                                ${HOST}/watch?v=vd95509092
 ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}                          IN SEARCH OF FELLINI
 ${SAMPLE_MOVIE_URL_FAVORITE2}                               ${HOST}/watch?v=vd94027038
-${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}                         Asterix & Obelix
+${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}                         ASTERIX & OBELIX
 ${SAMPLE_SERIES_URL}                                        ${HOST}/categories/KE
 ${SAMPLE_SERIES_TITLE}                                      KILLING EVE
 ${SAMPLE_SERIES_SESSION_URL}                                ${HOST}/categories/KE-S1
