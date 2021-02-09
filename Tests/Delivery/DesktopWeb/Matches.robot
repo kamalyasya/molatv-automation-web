@@ -29,6 +29,7 @@ Delivery - Matches: TC001 Homepage UI
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     HomePage.Open Matches Page
     HomePage.Verify UI Layout of Matches page
+    SignInPage.Logout Account
 
 Delivery - Matches: TC002 View All Categories
     [Documentation]     Verify the all the matches of categories will shown up
@@ -41,6 +42,7 @@ Delivery - Matches: TC002 View All Categories
     HomePage.Verify UI Layout of Matches page
     HomePage.Click view all button
     HomePage.Verify all the matches of categories will shown up from the beginning time
+    SignInPage.Logout Account
 
 Delivery - Matches: TC003 Match detail page
     [Documentation]     Verify the details page of a Live/Replay/Highlights match
@@ -51,6 +53,7 @@ Delivery - Matches: TC003 Match detail page
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials         ${ACCOUNTS_HBO_EMAIL}          ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL}
+    SignInPage.Logout Account
 
 Delivery - Matches: TC004 Video Metadata
     [Documentation]  Shown player content from VOD
@@ -65,6 +68,7 @@ Delivery - Matches: TC004 Video Metadata
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
     MovieDetailPage.Verify Video Metadata
+    SignInPage.Logout Account
 
 Delivery - Matches: TC005 Default Controls
     [Documentation]  Verify the default control in player working correctly
@@ -80,6 +84,7 @@ Delivery - Matches: TC005 Default Controls
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Verify Default Control
+    SignInPage.Logout Account
 
 #Delivery - Matches: TC006 Buffering
 #    [Documentation]  Buffering when movie played
@@ -107,6 +112,7 @@ Delivery - Matches: TC007 Full Screen Mode
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
+    SignInPage.Logout Account
 
 Delivery - Matches: TC009 Playback Control
     [Documentation]  Playback control movie
@@ -120,6 +126,7 @@ Delivery - Matches: TC009 Playback Control
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify Pause And Resume Live Matches
+    SignInPage.Logout Account
 
 Delivery - Matches: TC010 Quality Control
     [Documentation]  Change Quality Control
@@ -133,6 +140,7 @@ Delivery - Matches: TC010 Quality Control
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify Change Quality           ${EXPECTED_CHANGE_QUALITY_576}  ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}
+    SignInPage.Logout Account
 
 Delivery - Matches: TC011 Volume Control
      [Documentation]  Change volume during video playback
@@ -146,6 +154,7 @@ Delivery - Matches: TC011 Volume Control
     MovieDetailPage.Play Content From Movie Detail
     MovieDetailPage.Seek bar Volume
     MovieDetailPage.Verify Change volume during video playback
+    SignInPage.Logout Account
 
 Delivery - Matches: TC012 Upcoming match details page
     [Documentation]     Verify the details page of a Upcoming match
@@ -161,6 +170,7 @@ Delivery - Matches: TC012 Upcoming match details page
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Upcoming Live Matches
+    SignInPage.Logout Account
 
 Delivery - Matches: TC013 Filter Live Matches
     [Documentation]     Verify filter live matches

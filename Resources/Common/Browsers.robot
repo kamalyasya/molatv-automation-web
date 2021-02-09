@@ -26,7 +26,7 @@ Open Mychrome Browser
 
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_86_mac
+    ...	           '${OS}' == 'Darwin'	chromedriver_88_mac
     ...	           '${OS}' == 'Linux'	chromedriver_86_linux
     ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
 
@@ -50,7 +50,7 @@ Open Myheadlesschrome Browser
 
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_86_mac
+    ...	           '${OS}' == 'Darwin'	chromedriver_88_mac
     ...	           '${OS}' == 'Linux'	chromedriver_86_linux
     ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
 
@@ -66,7 +66,7 @@ Open Chromemobile Browser
     Call Method    ${options}    add_experimental_option    mobileEmulation    ${mobile_emulation}
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_86_mac
+    ...	           '${OS}' == 'Darwin'	chromedriver_88_mac
     ...	           '${OS}' == 'Linux'	chromedriver_86_linux
     ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
     Create Webdriver    Chrome      chrome_options=${options}       executable_path=${CURDIR}/../../Webdrivers/${chrometype}
