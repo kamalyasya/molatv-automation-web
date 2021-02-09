@@ -51,7 +51,7 @@ User able to play HBO Go movies
 Play HBO Movies
     Sleep                           10
     Select Frame                    ${select_frame}
-    Wait Until Element Is Visible   ${movie_button_play}    5
+    Wait Until Element Is Visible   ${movie_button_play}
     Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_play}
     Sleep                           5

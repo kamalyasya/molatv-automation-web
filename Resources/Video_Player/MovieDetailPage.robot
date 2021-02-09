@@ -56,7 +56,7 @@ ${expected_volume_bar}                          xpath=//*[@id="vpcc-volume" and 
 ${expected_fullscreen_icon}                     css=#vpcc-fullscreen .withTooltip
 ${expected_pleyer_control_hide}                 css=div#video-child > .css-cui6p1.hide
 ${expected_player_control_unhide}               css=div#video-child > .css-cui6p1
-${expected_categories_movie_detail}             css=.sub-header > span:nth-of-type(2)
+${expected_categories_movie_detail}             css=.sub-header span:nth-of-type(2)
 
 ${expected_title_movie_detail}                  css=h1
 ${expected_movie_detail_play_button}            css=.css-zy8jsc
@@ -294,6 +294,8 @@ Play a content in fullscreen mode
 Verify fullscreen icon
     Page Should Contain Element         ${expected_fullscreen_icon}
     Capture Element Screenshot          ${expected_fullscreen_icon}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_fullscreen}
 
 Verify Video Metadata
     Sleep                               10
@@ -393,7 +395,7 @@ Click Button Skip Auto Play
 
 Verify Categories Movie
     Wait Until Element Is Visible       ${expected_categories_movie_detail}
-    Element Text Should Be              ${expected_categories_movie_detail}     Action
+    Element Text Should Be              ${expected_categories_movie_detail}     Mystery
 
 Seek bar Volume
     # Mouse Over To Movie

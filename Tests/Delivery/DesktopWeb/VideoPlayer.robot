@@ -99,6 +99,7 @@ Delivery - Video Player: TC006 Fullscreen Mode
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Play a content in fullscreen mode
     MovieDetailPage.Verify fullscreen icon
+    SignInPage.Logout Account
 
 Delivery - Video Player: TC007 Playback Control
     [Documentation]  Playback control movie
@@ -155,6 +156,7 @@ Delivery - Video Player: TC010 Auto Next Video - Same Categories
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     MovieDetailPage.Verify Categories Movie
     SignInPage.Logout Account
 
@@ -211,6 +213,7 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Click Button Next Video Beside Volume
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     MovieDetailPage.Verify Categories Movie
     SignInPage.Logout Account
 
