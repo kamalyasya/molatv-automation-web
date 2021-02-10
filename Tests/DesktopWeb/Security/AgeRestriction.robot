@@ -33,7 +33,7 @@ TC002 Access non 18+ content
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}      ${ACCOUNT_PUTRA_PASSWORD}
     AgeRestrictionPage.Select NON18+ Movie Content          ${URL_MOVIE_DETAIL_NON18+}
-    AgeRestrictionPage.Verify Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
     Logout Account
 
 TC003 Access 18+ content using 18+ account
@@ -55,7 +55,7 @@ TC004 Access 18+ content using under 18+ account
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
     SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING4_EMAIL}   ${ACCOUNTS_MOLA_TESTING4_PASSWORD}
-    AgeRestrictionPage.Verify Using Under 18+ Account
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                  ${EXPECTED_URL_MOVIE_DETAIL_18+}
     Logout Account
 
 TC005 Access 18+ content using account didn't have date of birth

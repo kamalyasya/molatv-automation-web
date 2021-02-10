@@ -69,18 +69,18 @@ Verify Using Under 18+ Account
     Element Should Be Visible               ${button_subscribe_now_agerestriction}
     Click Element                           ${button_subscribe_now_agerestriction}
 
-#Verify Show Age blocker "CLOSE or TUTUP" button
-#    Sleep                                   10
-#    Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
-#    Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
-#    Sleep                                   1
-#    Click Element                           ${button_setuju_tutup_konten_dewasa}
-#
-#Can't Play Button
-#    Page Should Contain Element             ${button_play_cannot_action}
-#    Wait Until Element Is Visible           ${button_play_cannot_action}
-#    Click Element                           ${button_play_cannot_action}
-#    Verify Show Age blocker "CLOSE or TUTUP" button
+Verify Show Age blocker "CLOSE or TUTUP" button
+    Sleep                                   10
+    Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
+    Sleep                                   1
+    Click Element                           ${button_setuju_tutup_konten_dewasa}
+
+Can't Play Button
+    Page Should Contain Element             ${button_play_cannot_action}
+    Wait Until Element Is Visible           ${button_play_cannot_action}
+    Click Element                           ${button_play_cannot_action}
+    Verify Show Age blocker "CLOSE or TUTUP" button
 
 using account didn't have DOB
     [Arguments]                             ${URL_MOVIE_DETAIL_18+}
