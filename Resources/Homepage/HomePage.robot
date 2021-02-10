@@ -30,7 +30,8 @@ ${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
 ${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
 ${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']
 ${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscription Plan' and not (@class='_2yKxK')]
-${rail_banner_homepage}                         css=.css-11xe1ut.css-nch242.slider > .slider-frame
+${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
+${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
 
 #Categories And Content In Home Page
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
@@ -47,16 +48,21 @@ ${button_view_all3}                             css=div:nth-of-type(5) > .css-17
 ${categories_homepage4}                         css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage4}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(6) .carouselWrapper
 ${button_view_all4}                             css=div:nth-of-type(6) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage5}                         css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k
-${content_homepage5}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7) .carouselWrapper
-${button_view_all5}                             css=div:nth-of-type(7) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage6}                         css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k
-${content_homepage6}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(8) .carouselWrapper
-${button_view_all6}                             css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k > a
-${categories_homepage7}                         css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k
-${content_homepage7}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(9) .carouselWrapper
-${button_view_all7}                             css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k > a
-${rail_banner_content_homepage2}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(10)
+${rail_banner_content_homepage2}                css=.css-21l0kp
+${categories_homepage5}                         css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k
+${content_homepage5}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(8) .carouselWrapper
+${button_view_all5}                             css=div:nth-of-type(8) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage6}                         css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k
+${content_homepage6}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(9) .carouselWrapper
+${button_view_all6}                             css=div:nth-of-type(9) > .css-17v1w3x > .css-1q8d97k > a
+${rail_banner_content_homepage3}                css=.css-21l0kp
+${categories_homepage7}                         css=div:nth-of-type(11) > .css-17v1w3x > .css-1q8d97k
+${content_homepage7}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(11) .carouselWrapper
+${button_view_all7}                             css=div:nth-of-type(11) > .css-17v1w3x > .css-1q8d97k > a
+${categories_homepage8}                         css=div:nth-of-type(12) > .css-17v1w3x > .css-1q8d97k
+${content_homepage8}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(12) .carouselWrapper
+${button_view_all8}                             css=div:nth-of-type(12) > .css-17v1w3x > .css-1q8d97k > a
+${rail_banner_content_homepage4}                css=.css-21l0kp
 ${image_content_homepage}                       css=.css-hq095j
 
 #Rail Banner In All Menu
@@ -110,8 +116,8 @@ ${text_homepage_content_onboarding}             css=._1fO2X
 ${button_homepage_skip_inbox_onboarding}        id=skip
 ${button_homepage_finish_inbox_onboarding}      id=next
 
-${button_arrow_right_rail_banner_homepage}      css=.arrowWrapper.css-13o605i
-${expected_arrow_right_rail_banner_homepage}    css=div:nth-of-type(1) > .css-1bl7jfg > .css-11xe1ut.css-utu171.slider > .slider-control-centerright .arrowWrapper.css-13o605i
+${button_arrow_right_rail_banner_homepage}      css=._2HGOE > div:nth-of-type(1) [class='css-13o605i arrowWrapper']
+${expected_arrow_right_rail_banner_homepage}    css=._2HGOE > div:nth-of-type(1) [class='css-13o605i arrowWrapper']
 ${button_arrow_left_rail_banner_homepage}       css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 ${expected_arrow_left_rail_banner_homepage}     css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 
@@ -127,7 +133,7 @@ ${page_match_view_all}                          css=._2dFXJ
 
 ${matches_all_competition}                      css=div#allCompetition
 ${matches_footer}                               css=._32NSr
-${matches_status_match}                         css=p[class$='k1LdU']
+${matches_status_match}                         css=.k1LdU
 ${matches_slider_frame}                         css=div:nth-of-type(3) > div > .DgfMr
 ${matches_page_hover}                           css=#match-wrapper
 ${matches_calendar}                             css=ul > div:nth-of-type(14)
@@ -342,6 +348,7 @@ Choose any live match
     Wait Until Element Is Visible               ${matches_calendar}    30
     Mouse Over                                  ${matches_page_hover}
     Sleep                                       2
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 300})
     Scroll Element Into View                    ${view_all_match_card}
 
 
@@ -378,6 +385,8 @@ Verify Categories And Content Is Shown
     Scroll Element Into View                    ${categories_homepage4}
     Element Should Be Visible                   ${categories_homepage4}
     Scroll Element Into View                    ${content_homepage4}
+    Scroll Element Into View                    ${rail_banner_content_homepage2}
+    Element Should Be Visible                   ${rail_banner_content_homepage2}
     Scroll Element Into View                    ${categories_homepage5}
     Element Should Be Visible                   ${categories_homepage5}
     Scroll Element Into View                    ${content_homepage5}
@@ -386,10 +395,18 @@ Verify Categories And Content Is Shown
     Element Should Be Visible                   ${categories_homepage6}
     Scroll Element Into View                    ${content_homepage6}
     Element Should Be Visible                   ${content_homepage6}
+    Scroll Element Into View                    ${rail_banner_content_homepage3}
+    Element Should Be Visible                   ${rail_banner_content_homepage3}
     Scroll Element Into View                    ${categories_homepage7}
     Element Should Be Visible                   ${categories_homepage7}
     Scroll Element Into View                    ${content_homepage7}
     Element Should Be Visible                   ${content_homepage7}
+    Scroll Element Into View                    ${categories_homepage8}
+    Element Should Be Visible                   ${categories_homepage8}
+    Scroll Element Into View                    ${content_homepage8}
+    Element Should Be Visible                   ${content_homepage8}
+    Scroll Element Into View                    ${rail_banner_content_homepage4}
+    Element Should Be Visible                   ${rail_banner_content_homepage4}
     Scroll Element Into View                    ${rail_banner_content_homepage2}
     Element Should Be Visible                   ${rail_banner_content_homepage2}
 
