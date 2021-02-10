@@ -12,8 +12,6 @@ Test Teardown           CommonKeywords.End Testing
 ${URL}                          https://mola.tv/accounts/profile
 
 ${PHONE}                            6281297186666
-${PHONE_REGISTERED1}                6281297181234
-${PHONE_REGISTERED2}                6281297185678
 
 ${PASSWORD_SEKARANG}                sapisuper69690
 ${PASSWORD_BARU}                    0987654321

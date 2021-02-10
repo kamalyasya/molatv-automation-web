@@ -22,7 +22,7 @@ TC001 Access 18+ content without login
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
     SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 2 18+
     Logout Account
 
 TC002 Access non 18+ content
@@ -42,9 +42,9 @@ TC003 Access 18+ content using 18+ account
     [Tags]              Regression  Smoke
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}  ${ACCOUNT_KAMAL_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                       ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
+    AgeRestrictionPage.Verify Show Age Blocker 2 18+
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_18+}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     Logout Account
 
@@ -54,8 +54,10 @@ TC004 Access 18+ content using under 18+ account
     [Tags]              Regression  Smoke   Prod_Sync
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials              ${ACCOUNTS_MOLA_TESTING4_EMAIL}   ${ACCOUNTS_MOLA_TESTING4_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail                  ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    SignInPage.Login Using Credentials              ${ACCOUNT_WITHDOB_EMAIL}        ${ACCOUNT_WITHDOB_PASSWORD}
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
+    AgeRestrictionPage.Can't Play Button
+    Reload Page
     Logout Account
 
 TC005 Access 18+ content using account didn't have date of birth
@@ -63,8 +65,9 @@ TC005 Access 18+ content using account didn't have date of birth
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_18+}
-    AgeRestrictionPage.Verify Show Age blocker
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    ProfilePage.Sign Out
+    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_EMAIL}     ${ACCOUNT_WITHOUTDOB_PASSWORD}
+    AgeRestrictionPage.Select 18+ Movie Content          ${URL_MOVIE_DETAIL_18+}
+    AgeRestrictionPage.Verify Show Age Blocker 2 18+
+    MovieDetailPage.Play Content Video Or Play Video From Begining          ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    Reload Page
+    Logout Account
