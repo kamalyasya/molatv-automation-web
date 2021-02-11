@@ -15,7 +15,7 @@ ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}                          IN SEARCH OF FELLINI
 ${SAMPLE_MOVIE_URL_FAVORITE2}                               ${HOST}/watch?v=vd94027038
 ${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}                         ASTERIX & OBELIX
 ${SAMPLE_SERIES_URL}                                        ${HOST}/categories/KE
-${SAMPLE_SERIES_TITLE}                                      KILLING EVE
+${SAMPLE_SERIES_TITLE}                                      Streaming Killing Eve
 ${SAMPLE_SERIES_SESSION_URL}                                ${HOST}/categories/KE-S1
 ${SAMPLE_SERIES_SESSION_TITLE}                              KILLING EVE S1
 ${SAMPLE_SERIES_SESSION_URL2}                               ${HOST}/categories/KE-S2
@@ -55,10 +55,10 @@ TC003 - Favorite video from series season
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
+    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
     Check Favorit Series
-    MovieSeriesSeasonPage.Click Button Favorit On Series
-    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
+    MovieSeriesPage.Click Button Favorit On Series
+    MovieSeriesPage.Verify Favorit Button Is Active On Series
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_SESSION_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_SESSION_TITLE}
     Logout Account
@@ -69,10 +69,10 @@ TC004 - Favorite video from series playlist
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_URL}
+    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_URL}
     Check Favorit Series
-    MovieSeriesSeasonPage.Click Button Favorit On Series
-    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
+    MovieSeriesPage.Click Button Favorit On Series
+    MovieSeriesPage.Verify Favorit Button Is Active On Series
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_TITLE}
     Logout Account
@@ -94,9 +94,9 @@ TC006 - Open my favorite video from snackbar
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL2}
+    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL2}
     Check Favorit Series
-    MovieSeriesSeasonPage.Click Button Favorit On Series
+    MovieSeriesPage.Click Button Favorit On Series
     Click Button Lihat Daftar Favorit
     FavoritePage.Verify Tontonan Saya Is Opened
     Logout Account

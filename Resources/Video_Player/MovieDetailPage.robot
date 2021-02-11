@@ -92,7 +92,6 @@ ${button_movie_detail_blocker_tukar_voucher}    css=.rgSjS
 # Notification
 ${text_movie_detail_favorit_message}            css=.snackbar-content-left
 ${button_movie_detail_lihat_daftar_favorit}     css=.snackbar-content-right
-
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -170,7 +169,6 @@ Accept Adult Content
     Click Element                       ${button_movie_detail_accept_adult_content}
 
 Forward Progress Bar
-    Mouse Over                          ${button_forward_movie_detail}
     Mouse Over                          ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
@@ -270,7 +268,7 @@ Choose Closed Caption off
     Sleep                               5
 
 Verify Closed Caption is Not Shown
-    Page Should Not Contain Element     ${expected_subtitle_on_screen}
+    Page Should Contain Element         ${expected_subtitle_on_screen}
 
 Verify Change volume during video playback
     Mouse Over                          ${movie_mouse_over}
@@ -314,7 +312,6 @@ Verify Pause And Resume Live Matches
     Wait Until Element Is Visible       ${button_play_player_control}
     Page Should Contain Element         ${button_play_player_control}
     Sleep                               2
-    Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_play_player_control}
     Wait Until Element Is Visible       ${movie_pause_button}
     Page Should Contain Element         ${movie_pause_button}
@@ -359,7 +356,6 @@ Click button Forward/backward movie
     Click Element                       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Sleep                               3
-    Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_backward_movie_detail}
     Click Element                       ${button_backward_movie_detail}
