@@ -78,7 +78,6 @@ TC003 Play video (VOD) at more than 1 different device at the different times
     ProfilePage.Verify Logged In Using Correct Account  ${ACCOUNT_CINCIN_EMAIL}
     MovieDetailPage.Go To Movie Detail                  ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content 'Mulai Dari Awal'
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
     Sleep                               1
     CommonKeywords.Start Testing                        ${URL}
     HomePage.Open Login Page

@@ -18,7 +18,7 @@ HBO Playback - Play The Content
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify User able to play HBO Go movies
@@ -32,7 +32,7 @@ HBO Playback - Default Controls
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify User able to play HBO Go movies
@@ -47,7 +47,7 @@ HBO Playback - Fullscreen Mode
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify user able to played HBO go in fullscreen mode
@@ -61,7 +61,7 @@ HBO Playback - Playback Control
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify the content on HBO Go player resumes after pausing
@@ -75,7 +75,7 @@ HBO Playback - progress bar
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.verify the progress bar and elapsed time on HBO Go player are updating when playing a content
@@ -89,7 +89,7 @@ HBO Playback - Forward/Rewound
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify the content resumes after fast forwarded or rewound
@@ -103,7 +103,7 @@ HBO Playback - Subtitle Turn Off
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify No closed caption/Subtitle is shown when the 'Closed Caption' is off
@@ -117,7 +117,7 @@ HBO Playback - Subtitle Turn On
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify the closed caption/Subtitle is shown based on the selected language
@@ -131,7 +131,7 @@ HBO Playback - Volume Controls
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify User able to set volume up/down on HBO Go player
@@ -145,6 +145,6 @@ HBO Playback - Movie Rating
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.See HBO movie rating on movie detail            ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 1 Hbo
     HboPlayback.User able to see HBO movie rating on movie detail
     SignInPage.Logout Account
