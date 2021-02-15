@@ -4,8 +4,8 @@ Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${text_login_movie}                                 css=.css-1atyaon a
-${frame_konten_dewasa_agerestriction}               css=._1dvQ5.undefined > ._21BQA.styles_modal__gNwvD
-${frame_kalimat_konten_dewasa_agerestriction}       css=._27W52 > p
+${frame_konten_dewasa_agerestriction}               css=.zVnMA
+${frame_kalimat_konten_dewasa_agerestriction}       css=.zVnMA h1
 ${button_setuju_tutup_konten_dewasa}                css=._3UpwF
 ${button_watch_now_movie_18+}                       css=.css-usqan1 > div:nth-of-type(1) ._33Xwm
 ${text_lanjutkan_menonton_agerestriction}           css=.gJE3n p

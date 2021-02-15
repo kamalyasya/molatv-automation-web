@@ -8,7 +8,7 @@ Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}                      https://mola.tv
-${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO023714X0
+${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO009233X0
 
 *** Test Cases ***
 HBO Playback - Play The Content
@@ -18,8 +18,8 @@ HBO Playback - Play The Content
     HboPlayback.Go To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     HboPlayback.User able to play HBO Go movies                 ${URL_HBO_MOVIE}
-    AgeRestrictionPage.Verify Show Age blocker
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+#    AgeRestrictionPage.Verify Show Age blocker
+#    MovieDetailPage.Play Content Video Or Play Video From Begining
     HboPlayback.Play HBO Movies
     HboPlayback.Verify User able to play HBO Go movies
     HboPlayback.Unselect Frame From Video

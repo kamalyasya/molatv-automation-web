@@ -64,6 +64,7 @@ ${content_homepage8}                            css=[class='css-1lezvj0 css-tqv6
 ${button_view_all8}                             css=div:nth-of-type(12) > .css-17v1w3x > .css-1q8d97k > a
 ${rail_banner_content_homepage4}                css=.css-21l0kp
 ${image_content_homepage}                       css=.css-hq095j
+${frame_categories_and_content_homepage}        css=._36Wlv
 
 #Rail Banner In All Menu
 ${rail_banner_all_menu}                         css=.css-1bl7jfg
@@ -369,46 +370,57 @@ Verify UI Homepage Top Bar Menu
     Element Should Be Visible                   ${rail_banner_homepage}
 
 Verify Categories And Content Is Shown
-    Element Should Be Visible                   ${categories_homepage1}
-    Scroll Element Into View                    ${content_homepage1}
-    Element Should Be Visible                   ${content_homepage1}
-    Scroll Element Into View                    ${categories_homepage2}
-    Element Should Be Visible                   ${categories_homepage2}
-    Scroll Element Into View                    ${content_homepage2}
-    Element Should Be Visible                   ${content_homepage2}
-    Scroll Element Into View                    ${rail_banner_content_homepage1}
-    Element Should Be Visible                   ${rail_banner_content_homepage1}
-    Scroll Element Into View                    ${categories_homepage3}
-    Element Should Be Visible                   ${categories_homepage3}
-    Scroll Element Into View                    ${content_homepage3}
-    Element Should Be Visible                   ${content_homepage3}
-    Scroll Element Into View                    ${categories_homepage4}
-    Element Should Be Visible                   ${categories_homepage4}
-    Scroll Element Into View                    ${content_homepage4}
-    Scroll Element Into View                    ${rail_banner_content_homepage2}
-    Element Should Be Visible                   ${rail_banner_content_homepage2}
-    Scroll Element Into View                    ${categories_homepage5}
-    Element Should Be Visible                   ${categories_homepage5}
-    Scroll Element Into View                    ${content_homepage5}
-    Element Should Be Visible                   ${content_homepage5}
-    Scroll Element Into View                    ${categories_homepage6}
-    Element Should Be Visible                   ${categories_homepage6}
-    Scroll Element Into View                    ${content_homepage6}
-    Element Should Be Visible                   ${content_homepage6}
-    Scroll Element Into View                    ${rail_banner_content_homepage3}
-    Element Should Be Visible                   ${rail_banner_content_homepage3}
-    Scroll Element Into View                    ${categories_homepage7}
-    Element Should Be Visible                   ${categories_homepage7}
-    Scroll Element Into View                    ${content_homepage7}
-    Element Should Be Visible                   ${content_homepage7}
-    Scroll Element Into View                    ${categories_homepage8}
-    Element Should Be Visible                   ${categories_homepage8}
-    Scroll Element Into View                    ${content_homepage8}
-    Element Should Be Visible                   ${content_homepage8}
-    Scroll Element Into View                    ${rail_banner_content_homepage4}
-    Element Should Be Visible                   ${rail_banner_content_homepage4}
-    Scroll Element Into View                    ${rail_banner_content_homepage2}
-    Element Should Be Visible                   ${rail_banner_content_homepage2}
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 1000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 2000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 3000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 4000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 5000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 6000})
+    Element Should Be Visible                   ${frame_categories_and_content_homepage}
+    Element Should Be Visible                   ${mola_hub}
+    Element Should Be Visible                   ${matches_footer}
+#    Element Should Be Visible                   ${categories_homepage1}
+#    Scroll Element Into View                    ${content_homepage1}
+#    Element Should Be Visible                   ${content_homepage1}
+#    Scroll Element Into View                    ${categories_homepage2}
+#    Element Should Be Visible                   ${categories_homepage2}
+#    Scroll Element Into View                    ${content_homepage2}
+#    Element Should Be Visible                   ${content_homepage2}
+#    Scroll Element Into View                    ${rail_banner_content_homepage1}
+#    Element Should Be Visible                   ${rail_banner_content_homepage1}
+#    Scroll Element Into View                    ${categories_homepage3}
+#    Element Should Be Visible                   ${categories_homepage3}
+#    Scroll Element Into View                    ${content_homepage3}
+#    Element Should Be Visible                   ${content_homepage3}
+#    Scroll Element Into View                    ${categories_homepage4}
+#    Element Should Be Visible                   ${categories_homepage4}
+#    Scroll Element Into View                    ${content_homepage4}
+#    Scroll Element Into View                    ${rail_banner_content_homepage2}
+#    Element Should Be Visible                   ${rail_banner_content_homepage2}
+#    Scroll Element Into View                    ${categories_homepage5}
+#    Element Should Be Visible                   ${categories_homepage5}
+#    Scroll Element Into View                    ${content_homepage5}
+#    Element Should Be Visible                   ${content_homepage5}
+#    Scroll Element Into View                    ${categories_homepage6}
+#    Element Should Be Visible                   ${categories_homepage6}
+#    Scroll Element Into View                    ${content_homepage6}
+#    Element Should Be Visible                   ${content_homepage6}
+#    Scroll Element Into View                    ${rail_banner_content_homepage3}
+#    Element Should Be Visible                   ${rail_banner_content_homepage3}
+#    Scroll Element Into View                    ${categories_homepage7}
+#    Element Should Be Visible                   ${categories_homepage7}
+#    Scroll Element Into View                    ${content_homepage7}
+#    Element Should Be Visible                   ${content_homepage7}
+#    Scroll Element Into View                    ${categories_homepage8}
+#    Element Should Be Visible                   ${categories_homepage8}
+#    Scroll Element Into View                    ${content_homepage8}
+#    Element Should Be Visible                   ${content_homepage8}
+#    Scroll Element Into View                    ${rail_banner_content_homepage4}
+#    Element Should Be Visible                   ${rail_banner_content_homepage4}
+#    Scroll Element Into View                    ${rail_banner_content_homepage2}
+#    Element Should Be Visible                   ${rail_banner_content_homepage2}
 
 Verify Rail Banner Homepage
     Wait Until Element Is Visible               ${rail_banner_homepage}

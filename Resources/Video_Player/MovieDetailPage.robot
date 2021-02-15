@@ -13,7 +13,7 @@ ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 ${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to watch')]
 ${movie_detail_login_blocker}                   ${login_blocker_garselep1}
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
-${frame_login_movie_detail}                     css=._3Z4PZ
+${frame_login_movie_detail}                     css=._32OqX
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
 ${movie_detail_play_button}                     css=.css-18dkaks.playIcon
