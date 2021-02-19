@@ -40,10 +40,10 @@ TC004 - Click button subscribes in mola tv microsite
 
     MicrositePage.Open Microsite Page                       ${URL_MICROSITE_UNTUK_KAMU}
     MicrositePage.Click Langganan Sekarang Button On Microsite Untuk Kamu
-    SubscriptionPackagePage.Verify On Beli Package Page
+    SubscriptionPackagePage.Verify Subscription Plan Page Is Opened
     MicrositePage.Open Microsite Page                       ${URL_MICROSITE_SOFA_KUNING}
     MicrositePage.Click Daftar Sekarang Button On Microsite Sofa Kuning
-    SubscriptionPackagePage.Verify On Beli Package Page
+    SubscriptionPackagePage.Verify Subscription Plan Page Is Opened
 
 TC005 - Click other button in mola tv microsite
     [Documentation]  User can get more information from mola tv microsite

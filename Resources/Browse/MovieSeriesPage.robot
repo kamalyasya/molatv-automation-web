@@ -27,14 +27,14 @@ Click Button Favorit On Series
 Verify Favorit Button Is Active On Series
     Wait Until Element Is Visible       ${button_movie_detail_lihat_daftar_favorit}
     Element Should Be Visible           ${button_movie_detail_lihat_daftar_favorit}
-    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Lihat daftar favorit
+    Element Text Should Be              ${button_movie_detail_lihat_daftar_favorit}         Favorite List
     Wait Until Element Is Visible       ${text_movie_detail_favorit_message}
     Element Should Be Visible           ${text_movie_detail_favorit_message}
-    Element Text Should Be              ${text_movie_detail_favorit_message}                Disimpan sebagai favorit
+    Element Text Should Be              ${text_movie_detail_favorit_message}                Favorited
     Wait Until Element Is Not Visible   ${text_movie_detail_favorit_message}                5
     Wait Until Element Is Visible       ${button_series_favorit}
     Element Should Be Visible           ${button_series_favorit}
-    Element Should Contain              ${button_series_favorit}                            Difavoritkan
+    Element Should Contain              ${button_series_favorit}                            Favorited
 
 Remove Favorit Series
     Wait Until Element Is Visible       ${button_series_favorit_active}

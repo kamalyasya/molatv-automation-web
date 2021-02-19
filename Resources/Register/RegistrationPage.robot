@@ -132,3 +132,11 @@ Select Beli Paket
 Choose package
     Wait Until Element Is Visible                   ${button_register_pay_subcription}
     Click Element                                   ${button_register_pay_subcription}
+
+Verify Register Page Is Appeared With Email Prefilled
+    [Arguments]    ${EXTECTED_TEXT}
+    Wait Until Element Is Visible                   ${field_register_email}
+    Element Should Be Visible                       ${field_register_email}
+    ${ACTUAL_TEXT}                                  Get Element Attribute                   ${field_register_email}             value
+    Should Contain        ${ACTUAL_TEXT}            ${EXTECTED_TEXT}                        ignore_case=True
+#    Element Should Contain                          ${field_register_email}                 ${EXTECTED_TEXT}
