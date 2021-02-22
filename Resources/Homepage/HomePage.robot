@@ -17,7 +17,7 @@ ${menu_side_bar_homepage_beli_akses}            css=._1GfoO > div:nth-of-type(5)
 ${menu_side_bar_homepage_redeem_voucher}        css=._1GfoO > div:nth-of-type(6)
 ${menu_side_bar_homepage_accounts}              css=._2YhM7
 ${text_homepage_langganan_count_number}         css=.count-number
-${menu_top_bar_homepage_movies}                 css=.FYgXF > div:nth-of-type(1)
+${menu_top_bar_homepage_home}                   css=.FYgXF > div:nth-of-type(1)
 ${menu_top_bar_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
 ${menu_top_bar_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
 ${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
@@ -37,7 +37,7 @@ ${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ck
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
 ${categories_homepage1}                         css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage1}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .carouselWrapper
-${button_view_all1}                             css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k > a
+${button_view_all1}                             css=[href='\/categories\/fea-justadded']
 ${categories_homepage2}                         css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage2}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
 ${button_view_all2}                             css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k > a
@@ -122,19 +122,20 @@ ${expected_arrow_right_rail_banner_homepage}    css=._2HGOE > div:nth-of-type(1)
 ${button_arrow_left_rail_banner_homepage}       css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 ${expected_arrow_left_rail_banner_homepage}     css=._2HGOE > div:nth-of-type(1) .css-rolnv2
 
-${banner_homepage_content1}                     css=.css-17v1w3x
-${banner_homepage_content2}                     css=.css-17v1w3x
-${banner_homepage_content3}                     css=.css-17v1w3x
+${banner_homepage_content1}                     css=.css-hq095j
+${banner_homepage_content2}                     css=.css-hq095j
+${banner_homepage_content3}                     css=.css-hq095j
 
 ${rail_banner_matches_page}                     css=.css-11xe1ut.css-utu171.slider > .slider-frame
 ${matches_date_filter_toggle}                   css=._2CCM2
 ${match_card}                                   css=div#match-wrapper > div:nth-of-type(3) > div
 ${view_all_match_card}                          link=View All
 ${page_match_view_all}                          css=._2dFXJ
+${frame_all_matches}                            css=div#match-wrapper > div:nth-of-type(3) > div
 
 ${matches_all_competition}                      css=div#allCompetition
 ${matches_footer}                               css=._32NSr
-${matches_status_match}                         css=.k1LdU
+${matches_status_match}                         css=.slide-visible.slider-slide > a .k1LdU
 ${matches_slider_frame}                         css=div:nth-of-type(3) > div > .DgfMr
 ${matches_page_hover}                           css=#match-wrapper
 ${matches_calendar}                             css=ul > div:nth-of-type(14)
@@ -153,7 +154,7 @@ ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .
 
 
 #VOD In Continues Watching
-${title_vod_continues_watching}                 css=.css-w9iiky [tabindex='-1']:nth-of-type(1) .title
+${title_vod_continues_watching}                 css=.css-5jjjwv.undefined
 ${progress_bar_continues_watching}              css=.css-15ddkiw
 
 #View All HomePage
@@ -162,7 +163,7 @@ ${button_sorting_playlist_view_all}             css=.sortHeadWrapper
 ${rail_assets_thumbnails_view_all}              css=.css-h3a6c7 > div:nth-of-type(2)
 ${footer_view_all}                              css=._32NSr
 ${background_view_all}                          css=body
-${mola_hub}                                     css=.css-ch8pw7.css-jk6p7n
+${mola_hub}                                     css=.css-ai1awt
 
 ${button_homepage_live_chat}                    css=.embeddedServiceIcon
 
@@ -172,6 +173,8 @@ ${links_homepage_view_all_favorit_saya}         css=[href='\/accounts\/profile\?
 # Just Added
 ${links_homepage_view_all_just_added}           css=[href='\/categories\/fea-justadded']
 
+# No Match In Page Matches
+${text_no_matches_matches_page}                 css=._1KMFc
 
 *** Keywords ***
 Verify The App Navigates To Home Page
@@ -291,7 +294,17 @@ Verify UI Layout of Matches page
     Element Should Be Visible                   ${matches_date_filter_toggle}
     Element Should Be Visible                   ${match_card}
 
-Click view all button
+Verify Content Of Matches Page
+    Scroll Element Into View                    ${frame_all_matches}
+    ${CHECK_LAYOUT_MATCHES_PAGE}     run keyword and return status  Wait Until Element Is Visible   ${view_all_match_card}
+    run keyword if  '${CHECK_LAYOUT_MATCHES_PAGE}'=='True'  Link Text View All Is Visible
+    ...     ELSE                                            Link Text View All Is Not Visible
+
+Link Text View All Is Not Visible
+    Wait Until Element Is Visible               ${text_no_matches_matches_page}
+    Element Should Be Visible                   ${text_no_matches_matches_page}
+
+Link Text View All Is Visible
     Scroll Element Into View                    ${matches_calendar}
     Click Element                               ${view_all_match_card}
     Wait Until Element Is Visible               ${page_match_view_all}
@@ -305,6 +318,11 @@ Choose any upcoming match
     Sleep                                       2
     Scroll Element Into View                    ${matches_status_match}
     Sleep                                       3
+
+Verify Upcoming In Matches Page
+    ${status} =  Run Keyword And Return Status   Get Text    ${matches_status_match}
+    Run Keyword If	   '${status}' == 'Upcoming'      Check Upcoming Matches
+    ...                ELSE     Click Next Day
 
 Check Upcoming Matches
     Element Should Be Visible                   ${matches_status_match}
@@ -352,7 +370,6 @@ Choose any live match
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 300})
     Scroll Element Into View                    ${view_all_match_card}
 
-
 Verify UI Homepage Side Bar Menu
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home}
     Element Should Be Visible                   ${menu_side_bar_homepage_search}
@@ -363,7 +380,7 @@ Verify UI Homepage Side Bar Menu
     Element Should Be Visible                   ${menu_side_bar_homepage_redeem_voucher}
 
 Verify UI Homepage Top Bar Menu
-    Element Should Be Visible                   ${menu_top_bar_homepage_movies}
+    Element Should Be Visible                   ${menu_top_bar_homepage_home}
     Element Should Be Visible                   ${menu_top_bar_homepage_living}
     Element Should Be Visible                   ${menu_top_bar_homepage_sports}
     Element Should Be Visible                   ${menu_top_bar_homepage_kids}
@@ -373,54 +390,15 @@ Verify Categories And Content Is Shown
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 1000})
-    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 2000})
-    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 3000})
-    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 4000})
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 5000})
-    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 6000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 10000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 15000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 20000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 25000})
+    Scroll Element Into View                    ${matches_footer}
     Element Should Be Visible                   ${frame_categories_and_content_homepage}
     Element Should Be Visible                   ${mola_hub}
     Element Should Be Visible                   ${matches_footer}
-#    Element Should Be Visible                   ${categories_homepage1}
-#    Scroll Element Into View                    ${content_homepage1}
-#    Element Should Be Visible                   ${content_homepage1}
-#    Scroll Element Into View                    ${categories_homepage2}
-#    Element Should Be Visible                   ${categories_homepage2}
-#    Scroll Element Into View                    ${content_homepage2}
-#    Element Should Be Visible                   ${content_homepage2}
-#    Scroll Element Into View                    ${rail_banner_content_homepage1}
-#    Element Should Be Visible                   ${rail_banner_content_homepage1}
-#    Scroll Element Into View                    ${categories_homepage3}
-#    Element Should Be Visible                   ${categories_homepage3}
-#    Scroll Element Into View                    ${content_homepage3}
-#    Element Should Be Visible                   ${content_homepage3}
-#    Scroll Element Into View                    ${categories_homepage4}
-#    Element Should Be Visible                   ${categories_homepage4}
-#    Scroll Element Into View                    ${content_homepage4}
-#    Scroll Element Into View                    ${rail_banner_content_homepage2}
-#    Element Should Be Visible                   ${rail_banner_content_homepage2}
-#    Scroll Element Into View                    ${categories_homepage5}
-#    Element Should Be Visible                   ${categories_homepage5}
-#    Scroll Element Into View                    ${content_homepage5}
-#    Element Should Be Visible                   ${content_homepage5}
-#    Scroll Element Into View                    ${categories_homepage6}
-#    Element Should Be Visible                   ${categories_homepage6}
-#    Scroll Element Into View                    ${content_homepage6}
-#    Element Should Be Visible                   ${content_homepage6}
-#    Scroll Element Into View                    ${rail_banner_content_homepage3}
-#    Element Should Be Visible                   ${rail_banner_content_homepage3}
-#    Scroll Element Into View                    ${categories_homepage7}
-#    Element Should Be Visible                   ${categories_homepage7}
-#    Scroll Element Into View                    ${content_homepage7}
-#    Element Should Be Visible                   ${content_homepage7}
-#    Scroll Element Into View                    ${categories_homepage8}
-#    Element Should Be Visible                   ${categories_homepage8}
-#    Scroll Element Into View                    ${content_homepage8}
-#    Element Should Be Visible                   ${content_homepage8}
-#    Scroll Element Into View                    ${rail_banner_content_homepage4}
-#    Element Should Be Visible                   ${rail_banner_content_homepage4}
-#    Scroll Element Into View                    ${rail_banner_content_homepage2}
-#    Element Should Be Visible                   ${rail_banner_content_homepage2}
 
 Verify Rail Banner Homepage
     Wait Until Element Is Visible               ${rail_banner_homepage}
@@ -450,6 +428,13 @@ Verify Title VOD In Continues Watching
     Element Should Be Visible                   ${title_vod_continues_watching}
 
 Verify the UI of category page after click view all button
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 25000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 20000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 15000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 10000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 5000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 1000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 300})
     Click Element                               ${button_view_all1}
     Wait Until Element Is Visible               ${title_categories_view_all}
     Element Should Be Visible                   ${title_categories_view_all}
@@ -499,7 +484,7 @@ Rails Is Empty In All Menu
     Element Should Not Be Visible               ${rail_banner_all_menu}
 
 Verify No empty raiis shown in any page
-    Click Element                       ${menu_top_bar_homepage_movies}
+    Click Element                       ${menu_top_bar_homepage_home}
     ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
     run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
     ...                 ELSE                             Rails Is Shown In All Menu

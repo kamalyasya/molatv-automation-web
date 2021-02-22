@@ -8,7 +8,7 @@ ${mouse_hover_sidebar}                  css=._1GfoO
 ${mouse_hover_movie}                    css=video
 ${sidebar_accounts_menu}                css=._2YhM7 > ._2yKxK
 ${menu_movies}                          css=.FYgXF ._11ipt:nth-of-type(1)
-${mola_hub_hbo}                         css=.css-ch8pw7 > .css-1mmkue0 > a:nth-of-type(3) > .css-1wegyzv > .css-3joiye.css-tqv6h2.imageWrapper.loaded > img
+${mola_hub_hbo}                         css=.css-ai1awt.css-jk6p7n > .css-1mmkue0 > a:nth-of-type(3) > .css-1wegyzv
 ${movie_detail_title}                   css=h1
 ${movie_button_play}                    css=.control_buttons_play
 ${movie_button_pause}                   css=.control_buttons_play_pause
@@ -25,7 +25,7 @@ ${movie_control_button_forward}         css=.control_buttons_ffw
 ${movie_control_button_backward}        css=.control_buttons_rwd
 ${movie_button_cc_subtitle_key_off}     css=[key='off']
 ${movie_button_cc_subtitle_key_id}      css=[key='id']
-${movie_rating}                         xpath=/html//div[@id='video-player-root']//span[@class='border']
+${movie_rating}                         css=.border
 
 ${movie_button_volume_mute}             css=.control_button.control_buttons_volume.mute
 ${movie_button_volume}                  css=.control_button.control_buttons_volume
@@ -125,6 +125,7 @@ See HBO movie rating on movie detail
     Go To                           ${URL_HBO_MOVIE}
 
 User able to see HBO movie rating on movie detail
+    Wait Until Element Is Visible   ${movie_rating}
     Page Should Contain Element     ${movie_rating}
     Capture Element Screenshot      ${movie_rating}
 

@@ -5,9 +5,9 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 #Rail Banner Living Libraries
-${rail_banner_living_libraries}                                     css=[class='css-5k1n5e'] .slider-frame
-${button_arrow_right_rail_banner_living_libraries}                  css=[class='css-5k1n5e'] [class='css-13o605i arrowWrapper']
-${button_arrow_left_rail_banner_living_libraries}                   css=[class='css-5k1n5e'] .css-rolnv2
+${rail_banner_living_libraries}                                     css=[class='css-1j9u7ba'] .slider-frame
+${button_arrow_right_rail_banner_living_libraries}                  css=[class='css-1j9u7ba'] [class='css-13o605i arrowWrapper']
+${button_arrow_left_rail_banner_living_libraries}                   css=[class='css-1j9u7ba'] .css-rolnv2
 
 #Content And Categories Living Libraries
 ${title_categories_living_libraries1}                               css=div:nth-of-type(1) > .css-17v1w3x > .css-1q8d97k
@@ -24,6 +24,7 @@ ${title_categories_living_libraries6}                               css=div:nth-
 ${rail_banner_content_living_libraries6}                            css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(7)
 ${rail_banner_mid_living_libraries}                                 css=[class='css-21l0kp']
 ${match_card_banner_living_libraries}                               css=.css-1et68jm
+${frame_content_categories_living_libraries}                        css=.css-1mcjboy.css-tqv6h2.css-ug8ckl
 
 #View All Categories Living Libraries
 ${link_text_view_all_living_libraries}                              link=View All
@@ -46,7 +47,7 @@ Verify UI Living Side Bar Menu
     Element Should Be Visible                                       ${menu_side_bar_homepage_redeem_voucher}
 
 Verify UI Living Top Bar Menu
-    Element Should Be Visible                                       ${menu_top_bar_homepage_movies}
+    Element Should Be Visible                                       ${menu_top_bar_homepage_home}
     Element Should Be Visible                                       ${menu_top_bar_homepage_living}
     Element Should Be Visible                                       ${menu_top_bar_homepage_sports}
     Element Should Be Visible                                       ${menu_top_bar_homepage_kids}
@@ -54,29 +55,13 @@ Verify UI Living Top Bar Menu
     Element Should Be Visible                                       ${rail_banner_living_libraries}
 
 Verify Categories And Content Living Is Shown
-    Wait Until Element Is Visible                                   ${rail_banner_living_libraries}
-    Element Should Be Visible                                       ${rail_banner_living_libraries}
-    Element Should Be Visible                                       ${title_categories_living_libraries1}
-    Scroll Element Into View                                        ${title_categories_living_libraries1}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries1}
-    Element Should Be Visible                                       ${title_categories_living_libraries2}
-    Scroll Element Into View                                        ${title_categories_living_libraries2}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries2}
-    Element Should Be Visible                                       ${title_categories_living_libraries3}
-    Scroll Element Into View                                        ${title_categories_living_libraries3}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries3}
-    Scroll Element Into View                                        ${rail_banner_mid_living_libraries}
-    Element Should Be Visible                                       ${rail_banner_mid_living_libraries}
-    Scroll Element Into View                                        ${title_categories_living_libraries4}
-    Element Should Be Visible                                       ${title_categories_living_libraries4}
-    Scroll Element Into View                                        ${title_categories_living_libraries4}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries4}
-    Element Should Be Visible                                       ${title_categories_living_libraries5}
-    Scroll Element Into View                                        ${title_categories_living_libraries5}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries5}
-    Element Should Be Visible                                       ${title_categories_living_libraries6}
-    Scroll Element Into View                                        ${title_categories_living_libraries6}
-    Element Should Be Visible                                       ${rail_banner_content_living_libraries6}
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 1000})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 1500})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 2000})
+    Element Should Be Visible                                       ${frame_content_categories_living_libraries}
+    Element Should Be Visible                                       ${matches_footer}
 
 Verify Rail Banner Living Libraries
     Wait Until Element Is Visible                                   ${rail_banner_living_libraries}

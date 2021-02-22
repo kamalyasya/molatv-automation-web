@@ -5,9 +5,9 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 #Rail Banner Sports Libraries
-${rail_banner_sports_libraries}                                     css=[class='css-5k1n5e']
-${button_arrow_right_rail_banner_sports_libraries}                  css=[class='css-5k1n5e'] [class='css-13o605i arrowWrapper']
-${button_arrow_left_rail_banner_sports_libraries}                   css=[class='css-5k1n5e'] .css-rolnv2
+${rail_banner_sports_libraries}                                     css=[class='css-1j9u7ba'] .slider-frame
+${button_arrow_right_rail_banner_sports_libraries}                  css=[class='css-1j9u7ba'] [class='css-13o605i arrowWrapper']
+${button_arrow_left_rail_banner_sports_libraries}                   css=[class='css-1j9u7ba'] .css-rolnv2
 
 #Content And Categories Sports Libraries
 ${title_categories_sports_libraries1}                               css=div:nth-of-type(1) > .css-17v1w3x > .css-1q8d97k  h3
@@ -21,6 +21,7 @@ ${rail_banner_content_sports_libraries4}                            css=[class] 
 ${title_categories_sports_libraries5}                               css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k > div > h3
 ${rail_banner_content_sports_libraries5}                            css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(5) .slider-list
 ${match_card_banner_sports_libraries}                               css=.css-hq095j
+${frame_content_categories_sports_libraries}                        css=.css-1mcjboy.css-tqv6h2.css-ug8ckl
 
 #View All Categories Sports Libraries
 ${link_text_view_all_sports_libraries}                              link=View All
@@ -43,7 +44,7 @@ Verify UI Sports Side Bar Menu
     Element Should Be Visible                                       ${menu_side_bar_homepage_redeem_voucher}
 
 Verify UI Sports Top Bar Menu
-    Element Should Be Visible                                       ${menu_top_bar_homepage_movies}
+    Element Should Be Visible                                       ${menu_top_bar_homepage_home}
     Element Should Be Visible                                       ${menu_top_bar_homepage_living}
     Element Should Be Visible                                       ${menu_top_bar_homepage_sports}
     Element Should Be Visible                                       ${menu_top_bar_homepage_kids}
@@ -51,31 +52,13 @@ Verify UI Sports Top Bar Menu
     Element Should Be Visible                                       ${rail_banner_sports_libraries}
 
 Verify Categories And Content Sports Is Shown
-    Element Should Be Visible                                       ${rail_banner_sports_libraries}
-    Element Should Be Visible                                       ${title_categories_sports_libraries1}
-    Scroll Element Into View                                        ${rail_banner_content_sports_libraries1}
-    Element Should Be Visible                                       ${rail_banner_content_sports_libraries1}
-    Element Should Be Visible                                       ${link_text_view_all_sports_libraries}
-    Scroll Element Into View                                        ${title_categories_sports_libraries2}
-    Element Should Be Visible                                       ${title_categories_sports_libraries2}
-    Scroll Element Into View                                        ${rail_banner_content_sports_libraries2}
-    Element Should Be Visible                                       ${rail_banner_content_sports_libraries2}
-    Element Should Be Visible                                       ${link_text_view_all_sports_libraries}
-    Scroll Element Into View                                        ${title_categories_sports_libraries3}
-    Element Should Be Visible                                       ${title_categories_sports_libraries3}
-    Scroll Element Into View                                        ${rail_banner_content_sports_libraries3}
-    Element Should Be Visible                                       ${rail_banner_content_sports_libraries3}
-    Element Should Be Visible                                       ${link_text_view_all_sports_libraries}
-    Scroll Element Into View                                        ${title_categories_sports_libraries4}
-    Element Should Be Visible                                       ${title_categories_sports_libraries4}
-    Scroll Element Into View                                        ${rail_banner_content_sports_libraries4}
-    Element Should Be Visible                                       ${rail_banner_content_sports_libraries4}
-    Element Should Be Visible                                       ${link_text_view_all_sports_libraries}
-    Scroll Element Into View                                        ${title_categories_sports_libraries5}
-    Element Should Be Visible                                       ${title_categories_sports_libraries5}
-    Scroll Element Into View                                        ${rail_banner_content_sports_libraries5}
-    Element Should Be Visible                                       ${rail_banner_content_sports_libraries5}
-    Element Should Be Visible                                       ${link_text_view_all_sports_libraries}
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 1000})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 1500})
+    Execute Javascript                                              document.getElementsByClassName('children__container')[0].scrollTo({top: 2000})
+    Element Should Be Visible                                       ${frame_content_categories_sports_libraries}
+    Element Should Be Visible                                       ${matches_footer}
 
 Verify Rail Banner Sports Libraries
     Wait Until Element Is Visible                                   ${rail_banner_sports_libraries}

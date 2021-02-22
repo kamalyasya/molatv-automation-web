@@ -27,11 +27,11 @@ ${movie_pause_button}                           css=.pauseIcon
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
 ${movie_change_quality}                         css=.quality_popup
-${movie_quality_list_576}                       css=div#vpcc-quality > div > div:nth-of-type(3)
-${movie_quality_list_270}                       css=div#vpcc-quality > div > div:nth-of-type(5)
-${movie_quality_list_360}                       css=div#vpcc-quality > div > div:nth-of-type(4)
-${movie_quality_list_720}                       css=div#vpcc-quality > div > div:nth-of-type(2)
-${movie_quality_list_auto}                      css=div > div:nth-of-type(6)
+${movie_quality_list_270}                       css=.css-6p59hx > div:nth-of-type(4)
+${movie_quality_list_360}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(3)
+${movie_quality_list_576}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(2)
+${movie_quality_list_720}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(1)
+${movie_quality_list_auto}                      css=.css-6p59hx > div:nth-of-type(5)
 ${movie_quality_selected}                       css=.quality_list.active
 ${movie_quality_title}                          css=.quality_title
 ${autoplay_next_movie}                          css=.content
@@ -40,7 +40,7 @@ ${autoplay_button_skip}                         css=.close
 
 ${close_caption}                                css=#vpcc-subtitle
 ${subtitle_title}                               css=.subtitle_title
-${subtitle_list_Indonesia}                      css=.subtitle_popup div:nth-of-type(2)
+${subtitle_list_Indonesia}                      css=div#vpcc-subtitle  .css-6p59hx > div:nth-of-type(1)
 ${subtitle_list_off}                            xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
 ${movie2_play_button}                           css=.css-18dkaks.playIcon
@@ -51,11 +51,11 @@ ${button_play_player_control}                   css=.playIcon
 
 ${expected_buffering}                           css=code
 ${expected_close_caption_icon}                  css=div#vpcc-subtitle
-${expected_subtitle_on_screen}                  css=[class='css-1ry8yrj']
+${expected_subtitle_on_screen}                  css=div#video-child > .css-1kv67r7.hide
 ${expected_volume_bar}                          xpath=//*[@id="vpcc-volume" and @value="0.49"]
 ${expected_fullscreen_icon}                     css=#vpcc-fullscreen .withTooltip
-${expected_pleyer_control_hide}                 css=div#video-child > .css-cui6p1.hide
-${expected_player_control_unhide}               css=div#video-child > .css-cui6p1
+${expected_pleyer_control_hide}                 css=.css-19b47nz.hide
+${expected_player_control_unhide}               css=.css-19b47nz
 ${expected_categories_movie_detail}             css=.sub-header span:nth-of-type(2)
 
 ${expected_title_movie_detail}                  css=h1
@@ -301,6 +301,7 @@ Verify Video Metadata
     Sleep                               10
     Element Should Not Be Visible       ${expected_player_control_unhide}
     Mouse Over                          ${movie_mouse_over}
+#    sleep                               3
     Element Should Be Visible           ${expected_player_control_unhide}
 
 Verify Movie Details Page Is Shown
@@ -332,6 +333,13 @@ Verify Upcoming Live Matches
 Go To Another Live Match
     [Arguments]  ${URL_MOVIE_DETAIL}
     Go To                               ${URL_MOVIE_DETAIL}
+
+Verify Upcoming In Matches Page
+    [Arguments]  ${URL_MOVIE_DETAIL}
+    ${status} =        Run Keyword And Continue On Failure    Get Text  ${matches_status_match}
+    Run Keyword If	   '${status}' == 'LIVE NOW'                Check Upcoming Matches
+    ...                ELSE IF	'${status}' != 'LIVE NOW'       Go To Another Live Match     ${URL_MOVIE_DETAIL}
+    ...                ELSE                                     Link Text View All Is Not Visible
 
 Verify Default Control
     Mouse Over                          ${movie_mouse_over}
