@@ -110,20 +110,18 @@ Input the field with invalid fields format and tick the agreement
     Input Text                                      ${field_register_password}           ${PASSWORD}
     Input Text                                      ${field_register_confirm_password}   ${PASSWORD}
 
+
 User Cannot Register
     Wait Until Element Is Visible                   ${text_register_akun_invalid}
     Element Text Should Be                          ${text_register_akun_invalid}           Email Already Exists
-#    Sleep                                           15
 
 Select any special assets or content
     [Arguments]                                     ${URL_SAMPLE_MOVIE}
     Go To                                           ${URL_SAMPLE_MOVIE}
-#    Sleep                                           15
 
 Select Login
     Wait Until Element Is Visible                   ${links_login}
     Click Element                                   ${links_login}
-#    Sleep                                           15
 
 Select Beli Paket
     Wait Until Element Is Visible                   ${button_register_subcription_plan}
@@ -139,4 +137,4 @@ Verify Register Page Is Appeared With Email Prefilled
     Element Should Be Visible                       ${field_register_email}
     ${ACTUAL_TEXT}                                  Get Element Attribute                   ${field_register_email}             value
     Should Contain        ${ACTUAL_TEXT}            ${EXTECTED_TEXT}                        ignore_case=True
-#    Element Should Contain                          ${field_register_email}                 ${EXTECTED_TEXT}
+    

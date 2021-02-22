@@ -46,7 +46,7 @@ TC005 Input wrong OTP number code
     [Documentation]  Input wrong OTP number at forgot password flow.
 	[Tags]  Regression  Smoke
 
-    ${RANDOM_NUMBER}    Generate random string    5    123456789
+    ${RANDOM_NUMBER}    Generate random string    3    123456789
     ${EMAIL}			Catenate	supermola${RANDOM_NUMBER}@sapisuper.com
     ${PASSWORD}			Catenate	sapisuper${RANDOM_NUMBER}
 
@@ -62,7 +62,7 @@ TC006 Resend OTP number code
     [Documentation]  TC006 Resend OTP number code
 	[Tags]  Regression  Smoke
 
-    ${RANDOM_NUMBER}    Generate random string    5    123456789
+    ${RANDOM_NUMBER}    Generate random string    3    123456789
     ${EMAIL}			Catenate	supermola${RANDOM_NUMBER}@sapisuper.com
     SignInPage.Click Lupa Password Links
     ForgotPasswordPage.Input Email                                  ${EMAIL}

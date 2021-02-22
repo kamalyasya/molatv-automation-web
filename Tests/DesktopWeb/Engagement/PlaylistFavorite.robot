@@ -55,10 +55,10 @@ TC003 - Favorite video from series season
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
+    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
     Check Favorit Series
-    MovieSeriesPage.Click Button Favorit On Series
-    MovieSeriesPage.Verify Favorit Button Is Active On Series
+    MovieSeriesSeasonPage.Click Button Favorit On Series
+    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_SESSION_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_SESSION_TITLE}
     Logout Account
@@ -69,10 +69,10 @@ TC004 - Favorite video from series playlist
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_URL}
+    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_URL}
     Check Favorit Series
-    MovieSeriesPage.Click Button Favorit On Series
-    MovieSeriesPage.Verify Favorit Button Is Active On Series
+    MovieSeriesSeasonPage.Click Button Favorit On Series
+    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_TITLE}
     Logout Account
@@ -94,9 +94,9 @@ TC006 - Open my favorite video from snackbar
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL2}
+    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL2}
     Check Favorit Series
-    MovieSeriesPage.Click Button Favorit On Series
+    MovieSeriesSeasonPage.Click Button Favorit On Series
     Click Button Lihat Daftar Favorit
     FavoritePage.Verify Tontonan Saya Is Opened
     Logout Account
