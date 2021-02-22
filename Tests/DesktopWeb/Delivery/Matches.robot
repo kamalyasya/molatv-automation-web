@@ -40,7 +40,7 @@ Delivery - Matches: TC002 View All Categories
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     HomePage.Open Matches Page
     HomePage.Verify UI Layout of Matches page
-    HomePage.Click view all button
+    HomePage.Verify Content Of Matches Page
     HomePage.Verify all the matches of categories will shown up from the beginning time
     SignInPage.Logout Account
 
@@ -75,10 +75,9 @@ Delivery - Matches: TC005 Default Controls
     [Tags]           Regression     Smoke       Prod_Sync
 
     HomePage.Open Matches Page
+    HomePage.Verify UI Layout of Matches page
     HomePage.Choose any live match
-    ${status} =        Run Keyword And Continue On Failure    Get Text  ${matches_status_match}
-    Run Keyword If	   '${status}' == 'LIVE NOW'      Check Upcoming Matches
-    ...                ELSE IF	'${status}' != 'LIVE NOW'    Go To Another Live Match     ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Verify Upcoming In Matches Page             ${URL_MOVIE_DETAIL}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
@@ -161,11 +160,9 @@ Delivery - Matches: TC012 Upcoming match details page
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
+    HomePage.Verify UI Layout of Matches page
     HomePage.Choose any upcoming match
-
-    ${status} =  Run Keyword And Return Status   Get Text    ${matches_status_match}
-    Run Keyword If	   '${status}' == 'Upcoming'      Check Upcoming Matches
-    ...                ELSE     Click Next Day
+    HomePage.Verify Upcoming In Matches Page
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials                          ${ACCOUNTS_HBO_EMAIL}                      ${ACCOUNTS_HBO_PASSWORD}
@@ -177,6 +174,7 @@ Delivery - Matches: TC013 Filter Live Matches
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
+    HomePage.Verify UI Layout of Matches page
     HomePage.Tap Drop Down Filter Competition
     HomePage.Change Filter Competition
     HomePage.Click Button Apply
@@ -187,6 +185,7 @@ Delivery - Matches: TC014 Filter live matches not saved
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Matches Page
+    HomePage.Verify UI Layout of Matches page
     HomePage.Tap Drop Down Filter Competition
     HomePage.Change Filter Competition
     HomePage.Dont't Click Button Apply

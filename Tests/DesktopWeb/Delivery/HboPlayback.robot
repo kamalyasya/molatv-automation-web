@@ -8,7 +8,7 @@ Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
 ${URL}                      https://mola.tv
-${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO023714X0
+${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO009233X0
 
 *** Test Cases ***
 HBO Playback - Play The Content
