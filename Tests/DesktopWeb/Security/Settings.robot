@@ -22,7 +22,6 @@ ${PASSWORD_BARU01}                  sapisuper69690
 ${ULANG_PASSWORD01}                 sapisuper69690
 
 ${PASSWORD_LAMA_SALAH}              123456789
-
 ${ULANG_PASSWORD02}                 12345678
 
 ${PASSWORD_BARU02}                  sapisuper69690
@@ -42,7 +41,7 @@ TC001 Edit Profile view
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Show Status Berlangganan
     SettingsPage.The account information is shown in Profile page
     SettingsPage.The Ubah button is shown under user info
@@ -55,7 +54,7 @@ TC002 Edit Profile
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Ubah button
     SettingsPage.Make some changes and Save
@@ -68,81 +67,81 @@ TC003 Edit Profile without saving it
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon 01
     SettingsPage.Select Ubah button 01
     SettingsPage.Make some changes 01
     SettingsPage.Click Back button
 
-TC004 Change Password with user that login by email and password
-    [Documentation]         Make a password change
-    ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke   Pending
-
-    ${RANDOM_NUMBER}    Generate random string    5    123456789
-    ${PASSWORD}			Catenate	sapisuper${RANDOM_NUMBER}
-
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    HomePage.Open Login Page
-    SettingsPage.Select Pengaturan
-    SettingsPage.Select Ubah Password
-    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
-    SettingsPage.Select Simpan button
-    SettingsPage.User Successfully Ubah Password
-    SettingsPage.Changes To Default Input Old, New and Confirm Password at the field    ${PASSWORD_SEKARANG01}    ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
-
-TC006 Change Password without saving it
-    [Documentation]         Make a password change and don't save it
-    ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke   Pending
-
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    SettingsPage.Select User icon
-    SettingsPage.Select Pengaturan
-    SettingsPage.Select Ubah Password
-    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
-    SettingsPage.Unselected Simpan button
-
-TC007 Change Password with wrong Old Password
-    [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke   Pending
-
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    SettingsPage.Select User icon
-    SettingsPage.Select Pengaturan
-    SettingsPage.Select Ubah Password
-    SettingsPage.Input wrong Old Password               ${PASSWORD_LAMA_SALAH}  ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
-    SettingsPage.User Unsuccessfully Ubah Password
-
-TC008 Change Password with different input at New Password and Password Confirmation
-    [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke   Pending
-
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    SettingsPage.Select User icon
-    SettingsPage.Select Pengaturan
-    SettingsPage.Select Ubah Password
-    SettingsPage.Input different case at New Password and Password Confirmation     ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD02}
-    SettingsPage.User Konfirmasi password salah
-
-TC009 Change Password with same input at Old and New Password
-    [Documentation]         User already have an account and sign in
-    [Tags]                  Regression  Smoke   Pending
-
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    SettingsPage.Select User icon
-    SettingsPage.Select Pengaturan
-    SettingsPage.Select Ubah Password
-    SettingsPage.Input same case at Old and New Password        ${PASSWORD_SEKARANG}    ${PASSWORD_BARU02}    ${ULANG_PASSWORD03}
-    SettingsPage.Select Simpan button
-    SettingsPage.User Successfully Ubah Password
+#TC004 Change Password with user that login by email and password
+#    [Documentation]         Make a password change
+#    ...                     User already have an account and sign in
+#    [Tags]                  Regression  Smoke   Pending
+#
+#    ${RANDOM_NUMBER}    Generate random string    5    123456789
+#    ${PASSWORD}			Catenate	sapisuper${RANDOM_NUMBER}
+#
+#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#    HomePage.Open Login Page
+#    SettingsPage.Select Pengaturan
+#    SettingsPage.Select Ubah Password
+#    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
+#    SettingsPage.Select Simpan button
+#    SettingsPage.User Successfully Ubah Password
+#    SettingsPage.Changes To Default Input Old, New and Confirm Password at the field    ${PASSWORD_SEKARANG01}    ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
+#
+#TC006 Change Password without saving it
+#    [Documentation]         Make a password change and don't save it
+#    ...                     User already have an account and sign in
+#    [Tags]                  Regression  Smoke   Pending
+#
+#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#    SettingsPage.Select User icon
+#    SettingsPage.Select Pengaturan
+#    SettingsPage.Select Ubah Password
+#    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
+#    SettingsPage.Unselected Simpan button
+#
+#TC007 Change Password with wrong Old Password
+#    [Documentation]         User already have an account and sign in
+#    [Tags]                  Regression  Smoke   Pending
+#
+#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#    SettingsPage.Select User icon
+#    SettingsPage.Select Pengaturan
+#    SettingsPage.Select Ubah Password
+#    SettingsPage.Input wrong Old Password               ${PASSWORD_LAMA_SALAH}  ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
+#    SettingsPage.User Unsuccessfully Ubah Password
+#
+#TC008 Change Password with different input at New Password and Password Confirmation
+#    [Documentation]         User already have an account and sign in
+#    [Tags]                  Regression  Smoke   Pending
+#
+#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#    SettingsPage.Select User icon
+#    SettingsPage.Select Pengaturan
+#    SettingsPage.Select Ubah Password
+#    SettingsPage.Input different case at New Password and Password Confirmation     ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD02}
+#    SettingsPage.User Konfirmasi password salah
+#
+#TC009 Change Password with same input at Old and New Password
+#    [Documentation]         User already have an account and sign in
+#    [Tags]                  Regression  Smoke   Pending
+#
+#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#    SettingsPage.Select User icon
+#    SettingsPage.Select Pengaturan
+#    SettingsPage.Select Ubah Password
+#    SettingsPage.Input same case at Old and New Password        ${PASSWORD_SEKARANG}    ${PASSWORD_BARU02}    ${ULANG_PASSWORD03}
+#    SettingsPage.Select Simpan button
+#    SettingsPage.User Successfully Ubah Password
 
 TC010 Subscription view
     [Documentation]         View subscription page
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Status
@@ -155,7 +154,7 @@ TC012 Edit Profile change Phone Number
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Ubah button
     SettingsPage.Make phone number change               ${PHONE}
@@ -186,7 +185,7 @@ TC014 Autoplay on
     [Documentation]         Check toggle button function to enable and disable autoplay
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Verify Autoplay toggle button is turn on
@@ -234,7 +233,7 @@ TC020 Atur Password input wrong OTP number code
     [Documentation]         Input wrong OTP number at Atur Password flow.
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
@@ -246,7 +245,7 @@ TC021 TC021 Atur Password resend OTP number code
     [Documentation]         countdown for 60 second
     [Tags]                  Regression  Smoke
 
-    SignInPage.Login Using Credentials              ${ACCOUNT_SUPERMOLA69690_EMAIL}  ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
