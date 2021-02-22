@@ -4,9 +4,10 @@ Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${text_login_movie}                                 css=.css-1atyaon a
-${frame_konten_dewasa_agerestriction}               css=.zVnMA
-${frame_kalimat_konten_dewasa_agerestriction}       css=.zVnMA h1
-${button_setuju_tutup_konten_dewasa}                css=._3UpwF
+${frame_konten_dewasa_agerestriction}               css=._21BQA.styles_modal__gNwvD
+${frame_kalimat_konten_dewasa_agerestriction}       css=._27W52 > p
+${button_setuju_tutup_konten_dewasa}                css=._1aJ2n
+${button_agree_close_adult_content}                 css=._3UpwF
 ${button_watch_now_movie_18+}                       css=.css-usqan1 > div:nth-of-type(1) ._33Xwm
 ${text_lanjutkan_menonton_agerestriction}           css=.gJE3n p
 ${button_mulai_dari_awal_agerestriction}            css=._3QaU2
@@ -31,17 +32,25 @@ Select 18+ Movie Content
     Wait Until Element Is Visible           ${login_blocker_garselep1}
     Click Element                           ${login_blocker_garselep1}
 
-Verify Show Age blocker
+Verify Show Age Blocker 1 Hbo
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
     Wait Until Page Contains Element        ${frame_kalimat_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_kalimat_konten_dewasa_agerestriction}
     Click Element                           ${button_setuju_tutup_konten_dewasa}
 
+Verify Show Age Blocker 2 18+
+    Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
+    Wait Until Page Contains Element        ${frame_kalimat_konten_dewasa_agerestriction}
+    Element Should Be Visible               ${frame_kalimat_konten_dewasa_agerestriction}
+    Click Element                           ${button_agree_close_adult_content}
+
 Select NON18+ Movie Content
     [Arguments]                             ${URL_MOVIE_DETAIL_NON18+}
     Sleep                                   2
     Go To                                   ${URL_MOVIE_DETAIL_NON18+}
+    Reload Page
     Sleep                                   2
 
 Verify Movie Detail
@@ -74,7 +83,7 @@ Verify Show Age blocker "CLOSE or TUTUP" button
     Wait Until Page Contains Element        ${frame_konten_dewasa_agerestriction}
     Element Should Be Visible               ${frame_konten_dewasa_agerestriction}
     Sleep                                   1
-    Click Element                           ${button_setuju_tutup_konten_dewasa}
+    Click Element                           ${button_agree_close_adult_content}
 
 Can't Play Button
     Page Should Contain Element             ${button_play_cannot_action}
