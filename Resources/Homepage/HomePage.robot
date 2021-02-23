@@ -274,7 +274,7 @@ Open Inbox Page
 Open Search Page
     Wait Until Element Is Visible               ${menu_side_bar_homepage_search}
     Click Element                               ${menu_side_bar_homepage_search}
-    Mouse Over                                  ${menu_top_bar_homepage_movies}
+    Mouse Over To Live Chat
 
 Open Matches Page
     Wait Until Element Is Visible               ${menu_side_bar_homepage_matches}
