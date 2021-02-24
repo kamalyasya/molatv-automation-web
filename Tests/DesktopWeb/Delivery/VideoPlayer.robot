@@ -248,7 +248,7 @@ Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 2 18+
     SignInPage.Logout Account
 
 Delivery - Video Player: TC017 Quality Control
