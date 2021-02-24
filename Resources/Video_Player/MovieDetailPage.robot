@@ -11,6 +11,7 @@ ${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
 ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 
 ${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to watch')]
+${button_videos_player_watch_now}               xpath=//span[contains(text(),'Watch Now')]
 ${movie_detail_login_blocker}                   ${login_blocker_garselep1}
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}                     css=._32OqX
@@ -141,6 +142,11 @@ Play Content 'Mulai Dari Awal'
     Wait Until Element Is Visible       ${popup_lanjutkan_nonton_movie_detail}
     Click Element                       ${button_mulai_popup_movie_detail}
     Sleep                               5
+
+Click Button Watch Now On Video Player
+    ${CHECK_WATCH_NOW_BUTTON}      Run Keyword And Return Status   Page Should Contain Element      ${button_videos_player_watch_now}   5
+    Run Keyword If      '${CHECK_WATCH_NOW_BUTTON}'=='True'        Click Element                    ${button_videos_player_watch_now}
+    ...     ELSE        Play Content Video Or Play Video From Begining
 
 Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
@@ -518,3 +524,30 @@ Check Favorit Video
     Wait Until Element Is Visible       ${button_movie_detail_favorit}
     ${STATUS}           Run Keyword And Return Status       Element Should Be Visible       ${button_movie_detail_favorit_active}
     Run Keyword If      '${STATUS}'=='True'                 Remove Favorit Video
+
+
+Verify VOD Is Playing
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               2
+
+    # Get VIDEOID
+    ${VIDEOID}                          Get Location
+    ${VIDEOID}                          Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+
+    # Get First Position
+    ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${FIRST_POSITION}                   Execute Javascript              ${COMMAND_GET_FIRST_POSITION}
+    Sleep                               5
+    # Get Current Position
+    ${COMMAND_GET_CURRENT_POSITION}     catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_GET_CURRENT_POSITION}
+    Should Be True                      ${FIRST_POSITION} < ${CURRENT_POSITION}
+
+    # Verify Pause Button Is Visible
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               1
+    Mouse Over                          ${movie_pause_button}
+    Wait Until Element Is Visible       ${movie_pause_button}
+    Element Should Be Visible           ${movie_pause_button}
+    # Verify Play Button Is Visible
+    Element Should Not Be Visible       ${button_play_player_control}
