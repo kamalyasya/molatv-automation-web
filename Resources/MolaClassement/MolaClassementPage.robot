@@ -15,7 +15,7 @@ ${header_premier_league}                                css=.headTitle
 ${premier_league_place_holder}                          css=div:nth-of-type(1) > div > * > * > .imageWrapper.loaded > .imageBorder
 ${rail_banner_premier_league}                           css=.css-vtf346
 ${text_title_premier_league}                            css=.title
-${content_standing_table}                               xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']//div[@class='css-1gsa4sd']/div[@class='css-h3a6c7']/div[3]/div[1]//h3[.='CATEGORIES']
+${content_standing_table}                               css=.css-11xe1ut.css-612516.slider > .slider-frame > .slider-list
 ${text_view_full_table}                                 xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']//div[@class='view-all']
 ${button_sliding_mola_card1}                            css=div:nth-of-type(1) > * > .carouselWrapper> .slider .slider-control-centerright .default
 ${button_sliding_mola_card2}                            css=div:nth-of-type(2) > * > .carouselWrapper> .slider .slider-control-centerright .default
@@ -54,7 +54,8 @@ Click Sports
     Click Element                               ${banner_image_fadein_sports}
 
 Click Premiere League Football Competitions
-    Wait Until Element Is Not Visible           ${banner_image_sport_not_visible}
+    Wait Until Element Is Not Visible           ${banner_image_sport_not_visible}       5
+    Sleep                                       5
     Scroll Element Into View                    ${text_catalog_sport_competitions}
     Element Should Be Visible                   ${text_catalog_sport_competitions}
     Wait Until Element Is Visible               ${text_catalog_sport_competitions}
@@ -71,7 +72,8 @@ Click Premiere League
 
 Click "View Full Table" In Mola Card Standings
     Wait Until Element Is Not Visible           ${premier_league_place_holder}
-    Wait Until Element Is Visible               ${rail_banner_premier_league}
+    Wait Until Element Is Visible               ${rail_banner_premier_league}       10
+    Sleep                                       10
     Scroll Element Into View                    ${content_standing_table}
     Element Should Be Visible                   ${text_view_full_table}
     Click Element                               ${text_view_full_table}
@@ -112,6 +114,7 @@ Select the league in dropdown that you want to show
 
 Click mola standings gameweek sorting option in the left sides
     Wait Until Element Is Not Visible           ${banner_image_sport_not_visible}
+    Sleep                                       5
     Scroll Element Into View                    ${text_catalog_live_this_week}
     Element Should Be Visible                   ${text_catalog_live_this_week}
     Wait Until Element Is Visible               ${text_catalog_live_this_week}
