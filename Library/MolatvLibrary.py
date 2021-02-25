@@ -18,4 +18,8 @@ class MolatvLibrary :
         Default configs :
          - digits = 8
          - period = 30
-        """
+         
+         Usage :
+         Variable       Keyword         SecretKey
+         ${XTOTP}       GET XTOTP       ${KEY}
+         """
