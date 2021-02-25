@@ -6,11 +6,11 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                          https://mola.tv/
-${URL_MOVIE_DETAIL_BANNED}                      https://mola.tv/watch?v=vd93162681
-${URL_MOVIE_DETAIL_Watermark}                   https://mola.tv/watch?v=vd93162909
-${URL_MOVIE_DETAIL_Without_Login}               https://mola.tv/watch?v=vd93163005
-${URL_MOVIE_DETAIL_18+}                         https://mola.tv/watch?v=vd94027041
+${URL}                                          ${HOST}
+${URL_MOVIE_DETAIL_BANNED}                      ${HOST}/watch?v=vd93162681
+${URL_MOVIE_DETAIL_Watermark}                   ${HOST}/watch?v=vd93162909
+${URL_MOVIE_DETAIL_Without_Login}               ${HOST}/watch?v=vd93163005
+${URL_MOVIE_DETAIL_18+}                         ${HOST}/watch?v=vd94027041
 
 ${EXPECTED_URL_MOVIE_DETAIL_BANNED}             ${URL_MOVIE_DETAIL_BANNED}
 ${EXPECTED_URL_MOVIE_DETAIL_Watermark}          ${URL_MOVIE_DETAIL_Watermark}

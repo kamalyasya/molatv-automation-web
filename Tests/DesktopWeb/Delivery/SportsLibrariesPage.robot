@@ -6,8 +6,8 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                                        https://mola.tv/
-${URL_MOVIE}                                                https://mola.tv/watch?v=vd01884222
+${URL}				                                        ${HOST}
+${URL_MOVIE}                                                ${HOST}/watch?v=vd01884222
 ${EXPECTED_URL_MOVIE}                                       ${URL_MOVIE}
 
 *** Test Cases ***

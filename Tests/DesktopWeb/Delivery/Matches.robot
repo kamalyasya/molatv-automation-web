@@ -6,11 +6,11 @@ Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                  https://mola.tv
-${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=tvri-nasio
+${URL}                                  ${HOST}
+${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=tvri-nasio
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${TITLE_MOVIE}                          Apocalypto
-${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd92288792
+${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd92288792
 ${EXPECTED_TEXT_MENU_HOME}              Home
 ${EXPECTED_MOVIE_DETAIL2}               ${URL_MOVIE_DETAIL2}
 ${EXPECTED_CHANGE_QUALITY_576}          576

@@ -6,7 +6,7 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                     https://mola.tv/
+${URL}				                     ${HOST}/
 
 ${EMAIL_INVALID_FORMAT}                  @xxx.com
 ${EMPTY_PASSWORD}

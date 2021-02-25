@@ -4,8 +4,8 @@ Resource            ../../Frameworks/Routers.robot
 *** Variables ***
 ${text_subscription_beli_paket}                         css=._2mt2k p
 ${button_subscription_beli_akses}                       css=._33Xwm
-${text_subscription_choose_plan_to_watch}               css=.EIEEW
-${button_subscription_check_other_plan}                 css=._19k1D
+${text_subscription_choose_plan_to_watch}               css=.css-6gri3k
+${button_subscription_check_other_plan}                 css=.css-1gt6x38
 
 *** Keywords ***
 Verify Choose content that need a package

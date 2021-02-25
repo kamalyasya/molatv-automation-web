@@ -6,8 +6,8 @@ Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                      https://mola.tv
-${URL_HBO_MOVIE}            https://mola.tv/watch?v=HBO009233X0
+${URL}                      ${HOST}
+${URL_HBO_MOVIE}            ${HOST}/watch?v=HBO009233X0
 
 *** Test Cases ***
 HBO Playback - Play The Content

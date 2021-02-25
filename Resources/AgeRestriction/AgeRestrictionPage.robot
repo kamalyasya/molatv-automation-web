@@ -13,10 +13,9 @@ ${button_mulai_dari_awal_agerestriction}            css=._3QaU2
 ${button_play_cannot_action}                        css=._2zwq4
 ${text_verifikasi_umur_agerestriction}              css=.zVnMA h1
 ${text_kalimat_verifikasi_umur}                     css=.zVnMA  p
-${label_tanggal_lahir_agerestriction}               css=label[label='Tanggal Lahir']
+${label_tanggal_lahir_agerestriction}               css=label[label='date of birth']
 ${field_placeholder_tanggal_lahir_agerestriction}   css=._2vBjh
 ${button_tutup_agerestriction}                      css=._1aJ2n
-
 ${button_subscribe_now_agerestriction}              css=._33Xwm
 
 *** Keywords ***
@@ -36,6 +35,7 @@ Verify Show Age Blocker 1 Hbo
     Element Should Be Visible                       ${frame_konten_dewasa_agerestriction}
     Wait Until Page Contains Element                ${frame_kalimat_konten_dewasa_agerestriction}
     Element Should Be Visible                       ${frame_kalimat_konten_dewasa_agerestriction}
+    Wait Until Element Is Visible                   ${button_setuju_tutup_konten_dewasa}
     Click Element                                   ${button_setuju_tutup_konten_dewasa}
 
 Verify Show Age Blocker 2 18+
@@ -43,6 +43,7 @@ Verify Show Age Blocker 2 18+
     Element Should Be Visible                       ${frame_konten_dewasa_agerestriction}
     Wait Until Page Contains Element                ${frame_kalimat_konten_dewasa_agerestriction}
     Element Should Be Visible                       ${frame_kalimat_konten_dewasa_agerestriction}
+    Wait Until Element Is Visible                   ${button_agree_close_adult_content}
     Click Element                                   ${button_agree_close_adult_content}
 
 Select NON18+ Movie Content

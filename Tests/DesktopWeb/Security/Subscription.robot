@@ -6,17 +6,17 @@ Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                  https://mola.tv/
-${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd91851888
-${URL_MOVIE_DETAIL1}                    https://mola.tv/watch?v=vd74299098
-${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
-${URL_MOVIE_DETAIL3}                    https://mola.tv/watch?v=vd61951986
-${URL_MOVIE_DETAIL4}                    https://mola.tv/watch?v=vd93162681
-${URL_MOVIE_DETAIL5}                    https://mola.tv/watch?v=vd94115356
-${URL_MOVIE_DETAIL6}                    https://mola.tv/watch?v=vd02317119
-${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
-${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
-${URL_MOVIE_DETAIL_Watermark}           https://mola.tv/watch?v=vd93162909
+${URL}                                  ${HOST}
+${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd91851888
+${URL_MOVIE_DETAIL1}                    ${HOST}/watch?v=vd74299098
+${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
+${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=vd61951986
+${URL_MOVIE_DETAIL4}                    ${HOST}/watch?v=vd93162681
+${URL_MOVIE_DETAIL5}                    ${HOST}/watch?v=vd94115356
+${URL_MOVIE_DETAIL6}                    ${HOST}/watch?v=vd02317119
+${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd98467304
+${URL_MOVIE_DETAIL18+}                  ${HOST}/watch?v=vd86229032
+${URL_MOVIE_DETAIL_Watermark}           ${HOST}/watch?v=vd93162909
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL1}           ${URL_MOVIE_DETAIL1}
 ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
