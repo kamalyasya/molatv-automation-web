@@ -72,15 +72,15 @@ ${label_otp_wait_countdown_60_second}                   xpath=/html//div[@id='ap
 
 *** Keywords ***
 Show Status Berlangganan
-    Wait Until Element Is Visible       ${menu_homepage_accounts}       1
+    Wait Until Element Is Visible       ${menu_homepage_accounts}
     Click Element                       ${menu_homepage_accounts}
     Click Element                       ${status_berlangganan_profile_settings}
     sleep                               3
 
 The account information is shown in Profile page
-    Wait Until Element Is Visible       ${links_homepage_menu_profil}       1
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Click Element                       ${links_homepage_menu_profil}
-    Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}        molasuper69690
+    Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_nama_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_email_settings}
     Element Should Be Visible           ${text_profil_akun_no_telepon_settings}
@@ -92,7 +92,7 @@ The Ubah button is shown under user info
     Wait Until Element Is Visible       ${button_ubah_button_settings}
     Element Should Be Visible           ${button_ubah_button_settings}
     Click Element                       ${button_ubah_button_settings}
-    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}        1
+    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}
     Element Should Be Visible           ${button_batal_ubah_profil_settings}
     Click Element                       ${button_batal_ubah_profil_settings}
 
@@ -100,12 +100,12 @@ Select User icon
     Open Profile Page
 
 Select Ubah button
-    Wait Until Element Is Visible                   ${button_ubah_button_settings}      1
+    Wait Until Element Is Visible                   ${button_ubah_button_settings}
     Element Should Be Visible                       ${button_ubah_button_settings}
     Click Element                                   ${button_ubah_button_settings}
 
 Make some changes and Save
-    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}       1
+    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_lokasi_default_settings}
 
@@ -145,7 +145,7 @@ Make some changes 01
     Click Element                                   ${label_lokasi_change01_settings}
 
 Click Back button
-    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}        1
+    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}
     Element Should Be Visible                       ${button_batal_ubah_profil_settings}
     Click Element                                   ${button_batal_ubah_profil_settings}
 
@@ -245,13 +245,13 @@ Input same case at Old and New Password
     Click Element                               ${label_view_password3}
 
 Select Subscription
-    Wait Until Element Is Visible               ${label_menu_langganan}     2
+    Wait Until Element Is Visible               ${label_menu_langganan}
     Element Should Be Visible                   ${label_menu_langganan}
     Click Element                               ${label_menu_langganan}
     Sleep                                       2
 
 Select Verify Status
-    Wait Until Element Is Visible               ${text_package_user_use}    1
+    Wait Until Element Is Visible               ${text_package_user_use}
     Element Should Be Visible                   ${text_package_user_use}
     Element Should Be Visible                   ${text_package_status}
     Element Should Be Visible                   ${text_package_expired_date}
@@ -260,15 +260,15 @@ Select Verify Status
 Make phone number change
     [Arguments]         ${PHONE}
     Input Text                                  ${label_no_telepon_settings}        ${PHONE}    PHONE ALREADY EXIST
-    Wait Until Element Is Visible               ${button_simpan_settings}       1
+    Wait Until Element Is Visible               ${button_simpan_settings}
     Element Should Be Visible                   ${button_simpan_settings}
     Click Element                               ${button_simpan_settings}
 
 Click System Info
-    Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}       1
+    Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}
     Element Should Be Visible                   ${button_system_info_pengaturan_settings}
     Click Element                               ${button_system_info_pengaturan_settings}
-    Wait Until Element Is Visible               ${text_Browser}     1
+    Wait Until Element Is Visible               ${text_Browser}
     Element Should Be Visible                   ${text_Browser}
     Element Should Be Visible                   ${text_OS}
     Element Should Be Visible                   ${text_Location}
@@ -278,23 +278,23 @@ Click System Info
     Element Should Be Visible                   ${text_Version}
 
 Turn on / off Autoplay toggle button
-    Wait Until Element Is Visible               ${button_settings_autoplay}     2
+    Wait Until Element Is Visible               ${button_settings_autoplay}
     Element Should Be Visible                   ${button_settings_autoplay}
     Click Element                               ${button_settings_autoplay}
 
 Verify Autoplay toggle button is turn off
     ${A}=    Get Element Attribute   id=autoPlay  data-tip
     Log To Console      ${A}
-    Should Contain    ${A}  Putar otomatis nonaktif
+    Should Contain      ${A}         Putar otomatis nonaktif
 
 Verify Autoplay toggle button is turn on
     ${B}=    Get Element Attribute   id=autoPlay  data-tip
     Log To Console      ${B}
-    Should Contain    ${B}  Putar otomatis aktif
+    Should Contain      ${B}         Putar otomatis aktif
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
-    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}     1
+    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}
     Element Should Be Visible                   ${text_internet_speed_test_pengaturan_settings}
     Click Element                               ${text_internet_speed_test_pengaturan_settings}
     Wait Until Element Is Visible               ${text_logo_title_mola_speed_pengaturan_settings}

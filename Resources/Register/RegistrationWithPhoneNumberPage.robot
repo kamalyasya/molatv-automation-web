@@ -98,7 +98,7 @@ Choose package
 #    Mouse Over                                      ${button_register_pay_subcription}
 #    Scroll To Element                               ${button_register_pay_subcription}
     Scroll Element Into View                        ${scroll_register_pay_subcription}
-    Wait Until Element Is Visible                   ${scroll_register_pay_subcription}      5
+    Wait Until Element Is Visible                   ${scroll_register_pay_subcription}
 
     Element Should Be Visible                       ${button_register_pay_subcription}
     Wait Until Element Is Visible                   ${button_register_pay_subcription}
