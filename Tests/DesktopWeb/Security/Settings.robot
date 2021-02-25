@@ -9,9 +9,9 @@ Test Teardown           CommonKeywords.End Testing
 
 
 *** Variables ***
-${URL}                          https://mola.tv/accounts/profile
+${URL}                              https://mola.tv/accounts/profile
 
-${PHONE}                            6281297186666
+${PHONE}                            628793067085
 
 ${PASSWORD_SEKARANG}                sapisuper69690
 ${PASSWORD_BARU}                    0987654321
@@ -45,6 +45,9 @@ TC001 Edit Profile view
     SettingsPage.Show Status Berlangganan
     SettingsPage.The account information is shown in Profile page
     SettingsPage.The Ubah button is shown under user info
+    Reload Page
+    Go Back
+    Logout Account
 
 TC002 Edit Profile
     [Documentation]         Make a change at edit profile
@@ -61,6 +64,9 @@ TC002 Edit Profile
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
     SettingsPage.Make changes to default value
+    Reload Page
+    Go Back
+    Reload Page
 
 TC003 Edit Profile without saving it
     [Documentation]         Make a change at edit profile and don't save it
@@ -72,69 +78,8 @@ TC003 Edit Profile without saving it
     SettingsPage.Select Ubah button 01
     SettingsPage.Make some changes 01
     SettingsPage.Click Back button
-
-#TC004 Change Password with user that login by email and password
-#    [Documentation]         Make a password change
-#    ...                     User already have an account and sign in
-#    [Tags]                  Regression  Smoke   Pending
-#
-#    ${RANDOM_NUMBER}    Generate random string    5    123456789
-#    ${PASSWORD}			Catenate	sapisuper${RANDOM_NUMBER}
-#
-#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#    HomePage.Open Login Page
-#    SettingsPage.Select Pengaturan
-#    SettingsPage.Select Ubah Password
-#    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
-#    SettingsPage.Select Simpan button
-#    SettingsPage.User Successfully Ubah Password
-#    SettingsPage.Changes To Default Input Old, New and Confirm Password at the field    ${PASSWORD_SEKARANG01}    ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
-#
-#TC006 Change Password without saving it
-#    [Documentation]         Make a password change and don't save it
-#    ...                     User already have an account and sign in
-#    [Tags]                  Regression  Smoke   Pending
-#
-#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#    SettingsPage.Select User icon
-#    SettingsPage.Select Pengaturan
-#    SettingsPage.Select Ubah Password
-#    SettingsPage.Input Old, New and Confirm Password at the field       ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD}
-#    SettingsPage.Unselected Simpan button
-#
-#TC007 Change Password with wrong Old Password
-#    [Documentation]         User already have an account and sign in
-#    [Tags]                  Regression  Smoke   Pending
-#
-#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#    SettingsPage.Select User icon
-#    SettingsPage.Select Pengaturan
-#    SettingsPage.Select Ubah Password
-#    SettingsPage.Input wrong Old Password               ${PASSWORD_LAMA_SALAH}  ${PASSWORD_BARU01}    ${ULANG_PASSWORD01}
-#    SettingsPage.User Unsuccessfully Ubah Password
-#
-#TC008 Change Password with different input at New Password and Password Confirmation
-#    [Documentation]         User already have an account and sign in
-#    [Tags]                  Regression  Smoke   Pending
-#
-#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#    SettingsPage.Select User icon
-#    SettingsPage.Select Pengaturan
-#    SettingsPage.Select Ubah Password
-#    SettingsPage.Input different case at New Password and Password Confirmation     ${PASSWORD_SEKARANG}    ${PASSWORD_BARU}    ${ULANG_PASSWORD02}
-#    SettingsPage.User Konfirmasi password salah
-#
-#TC009 Change Password with same input at Old and New Password
-#    [Documentation]         User already have an account and sign in
-#    [Tags]                  Regression  Smoke   Pending
-#
-#    SignInPage.Login Using Credentials         ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#    SettingsPage.Select User icon
-#    SettingsPage.Select Pengaturan
-#    SettingsPage.Select Ubah Password
-#    SettingsPage.Input same case at Old and New Password        ${PASSWORD_SEKARANG}    ${PASSWORD_BARU02}    ${ULANG_PASSWORD03}
-#    SettingsPage.Select Simpan button
-#    SettingsPage.User Successfully Ubah Password
+    Reload Page
+    Logout Account
 
 TC010 Subscription view
     [Documentation]         View subscription page
@@ -144,7 +89,10 @@ TC010 Subscription view
     SignInPage.Login Using Credentials          ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
-    SettingsPage.Select Status
+    SettingsPage.Select Verify Status
+    Reload Page
+    Go Back
+    Logout Account
 
 TC012 Edit Profile change Phone Number
     [Documentation]         User already have an account and sign in
@@ -158,6 +106,9 @@ TC012 Edit Profile change Phone Number
     SettingsPage.Select User icon
     SettingsPage.Select Ubah button
     SettingsPage.Make phone number change               ${PHONE}
+    Reload Page
+    Go Back
+    Logout Account
 
 TC013 System Info
     [Documentation]         Check System page at My Account page
@@ -167,9 +118,12 @@ TC013 System Info
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click System Info
+    Reload Page
+    Logout Account
 
 TC014 Autoplay off
     [Documentation]         Check toggle button function to enable and disable autoplay
+    ...                     Turn off Autoplay toggle button
     [Tags]                  Regression  Smoke
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
@@ -180,9 +134,13 @@ TC014 Autoplay off
     SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Auto Play Not Displayed
+    Reload Page
+    Go Back
+    Logout Account
 
 TC014 Autoplay on
     [Documentation]         Check toggle button function to enable and disable autoplay
+    ...                     Turn on Autoplay toggle button
     [Tags]                  Regression  Smoke
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
@@ -193,6 +151,9 @@ TC014 Autoplay on
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Auto Play Next Episode
     MovieDetailPage.Verify Auto Play Next Episode
+    Reload Page
+    Go Back
+    Logout Account
 
 TC015 Internet Speed Test
     [Documentation]         check the internet connection that is connected to mola tv
@@ -202,6 +163,9 @@ TC015 Internet Speed Test
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Internet Speed Test              ${URL_mola_speed}
+    Reload Page
+    Go Back
+    Reload Page
 
 TC016 Video Playback Test Non-DRM
     [Documentation]         Check device compatibility for Mola TV video formats
@@ -214,6 +178,9 @@ TC016 Video Playback Test Non-DRM
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose Non-DRM Playback
     MovieDetailPage.Change Video Quality
+    Reload Page
+    Go Back
+    Reload Page
 
 TC016 Video Playback Test DRM
     [Documentation]         Check device compatibility for Mola TV video formats
@@ -228,6 +195,9 @@ TC016 Video Playback Test DRM
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    Reload Page
+    Go Back
+    Reload Page
 
 TC020 Atur Password input wrong OTP number code
     [Documentation]         Input wrong OTP number at Atur Password flow.

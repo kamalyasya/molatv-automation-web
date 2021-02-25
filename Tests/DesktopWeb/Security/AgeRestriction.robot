@@ -23,6 +23,7 @@ TC001 Access 18+ content without login
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
     SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age Blocker 2 18+
+    Reload Page
     Logout Account
 
 TC002 Access non 18+ content
@@ -34,6 +35,7 @@ TC002 Access non 18+ content
     SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}      ${ACCOUNT_PUTRA_PASSWORD}
     AgeRestrictionPage.Select NON18+ Movie Content          ${URL_MOVIE_DETAIL_NON18+}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_NON18+}
+    Reload Page
     Logout Account
 
 TC003 Access 18+ content using 18+ account
@@ -42,10 +44,12 @@ TC003 Access 18+ content using 18+ account
     [Tags]              Regression  Smoke
 
     AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+}
-    SignInPage.Login Using Credentials              ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Login Using Credentials              ${ACCOUNT_PUTRA_EMAIL}      ${ACCOUNT_PUTRA_PASSWORD}
     AgeRestrictionPage.Verify Show Age Blocker 2 18+
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_18+}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
+    MovieDetailPage.Verify VOD Is Playing
+    Reload Page
     Logout Account
 
 TC004 Access 18+ content using under 18+ account
@@ -65,9 +69,9 @@ TC005 Access 18+ content using account didn't have date of birth
     [Tags]              Regression  Smoke   Prod_Sync
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_EMAIL}     ${ACCOUNT_WITHOUTDOB_PASSWORD}
-    AgeRestrictionPage.Select 18+ Movie Content          ${URL_MOVIE_DETAIL_18+}
-    AgeRestrictionPage.Verify Show Age Blocker 2 18+
-    MovieDetailPage.Play Content Video Or Play Video From Begining          ${EXPECTED_URL_MOVIE_DETAIL_18+}
+    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
+    AgeRestrictionPage.using account didn't have DOB        ${URL_MOVIE_DETAIL_18+}
+    AgeRestrictionPage.Verify Show Age blocker DOB
+    AgeRestrictionPage.Click Button Tutup
     Reload Page
     Logout Account

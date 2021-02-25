@@ -1,8 +1,7 @@
 *** Settings ***
-Library                 String
-Library         	    SeleniumLibrary
 Resource                ../../Frameworks/Routers.robot
-
+Library         	    SeleniumLibrary
+Library                 String
 
 *** Variables ***
 ${field_login_email}                                    id=identity
@@ -48,7 +47,7 @@ ${text_package_user_use}                                css=h1
 ${text_package_status}                                  css=._3S18-
 ${text_package_expired_date}                            css=._2A5Zs > p
 ${text_package_description}                             css=.Gys-8 > p
-${button_system_info_pengaturan_settings}               css=._3XA-Q > div:nth-of-type(5)
+${button_system_info_pengaturan_settings}               css=._3XA-Q > div:nth-of-type(6)
 ${text_Browser}                                         css=._27xxD > div:nth-of-type(1)
 ${text_OS}                                              css=._27xxD > div:nth-of-type(2)
 ${text_Location}                                        css=._27xxD > div:nth-of-type(3)
@@ -58,7 +57,7 @@ ${text_Date & Time}                                     css=._27xxD > div:nth-of
 ${text_Version}                                         css=.SX4wG > ._1UNSE
 ${button_settings_autoplay}                             css=.BiC2-
 ${URL_Next_MOVIE_DETAIL}                                css=.css-oht1a4
-${text_internet_speed_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(3)
+${text_internet_speed_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(4)
 ${text_logo_title_mola_speed_pengaturan_settings}       css=.logo__title
 ${button_reload_mola_speed_pengaturan_settings}         css=div#start-again-button-start
 ${speed_ping_mxs01_vod}                                 css=div:nth-of-type(1) > .section__cdn
@@ -66,7 +65,7 @@ ${speed_ping_mola02_live}                               css=div:nth-of-type(2) >
 ${text_video_playback_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(4)
 ${test_video_playback_non_drm_settings}                 css=._3XA-Q > div:nth-of-type(2)
 ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of-type(1)
-${text_konten_dewasa_setuju_settings}                   css=._3UpwF
+#${text_konten_dewasa_setuju_settings}                   css=._3UpwF
 
 ${text_wrong_otp_number_code}                           xpath=/html//div[@id='app']/div[@class='_3e0P_']//form[@class='_3HpB6']//p[.='Verification code is incorrect or has expired']
 ${button_resend_otp_number_code}                        css=._3HpB6 a
@@ -75,15 +74,15 @@ ${label_otp_wait_countdown_60_second}                   xpath=/html//div[@id='ap
 
 *** Keywords ***
 Show Status Berlangganan
-    Wait Until Element Is Visible       ${menu_homepage_accounts}
+    Wait Until Element Is Visible       ${menu_homepage_accounts}       1
     Click Element                       ${menu_homepage_accounts}
     Click Element                       ${status_berlangganan_profile_settings}
     sleep                               3
 
 The account information is shown in Profile page
-    Wait Until Element Is Visible       ${links_homepage_menu_profil}
+    Wait Until Element Is Visible       ${links_homepage_menu_profil}       1
     Click Element                       ${links_homepage_menu_profil}
-    Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}
+    Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}        molasuper69690
     Element Should Be Visible           ${text_profil_akun_nama_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_email_settings}
     Element Should Be Visible           ${text_profil_akun_no_telepon_settings}
@@ -93,24 +92,28 @@ The account information is shown in Profile page
 
 The Ubah button is shown under user info
     Wait Until Element Is Visible       ${button_ubah_button_settings}
+    Element Should Be Visible           ${button_ubah_button_settings}
     Click Element                       ${button_ubah_button_settings}
-    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}
+    Wait Until Element Is Visible       ${button_batal_ubah_profil_settings}        1
+    Element Should Be Visible           ${button_batal_ubah_profil_settings}
     Click Element                       ${button_batal_ubah_profil_settings}
 
 Select User icon
     Open Profile Page
 
 Select Ubah button
-    Wait Until Element Is Visible                   ${button_ubah_button_settings}
+    Wait Until Element Is Visible                   ${button_ubah_button_settings}      1
+    Element Should Be Visible                       ${button_ubah_button_settings}
     Click Element                                   ${button_ubah_button_settings}
 
 Make some changes and Save
-    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
+    Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}       1
     Click Element                                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_lokasi_default_settings}
 
 Button Simpan
     Wait Until Element Is Visible                   ${button_simpan_settings}
+    Element Should Be Visible                       ${button_simpan_settings}
     Click Element                                   ${button_simpan_settings}
 
 User Successfully Ubah
@@ -144,7 +147,8 @@ Make some changes 01
     Click Element                                   ${label_lokasi_change01_settings}
 
 Click Back button
-    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}
+    Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}        1
+    Element Should Be Visible                       ${button_batal_ubah_profil_settings}
     Click Element                                   ${button_batal_ubah_profil_settings}
 
 Select Pengaturan
@@ -243,12 +247,13 @@ Input same case at Old and New Password
     Click Element                               ${label_view_password3}
 
 Select Subscription
-    Wait Until Element Is Visible               ${label_menu_langganan}
+    Wait Until Element Is Visible               ${label_menu_langganan}     2
+    Element Should Be Visible                   ${label_menu_langganan}
     Click Element                               ${label_menu_langganan}
-    Sleep                                       3
+    Sleep                                       2
 
-Select Status
-    Wait Until Element Is Visible               ${text_package_user_use}
+Select Verify Status
+    Wait Until Element Is Visible               ${text_package_user_use}    1
     Element Should Be Visible                   ${text_package_user_use}
     Element Should Be Visible                   ${text_package_status}
     Element Should Be Visible                   ${text_package_expired_date}
@@ -257,12 +262,15 @@ Select Status
 Make phone number change
     [Arguments]         ${PHONE}
     Input Text                                  ${label_no_telepon_settings}        ${PHONE}    PHONE ALREADY EXIST
+    Wait Until Element Is Visible               ${button_simpan_settings}       1
+    Element Should Be Visible                   ${button_simpan_settings}
     Click Element                               ${button_simpan_settings}
 
 Click System Info
-    Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}
+    Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}       1
+    Element Should Be Visible                   ${button_system_info_pengaturan_settings}
     Click Element                               ${button_system_info_pengaturan_settings}
-    Wait Until Element Is Visible               ${text_Browser}
+    Wait Until Element Is Visible               ${text_Browser}     1
     Element Should Be Visible                   ${text_Browser}
     Element Should Be Visible                   ${text_OS}
     Element Should Be Visible                   ${text_Location}
@@ -272,7 +280,8 @@ Click System Info
     Element Should Be Visible                   ${text_Version}
 
 Turn on / off Autoplay toggle button
-    Wait Until Element Is Visible               ${button_settings_autoplay}
+    Wait Until Element Is Visible               ${button_settings_autoplay}     2
+    Element Should Be Visible                   ${button_settings_autoplay}
     Click Element                               ${button_settings_autoplay}
 
 Verify Autoplay toggle button is turn off
@@ -287,7 +296,8 @@ Verify Autoplay toggle button is turn on
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
-    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}
+    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}     1
+    Element Should Be Visible                   ${text_internet_speed_test_pengaturan_settings}
     Click Element                               ${text_internet_speed_test_pengaturan_settings}
     Wait Until Element Is Visible               ${text_logo_title_mola_speed_pengaturan_settings}
     Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}         30
@@ -300,20 +310,25 @@ Click Internet Speed Test
 
 Click Video Playback Test
     Wait Until Element Is Visible               ${text_video_playback_test_pengaturan_settings}
+    Element Should Be Visible                   ${text_video_playback_test_pengaturan_settings}
     Click Element                               ${text_video_playback_test_pengaturan_settings}
 
 Choose Non-DRM Playback
     Wait Until Element Is Visible               ${test_video_playback_non_drm_settings}
+    Element Should Be Visible                   ${test_video_playback_non_drm_settings}
     Click Element                               ${test_video_playback_non_drm_settings}
     wait until element is visible               ${movie_detail_play_button}
+    Element Should Be Visible                   ${movie_detail_play_button}
     Click Element                               ${movie_detail_play_button}
-    sleep                                       2
+    sleep                                       3
 
 Choose DRM Playback
     Wait Until Element Is Visible               ${test_video_playback_drm_settings}
+    Element Should Be Visible                   ${test_video_playback_drm_settings}
     Click Element                               ${test_video_playback_drm_settings}
-    Wait Until Element Is Visible               ${text_konten_dewasa_setuju_settings}
-    Click Element                               ${text_konten_dewasa_setuju_settings}
+#    Wait Until Element Is Visible               ${text_konten_dewasa_setuju_settings}
+#    Element Should Be Visible                   ${text_konten_dewasa_setuju_settings}
+#    Click Element                               ${text_konten_dewasa_setuju_settings}
     sleep                                       3
 
 Verify Input Wrong OTP Number Code

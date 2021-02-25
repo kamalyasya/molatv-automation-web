@@ -27,6 +27,8 @@ ${ACCOUNT_WITHDOB_EMAIL}                    tiafathiahesty@gmail.com
 ${ACCOUNT_WITHDOB_PASSWORD}                 crypt:eLI28vmqKS4EWz78O2F84cX9l9PtFDzM53tUrD+u9UVVW4Pgj6NYMEtkmQxg8mKAsepTmODJnhI=
 ${ACCOUNT_WITHOUTDOB_EMAIL}                 tiafathiahesty1@gmail.com
 ${ACCOUNT_WITHOUTDOB_PASSWORD}              crypt:eLI28vmqKS4EWz78O2F84cX9l9PtFDzM53tUrD+u9UVVW4Pgj6NYMEtkmQxg8mKAsepTmODJnhI=
+${ACCOUNT_WITHOUTDOB1_EMAIL}                20187279169reza@gmail.com
+${ACCOUNT_WITHOUTDOB1_PASSWORD}             Password01
 ${ACCOUNT_WITHDOB101_EMAIL}                 jerry.hartono+101@mola.tv
 ${ACCOUNT_WITHDOB101_PASSWORD}              crypt:k/sZy5o0MQU6mxaKYA7k/juh03frtJrsW1esMOwHimfanwRPlQVi3m6t93korXM6+z0FQejF
 ${ACCOUNT_WITHOUTDOB102_EMAIL}              jerry.hartono+102@mola.tv

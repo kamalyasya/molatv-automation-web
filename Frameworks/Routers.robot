@@ -31,6 +31,8 @@ Resource            ../Resources/MenuLibraries/MenuKidsLibrariesPage.robot
 Resource            ../Resources/Microsite/MicrositePage.robot
 Resource            ../Resources/MolaClassement/MolaClassementPage.robot
 Resource            ../Resources/Register/RegistrationPage.robot
+Resource            ../Resources/Register/RegistrationWithPhoneNumberPage.robot
+Resource            ../Resources/Register/RegistrationWithoutPhoneNumberPage.robot
 Resource            ../Resources/Search/SearchPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
