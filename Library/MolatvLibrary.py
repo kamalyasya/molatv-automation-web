@@ -13,6 +13,9 @@ class MolatvLibrary :
         key     = totp.now()
         return key
         """
+        Required -> https://pypi.org/project/pyotp/
+        Install  -> pip install pyotp
+        
         This keyword is used for generated xtotp for watermark in Video Player.
         Its require secret, digits, interval.
         Default configs :
