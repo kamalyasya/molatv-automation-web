@@ -23,6 +23,7 @@ ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
 ${movie_pause_button}                           css=.pauseIcon
+${button_watch_now_movie_detail_page}           xpath=//*[@id="video-child"]/div[2]/div[3]
 
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
@@ -131,16 +132,22 @@ Verify Is Redirected Back To The Same Movie Detail
     Scroll Element Into View            ${expected_title_movie_detail}
 
 Play Content From Movie Detail
-    sleep                               10
+    sleep                               5
     Wait Until Element Is Visible       ${expected_title_movie_detail}
     Wait Until Element Is Visible       ${movie_detail_play_button}
     Click Element                       ${movie_detail_play_button}
 
 Play Content 'Mulai Dari Awal'
-    sleep                               10
+    sleep                               5
     Wait Until Element Is Visible       ${popup_lanjutkan_nonton_movie_detail}
     Click Element                       ${button_mulai_popup_movie_detail}
     Sleep                               5
+
+Play Content 'Watch Now'
+    sleep                               5
+    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
+    Click Element                       ${button_watch_now_movie_detail_page}
+    sleep                               5
 
 Click Button Watch Now On Video Player
     ${CHECK_WATCH_NOW_BUTTON}      Run Keyword And Return Status   Page Should Contain Element      ${button_videos_player_watch_now}   5
@@ -151,9 +158,9 @@ Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
-    ${play}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
-    Run Keyword If      '${play}' == 'True'         Play Content 'Mulai Dari Awal'
-    ...     ELSE                                    Play Content From Movie Detail
+    ${PLAY_BUTTON}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
+    Run Keyword If                '${PLAY_BUTTON}' == 'True'          Play Content 'Mulai Dari Awal'
+    ...     ELSE                                                      Play Content From Movie Detail
 
 
     ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       10
