@@ -245,10 +245,10 @@ Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Click Button Play Next Auto Play
-    AgeRestrictionPage.Verify Show Age blocker
+    AgeRestrictionPage.Verify Show Age Blocker 2 18+
     SignInPage.Logout Account
 
 Delivery - Video Player: TC017 Quality Control
@@ -287,7 +287,7 @@ Delivery - Video Player: TC019 Subtitle - turn off
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     MovieDetailPage.Choose Closed Caption off
     MovieDetailPage.Verify Closed Caption is Not Shown
     SignInPage.Logout Account
@@ -301,7 +301,7 @@ Delivery - Video Player: TC020 Subtitle - Turn on
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     MovieDetailPage.Play a content which is supporting closed caption
     MovieDetailPage.Verify Subtitle On Screen
     SignInPage.Logout Account
@@ -315,7 +315,7 @@ Delivery - Video Player: TC021 Volume Controls
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     MovieDetailPage.Seek bar Volume
     MovieDetailPage.Verify Change volume during video playback
     SignInPage.Logout Account
