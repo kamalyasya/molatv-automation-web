@@ -1,14 +1,12 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
-Library 				String
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                              https://mola.tv/accounts/login
+${URL}                              ${HOST}/accounts/login
 
 ${EMAIL}                            kamal.yasha+001@mola
 ${PASSWORD}                         6666969
@@ -20,7 +18,7 @@ ${EMAIL_REGISTERED2}                putri.nuradibah@mola
 ${PASSWORD_REGISTERED2}             0987654321
 
 
-${SAMPLE_MOVIE_URL}                 https://mola.tv/watch?v=vd75626478
+${SAMPLE_MOVIE_URL}                 ${HOST}/watch?v=vd75626478
 
 
 *** Test Cases ***

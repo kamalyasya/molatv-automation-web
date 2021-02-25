@@ -1,14 +1,12 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
-Library 				String
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                    https://mola.tv/accounts/profile
+${URL}				                    ${HOST}/accounts/profile
 
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  Too many attempts to enter. Please try again in 10 minutes
@@ -17,7 +15,7 @@ ${EXPECTED_TITLE_RESET_PASSWORD}        Enter OTP Code that has been sent to
 ${EXPECTED_TEXT_INVALID_TOKEN}          Verification code is incorrect or has expired
 ${EXPECTED_TEXT_INVALID_TOKEN2}         INVALID_OTP
 ${EXPECTED_TEXT_MENU_HOME}              Home
-${SAMPLE_MOVIE_URL}                     https://mola.tv/watch?v=vd75626478
+${SAMPLE_MOVIE_URL}                     ${HOST}/watch?v=vd75626478
 ${EXPECTED_SAMPLE_MOVIE_URL}            ${SAMPLE_MOVIE_URL}
 
 ${ACCOUNT_UNREGISTER_EMAIL}             cincincin@mola.tv

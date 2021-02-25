@@ -1,13 +1,12 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                                        https://mola.tv/
+${URL}				                                        ${HOST}
 
 ${EXPECTED_TEXT_TITLE_ONBOARDING}                           Notif Badge
 ${EXPECTED_TEXT_CONTENT_ONBOARDING}                         Klik tombol account untuk melihat menu Inbox

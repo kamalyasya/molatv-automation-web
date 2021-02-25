@@ -8,3 +8,4 @@ Results/
 .pabotsuitenames
 Frameworks/Configs.robot
 geckodriver.log
+*.pyc

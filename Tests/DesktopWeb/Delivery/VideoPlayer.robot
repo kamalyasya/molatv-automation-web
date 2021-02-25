@@ -1,27 +1,26 @@
 *** Settings ***
 Resource                        ../../../Frameworks/Routers.robot
-Library                         SeleniumLibrary
 
 Test Timeout                    ${DEFAULT_TEST_TIMEOUT}
 Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                  https://mola.tv
-${URL_MOVIE_DETAIL}                     https://mola.tv/watch?v=vd74299098
-${URL_TRAILER_DETAIL}                   https://mola.tv/watch?v=vd98467304
-${URL_MOVIE_DETAIL2}                    https://mola.tv/watch?v=vd98699941
-${URL_MOVIE_DETAIL3}                    https://mola.tv/watch?v=vd61951986
-${URL_MOVIE_DETAIL4}                    https://mola.tv/watch?v=vd03702876
-${URL_MOVIE_DETAIL18+}                  https://mola.tv/watch?v=vd86229032
-${URL_MOVIE_DETAIL_EPISODES}            https://mola.tv/watch?v=vd71200689
+${URL}                                  ${HOST}
+${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd74299098
+${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd98467304
+${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
+${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=vd61951986
+${URL_MOVIE_DETAIL4}                    ${HOST}/watch?v=vd03702876
+${URL_MOVIE_DETAIL18+}                  ${HOST}/watch?v=vd86229032
+${URL_MOVIE_DETAIL_EPISODES}            ${HOST}/watch?v=vd71200689
 ${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
 ${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
 ${EXPECTED_URL_MOVIE_DETAIL4}           ${URL_MOVIE_DETAIL4}
 ${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
 ${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
-${EXPECTED_LOCATION_NEXT_EPISODE}       https://mola.tv/watch?v=vd71200807&autoplay=1
+${EXPECTED_LOCATION_NEXT_EPISODE}       ${HOST}/watch?v=vd71200807&autoplay=1
 ${EXPECTED_TITLE_SAME_EPISODES}         S1E02: A New Chicken Shed for Moo
 ${EXPECTED_TEXT_MENU_HOME}              Home
 ${EXPECTED_CHANGE_QUALITY_576}          576

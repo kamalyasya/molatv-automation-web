@@ -1,7 +1,5 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
-Library 				String
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
@@ -9,7 +7,7 @@ Test Teardown           CommonKeywords.End Testing
 
 
 *** Variables ***
-${URL}                              https://mola.tv/accounts/profile
+${URL}                              ${HOST}/accounts/profile
 
 ${PHONE}                            628793067085
 
@@ -30,10 +28,10 @@ ${ULANG_PASSWORD03}                 sapisuper69690
 ${ACCOUNT_HBO_EMAIL}                t.hbo@mola.tv
 ${ACCOUNT_HBO_PASSWORD}             M0L4h8o!
 
-${URL_MOVIE_DETAIL}                 https://mola.tv/watch?v=vd93496274
+${URL_MOVIE_DETAIL}                 ${HOST}/watch?v=vd93496274
 ${EXPECTED_URL_MOVIE_DETAIL}        ${URL_MOVIE_DETAIL}
 
-${URL_mola_speed}                   https://mola.tv/diag/speed
+${URL_mola_speed}                   ${HOST}/diag/speed
 
 *** Test Cases ***
 TC001 Edit Profile view

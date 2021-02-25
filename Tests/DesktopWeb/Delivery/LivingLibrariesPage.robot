@@ -1,14 +1,13 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                                        https://mola.tv/
-${URL_MOVIE}                                                https://mola.tv/watch?v=vd01627037
+${URL}				                                        ${HOST}
+${URL_MOVIE}                                                ${HOST}/watch?v=vd01627037
 ${EXPECTED_URL_MOVIE}                                       ${URL_MOVIE}
 
 *** Test Cases ***

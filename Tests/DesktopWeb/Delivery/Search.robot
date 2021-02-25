@@ -1,14 +1,12 @@
 *** Settings ***
 Resource                        ../../../Frameworks/Routers.robot
-Library                         SeleniumLibrary
-Library                         String
 
 Test Timeout                    ${DEFAULT_TEST_TIMEOUT}
 Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                          https://mola.tv
+${URL}                                          ${HOST}
 
 ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}               GO BACK TO CHINA
 ${KEYWORD_NO_RESULT}                            Tahubakso

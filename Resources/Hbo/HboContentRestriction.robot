@@ -2,7 +2,6 @@
 #This testcase Postpone Because don't have account to automated it
 
 *** Settings ***
-Library             SeleniumLibrary
 Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***

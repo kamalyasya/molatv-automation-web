@@ -1,13 +1,12 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
-Library         	    SeleniumLibrary
 
 Test Timeout            ${DEFAULT_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
 *** Variables ***
-${URL}				                     https://mola.tv/accounts/profile
+${URL}                  ${HOST}/accounts/profile
 
 ${EXPECTED_TEXT_PRIVASI_TITLE_KEBIJAKAN_PRIVASI}                KEBIJAKAN PRIVASI
 ${EXPECTED_TEXT_TERMS_CONDITIONS_TITLE_KEBIJAKAN_PRIVASI}       A. KETENTUAN UMUM
