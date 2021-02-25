@@ -1,6 +1,4 @@
 *** Settings ***
-Library             SeleniumLibrary
-Library             String
 Resource            ../../Frameworks/Routers.robot
 
 *** Variables ***

@@ -1,7 +1,5 @@
 *** Settings ***
 Resource                        ../../../Frameworks/Routers.robot
-Library                         SeleniumLibrary
-Library                         String
 
 Test Timeout                    ${DEFAULT_TEST_TIMEOUT}
 Test Setup                      CommonKeywords.Start Testing        ${URL}
