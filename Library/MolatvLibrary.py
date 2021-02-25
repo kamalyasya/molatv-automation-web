@@ -6,7 +6,7 @@ ROBOT_AUTO_KEYWORDS = False
 class MolatvLibrary :
 
     @keyword
-    def get_xtotp(self, Secret):
+    def get_totp(self, Secret):
         digits  = 8
         period  = 30
         totp    = pyotp.TOTP(s=Secret, digits=digits, interval=period)
@@ -24,5 +24,5 @@ class MolatvLibrary :
          
          Usage :
          Variable       Keyword         SecretKey
-         ${XTOTP}       GET XTOTP       ${KEY}
+         ${TOTP}        GET TOTP        ${KEY}
          """
