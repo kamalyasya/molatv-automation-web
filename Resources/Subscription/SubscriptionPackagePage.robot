@@ -4,7 +4,7 @@ Resource            ../../Frameworks/Routers.robot
 *** Variables ***
 # Choose Package Page
 ${text_subscription_package_title_beli_paket}           css=._1NGTJ
-${button_subscription_package_beli_paket_1}             css=div:nth-of-type(3) > * > .css-1fu35er
+${button_subscription_package_beli_paket_1}             xpath=//button[text()='Subscribe Now']
 
 # Check your order Page
 ${text_subscription_package_title_order_page}           xpath=//div[text()='Check your order']

@@ -66,6 +66,8 @@ Input Wrong Credential For 7 Times
     Click Element                       ${button_login_login}
     Wait Until Element Is Not Visible   ${button_login_loading_login}
     Click Element                       ${button_login_login}
+    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    Click Element                       ${button_login_login}
 
 Click Lupa Password Links
     Wait Until Element Is Visible       ${links_login_lupa_password}
