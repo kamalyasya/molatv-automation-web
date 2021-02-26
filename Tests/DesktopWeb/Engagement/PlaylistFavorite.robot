@@ -18,8 +18,8 @@ ${SAMPLE_SERIES_URL}                                        ${HOST}/categories/K
 ${SAMPLE_SERIES_TITLE}                                      KILLING EVE
 ${SAMPLE_SERIES_SESSION_URL}                                ${HOST}/categories/KE-S1
 ${SAMPLE_SERIES_SESSION_TITLE}                              KILLING EVE S1
-${SAMPLE_SERIES_SESSION_URL2}                               ${HOST}/categories/KE-S2
-${SAMPLE_SERIES_SESSION_TITLE2}                             KILLING EVE S2
+${SAMPLE_SERIES_SESSION_URL2}                               ${HOST}/categories/35Days
+${SAMPLE_SERIES_SESSION_TITLE2}                             35 DAYS
 
 
 *** Test Cases ***
@@ -49,19 +49,21 @@ TC002 - Favorite video from video detil page
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}
     Logout Account
 
-TC003 - Favorite video from series season
-    [Documentation]  User can favorite video from series season
-	[Tags]  Regression  Smoke
-
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
-    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
-    Check Favorit Series
-    MovieSeriesSeasonPage.Click Button Favorit On Series
-    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
-    MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_SESSION_TITLE}
-    Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_SESSION_TITLE}
-    Logout Account
+#TC003 - Favorite video from series season
+#    [Documentation]  User can favorite video from series season
+#	[Tags]  Regression  Smoke
+#
+#    HomePage.Open Login Page
+#    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+#    MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL}
+#    Check Favorit Series
+#    MovieSeriesSeasonPage.Click Button Favorit On Series
+#    MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
+#    MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_SESSION_TITLE}
+#    Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_SESSION_TITLE}
+#    Logout Account
+#
+#    Removed because the behavior is changed
 
 TC004 - Favorite video from series playlist
     [Documentation]  User can favorite video from series playlist
