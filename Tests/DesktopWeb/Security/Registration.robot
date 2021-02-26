@@ -129,7 +129,7 @@ TC009 Registration from Beli Paket Page
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
 
     RegistrationPage.Select Beli Paket
-    RegistrationPage.Choose package
+    SubscriptionPackagePage.Choose A Package
     RegistrationPage.Click Register Sekarang
     RegistrationPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationPage.Click Register Button

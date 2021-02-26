@@ -161,9 +161,8 @@ TC015 Internet Speed Test
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Internet Speed Test              ${URL_mola_speed}
-    Reload Page
     Go Back
-    Reload Page
+    Logout Account
 
 TC016 Video Playback Test Non-DRM
     [Documentation]         Check device compatibility for Mola TV video formats
@@ -190,8 +189,8 @@ TC016 Video Playback Test DRM
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose DRM Playback
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    MovieDetailPage.Change Video Quality
+    MovieDetailPage.Click Button Watch Now On Video Player
+    MovieDetailPage.Verify VOD Is Playing
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     Reload Page
     Go Back
