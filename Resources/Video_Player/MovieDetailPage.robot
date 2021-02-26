@@ -150,9 +150,9 @@ Play Content 'Watch Now'
     sleep                               5
 
 Click Button Watch Now On Video Player
-    ${CHECK_WATCH_NOW_BUTTON}      Run Keyword And Return Status   Page Should Contain Element      ${button_videos_player_watch_now}   5
-    Run Keyword If      '${CHECK_WATCH_NOW_BUTTON}'=='True'        Click Element                    ${button_videos_player_watch_now}
-    ...     ELSE        Play Content Video Or Play Video From Begining
+    ${CHECK_WATCH_NOW_BUTTON}           Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_watch_now}           10
+    Run Keyword If                      '${CHECK_WATCH_NOW_BUTTON}'=='True'         Click Element                       ${button_videos_player_watch_now}
+    ...     ELSE                        Play Content Video Or Play Video From Begining
 
 Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
@@ -533,6 +533,7 @@ Check Favorit Video
 
 
 Verify VOD Is Playing
+    Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Sleep                               2
 

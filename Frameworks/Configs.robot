@@ -1,6 +1,6 @@
 *** Variables ***
 ${BROWSER}                  mychrome
-${DEFAULT_TIMEOUT}          40
+${DEFAULT_TIMEOUT}          30
 ${LONG_TIMEOUT}             40
 ${DELAY}                    0.2
 ${HOST}                     https://mola.tv

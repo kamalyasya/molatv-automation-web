@@ -45,7 +45,7 @@ ${text_package_user_use}                                css=h1
 ${text_package_status}                                  css=._3S18-
 ${text_package_expired_date}                            css=._2A5Zs > p
 ${text_package_description}                             css=.Gys-8 > p
-${button_system_info_pengaturan_settings}               css=._3XA-Q > div:nth-of-type(6)
+${button_system_info_pengaturan_settings}               xpath=//div[contains(text(),'System Info')]
 ${text_Browser}                                         css=._27xxD > div:nth-of-type(1)
 ${text_OS}                                              css=._27xxD > div:nth-of-type(2)
 ${text_Location}                                        css=._27xxD > div:nth-of-type(3)
@@ -55,7 +55,7 @@ ${text_Date & Time}                                     css=._27xxD > div:nth-of
 ${text_Version}                                         css=.SX4wG > ._1UNSE
 ${button_settings_autoplay}                             css=.BiC2-
 ${URL_Next_MOVIE_DETAIL}                                css=.css-oht1a4
-${text_internet_speed_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(4)
+${text_internet_speed_test_pengaturan_settings}         xpath=//div[contains(text(),'Internet Speed Test')]
 ${text_logo_title_mola_speed_pengaturan_settings}       css=.logo__title
 ${button_reload_mola_speed_pengaturan_settings}         css=div#start-again-button-start
 ${speed_ping_mxs01_vod}                                 css=div:nth-of-type(1) > .section__cdn
@@ -152,7 +152,6 @@ Click Back button
 Select Pengaturan
     Wait Until Element Is Visible                   ${text_pengaturan_settings}
     Click Element                                   ${text_pengaturan_settings}
-    Sleep                                           3
     Wait Until Element Is Visible                   ${text_alert_dialog_atur_password}
     Element Should Be Visible                       ${text_alert_dialog_atur_password}
     Wait Until Element Is Visible                   ${button_nanti_saja_atur_password}
@@ -298,13 +297,14 @@ Click Internet Speed Test
     Element Should Be Visible                   ${text_internet_speed_test_pengaturan_settings}
     Click Element                               ${text_internet_speed_test_pengaturan_settings}
     Wait Until Element Is Visible               ${text_logo_title_mola_speed_pengaturan_settings}
-    Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}         30
+    Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}         60
     Wait Until Location Contains                ${URL_mola_speed}
     Wait Until Element Is Visible               ${speed_ping_mxs01_vod}                                 60
     Element Should Be Visible                   ${speed_ping_mxs01_vod}
     Wait Until Element Is Visible               ${speed_ping_mola02_live}                               60
     Element Should Be Visible                   ${speed_ping_mola02_live}
-    Click Element                               ${button_reload_mola_speed_pengaturan_settings}
+    Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}
+    Element Should Be Visible                   ${button_reload_mola_speed_pengaturan_settings}
 
 Click Video Playback Test
     Wait Until Element Is Visible               ${text_video_playback_test_pengaturan_settings}

@@ -37,7 +37,7 @@ TC001 Status after activating Subscription
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
-    SettingsPage.Select Status
+    SettingsPage.Select Verify Status
     SignInPage.Logout Account
 
 TC002 Check video quality
@@ -50,7 +50,7 @@ TC002 Check video quality
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     HomePage.Open Profile Page
     SettingsPage.Select Subscription
-    SettingsPage.Select Status
+    SettingsPage.Select Verify Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Change Video Quality
@@ -68,7 +68,7 @@ TC003 There's no ads banner in every package
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
-    SettingsPage.Select Status
+    SettingsPage.Select Verify Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     SignInPage.Logout Account
@@ -83,7 +83,7 @@ TC004 There's no pre roll banner in every package
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
-    SettingsPage.Select Status
+    SettingsPage.Select Verify Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     SignInPage.Logout Account
