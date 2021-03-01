@@ -19,11 +19,7 @@ Verify Logged In Using Correct Account
     Element Text Should Be              ${text_profile_email}           ${EXPECTED_ACCOUNT_EMAIL}
 
 Sign Out
-    Wait Until Element Is Visible       ${menu_homepage_accounts}
-    Mouse Over                          ${menu_homepage_accounts}
-    Click Element                       ${menu_homepage_accounts}
-    Wait Until Element Is Visible       ${button_homepage_live_chat}
-    Mouse Over                          ${button_homepage_live_chat}
+    Open Profile Page
     Wait Until Element Is Visible       ${button_profile_keluar}
     Click Element                       ${button_profile_keluar}
 

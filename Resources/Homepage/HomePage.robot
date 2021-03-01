@@ -527,8 +527,7 @@ Open Profile Page
     Mouse Over                                  ${menu_homepage_accounts}
     Wait Until Element Is Visible               ${text_homepage_menu_profile}
     Click Element                               ${text_homepage_menu_profile}
-    Wait Until Element Is Visible               ${button_homepage_live_chat}
-    Mouse Over                                  ${button_homepage_live_chat}
+    Mouse Over To Live Chat
 
 Open Tontonan Saya Page
     Open Profile Page
