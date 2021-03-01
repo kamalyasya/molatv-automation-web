@@ -285,9 +285,11 @@ Verify Closed Caption is Not Shown
     Page Should Not Contain Element     ${expected_subtitle_on_screen}
 
 Verify Change volume during video playback
+    Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${expected_volume}
     Mouse Over                          ${expected_volume}
+    Wait Until Element Is Visible       ${expected_volume}
     Element Should Be Visible           ${expected_volume}
     Capture Element Screenshot          ${expected_volume}
     Mouse Over                          ${volume_button}
@@ -315,6 +317,7 @@ Verify Video Metadata
     Element Should Not Be Visible       ${expected_player_control_unhide}
     Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${expected_player_control_unhide}
+    Wait Until Element Is Visible       ${expected_player_control_unhide}
     Element Should Be Visible           ${expected_player_control_unhide}
 
 Verify Movie Details Page Is Shown
@@ -377,12 +380,20 @@ Verify Video Quality 720
     Sleep                               3
 
 Click button Forward/backward movie
+    Wait Until Element Is Visible       ${button_forward_movie_detail}
+    Mouse Over                          ${button_forward_movie_detail}
+    Wait Until Element Is Visible       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
+    Mouse Over                          ${button_forward_movie_detail}
+    Wait Until Element Is Visible       ${button_forward_movie_detail}
     Click Element                       ${button_forward_movie_detail}
     Sleep                               3
     Mouse Over                          ${movie_mouse_over}
-    Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${button_backward_movie_detail}
+    Wait Until Element Is Visible       ${button_backward_movie_detail}
     Click Element                       ${button_backward_movie_detail}
+    Mouse Over                          ${button_backward_movie_detail}
+    Wait Until Element Is Visible       ${button_backward_movie_detail}
     Click Element                       ${button_backward_movie_detail}
 
 Seek To Last 10s
@@ -466,10 +477,12 @@ Click Button Play Default Control
      Click Element                      ${button_play_player_control}
 
 Verify No Autoplay Vanished
+    Wait Until Element Is Not Visible   ${expected_autoplay_movie}
     Element Should Not Be Visible       ${expected_autoplay_movie}
 
 Click Button Next Video Beside Volume
     Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${button_next_video_beside_volume}
     Wait Until Element Is Visible       ${button_next_video_beside_volume}
     Click Element                       ${button_next_video_beside_volume}
 
