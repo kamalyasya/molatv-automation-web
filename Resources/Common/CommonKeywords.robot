@@ -27,6 +27,20 @@ Open Mola TV
 
 Scroll To Element
     [Arguments]  ${locator}
-    ${x}=        Get Horizontal Position  ${locator}
-    ${y}=        Get Vertical Position    ${locator}
-    Execute Javascript  window.scrollTo(${x}, ${y})
+    ${x_locator} =          Get Horizontal Position          ${locator}
+    ${y_locator} =          Get Vertical Position            ${locator}
+    ${widht}     ${height}  Get Element Size                 ${locator}
+
+    ${a} =                  Get Horizontal Position          ${button_homepage_live_chat}
+    ${b} =                  Get Vertical Position            ${button_homepage_live_chat}
+    ${widht2}    ${height2}    Get Element Size              ${button_homepage_live_chat}
+
+    ${y} =                  Evaluate                            ${b} - (${y_locator} - ${b})
+    ${value_zero} =         Run Keyword And Return Status       Should Be True     ${y} <= 0
+    Run Keyword If          '${value_zero}' == 'True'           Scroll To Element Vertical Position       ${y_locator}
+    ...       ELSE          Execute Javascript                  document.getElementsByClassName('children__container')[0].scrollTo(0,${y})
+
+Scroll To Element Vertical Position
+    [Arguments]    ${vertical_position}
+    ${y} =        Evaluate         ${vertical_position} - 50
+    Execute Javascript  document.getElementsByClassName('children__container')[0].scrollTo(0, ${y})

@@ -311,9 +311,10 @@ Verify fullscreen icon
 
 Verify Video Metadata
     Sleep                               10
+    Wait Until Element Is Not Visible   ${expected_player_control_unhide}
     Element Should Not Be Visible       ${expected_player_control_unhide}
     Mouse Over                          ${movie_mouse_over}
-#    sleep                               3
+    Mouse Over                          ${expected_player_control_unhide}
     Element Should Be Visible           ${expected_player_control_unhide}
 
 Verify Movie Details Page Is Shown
