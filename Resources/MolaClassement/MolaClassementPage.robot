@@ -70,9 +70,9 @@ Click Premiere League
 
 Click "View Full Table" In Mola Card Standings
     Wait Until Element Is Not Visible           ${premier_league_place_holder}
-    Wait Until Element Is Visible               ${rail_banner_premier_league}       10
-    Sleep                                       10
-    Scroll Element Into View                    ${content_standing_table}
+    Wait Until Element Is Visible               ${rail_banner_premier_league}
+    Wait Until Element Is Visible               ${text_view_full_table}
+    Scroll To Element                           ${text_view_full_table}
     Element Should Be Visible                   ${text_view_full_table}
     Click Element                               ${text_view_full_table}
 
