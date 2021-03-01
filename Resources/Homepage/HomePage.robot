@@ -88,6 +88,7 @@ ${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
 ${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
 ${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
 ${menu_homepage_accounts}                       css=._2YhM7
+${text_homepage_menu_profile}                   css=._2YhM7 > ._2yKxK
 ${text_homepage_langganan_count_number}         css=.count-number
 ${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
 ${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
@@ -303,11 +304,14 @@ Link Text View All Is Not Visible
     Element Should Be Visible                   ${text_no_matches_matches_page}
 
 Link Text View All Is Visible
+    Wait Until Element Is Visible               ${matches_calendar}
     Scroll Element Into View                    ${matches_calendar}
+    Wait Until Element Is Visible               ${view_all_match_card}
+    Scroll To Element                           ${view_all_match_card}
     Click Element                               ${view_all_match_card}
-    Wait Until Element Is Visible               ${page_match_view_all}
 
 Verify all the matches of categories will shown up from the beginning time
+    Wait Until Element Is Visible               ${page_match_view_all}
     Element Should Be Visible                   ${page_match_view_all}
 
 Choose any upcoming match
@@ -521,8 +525,8 @@ Verify Progress Bar Will Appear
 Open Profile Page
     Wait Until Element Is Visible               ${menu_homepage_accounts}
     Mouse Over                                  ${menu_homepage_accounts}
-    Wait Until Element Is Visible               ${menu_homepage_accounts}
-    Click Element                               ${menu_homepage_accounts}
+    Wait Until Element Is Visible               ${text_homepage_menu_profile}
+    Click Element                               ${text_homepage_menu_profile}
     Wait Until Element Is Visible               ${button_homepage_live_chat}
     Mouse Over                                  ${button_homepage_live_chat}
 
