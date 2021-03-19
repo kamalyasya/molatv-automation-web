@@ -23,7 +23,7 @@ ${ACCOUNT_UNREGISTER_EMAIL}             cincincin@mola.tv
 *** Test Cases ***
 TC001 Sign in with Email
     [Documentation]  User can login must login using the allowed format.
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Verified
 
     SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA5_EMAIL}            ${ACCOUNT_SUPERMOLA5_PASSWORD}
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
@@ -31,7 +31,7 @@ TC001 Sign in with Email
 
 TC002 Sign in with Incorrect Email format
     [Documentation]  User must login using the allowed format.
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Verified
 
     SignInPage.Input Email On Login Page                aaa.com
 	SignInPage.Verify Sign In Button Is Disabled
@@ -39,7 +39,7 @@ TC002 Sign in with Incorrect Email format
 
 TC003 Sign in with Empty Field
     [Documentation]  User must login using the allowed format.
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Verified
 
     SignInPage.Input Email On Login Page                                        ${ACCOUNTS_HBO_EMAIL}
     SignInPage.Input Password On Login Page                                     ${ACCOUNTS_HBO_PASSWORD}
@@ -48,7 +48,7 @@ TC003 Sign in with Empty Field
 
 TC004 Sign in with unregistered account
     [Documentation]  User can't signing in using invalid account
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Verified
 
     SignInPage.Login Using Credentials                                          ${ACCOUNT_UNREGISTER_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
     SignInPage.Verify Frame Register Is Appeared                                ${ACCOUNT_UNREGISTER_EMAIL}
@@ -61,14 +61,16 @@ TC004 Sign in with unregistered account
 
 TC005 Sign in with wrong password for 7 times
     [Documentation]  User can't signing in using wrong credential.
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   Verified
 
     SignInPage.Input Wrong Credential For 7 Times       ${ACCOUNT_SUPERMOLA2_EMAIL}                     ${ACCOUNT_SUPERMOLA1_WRONG_PASSWORD}
+    SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}
+    Login Using Credentials                             ${ACCOUNT_SUPERMOLA2_EMAIL}                     ${ACCOUNT_SUPERMOLA2_PASSWORD}
     SignInPage.Verify A Error Message Show Up           ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}
 
 TC006 Sign in from special asset
     [Documentation]  TC010 Sign in from special asset
-    [Tags]  Regression  Smoke
+    [Tags]  Regression  Smoke   Verified
 
     SignInPage.Select Special Asset                                 ${SAMPLE_MOVIE_URL}
     MovieDetailPage.Login from movie detail
@@ -77,9 +79,10 @@ TC006 Sign in from special asset
 
 TC007 Sign in from Beli Paket
     [Documentation]  Login process from Beli Paket page
-    [Tags]  Regression  Smoke
+    [Tags]  Regression  Smoke   NeedReview  Fixed
 
     HomePage.Open Beli Akses Menu
     SubscriptionPackagePage.Choose A Package
     SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA4_EMAIL}             ${ACCOUNT_SUPERMOLA4_PASSWORD}
     SubscriptionPackagePage.Verify On Beli Package Page
+    SubscriptionPackagePage.Verify Directed To Checkout Page According To The Package Selected

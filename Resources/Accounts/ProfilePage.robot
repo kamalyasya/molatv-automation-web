@@ -28,4 +28,7 @@ Verify Sign Out
     Click Element                       ${menu_homepage_accounts}
     Element Should Not Be Visible       ${text_profile_email}
     Element Should Not Be Visible       ${button_profile_keluar}
-
+    Wait Until Element Is Visible       ${field_login_email}
+    Element Should Be Visible           ${field_login_email}
+    Wait Until Element Is Visible       ${field_login_password}
+    Element Should Be Visible           ${field_login_password}

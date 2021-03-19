@@ -26,7 +26,7 @@ ${SAMPLE_MOVIE_URL}                 ${HOST}/watch?v=vd75626478
 TC002 Input wrong OTP number after Registration process
     [Documentation]         Input wrong OTP number at registration flow.
     ...                     Already go through registration process and in input OTP page
-	[Tags]                  Regression  Smoke
+	[Tags]                  Regression  Smoke   Verified
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
@@ -42,7 +42,7 @@ TC002 Input wrong OTP number after Registration process
 TC003 Resend OTP number code
     [Documentation]         Click Kirim Ulang to get the OTP number code.
     ...                     Already go through registration process and in input OTP page
-	[Tags]                  Regression  Smoke
+	[Tags]                  Regression  Smoke   NeedReview  Fixed
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
@@ -55,11 +55,16 @@ TC003 Resend OTP number code
     RegistrationWithoutPhoneNumberPage.Select Verify button
     SettingsPage.Verify Input Wrong OTP Number Code
     SettingsPage.Click Resend OTP Number Code
+    SettingsPage.Verify OTP Message Is Appeared
     SettingsPage.Verify Resend OTP Number Code 60 Second
+
+    # Verifikasi message terikirim  -> SettingsPage.Verify OTP Message Is Appeared
+    # Verify 60s -> added -> SettingsPage.Verify Resend OTP Number Code 60 Second
+
 
 TC004 Registration with wrong information
     [Documentation]         User is unable to register their email and password from the website.
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   NeedReview
 
     RegistrationWithoutPhoneNumberPage.Click Create Account Now
     RegistrationWithoutPhoneNumberPage.Input the field with invalid fields format       ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}
@@ -68,10 +73,11 @@ TC004 Registration with wrong information
     Reload Page
     Go Back
     Reload Page
+    # kurang verify / belum sesuai test case
 
 TC005 Registration from special assets
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Takeout
 
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
@@ -89,7 +95,7 @@ TC005 Registration from special assets
 
 TC006 Registration from Beli Paket Page
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Regression  Smoke
+    [Tags]                  Regression  Smoke   Takeout
 
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
