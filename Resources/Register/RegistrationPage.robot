@@ -42,6 +42,9 @@ ${links_login}                                                  css=.css-1mpgh73
 ${button_register_subcription_plan}                             css=div:nth-of-type(2) > div:nth-of-type(2) > a
 ${button_register_pay_subcription}                              css=._1sYFn > div > div:nth-of-type(2) ._2Kbv7  .vhbIU
 
+# Terms and condition, Privacy Policy
+${links_registration_terms_condition}                           css=._3HlQw > p > a:nth-of-type(1)
+${links_registration_privacy_policy}                            css=._3HlQw > p > a:nth-of-type(2)
 
 
 *** Keywords ***
@@ -136,4 +139,11 @@ Verify Register Page Is Appeared With Email Prefilled
     Element Should Be Visible                       ${field_register_email}
     ${ACTUAL_TEXT}                                  Get Element Attribute                   ${field_register_email}             value
     Should Contain        ${ACTUAL_TEXT}            ${EXTECTED_TEXT}                        ignore_case=True
-    
+
+Click Terms And Condition Links On Registration Page
+    Wait Until Element Is Visible                   ${links_registration_terms_condition}
+    Click Element                                   ${links_registration_terms_condition}
+
+Click Privacy Policy Links On Registration Page
+    Wait Until Element Is Visible                   ${links_registration_privacy_policy}
+    Click Element                                   ${links_registration_privacy_policy}

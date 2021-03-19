@@ -94,6 +94,9 @@ ${button_movie_detail_blocker_tukar_voucher}    css=.rgSjS
 ${text_movie_detail_favorit_message}            css=.snackbar-content-left
 ${button_movie_detail_lihat_daftar_favorit}     css=.snackbar-content-right
 
+# Banned User Player
+${links_movie_detail_terms_conditions}          css=.css-usqan1 a
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -572,3 +575,7 @@ Verify VOD Is Playing
     Element Should Be Visible           ${movie_pause_button}
     # Verify Play Button Is Visible
     Element Should Not Be Visible       ${button_play_player_control}
+
+Click Terms And Condition On Blocked Player
+    Wait Until Element Is Visible       ${links_movie_detail_terms_conditions}
+    Click Element                       ${links_movie_detail_terms_conditions}

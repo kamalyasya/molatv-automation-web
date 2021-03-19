@@ -3,6 +3,7 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${text_halaman_verifikasi_title_kode_verifikasi}    css=* > ._2Oduq
+${text_halaman_verifikasi_email}                    css=._2xrN3
 ${field_halaman_verifikasi_otp_1}                   css=div:nth-of-type(1) > .eKKpu
 ${field_halaman_verifikasi_otp_2}                   css=div:nth-of-type(2) > .eKKpu
 ${field_halaman_verifikasi_otp_3}                   css=div:nth-of-type(3) > .eKKpu
@@ -14,11 +15,17 @@ ${text_halaman_verifikasi_invalid_token}            css=.VYG-B p
 ${button_halaman_verifikasi_kirim_ulang}            link=Resend OTP
 ${text_halaman_verifikasi_kirim_ulang_countdown}    css=._17JiS
 
+# Message
+${text_halaman_verifikasi_message}                  xpath=//div[contains(text(),'Verification code has been sent')]
+${button_halaman_verifikasi_message_close}          xpath=//div[contains(text(),'Close')]
+
 *** Keywords ***
 Verify Direct to Masukkan Kode Verifikasi Page
-    [Arguments]     ${TEXT}
+    [Arguments]     ${TEXT}     ${EMAIL}
     Wait Until Element Is Visible               ${text_halaman_verifikasi_title_kode_verifikasi}
     Element Text Should Be                      ${text_halaman_verifikasi_title_kode_verifikasi}        ${TEXT}
+    Wait Until Element Is Visible               ${text_halaman_verifikasi_email}
+    Element Should Contain                      ${text_halaman_verifikasi_email}                        ${EMAIL}
 
 Input OTP
     [Arguments]  ${OTP_1}   ${OTP_2}  ${OTP_3}   ${OTP_4}   ${OTP_5}    ${OTP_6}
@@ -47,4 +54,12 @@ Click Resend OTP
 Verify Countdown Is Appeared
     Wait Until Element Is Visible               ${text_halaman_verifikasi_kirim_ulang_countdown}
     Element Should Be Visible                   ${text_halaman_verifikasi_kirim_ulang_countdown}
-    Element Should Contain                      ${text_halaman_verifikasi_kirim_ulang_countdown}        Resend OTP 00:
+    Wait Until Element Contains                 ${text_halaman_verifikasi_kirim_ulang_countdown}        Resend OTP 00:55
+
+Verify Verification Code Has Been Sent Is Appeared
+    Wait Until Element Is Visible               ${text_halaman_verifikasi_message}
+    Element Should Be Visible                   ${text_halaman_verifikasi_message}
+    Element Should Contain                      ${text_halaman_verifikasi_message}                      Verification code has been sent
+    Wait Until Element Is Visible               ${button_halaman_verifikasi_message_close}
+    Element Should Be Visible                   ${button_halaman_verifikasi_message_close}
+    Element Should Contain                      ${button_halaman_verifikasi_message_close}              Close

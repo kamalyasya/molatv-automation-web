@@ -66,9 +66,12 @@ ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of
 #${text_konten_dewasa_setuju_settings}                   css=._3UpwF
 
 ${text_wrong_otp_number_code}                           xpath=/html//div[@id='app']/div[@class='_3e0P_']//form[@class='_3HpB6']//p[.='Verification code is incorrect or has expired']
-${button_resend_otp_number_code}                        css=._3HpB6 a
-${label_otp_wait_countdown_60_second}                   xpath=/html//div[@id='app']/div[@class='_3e0P_']//form[@class='_3HpB6']//div[@class='HqfQm']
+${button_resend_otp_number_code}                        css=.HqfQm
+${label_otp_wait_countdown_60_second}                   css=.HqfQm
 
+# Notification Message
+${text_otp_verification_message}                        xpath=//div[contains(text(),'Verification code has been sent')]
+${button_otp_verification_message_close}                xpath=//div[contains(text(),'Close')]
 
 *** Keywords ***
 Show Status Berlangganan
@@ -262,6 +265,7 @@ Make phone number change
     Wait Until Element Is Visible               ${button_simpan_settings}
     Element Should Be Visible                   ${button_simpan_settings}
     Click Element                               ${button_simpan_settings}
+    Sleep    10
 
 Click System Info
     Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}
@@ -334,9 +338,19 @@ Verify Input Wrong OTP Number Code
     Element Text Should Be                      ${text_wrong_otp_number_code}           Verification code is incorrect or has expired
 
 Click Resend OTP Number Code
-    Wait Until Element Is Visible               ${button_resend_otp_number_code}       64
+    Wait Until Element Is Visible               ${button_resend_otp_number_code}                      64
+    Wait Until Element Does Not Contain         ${button_resend_otp_number_code}       :              60
     Click Element                               ${button_resend_otp_number_code}
 
 Verify Resend OTP Number Code 60 Second
     Wait Until Element Is Visible               ${label_otp_wait_countdown_60_second}
     Element Should Be Visible                   ${label_otp_wait_countdown_60_second}
+    Wait Until Element Contains                 ${label_otp_wait_countdown_60_second}       Resend OTP 00:55
+
+Verify OTP Message Is Appeared
+    Wait Until Element Is Visible               ${text_otp_verification_message}
+    Element Should Be Visible                   ${text_otp_verification_message}
+    Element Should Contain                      ${text_otp_verification_message}            Verification code has been sent
+    Wait Until Element Is Visible               ${button_otp_verification_message_close}
+    Element Should Be Visible                   ${button_otp_verification_message_close}
+    Element Should Contain                      ${button_otp_verification_message_close}    Close
