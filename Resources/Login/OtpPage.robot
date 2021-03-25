@@ -16,7 +16,7 @@ ${button_halaman_verifikasi_kirim_ulang}            link=Resend OTP
 ${text_halaman_verifikasi_kirim_ulang_countdown}    css=._17JiS
 
 # Message
-${text_halaman_verifikasi_message}                  xpath=//div[contains(text(),'Verification code has been sent')]
+${text_halaman_verifikasi_message}                  xpath=//div[contains(text(),'Verification code sent')]
 ${button_halaman_verifikasi_message_close}          xpath=//div[contains(text(),'Close')]
 
 *** Keywords ***
@@ -54,12 +54,12 @@ Click Resend OTP
 Verify Countdown Is Appeared
     Wait Until Element Is Visible               ${text_halaman_verifikasi_kirim_ulang_countdown}
     Element Should Be Visible                   ${text_halaman_verifikasi_kirim_ulang_countdown}
-    Wait Until Element Contains                 ${text_halaman_verifikasi_kirim_ulang_countdown}        Resend OTP 00:55
+    Wait Until Element Contains                 ${text_halaman_verifikasi_kirim_ulang_countdown}        Resend code OTP 00:55
 
 Verify Verification Code Has Been Sent Is Appeared
     Wait Until Element Is Visible               ${text_halaman_verifikasi_message}
     Element Should Be Visible                   ${text_halaman_verifikasi_message}
-    Element Should Contain                      ${text_halaman_verifikasi_message}                      Verification code has been sent
+    Element Should Contain                      ${text_halaman_verifikasi_message}                      Verification code sent
     Wait Until Element Is Visible               ${button_halaman_verifikasi_message_close}
     Element Should Be Visible                   ${button_halaman_verifikasi_message_close}
     Element Should Contain                      ${button_halaman_verifikasi_message_close}              Close
