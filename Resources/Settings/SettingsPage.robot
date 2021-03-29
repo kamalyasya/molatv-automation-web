@@ -26,7 +26,7 @@ ${button_keluar_settings}                               css=._3qxwB
 ${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_alert_dialog_atur_password}                      css=div[role='alertdialog']
 ${button_nanti_saja_atur_password}                      css=div#skip
-${text_ubah_password_settings}                          css=._3XA-Q > div:nth-of-type(1)
+${text_ubah_password_settings}                          xpath=//div[contains(text(),'Change Password')]
 ${field_masukan_sandi_sekarang_settings}                css=input#currentPassword
 ${label_view_password1}                                 css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
 ${label_view_password2}                                 css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
@@ -60,7 +60,7 @@ ${text_logo_title_mola_speed_pengaturan_settings}       css=.logo__title
 ${button_reload_mola_speed_pengaturan_settings}         css=div#start-again-button-start
 ${speed_ping_mxs01_vod}                                 css=div:nth-of-type(1) > .section__cdn
 ${speed_ping_mola02_live}                               css=div:nth-of-type(2) > .section__cdn
-${text_video_playback_test_pengaturan_settings}         css=._3XA-Q > div:nth-of-type(4)
+${text_video_playback_test_pengaturan_settings}         xpath=//div[contains(text(),'Video Playback Test')]
 ${test_video_playback_non_drm_settings}                 css=._3XA-Q > div:nth-of-type(2)
 ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of-type(1)
 #${text_konten_dewasa_setuju_settings}                   css=._3UpwF
@@ -70,8 +70,13 @@ ${button_resend_otp_number_code}                        css=.HqfQm
 ${label_otp_wait_countdown_60_second}                   css=.HqfQm
 
 # Notification Message
-${text_otp_verification_message}                        xpath=//div[contains(text(),'Verification code has been sent')]
+${text_otp_verification_message}                        xpath=//div[contains(text(),'Verification code sent')]
 ${button_otp_verification_message_close}                xpath=//div[contains(text(),'Close')]
+${button_otp_verification_message_please_wait_60s}      xpath=//div[contains(text(),'Please wait 60 seconds to try again')]
+
+# Change Password Page
+${text_otp_change_password_title_otp_sent}              css=.GLAMB
+${text_otp_change_password_email}                       css=._3ynOi
 
 *** Keywords ***
 Show Status Berlangganan
@@ -293,7 +298,7 @@ Verify Autoplay toggle button is turn off
 Verify Autoplay toggle button is turn on
     ${B}=    Get Element Attribute   id=autoPlay  data-tip
     Log To Console      ${B}
-    Should Contain      ${B}         Putar otomatis aktif
+    Should Contain      ${B}         Autoplay ON
 
 Click Internet Speed Test
     [Arguments]     ${URL_mola_speed}
@@ -319,38 +324,44 @@ Choose Non-DRM Playback
     Wait Until Element Is Visible               ${test_video_playback_non_drm_settings}
     Element Should Be Visible                   ${test_video_playback_non_drm_settings}
     Click Element                               ${test_video_playback_non_drm_settings}
-    wait until element is visible               ${movie_detail_play_button}
-    Element Should Be Visible                   ${movie_detail_play_button}
-    Click Element                               ${movie_detail_play_button}
-    sleep                                       3
 
 Choose DRM Playback
     Wait Until Element Is Visible               ${test_video_playback_drm_settings}
     Element Should Be Visible                   ${test_video_playback_drm_settings}
     Click Element                               ${test_video_playback_drm_settings}
-#    Wait Until Element Is Visible               ${text_konten_dewasa_setuju_settings}
-#    Element Should Be Visible                   ${text_konten_dewasa_setuju_settings}
-#    Click Element                               ${text_konten_dewasa_setuju_settings}
-    sleep                                       3
 
 Verify Input Wrong OTP Number Code
     Wait Until Element Is Visible               ${text_wrong_otp_number_code}
     Element Text Should Be                      ${text_wrong_otp_number_code}           Verification code is incorrect or has expired
 
 Click Resend OTP Number Code
-    Wait Until Element Is Visible               ${button_resend_otp_number_code}                      64
-    Wait Until Element Does Not Contain         ${button_resend_otp_number_code}       :              60
+    Wait Until Element Is Visible               ${button_resend_otp_number_code}                      65
+    Wait Until Element Does Not Contain         ${button_resend_otp_number_code}       :              65
     Click Element                               ${button_resend_otp_number_code}
 
 Verify Resend OTP Number Code 60 Second
     Wait Until Element Is Visible               ${label_otp_wait_countdown_60_second}
     Element Should Be Visible                   ${label_otp_wait_countdown_60_second}
-    Wait Until Element Contains                 ${label_otp_wait_countdown_60_second}       Resend OTP 00:55
+    Wait Until Element Contains                 ${label_otp_wait_countdown_60_second}       Resend code OTP 00:55
 
 Verify OTP Message Is Appeared
     Wait Until Element Is Visible               ${text_otp_verification_message}
     Element Should Be Visible                   ${text_otp_verification_message}
-    Element Should Contain                      ${text_otp_verification_message}            Verification code has been sent
+    Element Should Contain                      ${text_otp_verification_message}            Verification code sent
     Wait Until Element Is Visible               ${button_otp_verification_message_close}
     Element Should Be Visible                   ${button_otp_verification_message_close}
     Element Should Contain                      ${button_otp_verification_message_close}    Close
+
+Verify OTP Change Password Is Appeared
+    [Arguments]    ${EMAIL}
+    Wait Until Element Is Visible               ${text_otp_change_password_title_otp_sent}
+    Element Should Be Visible                   ${text_otp_change_password_title_otp_sent}
+    Element Should Contain                      ${text_otp_change_password_title_otp_sent}           Enter the OTP Code that has been sent to
+    Wait Until Element Is Visible               ${text_otp_change_password_email}
+    Element Should Be Visible                   ${text_otp_change_password_email}
+    Element Should Contain                      ${text_otp_change_password_email}                    ${EMAIL}
+
+Verify OTP Message Please Wait 60s Is Appeared
+    Wait Until Element Is Visible               ${button_otp_verification_message_please_wait_60s}
+    Element Should Be Visible                   ${button_otp_verification_message_please_wait_60s}
+    Element Should Contain                      ${button_otp_verification_message_please_wait_60s}      Please wait 60 seconds to try again

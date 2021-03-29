@@ -25,9 +25,6 @@ ${ULANG_PASSWORD02}                 12345678
 ${PASSWORD_BARU02}                  sapisuper69690
 ${ULANG_PASSWORD03}                 sapisuper69690
 
-${ACCOUNT_HBO_EMAIL}                t.hbo@mola.tv
-${ACCOUNT_HBO_PASSWORD}             M0L4h8o!
-
 ${URL_MOVIE_DETAIL}                 ${HOST}/watch?v=vd93496274
 ${EXPECTED_URL_MOVIE_DETAIL}        ${URL_MOVIE_DETAIL}
 
@@ -86,7 +83,7 @@ TC010 Subscription view
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke   NeedReview
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_HBO_EMAIL}        ${ACCOUNT_HBO_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Verify Status
@@ -147,7 +144,7 @@ TC014 Autoplay off
 TC014 Autoplay on
     [Documentation]         Check toggle button function to enable and disable autoplay
     ...                     Turn on Autoplay toggle button
-    [Tags]                  Regression  Smoke   NeedReview
+    [Tags]                  Regression  Smoke   NeedReview      Fixed
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -156,13 +153,32 @@ TC014 Autoplay on
     SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Auto Play Next Episode
-    MovieDetailPage.Verify Auto Play Next Episode
-    Reload Page
-    Go Back
-    Logout Account
+    MovieDetailPage.Verify Autoplay Next Video Is Visible
+
+
     # Tambah click button skip, itu stay di video sampai habis tetap di content itu (Tetap di tempat yang sama)
-    # Tambah click button Play Next Movie -> pindah ke content selanjutnya sesuai tulisan dan di verify movide detail judulnya sama seperti yg di auto play
+    MovieDetailPage.Click Button Skip Auto Play
+    MovieDetailPage.Verify Auto Play Is Not Displayed
+    MovieDetailPage.Verify After Autoplay Stay At Current Video
+
     # Tambah autoplay di diamkan dan di verifikasi pindah ke content selanjutnya sesuai tulisan dan di verify movide detail judulnya sama seperti yg di auto play
+#    SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
+    Reload Page
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify Autoplay Next Video Is Visible
+    Sleep    10
+    MovieDetailPage.Verify After Autoplay Play Next Video
+
+    # Tambah click button Play Next Movie -> pindah ke content selanjutnya sesuai tulisan dan di verify movide detail judulnya sama seperti yg di auto play
+    SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify Autoplay Next Video Is Visible
+    MovieDetailPage.Click Button Play Next Auto Play
+    MovieDetailPage.Verify After Autoplay Play Next Video
+
+    Logout Account
 
 TC015 Internet Speed Test
     [Documentation]         check the internet connection that is connected to mola tv
@@ -179,60 +195,65 @@ TC015 Internet Speed Test
 TC016 Video Playback Test Non-DRM
     [Documentation]         Check device compatibility for Mola TV video formats
     ...                     User already login
-    [Tags]                  Regression  Smoke   NeedReview  NeedVerify
+    [Tags]                  Regression  Smoke   NeedVerify
 
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose Non-DRM Playback
-    MovieDetailPage.Change Video Quality
-    Reload Page
-    Go Back
-    Reload Page
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+#    MovieDetailPage.Change Video Quality
+    MovieDetailPage.Verify VOD Is Playing And Time Is Elapsed
 
 TC016 Video Playback Test DRM
     [Documentation]         Check device compatibility for Mola TV video formats
     ...                     User already login
-    [Tags]                  Regression  Smoke   NeedReview  NeedVerify
+    [Tags]                  Regression  Smoke   NeedVerify
 
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
     SettingsPage.Choose DRM Playback
-    MovieDetailPage.Click Button Watch Now On Video Player
-    MovieDetailPage.Verify VOD Is Playing
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify VOD Is Playing And Time Is Elapsed
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
-    Reload Page
-    Go Back
-    Reload Page
 
 TC020 Atur Password input wrong OTP number code
     [Documentation]         Input wrong OTP number at Atur Password flow.
-    [Tags]                  Regression  Smoke   NeedReview
+    [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
+    SettingsPage.Verify OTP Change Password Is Appeared             ${ACCOUNT_SUPERMOLA69690_EMAIL}
+    Go Back
+    SettingsPage.Select Ubah Password
+    SettingsPage.Verify OTP Message Please Wait 60s Is Appeared
+    SettingsPage.Verify OTP Change Password Is Appeared             ${ACCOUNT_SUPERMOLA69690_EMAIL}
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
     SettingsPage.Verify Input Wrong OTP Number Code
-    # verifikasi halaman ganti password, email sesuai dengan email yang login
+
+    # verifikasi halaman ganti password, email sesuai dengan email yang login       -> SettingsPage.Verify OTP Change Password Is Appeared
     # Verifkasi muncul Please wait 60 seconds to try again (back trus masuk lagi)
 
 TC021 Atur Password resend OTP number code
     [Documentation]         countdown for 60 second
     [Tags]                  Regression  Smoke   NeedVerify  NeedReview  Fixed
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_MOLA_TESTING21_EMAIL}         ${ACCOUNTS_MOLA_TESTING21_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
+    SettingsPage.Verify Resend OTP Number Code 60 Second
     RegistrationPage.Input OTP                                       1       2      3       4      5       6
     RegistrationPage.Click Verifikasi
     SettingsPage.Verify Input Wrong OTP Number Code
     SettingsPage.Click Resend OTP Number Code
+    SettingsPage.Verify OTP Message Is Appeared
     SettingsPage.Verify Resend OTP Number Code 60 Second
-    # Tambah verifikasi 60s -> SettingsPage.Verify Resend OTP Number Code 60 Second
+    # Tambah verifikasi 60s -> SettingsPage.Verify Resend OTP Number Code 60 Second -> fixed
+    # Allert OTP code send  -> SettingsPage.Verify OTP Message Is Appeared

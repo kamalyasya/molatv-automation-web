@@ -1,5 +1,5 @@
 # molatv-automation-web
-
+#### Mola TV Web Browser Automation Test 
 ### Installation
 ```sh
 pip3 install robotframework==4.0
@@ -39,4 +39,20 @@ pabot --processes 3 --testlevelsplit --variable BROWSER:mychrome -d Results -o o
 pabot --processes 3 --testlevelsplit --variable BROWSER:mychrome --rerunfailed Results/output.xml -d Results -o output2.xml -l log2.html -r report2.html Tests/DesktopWeb/
 
 rebot --merge -d Results -o output.xml -l log.html -r report.html Results/output.xml Results/output2.xml
+```
+
+### Verified Suites :
+```sh
+Security
+    - About.robot
+    - LoginWithoutPhoneNumber.robot
+
+Delivery
+    - ?
+
+Engagement
+    - ?
+
+Commercial
+    - ?
 ```

@@ -22,6 +22,11 @@ ${SAMPLE_MOVIE_URL}                 ${HOST}/watch?v=vd75626478
 
 
 *** Test Cases ***
+TC001 Register with Email
+    [Documentation]         User can register (and login) using Email address
+	[Tags]                  Skip
+
+	Log                     Reason Can't Automated : Can't automate using VALID OTP
 
 TC002 Input wrong OTP number after Registration process
     [Documentation]         Input wrong OTP number at registration flow.
@@ -64,20 +69,49 @@ TC003 Resend OTP number code
 
 TC004 Registration with wrong information
     [Documentation]         User is unable to register their email and password from the website.
-    [Tags]                  Regression  Smoke   NeedReview
+    [Tags]                  Regression  Smoke   NeedReview  Fixed
+
+	${RANDOM_NUMBER}        Generate random string      10      0123456789
+    ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
+    ${PASSWORD}             Catenate            molamola${RANDOM_NUMBER}
 
     RegistrationWithoutPhoneNumberPage.Click Create Account Now
     RegistrationWithoutPhoneNumberPage.Input the field with invalid fields format       ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}
     RegistrationWithoutPhoneNumberPage.Click Register Button
     RegistrationWithoutPhoneNumberPage.Can Not click button Register
-    Reload Page
-    Go Back
-    Reload Page
+
+    Log     Input email already register, a top alert bar show up : Email Already Exists Close
+    Register Using Email Password                                   ${ACCOUNT_CINCIN_EMAIL}             1234566             1234566
+    RegistrationWithoutPhoneNumberPage.Click Register Button
+    Verify Notification Message On Registration Page Is Appeared    Email Already Exists
+
+
+    Log     Input email with wrong format, a message show up : Wrong email format
+    Register Using Email Password                                   cincin.jati@molatv                  1234566             1234566
+    Verify Error Message On Email Field                             Email format is incorrect
+
+    Log     Input nothing at email field, a message show up : Email cannot be empty
+    Register Using Email Password                                   email           ${EMPTY}            ${EMPTY}
+    Clear Registration Email Field
+    Verify Error Message On Email Field                             Email must be filled
+
+    Log     Input only 5 charcter at password field, a message show up :Must contain at least 6 characters
+    Register Using Email Password                                   ${EMAIL}        12345               12345
+    Verify Error Message On Password Field                          Must contain at least 6 characters
+
+    Log     Input nothing at password field, a message show up : Password must not be empty
+    Register Using Email Password                                   ${EMAIL}        12345            12345
+    Clear Registration Password Field
+    Verify Error Message On Password Field                          Password must be filled
+
+    Log     Input confirm password is not same as password, a message show up : Wrong password confirmation
+    Register Using Email Password                                   ${EMAIL}        ${PASSWORD}         ${PASSWORD}1
+    Verify Error Message On Confirm Password Field                  Password confirm do not match
     # kurang verify / belum sesuai test case
 
 TC005 Registration from special assets
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Regression  Smoke   Takeout
+    [Tags]                  Skip
 
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
@@ -95,7 +129,7 @@ TC005 Registration from special assets
 
 TC006 Registration from Beli Paket Page
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Regression  Smoke   Takeout
+    [Tags]                  Skip
 
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
