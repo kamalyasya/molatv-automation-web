@@ -37,7 +37,7 @@ TC001 Registration with email and password
 
 #TC002 Input OTP number after Registration process
 #    [Documentation]         Already go through registration process
-#    [Tags]                  Regression  Smoke
+#    [Tags]                  Skip
 #
 #    Reason Can't Automated ?        Cause , Test Automation Can Not Handle OTP (Random Number)
 
