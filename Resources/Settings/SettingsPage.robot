@@ -17,16 +17,35 @@ ${button_ubah_button_settings}                          css=._28BJH
 ${button_batal_ubah_profil_settings}                    css=._3rHVa
 ${label_no_telepon_settings}                            id=phone
 ${label_jenis_kelamin_m_settings}                       css=select[name='gender'] > option[value='m']
+${label_user_name_settings}                             css=input#name
 ${label_lokasi_default_settings}                        css=select[name='location'] > option[value='Indonesia']
 ${button_simpan_settings}                               css=._27srK._3C-S2
+${text_phone_number_already_existed}                    css=._3MuQu
+${text_phone_number_settings_not_change}                css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(6)
+${label_phone_number_settings_not_change}               css=div:nth-of-type(6) > label
+${text_phone_number_settings_default}                   css=.LZ_R2:nth-of-type(6) p
 ${text_ubah_akun_settings}                              css=._3MuQu
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
+${text_edit_profile_before}                             css=._2RPl3
+${text_account_after}                                   css=._2AqYX > ._2h0ZG
+${text_picture_profile_after}                           css=.flovB
 ${button_keluar_settings}                               css=._3qxwB
 ${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_alert_dialog_atur_password}                      css=div[role='alertdialog']
 ${button_nanti_saja_atur_password}                      css=div#skip
+
 ${text_ubah_password_settings}                          xpath=//div[contains(text(),'Change Password')]
+${text_language_settings}                               css=._3XA-Q > div:nth-of-type(1)
+${menu_language_settings}                               css=._3n7Ea
+${text_menu_language_settings}                          css=._3n7Ea > ._3D9_y
+${label_text_english_language_settings}                 css=._3J3Q5 > div:nth-of-type(2)
+${label_text_indonesia_language_settings}               css=._3J3Q5 > div:nth-of-type(1)
+${chose_label_indonesia_language_settings}              css=div:nth-of-type(1) > ._7WiYD
+${button_save_change_language_settings}                 css=._3206K
+${menu_homepage_pengaturan}                             css=._1Cbvm
+${text_bahasa_berhasil_di_ubah}                         css=._3MuQu
+${chose_label_english_language_settings}                css=div:nth-of-type(2) > ._7WiYD
 ${field_masukan_sandi_sekarang_settings}                css=input#currentPassword
 ${label_view_password1}                                 css=div:nth-of-type(2) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
 ${label_view_password2}                                 css=div:nth-of-type(3) > ._2shny.css-u9aj2 > .css-p66osa > .css-1yds4lk
@@ -53,6 +72,17 @@ ${text_ISP}                                             css=._27xxD > div:nth-of
 ${text_IP}                                              css=._27xxD > div:nth-of-type(5)
 ${text_Date & Time}                                     css=._27xxD > div:nth-of-type(6)
 ${text_Version}                                         css=.SX4wG > ._1UNSE
+
+${label_text_Browser}                                   css=div:nth-of-type(1) > label
+${label_text_OS}                                        css=div:nth-of-type(2) > label
+${label_text_Location}                                  css=div:nth-of-type(3) > label
+${label_text_ISP}                                       css=div:nth-of-type(4) > label
+${label_text_IP}                                        css=div:nth-of-type(5) > label
+${label_text_Date & Time}                               css=div:nth-of-type(6) > label
+${label_text_Version}                                   css=.SX4wG > ._1UNSE
+
+${links_footer_system_info}                             css=._34BGT > div:nth-of-type(3) > div:nth-of-type(1)
+
 ${button_settings_autoplay}                             css=.BiC2-
 ${URL_Next_MOVIE_DETAIL}                                css=.css-oht1a4
 ${text_internet_speed_test_pengaturan_settings}         xpath=//div[contains(text(),'Internet Speed Test')]
@@ -61,6 +91,8 @@ ${button_reload_mola_speed_pengaturan_settings}         css=div#start-again-butt
 ${speed_ping_mxs01_vod}                                 css=div:nth-of-type(1) > .section__cdn
 ${speed_ping_mola02_live}                               css=div:nth-of-type(2) > .section__cdn
 ${text_video_playback_test_pengaturan_settings}         xpath=//div[contains(text(),'Video Playback Test')]
+${list_container_menu_setting}                          css=._16YQ-
+${list_class_menu_setting_bar}                          css=._1KqoD
 ${test_video_playback_non_drm_settings}                 css=._3XA-Q > div:nth-of-type(2)
 ${test_video_playback_drm_settings}                     css=._3XA-Q > div:nth-of-type(1)
 #${text_konten_dewasa_setuju_settings}                   css=._3UpwF
@@ -113,9 +145,13 @@ Select Ubah button
     Click Element                                   ${button_ubah_button_settings}
 
 Make some changes and Save
+    [Arguments]     ${Username}       ${Phone}
+    Wait Until Element Is Visible                   ${label_user_name_settings}
+    Input Text                                      ${label_user_name_settings}             ${Username}
+    Wait Until Element Is Visible                   ${label_no_telepon_settings}
+    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
     Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
-    Click Element                                   ${label_jenis_kelamin_m_settings}
-    Click Element                                   ${label_lokasi_default_settings}
+    Wait Until Element Is Visible                   ${label_lokasi_default_settings}
 
 Button Simpan
     Wait Until Element Is Visible                   ${button_simpan_settings}
@@ -124,23 +160,31 @@ Button Simpan
 
 User Successfully Ubah
     Wait Until Element Is Visible                   ${text_ubah_akun_settings}
-    Element Text Should Be                          ${text_ubah_akun_settings}           Profile update was successful
+    Element Text Should Be                          ${text_ubah_akun_settings}           Profile Successfully Update
 
 Make changes to default value
+    [Arguments]         ${Phone}
+    Select Ubah button
+    Wait Until Element Is Visible                   ${label_no_telepon_settings}
+    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
+    Button Simpan
+    User Successfully Ubah
+    Sleep                                           5
+
     Select Ubah button
     Click Element                                   ${label_jenis_kelamin_f_settings}
     Click Element                                   ${label_lokasi_change01_settings}
     Button Simpan
     User Successfully Ubah
-    Sleep                                           10
+    Sleep                                           5
+
     Select Ubah button
     Click Element                                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_lokasi_default_settings}
     Button Simpan
     User Successfully Ubah
     Sleep                                           5
-    Click Element                                   ${button_keluar_settings}
-    Sleep                                           5
+
 
 Select User icon 01
     Select User icon
@@ -152,10 +196,20 @@ Make some changes 01
     Click Element                                   ${label_jenis_kelamin_f_settings}
     Click Element                                   ${label_lokasi_change01_settings}
 
+Verify Bar Edit Profile
+    Wait Until Element Is Visible                   ${text_edit_profile_before}
+    Element Should Be Visible                       ${text_edit_profile_before}
+
 Click Back button
     Wait Until Element Is Visible                   ${button_batal_ubah_profil_settings}
     Element Should Be Visible                       ${button_batal_ubah_profil_settings}
     Click Element                                   ${button_batal_ubah_profil_settings}
+
+Verify Bar Account and picture
+   Wait Until Element Is Visible                    ${text_account_after}
+   Element Should Be Visible                        ${text_account_after}
+   Wait Until Element Is Visible                    ${text_picture_profile_after}
+   Element Should Be Visible                        ${text_picture_profile_after}
 
 Select Pengaturan
     Wait Until Element Is Visible                   ${text_pengaturan_settings}
@@ -165,6 +219,57 @@ Select Pengaturan
     Wait Until Element Is Visible                   ${button_nanti_saja_atur_password}
     Element Should Be Visible                       ${button_nanti_saja_atur_password}
     Click Element                                   ${button_nanti_saja_atur_password}
+
+Select Language for Change language Preference
+    Wait Until Element Is Visible                   ${text_language_settings}
+    Element Should Be Visible                       ${text_language_settings}
+    Click Element                                   ${text_language_settings}
+
+Verify Language Preference Checking
+    Wait Until Element Is Visible                   ${menu_language_settings}
+    Element Should Be Visible                       ${menu_language_settings}
+    Wait Until Element Is Visible                   ${text_menu_language_settings}
+    Element Should Be Visible                       ${text_menu_language_settings}
+    Wait Until Element Is Visible                   ${label_text_english_language_settings}
+    Element Should Be Visible                       ${label_text_english_language_settings}
+    Wait Until Element Is Visible                   ${label_text_indonesia_language_settings}
+    Element Should Be Visible                       ${label_text_indonesia_language_settings}
+
+Select Change Language To Indonesia
+    Wait Until Element Is Visible                   ${label_text_indonesia_language_settings}
+    Element Should Be Visible                       ${label_text_indonesia_language_settings}
+    Click Element                                   ${chose_label_indonesia_language_settings}
+    Wait Until Element Is Visible                   ${button_save_change_language_settings}
+    Element Should Be Visible                       ${button_save_change_language_settings}
+    Click Element                                   ${button_save_change_language_settings}
+
+Verify Change Language To Indonesia
+    Sleep                                           3
+    Wait Until Element Is Visible                   ${menu_homepage_pengaturan}
+    Element Should Be Visible                       ${menu_homepage_pengaturan}
+    Wait Until Element Is Visible                   ${text_bahasa_berhasil_di_ubah}
+    Element Text Should Be                          ${text_bahasa_berhasil_di_ubah}       Bahasa berhasil di ubah
+    Wait Until Element Is Visible                   ${text_language_settings}
+    Element Should Be Visible                       ${text_language_settings}
+
+Select Change Language To English
+    Select Language for Change language Preference
+    Verify Language Preference Checking
+    Wait Until Element Is Visible                   ${label_text_english_language_settings}
+    Element Should Be Visible                       ${label_text_english_language_settings}
+    Click Element                                   ${chose_label_english_language_settings}
+    Wait Until Element Is Visible                   ${button_save_change_language_settings}
+    Element Should Be Visible                       ${button_save_change_language_settings}
+    Click Element                                   ${button_save_change_language_settings}
+
+
+Verify Change Language To English
+    Wait Until Element Is Visible                   ${menu_homepage_pengaturan}
+    Element Should Be Visible                       ${menu_homepage_pengaturan}
+    Wait Until Element Is Visible                   ${text_bahasa_berhasil_di_ubah}
+    Element Text Should Be                          ${text_bahasa_berhasil_di_ubah}       Language changed successfully
+    Wait Until Element Is Visible                   ${text_language_settings}
+    Element Should Be Visible                       ${text_language_settings}
 
 Select Ubah Password
     Wait Until Element Is Visible                   ${text_ubah_password_settings}
@@ -264,18 +369,42 @@ Select Verify Status
     Element Should Be Visible                   ${text_package_expired_date}
     Element Should Be Visible                   ${text_package_description}
 
+Select Verify Status Account Free
+    Wait Until Element Is Visible               ${text_package_user_use}
+    Element Should Be Visible                   ${text_package_user_use}
+    Element Text Should Be                      ${text_package_user_use}                Free Membership
+
 Make phone number change
     [Arguments]         ${PHONE}
-    Input Text                                  ${label_no_telepon_settings}        ${PHONE}    PHONE ALREADY EXIST
+    Input Text                                  ${label_no_telepon_settings}        ${PHONE}
     Wait Until Element Is Visible               ${button_simpan_settings}
     Element Should Be Visible                   ${button_simpan_settings}
     Click Element                               ${button_simpan_settings}
-    Sleep    10
 
-Click System Info
+Verify phone number Already Exist Message
+    Wait Until Element Is Visible               ${text_phone_number_already_existed}
+    Element Text Should Be                      ${text_phone_number_already_existed}        The phone number is already existed.
+
+Verify That Phone Number Hasn't Changed
+    Wait Until Element Is Visible               ${text_phone_number_settings_not_change}
+    Element Should Be Visible                   ${text_phone_number_settings_not_change}
+
+    Wait Until Element Is Visible               ${label_phone_number_settings_not_change}
+    Element Should Be Visible                   ${label_phone_number_settings_not_change}
+
+    Wait Until Element Is Visible               ${text_phone_number_settings_default}
+    Element Should Be Visible                   ${text_phone_number_settings_default}
+
+    Sleep                                       5
+
+Click System Info In Setting
     Wait Until Element Is Visible               ${button_system_info_pengaturan_settings}
     Element Should Be Visible                   ${button_system_info_pengaturan_settings}
     Click Element                               ${button_system_info_pengaturan_settings}
+
+Verify System Info Is Appear
+    [Arguments]     ${URL_System_Info_Settings}
+    Wait Until Location Contains                ${URL_System_Info_Settings}
     Wait Until Element Is Visible               ${text_Browser}
     Element Should Be Visible                   ${text_Browser}
     Element Should Be Visible                   ${text_OS}
@@ -284,6 +413,30 @@ Click System Info
     Element Should Be Visible                   ${text_IP}
     Element Should Be Visible                   ${text_Date & Time}
     Element Should Be Visible                   ${text_Version}
+
+Verify Label System Info In Setting
+    Element Should Be Visible                   ${label_text_Browser}
+    Element Should Be Visible                   ${label_text_OS}
+    Element Should Be Visible                   ${label_text_Location}
+    Element Should Be Visible                   ${label_text_ISP}
+    Element Should Be Visible                   ${label_text_IP}
+    Element Should Be Visible                   ${label_text_Date & Time}
+    Element Should Be Visible                   ${label_text_Version}
+
+Click System Info In Footer
+    Wait Until Element Is Visible               ${links_footer_system_info}
+    Element Should Be Visible                   ${links_footer_system_info}
+    Click Element                               ${links_footer_system_info}
+
+Verify Label System Info In Footer
+    Element Should Be Visible                   ${label_text_Browser}
+    Element Should Be Visible                   ${label_text_OS}
+    Element Should Be Visible                   ${label_text_Location}
+    Element Should Be Visible                   ${label_text_ISP}
+    Element Should Be Visible                   ${label_text_IP}
+    Element Should Be Visible                   ${label_text_Date & Time}
+    Element Should Be Visible                   ${label_text_Version}
+
 
 Turn on / off Autoplay toggle button
     Wait Until Element Is Visible               ${button_settings_autoplay}
@@ -314,6 +467,14 @@ Click Internet Speed Test
     Element Should Be Visible                   ${speed_ping_mola02_live}
     Wait Until Element Is Visible               ${button_reload_mola_speed_pengaturan_settings}
     Element Should Be Visible                   ${button_reload_mola_speed_pengaturan_settings}
+
+Verify After Back Confirm to Setting Page
+    Wait Until Element Is Visible               ${list_container_menu_setting}
+    Element Should Be Visible                   ${list_container_menu_setting}
+    Wait Until Element Is Visible               ${list_class_menu_setting_bar}
+    Element Should Be Visible                   ${list_class_menu_setting_bar}
+    Wait Until Element Is Visible               ${text_internet_speed_test_pengaturan_settings}
+    Element Should Be Visible                   ${text_internet_speed_test_pengaturan_settings}
 
 Click Video Playback Test
     Wait Until Element Is Visible               ${text_video_playback_test_pengaturan_settings}
