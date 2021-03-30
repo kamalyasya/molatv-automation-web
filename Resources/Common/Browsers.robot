@@ -25,9 +25,9 @@ Open Mychrome Browser
 
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_88_mac
-    ...	           '${OS}' == 'Linux'	chromedriver_86_linux
-    ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
+    ...	           '${OS}' == 'Darwin'	chromedriver_mac64/chromedriver
+    ...	           '${OS}' == 'Linux'	chromedriver_linux64/chromedriver
+    ...	           '${OS}' == 'Windows'	chromedriver_win32/chromedriver.exe
 
     Run Keyword If    os.sep == '/'    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}    executable_path=${CURDIR}/../../Webdrivers/${chrometype}
     ...    ELSE                        Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}
@@ -49,9 +49,9 @@ Open Myheadlesschrome Browser
 
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_86_mac
-    ...	           '${OS}' == 'Linux'	chromedriver_86_linux
-    ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
+    ...	           '${OS}' == 'Darwin'	chromedriver_mac64/chromedriver
+    ...	           '${OS}' == 'Linux'	chromedriver_linux64/chromedriver
+    ...	           '${OS}' == 'Windows'	chromedriver_win32/chromedriver.exe
 
     Run Keyword If    os.sep == '/'    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}    executable_path=${CURDIR}/../../Webdrivers/${chrometype}
     ...    ELSE                        Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}
@@ -65,9 +65,9 @@ Open Chromemobile Browser
     Call Method    ${options}    add_experimental_option    mobileEmulation    ${mobile_emulation}
     ${OS}          Evaluate             platform.system()       platform
     ${chrometype}  Set Variable If
-    ...	           '${OS}' == 'Darwin'	chromedriver_86_mac
-    ...	           '${OS}' == 'Linux'	chromedriver_86_linux
-    ...	           '${OS}' == 'Windows'	chromedriver_86_win32.exe
+    ...	           '${OS}' == 'Darwin'	chromedriver_mac64/chromedriver
+    ...	           '${OS}' == 'Linux'	chromedriver_linux64/chromedriver
+    ...	           '${OS}' == 'Windows'	chromedriver_win32/chromedriver.exe
     Create Webdriver    Chrome      chrome_options=${options}       executable_path=${CURDIR}/../../Webdrivers/${chrometype}
     Go To          ${URL}
 
