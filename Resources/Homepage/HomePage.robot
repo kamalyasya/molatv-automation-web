@@ -27,7 +27,7 @@ ${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
 ${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
 ${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
 ${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']
-${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscription Plan' and not (@class='_2yKxK')]
+${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscribe Now' and not (@class='_2yKxK')]
 ${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
 ${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
 

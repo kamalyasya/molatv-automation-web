@@ -9,14 +9,14 @@ ${button_movie_detail_favorit}                  css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
 ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 
-${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to watch')]
+${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to Watch')]
 ${button_videos_player_watch_now}               xpath=//span[contains(text(),'Watch Now')]
 ${movie_detail_login_blocker}                   ${login_blocker_garselep1}
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}                     css=._32OqX
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
-${movie_detail_play_button}                     css=.css-18dkaks.playIcon
+${movie_detail_play_button}                     css=.playIcon
 ${movie_detail_image_logo}                      css=img[alt='Bug-logo Player']
 ${button_forward_movie_detail}                  css=.forwardIcon
 ${button_backward_movie_detail}                 css=.backwardIcon
@@ -35,6 +35,9 @@ ${movie_quality_list_720}                       css=div#vpcc-quality  .css-6p59h
 ${movie_quality_list_auto}                      css=.css-6p59hx > div:nth-of-type(5)
 ${movie_quality_selected}                       css=.quality_list.active
 ${movie_quality_title}                          css=.quality_title
+
+# Autoplay
+${text_autoplay_next_movie_title}               css=.upc-video-title
 ${autoplay_next_movie}                          css=.content
 ${autoplay_button_Play_next}                    css=.play
 ${autoplay_button_skip}                         css=.close
@@ -161,7 +164,7 @@ Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
-    ${PLAY_BUTTON}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}
+    ${PLAY_BUTTON}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}   5
     Run Keyword If                '${PLAY_BUTTON}' == 'True'          Play Content 'Mulai Dari Awal'
     ...     ELSE                                                      Play Content From Movie Detail
 
@@ -209,7 +212,12 @@ Auto Play Next Episode
     Seek To Last 10s
     Wait Until Element Is Visible       ${autoplay_next_movie}              120
 
-Verify Auto Play Next Episode
+Verify Autoplay Next Video Is Visible
+    Wait Until Element Is Visible       ${text_autoplay_next_movie_title}
+    ${TEXT_TITLE_NEXT_VIDEO} =          Get Text                            ${text_autoplay_next_movie_title}
+    Set Test Variable                   ${TEXT_TITLE_NEXT_VIDEO}
+    ${URL_CURRENT} =                    Get Location
+    Set Test Variable                   ${URL_CURRENT}
     Page Should Contain Element         ${autoplay_next_movie}
     Page Should Contain Element         ${autoplay_button_Play_next}
     Capture Element Screenshot          ${autoplay_button_Play_next}
@@ -221,6 +229,15 @@ Verify Auto Play Not Displayed
     Page Should Not Contain Element     ${autoplay_next_movie}
     Page Should Not Contain Element     ${autoplay_button_Play_next}
     Page Should Not Contain Element     ${autoplay_button_skip}
+
+Verify Auto Play Is Not Displayed
+    Page Should Not Contain Element     ${autoplay_next_movie}
+    Element Should Not Be Visible       ${autoplay_next_movie}
+    Page Should Not Contain Element     ${autoplay_button_Play_next}
+    Element Should Not Be Visible       ${autoplay_button_Play_next}
+    Page Should Not Contain Element     ${autoplay_button_skip}
+    Element Should Not Be Visible       ${autoplay_button_skip}
+
 
 Change Video Quality
     Mouse Over                          ${movie_mouse_over}
@@ -405,8 +422,10 @@ Seek To Last 10s
     Sleep                               2
 
     # Get VIDEOID
-    ${VIDEOID}                      Get Location
-    ${VIDEOID}                      Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+#    ${VIDEOID}                      Get Location
+#    ${VIDEOID}                      Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+    ${VIDEOID}                      Get Element Attribute           css=video            id
+    ${VIDEOID}                      Remove String                   ${VIDEOID}           video-main-
 
     # Get VOD length
     ${COMMAND_GET_DURATION}         catenate                        return window.player${VIDEOID}.getMediaElement().seekable.end(0)
@@ -418,15 +437,6 @@ Seek To Last 10s
 
     # Seek to position
     ${CURRENT_POSITION}             Execute Javascript              ${COMMAND_SEEK_TO}
-
-Click Button Play Next Auto Play
-    Sleep                               2
-    Click Element                       ${autoplay_button_Play_next}
-
-Click Button Skip Auto Play
-    Wait Until Element Is Visible       ${autoplay_button_skip}
-    Sleep                               5
-    Click Element                       ${autoplay_button_skip}
 
 Verify Categories Movie
     Wait Until Element Is Visible       ${expected_categories_movie_detail}
@@ -555,8 +565,11 @@ Verify VOD Is Playing
     Sleep                               2
 
     # Get VIDEOID
-    ${VIDEOID}                          Get Location
-    ${VIDEOID}                          Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+#    ${VIDEOID}                          Get Location
+#    ${VIDEOID}                          Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+
+    ${VIDEOID}                          Get Element Attribute           css=video            id
+    ${VIDEOID}                          Remove String                   ${VIDEOID}           video-main-
 
     # Get First Position
     ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
@@ -576,6 +589,72 @@ Verify VOD Is Playing
     # Verify Play Button Is Visible
     Element Should Not Be Visible       ${button_play_player_control}
 
+Verify VOD Is Playing And Time Is Elapsed
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               1
+    Wait Until Element Is Visible       ${movie_detail_duration}
+    Mouse Over                          ${movie_detail_duration}
+
+    # Get First Position
+    ${TIME}                             Get Text                ${movie_detail_duration}
+    ${FIRST_POSITION}                   Get Time To Seconds     ${TIME}
+    Sleep                               1
+
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               1
+    Wait Until Element Is Visible       ${movie_detail_duration}
+    Mouse Over                          ${movie_detail_duration}
+
+    # Get Current Position
+    ${TIME2}                            Get Text                ${movie_detail_duration}
+    ${CURRENT_POSITION}                 Get Time To Seconds     ${TIME2}
+    Should Be True                      ${FIRST_POSITION} > ${CURRENT_POSITION}
+
+    # Compare Time
+    ${STATUS}   ${TIME_DIFF}            Compare Time            ${TIME}         ${TIME2}
+    Should Be Equal                     ${STATUS}               time_decreased
+    Log                                 ${TIME_DIFF}
+
+    # Verify Pause Button Is Visible
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               1
+    Mouse Over                          ${movie_pause_button}
+    Wait Until Element Is Visible       ${movie_pause_button}
+    Element Should Be Visible           ${movie_pause_button}
+    # Verify Play Button Is Visible
+    Element Should Not Be Visible       ${button_play_player_control}
+
 Click Terms And Condition On Blocked Player
     Wait Until Element Is Visible       ${links_movie_detail_terms_conditions}
     Click Element                       ${links_movie_detail_terms_conditions}
+
+Click Button Play Next Auto Play
+    Wait Until Element Is Visible       ${autoplay_button_Play_next}
+    Click Element                       ${autoplay_button_Play_next}
+
+Click Button Skip Auto Play
+    Wait Until Element Is Visible       ${autoplay_button_skip}
+    Click Element                       ${autoplay_button_skip}
+
+Verify After Autoplay Stay At Current Video
+    ${URL} =      Get Location
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               1
+    Wait Until Element Is Visible       ${movie_detail_duration}
+    Mouse Over                          ${movie_detail_duration}
+    Capture Element Screenshot          ${movie_detail_duration}
+    Sleep                               1
+    Mouse Over                          ${movie_detail_duration}
+    Wait Until Element Contains         ${movie_detail_duration}            00:00
+    Element Text Should Be              ${movie_detail_duration}            00:00
+    Location Should Be                  ${URL}
+
+Verify After Autoplay Play Next Video
+    Wait Until Element Is Visible       ${movie_detail_title}
+    Element Should Contain              ${movie_detail_title}               ${TEXT_TITLE_NEXT_VIDEO}
+    Wait Until Location Does Not Contain    ${URL_CURRENT}
+    Wait Until Location Is Not              ${URL_CURRENT}
+    ${URL_NOW} =                        Get Location
+    Should Not Contain                  ${URL_NOW}                          ${URL_CURRENT}

@@ -31,7 +31,8 @@ Choose A Package
     Wait Until Element Is Visible                       ${text_subscription_package_1st_package_title}
     Wait Until Element Is Visible                       ${text_subscription_package_1st_package_price}
     Wait Until Element Is Visible                       ${button_subscription_package_1st_package_subscribe_now}
-    ${TITLE_PACKAGE} =      Get Text                    ${text_subscription_package_1st_package_title}
+    ${TITLE_PACKAGE} =      Catenate                    Premium Entertainment 1 Month
+#    ${TITLE_PACKAGE} =      Get Text                    ${text_subscription_package_1st_package_title}
     ${PRICE_PACKAGE} =      Get Text                    ${text_subscription_package_1st_package_price}
     ${PRICE_PACKAGE} =      Remove String Using Regexp  ${PRICE_PACKAGE}    \/(.*)
     Set Test Variable       ${TITLE_PACKAGE}

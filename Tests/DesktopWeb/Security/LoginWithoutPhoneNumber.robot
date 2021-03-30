@@ -10,7 +10,7 @@ ${URL}				                    ${HOST}/accounts/profile
 
 ${EXPECTED_MESSAGE_WRONG_LOGIN}         Either id or password you have entered is invalid
 ${EXPECTED_MESSAGE_WRONG_LOGIN_7_TIMES}  Too many attempts to enter. Please try again in 10 minutes
-${EXPECTED_MESSAGE_EMAIL_EMPTY}         Email cannot be empty
+${EXPECTED_MESSAGE_EMAIL_EMPTY}         Email must be filled
 ${EXPECTED_TITLE_RESET_PASSWORD}        Enter OTP Code that has been sent to
 ${EXPECTED_TEXT_INVALID_TOKEN}          Verification code is incorrect or has expired
 ${EXPECTED_TEXT_INVALID_TOKEN2}         INVALID_OTP
@@ -79,7 +79,7 @@ TC006 Sign in from special asset
 
 TC007 Sign in from Beli Paket
     [Documentation]  Login process from Beli Paket page
-    [Tags]  Regression  Smoke   NeedReview  Fixed
+    [Tags]  Regression  Smoke   Verified
 
     HomePage.Open Beli Akses Menu
     SubscriptionPackagePage.Choose A Package

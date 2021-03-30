@@ -19,10 +19,10 @@ ${button_accounts_logout}           css=._3qxwB
 ${icon_menu_home}                   css=div:nth-of-type(2) > .SwWJf
 
 # Frame Email not registered
-${text_login_title_email_not_registered}    xpath=//div[contains(text(),'Email not registered')]
+${text_login_title_email_not_registered}    xpath=//div[contains(text(),'Email is not registered')]
 ${text_login_continue_register_with}        css=._3NBC1
 ${button_login_cancel_register}     xpath=//button[contains(text(),'Cancel')]
-${button_login_create_account}      xpath=//button[contains(text(),'Create Account')]
+${button_login_create_account}      xpath=//button[contains(text(),'Register')]
 
 *** Keywords ***
 Login Using Credentials
@@ -97,7 +97,7 @@ Click Button Facebook Login
 Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}
     Element Should Be Visible           ${text_login_email_error_message}
-    ELement Text Should Be              ${text_login_email_error_message}           Wrong email format
+    ELement Text Should Be              ${text_login_email_error_message}           Email format is incorrect
 
 Verify Email field Error Message Is Show Up
     [Arguments]    ${TEXT_EXPECTED_ERROR_MESSAGE}
@@ -141,7 +141,7 @@ Verify Frame Register Is Appeared
     Element Should Be Visible           ${text_login_title_email_not_registered}
     Wait Until Element Is Visible       ${text_login_continue_register_with}
     Element Should Be Visible           ${text_login_continue_register_with}
-    ${EXTECTED_TEXT}                    Catenate                continue register with email\n${EMAIL}\n?
+    ${EXTECTED_TEXT}                    Catenate                Create account with this email\n${EMAIL}\n?
     Element Should Contain              ${text_login_continue_register_with}                    ${EXTECTED_TEXT}
     Wait Until Element Is Visible       ${button_login_cancel_register}
     Element Should Be Visible           ${button_login_cancel_register}
