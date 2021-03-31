@@ -9,9 +9,7 @@ ${button_movie_detail_favorit}                  css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
 ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
 
-${login_blocker_garselep1}                      xpath=//*[contains(text(),'Login to Watch')]
-${button_videos_player_watch_now}               xpath=//span[contains(text(),'Watch Now')]
-${movie_detail_login_blocker}                   ${login_blocker_garselep1}
+${button_videos_player_login_to_watch_after_trailer}          css=._33Xwm
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}                     css=._32OqX
 ${field_login_email}                            id=email
@@ -23,7 +21,8 @@ ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
 ${movie_pause_button}                           css=.pauseIcon
-${button_watch_now_movie_detail_page}           xpath=//*[@id="video-child"]/div[2]/div[3]
+${button_login_to_watch_movie_detail_page}      css=._3J12S span
+${button_watch_now_movie_detail_page}           css=._3J12S span
 
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
@@ -108,9 +107,9 @@ Select an asset for video playback (Live/Reply/Movie)
 
 Verify login blocker if not sign in before
     Sleep                               3
-    Page Should Contain Element         ${login_blocker_garselep1}
-    Capture Element Screenshot          ${title_movie_detail}
-    Capture Element Screenshot          ${login_blocker_garselep1}
+    Page Should Contain Element         ${button_login_to_watch_movie_detail_page}
+    Capture Element Screenshot          ${text_movie_detail_title}
+    Capture Element Screenshot          ${button_login_to_watch_movie_detail_page}
 
 Go To Movie Detail
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -118,8 +117,14 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    Wait Until Element Is Visible       ${movie_detail_login_blocker}
-    Click Element                       ${movie_detail_login_blocker}
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    mouse over                          ${movie_mouse_over}
+    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
+    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
+    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
+    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
+#    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
+#    Click Element                       ${button_watch_now_movie_detail_page}
 
 Verify Direct To Login Page
     Wait Until Element Is Visible       ${frame_login_movie_detail}
@@ -156,8 +161,8 @@ Play Content 'Watch Now'
     sleep                               5
 
 Click Button Watch Now On Video Player
-    ${CHECK_WATCH_NOW_BUTTON}           Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_watch_now}           10
-    Run Keyword If                      '${CHECK_WATCH_NOW_BUTTON}'=='True'         Click Element                       ${button_videos_player_watch_now}
+    ${CHECK_WATCH_NOW_BUTTON}           Run Keyword And Return Status               Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}           10
+    Run Keyword If                      '${CHECK_WATCH_NOW_BUTTON}'=='True'         Click Element                       ${button_watch_now_movie_detail_page}
     ...     ELSE                        Play Content Video Or Play Video From Begining
 
 Play Content Video Or Play Video From Begining

@@ -35,7 +35,7 @@ ${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ck
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
 ${categories_homepage1}                         css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage1}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .carouselWrapper
-${button_view_all1}                             css=[href='\/categories\/fea-justadded']
+${button_view_all1}                             link=View All
 ${categories_homepage2}                         css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage2}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
 ${button_view_all2}                             css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k > a
@@ -65,7 +65,7 @@ ${image_content_homepage}                       css=.css-hq095j
 ${frame_categories_and_content_homepage}        css=._36Wlv
 
 #Rail Banner In All Menu
-${rail_banner_all_menu}                         css=.css-1bl7jfg
+${rail_banner_all_menu}                         css=.css-1sownrj
 
 #All Match Card
 ${page_match_card}                              css=.css-1et68jm
@@ -150,7 +150,6 @@ ${checkbox_1}                                   css=.checkbox0
 ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3.checkbox0
 
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
-
 
 #VOD In Continues Watching
 ${title_vod_continues_watching}                 css=.css-5jjjwv.undefined
@@ -466,6 +465,8 @@ Verify the UI of category page after click view all button
     Element Should Be Visible                   ${title_categories_view_all}
 
 Verify the info shown in VOD/Match Card
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 25000})
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 20000})
     Scroll Element Into View                    ${image_content_homepage}
     Get Source
     Get Value                                   ${image_content_homepage}
