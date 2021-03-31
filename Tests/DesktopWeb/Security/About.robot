@@ -21,7 +21,7 @@ TC001 UI of My Account Page
 
 TC002 Privacy
     [Documentation]  Check Privacy page at My Account page, Register page and Beli Paket page
-	[Tags]  Regression  NeedReview  Fixed
+	[Tags]  Regression  Verified
 
 	HomePage.Open Privasi Page
 	PrivacyPage.Verify User Can Open Privacy Page
@@ -41,7 +41,7 @@ TC002 Privacy
 
 TC003 Terms & Conditions
     [Documentation]  Check System page at My Account page, Register page, Beli Paket page and User Banning blocker
-	[Tags]  Regression  NeedReview  Fixed
+	[Tags]  Regression  Verified
 
 	HomePage.Open Syarat Dan Ketentuan Page
 	TermsConditionsPage.Verify User Can Open Syarat Dan Ketentuan Page
