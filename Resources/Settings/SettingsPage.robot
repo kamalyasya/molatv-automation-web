@@ -151,7 +151,10 @@ Make some changes and Save
     Wait Until Element Is Visible                   ${label_no_telepon_settings}
     Input Text                                      ${label_no_telepon_settings}            ${PHONE}
     Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
+    Click Element                                   ${label_jenis_kelamin_f_settings}
     Wait Until Element Is Visible                   ${label_lokasi_default_settings}
+    Click Element                                   ${label_lokasi_change01_settings}
+
 
 Button Simpan
     Wait Until Element Is Visible                   ${button_simpan_settings}

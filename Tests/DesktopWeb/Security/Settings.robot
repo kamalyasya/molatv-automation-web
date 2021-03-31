@@ -57,7 +57,7 @@ TC001 Edit Profile view
 TC002 Edit Profile
     [Documentation]         Make a change at edit profile
     ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke   NeedReview   NeedVerify
+    [Tags]                  Regression  Smoke   Verified
 
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
@@ -69,6 +69,7 @@ TC002 Edit Profile
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE}    ${DOB}      Female   Japan
     SettingsPage.Make changes to default value      ${PHONE1}
     Reload Page
     Go Back
@@ -82,7 +83,7 @@ TC002 Edit Profile
 TC003 Edit Profile without saving it
     [Documentation]         Make a change at edit profile and don't save it
     ...                     User already have an account and sign in
-    [Tags]                  Regression  Smoke   NeedReview
+    [Tags]                  Regression  Smoke   Verified
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon 01
@@ -145,7 +146,7 @@ TC011 Edit Profile change Date of Birth
 TC012 Edit Profile change Phone Number
     [Documentation]         User already have an account and sign in
     ...                     Make phone number change, using phone number that already used for another account
-    [Tags]                  Regression  Smoke   NeedReview
+    [Tags]                  Regression  Smoke   Verified
 
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
@@ -350,7 +351,7 @@ TC022 Atur Password add existing email address to Account
 
 TC023 - Language
     [Documentation]         Setting language on Mola TV
-    [Tags]                  Regression  Smoke   None
+    [Tags]                  Regression  Smoke   NeedVerify
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -364,3 +365,6 @@ TC023 - Language
     Reload Page
     Go Back
     Logout Account
+
+    # Perlu Adanya NeedVerify di bagian TabMenu css=._16YQ- dan    Menu Setting    css=._1KqoD Verify Text nya saja
+    # Tambah Pengecekkan untuk Change Language nya itu gak pakai login ????
