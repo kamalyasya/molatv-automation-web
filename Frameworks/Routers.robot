@@ -7,6 +7,7 @@ Library             ../Library/MolatvLibrary.py
 ### Import Resource ###
 # Frameworks
 Resource            Configs.robot
+
 # Resource
 Resource            ../Resources/Accounts/FavoritePage.robot
 Resource            ../Resources/Accounts/ProfilePage.robot

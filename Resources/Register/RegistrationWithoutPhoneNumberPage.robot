@@ -7,8 +7,11 @@ Resource                ../../Frameworks/Routers.robot
 ${links_login_create_account_now}                   css=p > a
 
 ${field_register_email}                             id=identity
+${text_register_email_error}                        css=[for='identity']
 ${field_register_password}                          id=password
+${text_register_password_error}                     css=[for='password']
 ${field_register_confirm_password}                  id=confirmPassword
+${text_register_confirm_password_error}             css=[for='confirmPassword']
 
 ${button_register_create_account}                   css=._3C-S2
 
@@ -31,6 +34,8 @@ ${button_register_subcription_plan}                 css=div:nth-of-type(2) > div
 ${scroll_register_pay_subcription}                  css=.css-vdka53 > div:nth-of-type(1)
 ${button_register_pay_subcription}                  css=div:nth-of-type(5) > .css-hwiqbu > .css-1fu35er
 
+# Notification Message
+${text_registration_notification_message}           css=._3MuQu
 
 *** Keywords ***
 
@@ -48,7 +53,7 @@ Input all the field and tick the agreement
 Click Register Button
     Wait Until Element Is Visible                   ${button_register_create_account}
     Click Element                                   ${button_register_create_account}
-    Sleep                                           5
+#    Sleep                                           5
 
 Verify Enter OTP Code
     Wait Until Element Is Visible                   ${text_enter_otp_code_that_has_been_sent_to}
@@ -87,19 +92,50 @@ Select any special assets or content
     [Arguments]                                     ${URL_SAMPLE_MOVIE}
     Go To                                           ${URL_SAMPLE_MOVIE}
 
-#Select buy package
-#    Sleep                                           3
-#    Scroll Element Into View                        ${button_register_subcription_plan}
-#    Wait Until Element Is Visible                   ${button_register_subcription_plan}
-#    Click Element                                   ${button_register_subcription_plan}
-#
-#Choose package
-#    Sleep                                           2
-#    Mouse Over                                      ${button_register_pay_subcription}
-#    Scroll To Element                               ${button_register_pay_subcription}
-#    Scroll Element Into View                        ${scroll_register_pay_subcription}
-#    Wait Until Element Is Visible                   ${scroll_register_pay_subcription}      5
-#
-#    Element Should Be Visible                       ${button_register_pay_subcription}
-#    Wait Until Element Is Visible                   ${button_register_pay_subcription}
-#    Click Element                                   ${button_register_pay_subcription}
+Register Using Email Password
+    [Arguments]    ${EMAIL}     ${PASSWORD}     ${CONFIRM_PASSWORD}
+    Wait Until Element Is Visible                   ${field_register_email}
+    Input Text                                      ${field_register_email}                 ${EMAIL}
+    Input Password                                  ${field_register_password}              ${PASSWORD}
+    Input Password                                  ${field_register_confirm_password}      ${CONFIRM_PASSWORD}
+
+Verify Error Message On Email Field
+    [Arguments]    ${EMAIL_ERROR_MESSAGE}
+    Wait Until Element Is Visible                   ${text_register_email_error}
+    Element Should Be Visible                       ${text_register_email_error}
+    Element Text Should Be                          ${text_register_email_error}            ${EMAIL_ERROR_MESSAGE}
+
+Verify Error Message On Password Field
+    [Arguments]    ${PASSWORD_ERROR_MESSAGE}
+    Wait Until Element Is Visible                   ${text_register_password_error}
+    Element Should Be Visible                       ${text_register_password_error}
+    Element Text Should Be                          ${text_register_password_error}         ${PASSWORD_ERROR_MESSAGE}
+
+Verify Error Message On Confirm Password Field
+    [Arguments]    ${CONFIRM_PASSWORD_ERROR_MESSAGE}
+    Wait Until Element Is Visible                   ${text_register_confirm_password_error}
+    Element Should Be Visible                       ${text_register_confirm_password_error}
+    Element Text Should Be                          ${text_register_confirm_password_error}            ${CONFIRM_PASSWORD_ERROR_MESSAGE}
+
+Verify Notification Message On Registration Page Is Appeared
+    [Arguments]    ${TEXT_NOTIFICATION_MESSAGE}
+    Wait Until Element Is Visible                   ${text_registration_notification_message}
+    Mouse Over                                      ${text_registration_notification_message}
+    Element Should Be Visible                       ${text_registration_notification_message}
+    Element Should Contain                          ${text_registration_notification_message}            ${TEXT_NOTIFICATION_MESSAGE}
+
+Clear Registration Email Field
+    Wait Until Element Is Visible                   ${field_register_email}
+    ${TEXT}         Get Element Attribute           ${field_register_email}           value
+    ${LENGTH}       Get Length                      ${TEXT}
+    FOR    ${var}   IN RANGE    ${LENGTH}
+        Press Keys    ${field_register_email}    BACKSPACE
+    END
+
+Clear Registration Password Field
+    Wait Until Element Is Visible                   ${field_register_password}
+    ${TEXT}         Get Element Attribute           ${field_register_password}           value
+    ${LENGTH}       Get Length                      ${TEXT}
+    FOR    ${var}   IN RANGE    ${LENGTH}
+        Press Keys    ${field_register_password}    BACKSPACE
+    END
