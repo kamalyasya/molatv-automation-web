@@ -537,6 +537,7 @@ Open Tontonan Saya Page
 Go To Homepage
     Wait Until Element Is Visible               ${logo_homepage_molatv}
     Click Element                               ${logo_homepage_molatv}
+    Mouse Over To Live Chat
 
 Click View All On Favorit Saya
     Wait Until Element Is Visible               ${links_homepage_view_all_favorit_saya}
