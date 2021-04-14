@@ -74,3 +74,9 @@ TC005 Access 18+ content using account didn't have date of birth
     AgeRestrictionPage.Click Button Tutup
     Reload Page
     Logout Account
+
+TC006 Reset DOB from Misty for Desktop Web
+    [Documentation]         Have 1 user_id
+    ...                     That user_id already inputted the incorrect DOB, user want to change.
+	[Tags]                  Skip
+	Log                     Reason Can't Automated : Substitution of new autonomous regions can be replaced after 3 months

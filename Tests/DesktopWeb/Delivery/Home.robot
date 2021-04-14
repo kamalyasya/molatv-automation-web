@@ -40,7 +40,7 @@ TC004 Continue Watching
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail            ${EXPECTED_URL_MOVIE}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     HomePage.Verify Continue Watching Displayed Under The Banner
 
 #TC005 Continue Watching - Timestamp

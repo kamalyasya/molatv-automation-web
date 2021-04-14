@@ -8,7 +8,7 @@ Test Teardown                   CommonKeywords.End Testing
 *** Variables ***
 ${URL}                                  ${HOST}
 ${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd74299098
-${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd98467304
+${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd97823877
 ${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
 ${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=vd61951986
 ${URL_MOVIE_DETAIL4}                    ${HOST}/watch?v=vd03702876
@@ -40,6 +40,8 @@ Delivery - Video Player: TC001 Movie Details page
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}               ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
     SignInPage.Logout Account
+    #menambahkan duration, categories and rating is shown under movie title
+    #Verifikasi related video berdasarkan movie tunggal atau series dari judul film (Pending karena related video ada bugs)
 
 Delivery - Video Player: TC002 Play the content
     [Documentation]     Verify the VOD can be played
@@ -60,8 +62,12 @@ Delivery - Video Player: TC003 Trailer Asset
 
     MovieDetailPage.Go To Movie Detail              ${URL_TRAILER_DETAIL}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_TRAILER_DETAIL}
-    MovieDetailPage.Play Content Video Or Play Video From Begining
-    MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
+    MovieDetailPage.Verify Button Login To Watch Appear After Trailer Finished
+    MovieDetailPage.Verify Trailer Can Play In Movie Detail Tab "Trailer"
+    MovieDetailPage.Verify Default Control
+
+    #Memastikan bisa play trailer dari movie detail
+    #Verifikasi button login to watch muncul setelah trailer selesai play
 
 Delivery - Video Player: TC004 Default Controls
     [Documentation]     Verify the player is using the default control
@@ -70,6 +76,8 @@ Delivery - Video Player: TC004 Default Controls
     MovieDetailPage.Go To Movie Detail              ${URL_TRAILER_DETAIL}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Default Control
+
+    #Verifikasi button fit on screen dan minimize ketika movie di fullscreen
 
 Delivery - Video Player: TC005 Buffering
     [Documentation]  Verify there is a loading indicator when buffering
@@ -100,6 +108,8 @@ Delivery - Video Player: TC006 Fullscreen Mode
     MovieDetailPage.Verify fullscreen icon
     SignInPage.Logout Account
 
+    #Verifikasi button fit on screen dan minimize ketika movie di fullscreen
+
 Delivery - Video Player: TC007 Playback Control
     [Documentation]  Playback control movie
     [Tags]           Regression   Smoke
@@ -114,6 +124,8 @@ Delivery - Video Player: TC007 Playback Control
     MovieDetailPage.Verify Pause And Resume Live Matches
     SignInPage.Logout Account
 
+    #Setelah klik skip button verifikasi button replay
+
 Delivery - Video Player: TC008 Playback - progress bar
     [Documentation]  Verify the progress bar and elapsed time are updating when playing a content
     [Tags]           Regression   Smoke
@@ -127,6 +139,10 @@ Delivery - Video Player: TC008 Playback - progress bar
     MovieDetailPage.Mouse Hover To Movie
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
     SignInPage.Logout Account
+
+   #Verifikasi Progress bar dan duration terupdate
+   #memastikan durasi terupdate 10
+   #verifikasi video berjalan
 
 Delivery - Video Player: TC009 Playback - Forward/Backward
     [Documentation]  Verify the content resumes after fast forwarded or backward
