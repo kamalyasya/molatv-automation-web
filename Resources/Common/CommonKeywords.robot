@@ -47,8 +47,8 @@ Scroll To Element Vertical Position
 
 Reset Mola DOB
     [Arguments]    ${UID}
-    ${endpoint}             Set Variable                /accounts/_/v2/profile/reset/birthdate
     Create Session          reset_mola_dob              ${HOST}
+    ${endpoint}             Set Variable                /accounts/_/v2/profile/reset/birthdate
     ${headers}=             Create Dictionary           Content-Type    application/json
     &{data}=                Create Dictionary           uid=${UID}
     ${response}=            POST On Session             reset_mola_dob      ${endpoint}    headers=${headers}   json=${data}
