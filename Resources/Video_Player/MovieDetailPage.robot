@@ -4,10 +4,11 @@ Resource            ../../Frameworks/Routers.robot
 *** Variables ***
 # Right Side
 ${text_movie_detail_title}                      css=h1
-${button_movies_categories}                     css=a:nth-of-type(1) > ._w0BR > ._1Ch51.css-tqv6h2.imageWrapper.loaded
 ${button_movie_detail_favorit}                  css=.favorite-wrapper
 ${button_movie_detail_favorit_non_active}       css=.md-favorite-icon
 ${button_movie_detail_favorit_active}           css=.md-favorite-icon-active
+${text_duration_movie_detail_page}              css=.sub-header > span:nth-of-type(1)
+${text_categories_movie_detail_page}            css=.sub-header > span:nth-of-type(2)
 
 ${button_videos_player_login_to_watch_after_trailer}          css=._33Xwm
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
@@ -23,6 +24,10 @@ ${movie_progress_bar}                           css=.progressbar_progress
 ${movie_pause_button}                           css=.pauseIcon
 ${button_login_to_watch_movie_detail_page}      css=._3J12S span
 ${button_watch_now_movie_detail_page}           css=._3J12S span
+${button_sound_on_trailer_movie_detail_page}    css=._20cSF
+${text_play_trailer_movie_detail_page}          css=._2Wg44
+${frame_play_trailer_movie_detail_page}         css=._2mt2k .css-1kiiaat
+${card_trailer_movie_detail_page}               css=.css-j22q8m .css-tqv6h2.imageWrapper.loaded
 
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
@@ -66,6 +71,7 @@ ${expected_movie_detail_play_button}            css=.css-zy8jsc
 ${expected_movie_detail_synopsis}               css=.css-oa5ddb > div:nth-of-type(1)
 ${expected_movie_detail_cast}                   css=.css-oa5ddb > div:nth-of-type(2)
 ${expected_movie_detail_related_video}          css=#detailBottom
+${expected_movie_detail_trailer}                css=.css-oa5ddb > div:nth-of-type(2)
 
 ${expected_movie_detail_countdown}              css=._3Qguo
 ${expected_volume}                              css=.volume
@@ -138,9 +144,11 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_title_movie_detail}
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
-    Scroll Element Into View            ${expected_movie_detail_related_video}
-    Element Should Be Visible           ${expected_movie_detail_related_video}
-    Scroll Element Into View            ${expected_title_movie_detail}
+    Element Should Be Visible           ${text_duration_movie_detail_page}
+    Element Should Be Visible           ${text_categories_movie_detail_page}
+#    Scroll Element Into View            ${expected_movie_detail_related_video}
+#    Element Should Be Visible           ${expected_movie_detail_related_video}
+#    Scroll Element Into View            ${expected_title_movie_detail}
 
 Play Content From Movie Detail
     sleep                               5
@@ -663,3 +671,23 @@ Verify After Autoplay Play Next Video
     Wait Until Location Is Not              ${URL_CURRENT}
     ${URL_NOW} =                        Get Location
     Should Not Contain                  ${URL_NOW}                          ${URL_CURRENT}
+
+Verify Button Login To Watch Appear After Trailer Finished
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_sound_on_trailer_movie_detail_page}
+    Wait Until Element Is Visible       ${frame_play_trailer_movie_detail_page}  140
+    Element Should Be Visible           ${text_play_trailer_movie_detail_page}
+    Element Should Be Visible           ${frame_play_trailer_movie_detail_page}
+    Element Should Be Visible           ${button_videos_player_login_to_watch_after_trailer}
+
+Verify Trailer Can Play In Movie Detail Tab "Trailer"
+    Wait Until Element Is Visible       ${expected_title_movie_detail}
+    Element Should Be Visible           ${expected_title_movie_detail}
+    Element Should Be Visible           ${expected_movie_detail_trailer}
+    Click Element                       ${expected_movie_detail_trailer}
+    Mouse Over                          ${card_trailer_movie_detail_page}
+    Element Should Be Visible           ${card_trailer_movie_detail_page}
+    Click Element                       ${card_trailer_movie_detail_page}
+    Wait Until Element Is Visible       ${movie2_play_button}
+    Click Element                       ${movie2_play_button}
