@@ -11,6 +11,7 @@ ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_google}              css=._3Zzdj > button:nth-of-type(1)
 ${button_login_fb}                  xpath=//button[2]
+${button_login_apple}               xpath=//button[3]
 ${text_login_email_error_message}   css=.inputError
 
 ${sidebar_home}                     css=._1GfoO
@@ -93,6 +94,10 @@ Click Button Google Login
 Click Button Facebook Login
     Wait Until Element Is Visible       ${button_login_fb}
     Click Element                       ${button_login_fb}
+
+Click Button Apple Login
+    Wait Until Element Is Visible       ${button_login_apple}
+    Click Element                       ${button_login_apple}
 
 Verify Format Email Salah Message is show up
     Wait Until ELement Is Visible       ${text_login_email_error_message}

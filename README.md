@@ -6,12 +6,14 @@ pip3 install robotframework==4.0
 pip3 install robotframework-pabot==1.11
 pip3 install robotframework-seleniumlibrary
 pip3 install robotframework-crypto
+pip3 install robotframework-jsonlibrary
+pip3 install robotframework-requests
 pip3 install pyotp
 ```
 
 ##### Configure robotframework-crypto
 ```sh
-python -m CryptoLibrary
+python3 -m CryptoLibrary
 Open config > Configure key pair > Set key pair from string > Input JSON of key (Check pinned message at slack team-te)
 Open config > Configure public key > Set public key from string > Input public key (Check pinned message at slack team-te)
 

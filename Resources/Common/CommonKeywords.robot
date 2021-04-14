@@ -45,13 +45,14 @@ Scroll To Element Vertical Position
     ${y} =        Evaluate         ${vertical_position} - 50
     Execute Javascript  document.getElementsByClassName('children__container')[0].scrollTo(0, ${y})
 
-#IniTambahanTestCasenyaKamalUntukResetDOB
 Reset Mola DOB
     [Arguments]    ${UID}
     Create Session          reset_mola_dob              ${HOST}
+    ${endpoint}             Set Variable                /accounts/_/v2/profile/reset/birthdate
     ${headers}=             Create Dictionary           Content-Type    application/json
     &{data}=                Create Dictionary           uid=${UID}
-    ${response}=            POST On Session             reset_mola_dob      /accounts/_/v2/profile/reset/birthdate    headers=${headers}   json=${data}
+    ${response}=            POST On Session             reset_mola_dob      ${endpoint}    headers=${headers}   json=${data}
     ${json_response}=       Convert To String           ${response.status_code}
+
     Log To Console          ${response.content}
     Should Be Equal         ${json_response}            200

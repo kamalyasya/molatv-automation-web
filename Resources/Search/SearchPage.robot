@@ -5,12 +5,15 @@ Resource                ../../Frameworks/Routers.robot
 ${field_search_search}                          css=._2dD7w
 ${button_search_do_search}                      css=._2j-ks
 ${text_search_keyword_prediction}               css=._1cT7L
+${text_search_title_search_keyword}             css=._1cFbU
 ${text_search_popular_suggestions}              css=.CHm7J
 ${text_search_title_recent_search}              css=._1nDIL > div:nth-of-type(1)
 ${text_search_result_recent_search}             css=._1cT7L
 ${image_search_search_result_1}                 css=.bannerImage
 ${text_search_search_result_1}                  css=.title
 ${text_search_search_no_result}                 css=._2pgUB
+${text_search_search_no_result_try_different}   css=._1X70o
+${icon_search_search_no_result}                 css=.fadeIn
 
 *** Keywords ***
 Input Search Keyword
@@ -48,13 +51,20 @@ Verify Search Result
     Wait Until Element Is Visible               ${text_search_search_result_1}
     Element Should Be Visible                   ${text_search_search_result_1}
     Element Should Contain                      ${text_search_search_result_1}              ${EXPECTED_TEXT_SEARCH_RESULT}
+    Wait Until Element Is Visible               ${text_search_title_search_keyword}
+    Element Should Contain                      ${text_search_title_search_keyword}         Search result for ${EXPECTED_TEXT_SEARCH_RESULT}
 
 Verify No Result Found
     [Arguments]    ${EXPECTED_TEXT_SEARCH_RESULT}
-    ${TEXT_NO_RESULT}           Catenate        Oops, your search for "${EXPECTED_TEXT_SEARCH_RESULT}" not found,
+    ${TEXT_NO_RESULT}           Catenate        Oops, your search for: "${EXPECTED_TEXT_SEARCH_RESULT}" not found,
     Wait Until Element Is Visible               ${text_search_search_no_result}
     Element Should Be Visible                   ${text_search_search_no_result}
-    Element Should Contain                      ${text_search_search_no_result}             ${TEXT_NO_RESULT}
+    Element Should Contain                      ${text_search_search_no_result}                     ${TEXT_NO_RESULT}
+    Wait Until Element Is Visible               ${text_search_search_no_result_try_different}
+    Element Should Contain                      ${text_search_search_no_result_try_different}       try different keywords
+    Wait Until Element Is Visible               ${icon_search_search_no_result}
+    Element Attribute Value Should Be           ${icon_search_search_no_result}         src         https://mola01.koicdn.com/assets-global/images/search/error.png
+
 
 Verify Keyword Predictions
     [Arguments]    ${EXPECTED_TEXT_KEYWORD_PREDICTION}
@@ -72,9 +82,13 @@ Open Related Movie
     Click Element                               ${text_search_search_result_1}
 
 Clear Keywords On Search Field
-    Wait Until Element Is Visible               ${field_search_search}
-    Sleep                                       2
-    Clear Element Text                          ${field_search_search}
+    Wait Until Element Is Visible                   ${field_search_search}
+    ${TEXT}         Get Element Attribute           ${field_search_search}           value
+    ${LENGTH}       Get Length                      ${TEXT}
+    FOR    ${var}   IN RANGE    ${LENGTH}
+        Press Keys    ${field_search_search}    BACKSPACE
+    END
+
 
 Verify Clear Keywords
     Wait Until Element Is Visible               ${field_search_search}
@@ -89,3 +103,4 @@ Verify Recent Search Is Shown
     Element Text Should Be                      ${text_search_title_recent_search}          Search history
     Wait Until Element Is Visible               ${text_search_result_recent_search}
     Element Should Be Visible                   ${text_search_result_recent_search}
+    Element Should Contain                      ${text_search_result_recent_search}         ${TEXT_RECENT_KEYWORD}
