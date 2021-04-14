@@ -14,7 +14,7 @@ ${text_login_login_page}                        css=._2WE07 > ._3CiJF
 ${frame_login_movie_detail}                     css=._32OqX
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
-${movie_detail_play_button}                     css=.playIcon
+${movie_detail_play_button}                     css=._2zwq4
 ${movie_detail_image_logo}                      css=img[alt='Bug-logo Player']
 ${button_forward_movie_detail}                  css=.forwardIcon
 ${button_backward_movie_detail}                 css=.backwardIcon

@@ -2,7 +2,10 @@
 Library             SeleniumLibrary     plugins=CryptoLibrary.Plugin
 Library             OperatingSystem
 Library             String
+Library             RequestsLibrary
+Library             JSONLibrary
 Library             ../Library/MolatvLibrary.py
+
 
 ### Import Resource ###
 # Frameworks
