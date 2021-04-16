@@ -6,39 +6,43 @@ Test Setup                      CommonKeywords.Start Testing        ${URL}
 Test Teardown                   CommonKeywords.End Testing
 
 *** Variables ***
-${URL}                                  ${HOST}
-${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd74299098
-${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd97823877
-${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
-${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=vd61951986
-${URL_MOVIE_DETAIL4}                    ${HOST}/watch?v=vd03702876
-${URL_MOVIE_DETAIL18+}                  ${HOST}/watch?v=vd86229032
-${URL_MOVIE_DETAIL_EPISODES}            ${HOST}/watch?v=vd71200689
-${EXPECTED_URL_MOVIE_DETAIL}            ${URL_MOVIE_DETAIL}
-${EXPECTED_URL_MOVIE_DETAIL2}           ${URL_MOVIE_DETAIL2}
-${EXPECTED_URL_MOVIE_DETAIL3}           ${URL_MOVIE_DETAIL3}
-${EXPECTED_URL_MOVIE_DETAIL4}           ${URL_MOVIE_DETAIL4}
-${EXPECTED_TRAILER_DETAIL}              ${URL_TRAILER_DETAIL}
-${EXPECTED_URL_MOVIE_DETAIL_EPISODES}   ${URL_MOVIE_DETAIL_EPISODES}
-${EXPECTED_LOCATION_NEXT_EPISODE}       ${HOST}/watch?v=vd71200807&autoplay=1
-${EXPECTED_TITLE_SAME_EPISODES}         S1E02: A New Chicken Shed for Moo
-${EXPECTED_TEXT_MENU_HOME}              Home
-${EXPECTED_CHANGE_QUALITY_576}          576
-${EXPECTED_CHANGE_QUALITY_270}          270
-${EXPECTED_CHANGE_QUALITY_360}          360
-${EXPECTED_CHANGE_QUALITY_720}          720
-${EXPECTED_CHANGE_QUALITY_AUTO}         Auto
+${URL}                                          ${HOST}
+${URL_MOVIE_DETAIL}                             ${HOST}/watch?v=vd74299098
+${URL_TRAILER_DETAIL}                           ${HOST}/watch?v=vd97823877
+${URL_MOVIE_DETAIL2}                            ${HOST}/watch?v=vd98699941
+${URL_MOVIE_DETAIL3}                            ${HOST}/watch?v=vd61951986
+${URL_MOVIE_DETAIL4}                            ${HOST}/watch?v=vd03702876
+${URL_MOVIE_DETAIL18+}                          ${HOST}/watch?v=vd86229032
+${URL_MOVIE_DETAIL_EPISODES_KIDS}               ${HOST}/watch?v=vd71200689
+${URL_MOVIE_DETAIL_EPISODES_DRAMA}              ${HOST}/watch?v=vd99956669
+${EXPECTED_URL_MOVIE_DETAIL}                    ${URL_MOVIE_DETAIL}
+${EXPECTED_URL_MOVIE_DETAIL2}                   ${URL_MOVIE_DETAIL2}
+${EXPECTED_URL_MOVIE_DETAIL3}                   ${URL_MOVIE_DETAIL3}
+${EXPECTED_URL_MOVIE_DETAIL4}                   ${URL_MOVIE_DETAIL4}
+${EXPECTED_TRAILER_DETAIL}                      ${URL_TRAILER_DETAIL}
+${EXPECTED_URL_MOVIE_DETAIL_EPISODES_KIDS}      ${URL_MOVIE_DETAIL_EPISODES_KIDS}
+${EXPECTED_URL_MOVIE_DETAIL_EPISODES_DRAMA}     ${URL_MOVIE_DETAIL_EPISODES_DRAMA}
+${EXPECTED_LOCATION_NEXT_EPISODE}               ${HOST}/watch?v=vd71200807&autoplay=1
+${EXPECTED_TITLE_SAME_EPISODES}                 S1E02: A New Chicken Shed for Moo
+${EXPECTED_TEXT_MENU_HOME}                      Home
+${EXPECTED_CHANGE_QUALITY_576}                  576
+${EXPECTED_CHANGE_QUALITY_270}                  270
+${EXPECTED_CHANGE_QUALITY_360}                  360
+${EXPECTED_CHANGE_QUALITY_720}                  720
+${EXPECTED_CHANGE_QUALITY_AUTO}                 Auto
 
 *** Test Cases ***
 Delivery - Video Player: TC001 Movie Details page
     [Documentation]     Verify the content details page of a movie
     [Tags]              Regression  Smoke
 
-    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL2}
+    MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_EPISODES_DRAMA}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}               ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL2}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_EPISODES_DRAMA}
+    MovieDetailPage.Verify Title Related Video
+    MovieDetailPage.Verify Related Video Based On Single Film Title
     SignInPage.Logout Account
     #menambahkan duration, categories and rating is shown under movie title
     #Verifikasi related video berdasarkan movie tunggal atau series dari judul film (Pending karena related video ada bugs)
@@ -66,8 +70,8 @@ Delivery - Video Player: TC003 Trailer Asset
     MovieDetailPage.Verify Trailer Can Play In Movie Detail Tab "Trailer"
     MovieDetailPage.Verify Default Control
 
-    #Memastikan bisa play trailer dari movie detail
-    #Verifikasi button login to watch muncul setelah trailer selesai play
+    #Memastikan bisa play trailer dari movie detail (Done)
+    #Verifikasi button login to watch muncul setelah trailer selesai play (Done)
 
 Delivery - Video Player: TC004 Default Controls
     [Documentation]     Verify the player is using the default control

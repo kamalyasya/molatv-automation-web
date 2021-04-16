@@ -27,7 +27,8 @@ ${button_watch_now_movie_detail_page}           css=._3J12S span
 ${button_sound_on_trailer_movie_detail_page}    css=._20cSF
 ${text_play_trailer_movie_detail_page}          css=._2Wg44
 ${frame_play_trailer_movie_detail_page}         css=._2mt2k .css-1kiiaat
-${card_trailer_movie_detail_page}               css=.css-j22q8m .css-tqv6h2.imageWrapper.loaded
+${card_trailer_movie_detail_page}               css=.card div:nth-of-type(1)
+${button_play_card_trailer_movie_detail_page}   css=.overlay > .css-1k9fjl5.play
 
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
@@ -72,6 +73,7 @@ ${expected_movie_detail_synopsis}               css=.css-oa5ddb > div:nth-of-typ
 ${expected_movie_detail_cast}                   css=.css-oa5ddb > div:nth-of-type(2)
 ${expected_movie_detail_related_video}          css=#detailBottom
 ${expected_movie_detail_trailer}                css=.css-oa5ddb > div:nth-of-type(2)
+${expected_rating_movie_detail}                 css=.border
 
 ${expected_movie_detail_countdown}              css=._3Qguo
 ${expected_volume}                              css=.volume
@@ -105,6 +107,9 @@ ${button_movie_detail_lihat_daftar_favorit}     css=.snackbar-content-right
 # Banned User Player
 ${links_movie_detail_terms_conditions}          css=.css-usqan1 a
 
+#Related Video
+${title_related_video_movie_detail_page}        css=.slide-current.slide-visible.slider-slide .title
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -123,8 +128,8 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    Wait Until Element Is Visible       ${movie_mouse_over}
-    mouse over                          ${movie_mouse_over}
+#    Wait Until Element Is Visible       ${movie_mouse_over}
+#    mouse over                          ${movie_mouse_over}
     ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
     ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
     Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
@@ -148,7 +153,8 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${text_categories_movie_detail_page}
 #    Scroll Element Into View            ${expected_movie_detail_related_video}
 #    Element Should Be Visible           ${expected_movie_detail_related_video}
-#    Scroll Element Into View            ${expected_title_movie_detail}
+    Scroll Element Into View            ${expected_title_movie_detail}
+    Element Should Be Visible           ${expected_rating_movie_detail}
 
 Play Content From Movie Detail
     sleep                               5
@@ -688,6 +694,28 @@ Verify Trailer Can Play In Movie Detail Tab "Trailer"
     Click Element                       ${expected_movie_detail_trailer}
     Mouse Over                          ${card_trailer_movie_detail_page}
     Element Should Be Visible           ${card_trailer_movie_detail_page}
-    Click Element                       ${card_trailer_movie_detail_page}
+    Click Element                       ${button_play_card_trailer_movie_detail_page}
     Wait Until Element Is Visible       ${movie2_play_button}
     Click Element                       ${movie2_play_button}
+
+Verify Related Video Based On Single Film Title
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${title_related_video_movie_detail_page}
+    Get Text                            ${title_related_video_movie_detail_page}
+
+Verify Related Video Based On Series Film Title
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${title_related_video_movie_detail_page}
+    ${TITLE_RELATED_VIDEO}              Get Text                                ${title_related_video_movie_detail_page}
+
+Verify Title Related Video
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    ${TITLE_RELATED_VIDEO}              Get Text                                ${title_related_video_movie_detail_page}
+    ${TITLE_RELATED_VIDEO}=             remove string                           S1E02: LIZA SOWS HER OATES              LIZA SOWS HER OATES     ${SPACE}
+    Should Be Equal                     ${TITLE_RELATED_VIDEO}                  S1E02:
+
+    Run Keyword If                      '${TITLE_RELATED_VIDEO}' == 'S1E02:'    Verify Related Video Based On Series Film Title
+    ...     ELSE IF                     '${TITLE_RELATED_VIDEO}' != 'S1E02:'    Verify Related Video Based On Single Film Title
+    ...                                 ELSE                                    Fail    Title Change
