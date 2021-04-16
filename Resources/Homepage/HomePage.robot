@@ -378,7 +378,7 @@ Verify UI Homepage Side Bar Menu
     Element Should Be Visible                   ${menu_side_bar_homepage_browse}
     Element Should Be Visible                   ${menu_side_bar_homepage_matches}
     Element Should Be Visible                   ${menu_side_bar_homepage_beli_akses}
-    Element Should Be Visible                   ${menu_side_bar_homepage_redeem_voucher}
+    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}
 
 Verify UI Homepage Top Bar Menu
     Element Should Be Visible                   ${menu_top_bar_homepage_home}
