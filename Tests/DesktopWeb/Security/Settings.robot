@@ -1,7 +1,7 @@
 *** Settings ***
 Resource                ../../../Frameworks/Routers.robot
 
-Test Timeout            ${DEFAULT_TEST_TIMEOUT}
+Test Timeout            ${LONG_TEST_TIMEOUT}
 Test Setup              CommonKeywords.Start Testing       ${URL}
 Test Teardown           CommonKeywords.End Testing
 
@@ -185,7 +185,7 @@ TC013 System Info
     # Tambah dari footer system info
     # Check tulisan browser, os, location, isp, ip, date&time muncul
 
-TC014 Autoplay off
+TC024 Autoplay OFF
     [Documentation]         Check toggle button function to enable and disable autoplay
     ...                     Turn off Autoplay toggle button
     [Tags]                  Regression  Smoke   Verified
@@ -202,10 +202,10 @@ TC014 Autoplay off
     Go Back
     Logout Account
 
-TC014 Autoplay on
+TC014 Autoplay ON
     [Documentation]         Check toggle button function to enable and disable autoplay
     ...                     Turn on Autoplay toggle button
-    [Tags]                  Regression  Smoke   NeedReview      Fixed
+    [Tags]                  Regression  Smoke   Verified
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -216,14 +216,12 @@ TC014 Autoplay on
     MovieDetailPage.Auto Play Next Episode
     MovieDetailPage.Verify Autoplay Next Video Is Visible
 
-
     # Tambah click button skip, itu stay di video sampai habis tetap di content itu (Tetap di tempat yang sama)
     MovieDetailPage.Click Button Skip Auto Play
     MovieDetailPage.Verify Auto Play Is Not Displayed
     MovieDetailPage.Verify After Autoplay Stay At Current Video
 
     # Tambah autoplay di diamkan dan di verifikasi pindah ke content selanjutnya sesuai tulisan dan di verify movide detail judulnya sama seperti yg di auto play
-#    SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
     Reload Page
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Seek To Last 10s
@@ -234,11 +232,28 @@ TC014 Autoplay on
     # Tambah click button Play Next Movie -> pindah ke content selanjutnya sesuai tulisan dan di verify movide detail judulnya sama seperti yg di auto play
     SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
     MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify Content Is Playing In Default Mode
     MovieDetailPage.Seek To Last 10s
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify Content Is Playing In Default Mode
 
+    # Tambah pengecekan countdown 10s
+    # Kalau misal kondisi awal fullscreen ketika autoplay jadi tidak fullscreen
+    SignInPage.Select Special Asset                     ${URL_MOVIE_DETAIL}
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify Content Is Playing In Default Mode
+    MovieDetailPage.Play a content in fullscreen mode
+    MovieDetailPage.Verify Content Is Playing In Fullscreen Mode
+    MovieDetailPage.Seek To Last 10s
+    MovieDetailPage.Verify Autoplay Countdown Is Appear
+    MovieDetailPage.Verify Autoplay Next Video Is Visible
+    MovieDetailPage.Click Button Play Next Auto Play
+    MovieDetailPage.Verify After Autoplay Play Next Video
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Verify Content Is Playing In Default Mode
     Logout Account
 
 TC015 Internet Speed Test
@@ -327,7 +342,7 @@ TC020 Atur Password input wrong OTP number code
 
 TC021 Atur Password resend OTP number code
     [Documentation]         countdown for 60 second
-    [Tags]                  Regression  Smoke   NeedVerify  NeedReview  Fixed
+    [Tags]                  Regression  Smoke   NeedVerify
 
     SignInPage.Login Using Credentials          ${ACCOUNTS_MOLA_TESTING21_EMAIL}         ${ACCOUNTS_MOLA_TESTING21_PASSWORD}
     SettingsPage.Select User icon

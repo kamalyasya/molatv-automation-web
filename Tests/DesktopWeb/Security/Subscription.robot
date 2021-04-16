@@ -30,7 +30,7 @@ ${EXPECTED_TEXT_MENU_HOME}              Home
 TC001 Status after activating Subscription
     [Documentation]     Check all package status after activating subscription
     ...             User already have an account and sign in
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   Verified
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
@@ -43,7 +43,7 @@ TC001 Status after activating Subscription
 TC002 Check video quality
     [Documentation]     User already have an account with package and sign in
     ...             Check all quality using every package
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   Verified
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
@@ -61,7 +61,7 @@ TC002 Check video quality
 TC003 There's no ads banner in every package
     [Documentation]     User already have an account with package and sign in
     ...             Play the content
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
@@ -71,12 +71,14 @@ TC003 There's no ads banner in every package
     SettingsPage.Select Verify Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
+    #Verify Benner nya tidak muncul
+    #Nyari Element Benner nya
     SignInPage.Logout Account
 
 TC004 There's no pre roll banner in every package
     [Documentation]     User already have an account with package and sign in
     ...             Play the content
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
@@ -86,24 +88,32 @@ TC004 There's no pre roll banner in every package
     SettingsPage.Select Verify Status
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
+    #Verify PreRoll nya tidak muncul
+    #Nyari Element PreRool nya
     SignInPage.Logout Account
 
 TC005 Subscription Blocker before user buy package
     [Documentation]     Subscription blocker shown if user don't have a package
     ...             User already have an account and sign in
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA69_EMAIL}        ${ACCOUNT_SUPERMOLA69_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_SUPERMOLA69_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     SubscriptionPage.Verify Choose content that need a package
+    MovieDetailPage.Go To Movie Detail      https://mola.tv/watch?v=HBO014459X0
+    SubscriptionPage.Verify Choose content that need a package
+#    Verify Warding Check Text Subscription
     SignInPage.Logout Account
+
+#    Di Tambahkan Verify Warding Check Text Subscription
+#    dan Di tambahkan Go To Movie Detail      https://mola.tv/watch?v=HBO014459X0 Content HBO
 
 TC006 Subscription Blocker after user buy package
     [Documentation]     Subscription blocker not shown if user already buy package
     ...             User already have an account with package and sign in
-    [Tags]      Regression  Smoke
+    [Tags]      Regression  Smoke   NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                  ${ACCOUNTS_HBO_EMAIL}       ${ACCOUNTS_HBO_PASSWORD}
@@ -111,3 +121,5 @@ TC006 Subscription Blocker after user buy package
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL1}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     SignInPage.Logout Account
+
+#    Adanya Pembambahan Untuk Play Content HBO

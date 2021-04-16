@@ -39,12 +39,11 @@ Login Untuk Menonton
     Wait Until Page Contains Element        ${text_login_untuk_menonton_user_banning}
     Page Should Contain Element             ${text_login_untuk_menonton_user_banning}
     Click Element                           ${text_login_untuk_menonton_user_banning}
-    Sleep                                   5
 
-Verify Login To Watch
-    Wait Until Element Is Visible           ${frame_login_to_wacth_movie_user_banning}
-    Wait Until Page Contains Element        ${frame_login_to_wacth_movie_user_banning}
-    Page Should Contain Element             ${frame_login_to_wacth_movie_user_banning}
+Verify Login To Watch Button Is Visible
+    Wait Until Element Is Visible           ${movie_detail_login_blocker}
+    Wait Until Page Contains Element        ${movie_detail_login_blocker}
+    Page Should Contain Element             ${movie_detail_login_blocker}
 
 Verify Pilih Paket
     Wait Until Element Is Visible           ${frame_pilih_paket_berikut_untuk_menikmati_tayangan}   5

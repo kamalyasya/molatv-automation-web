@@ -22,6 +22,8 @@ TC004 Forgot Password
     [Documentation]  User is able to reset the Password.
 	[Tags]  Skip
 
+    Log     Reason Can't Automated : Can't get Valid OTP from Email
+
 TC005 Input wrong OTP number code
     [Documentation]  Input wrong OTP number at forgot password flow.
 	[Tags]  Regression  Smoke   Verified
@@ -41,7 +43,7 @@ TC005 Input wrong OTP number code
 
 TC006 Resend OTP number code
     [Documentation]  TC006 Resend OTP number code
-	[Tags]  Regression  Smoke   NeedReview  Fixed
+	[Tags]  Regression  Smoke   NeedVerify
 
     ${RANDOM_NUMBER}    Generate random string    3    123456789
     ${EMAIL}			Catenate	supermola${RANDOM_NUMBER}@sapisuper.com
@@ -69,6 +71,8 @@ TC011 Sign in using Google button from login page
     [Documentation]  Login using google account
     [Tags]  Skip
 
+    Log     Reason Can't Automated : Google is blocking login via automated browser
+
 TC012 Sign in from Facebook button
     [Documentation]  Login using facebook account
     [Tags]  Regression  Smoke   Verified
@@ -81,7 +85,25 @@ TC014 Refresh Token Mechanism
     [Documentation]  User can buy package after let the account login for 1 hour
     [Tags]  Skip
 
-    Log     Reason : Too long for waiting 1 hour
+    Log    Reaseon Can't Automate : Too long for waiting 1 hour
+
+TC015 Sign in using Apple button (Email) from login page
+    [Documentation]  Login using Apple account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Apple is blocking login via automated browser
+
+TC016 Sign in from Apple button (Touch ID)
+    [Documentation]  Login using Apple account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Apple is blocking login via automated browser
+
+TC017 Sign in using Google button from special asset
+    [Documentation]  Login using google account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Google is blocking login via automated browser
 
 TC018 Sign in using Facebook button from special asset
     [Documentation]  Login using facebook account
@@ -106,6 +128,19 @@ TC018 Sign in using Facebook button from special asset
     ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_FACEBOOK_EMAIL}
     Logout Account
 
+
+TC019 Sign in using Apple button (Email) from special asset
+    [Documentation]  Login using Apple account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Apple is blocking login via automated browser
+
+TC020 Sign in using Google button from Subscribe Now
+    [Documentation]  Login using google account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Google is blocking login via automated browser
+
 TC021 Sign in using Facebook button from Subscribe Now
     [Documentation]  Login using facebook account
     [Tags]  Regression  Smoke   Verified
@@ -118,3 +153,9 @@ TC021 Sign in using Facebook button from Subscribe Now
     SubscriptionPackagePage.Verify Directed To Checkout Page According To The Package Selected
     Go Back
     ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_FACEBOOK_EMAIL}
+
+TC022 Sign in using Apple button (Email) from Subscribe Now
+    [Documentation]  Login using Apple account
+    [Tags]  Skip
+
+    Log    Reaseon Can't Automate : Apple is blocking login via automated browser

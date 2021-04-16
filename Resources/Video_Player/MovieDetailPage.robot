@@ -45,6 +45,7 @@ ${movie_quality_title}                          css=.quality_title
 ${text_autoplay_next_movie_title}               css=.upc-video-title
 ${autoplay_next_movie}                          css=.content
 ${autoplay_button_Play_next}                    css=.play
+${text_autoplay_counter_next}                   css=.container span
 ${autoplay_button_skip}                         css=.close
 
 ${close_caption}                                css=#vpcc-subtitle
@@ -57,6 +58,10 @@ ${movie_volume_bar}                             css=input#vpcc-volume
 ${volume_button}                                css=div#volume-button
 ${button_fullscreen}                            css=#vpcc-fullscreen
 ${button_play_player_control}                   css=.playIcon
+
+# Video Player Fullscreen Mode
+${button_video_player_exit_fullscreen}          css=.exitFullscreenIcon
+${text_video_player_exit_fullscreen_tooltip}    css=#vpcc-fullscreen .withTooltip
 
 ${expected_buffering}                           css=code
 ${expected_close_caption_icon}                  css=div#vpcc-subtitle
@@ -343,6 +348,26 @@ Play a content in fullscreen mode
     Click Element                       ${button_fullscreen}
     Mouse Over                          ${button_fullscreen}
     Sleep                               3
+
+Verify Content Is Playing In Default Mode
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${button_fullscreen}
+    Wait Until Element Is Visible       ${button_fullscreen}
+    Page Should Contain Element         ${button_fullscreen}
+    Mouse Over                          ${button_fullscreen}
+    Wait Until Element Is Visible       ${button_fullscreen}
+    Element Should Contain              ${expected_fullscreen_icon}                             Enter Fullscreen
+
+Verify Content Is Playing In Fullscreen Mode
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${button_video_player_exit_fullscreen}
+    Wait Until Element Is Visible       ${button_video_player_exit_fullscreen}
+    Page Should Contain Element         ${button_video_player_exit_fullscreen}
+    Mouse Over                          ${button_video_player_exit_fullscreen}
+    Wait Until Element Is Visible       ${button_video_player_exit_fullscreen}
+    Element Should Contain              ${text_video_player_exit_fullscreen_tooltip}            Exit Fullscreen
 
 Verify fullscreen icon
     Page Should Contain Element         ${expected_fullscreen_icon}
@@ -659,15 +684,18 @@ Click Button Skip Auto Play
 
 Verify After Autoplay Stay At Current Video
     ${URL} =      Get Location
+    Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Sleep                               1
     Wait Until Element Is Visible       ${movie_detail_duration}
     Mouse Over                          ${movie_detail_duration}
-    Capture Element Screenshot          ${movie_detail_duration}
     Sleep                               1
+    Mouse Over                          ${movie_detail_duration}
+    Sleep                               8
     Mouse Over                          ${movie_detail_duration}
     Wait Until Element Contains         ${movie_detail_duration}            00:00
     Element Text Should Be              ${movie_detail_duration}            00:00
+    Capture Element Screenshot          ${movie_detail_duration}
     Location Should Be                  ${URL}
 
 Verify After Autoplay Play Next Video
@@ -677,6 +705,10 @@ Verify After Autoplay Play Next Video
     Wait Until Location Is Not              ${URL_CURRENT}
     ${URL_NOW} =                        Get Location
     Should Not Contain                  ${URL_NOW}                          ${URL_CURRENT}
+
+Verify Autoplay Countdown Is Appear
+    Wait Until Element Is Visible       ${text_autoplay_counter_next}
+    Element Should Contain              ${text_autoplay_counter_next}       Play next movie in 10
 
 Verify Button Login To Watch Appear After Trailer Finished
     Wait Until Element Is Visible       ${movie_mouse_over}

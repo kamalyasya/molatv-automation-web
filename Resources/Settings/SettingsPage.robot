@@ -449,7 +449,7 @@ Turn on / off Autoplay toggle button
 Verify Autoplay toggle button is turn off
     ${A}=    Get Element Attribute   id=autoPlay  data-tip
     Log To Console      ${A}
-    Should Contain      ${A}         Putar otomatis nonaktif
+    Should Contain      ${A}         Autoplay OFF
 
 Verify Autoplay toggle button is turn on
     ${B}=    Get Element Attribute   id=autoPlay  data-tip

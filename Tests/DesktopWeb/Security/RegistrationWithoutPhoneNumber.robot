@@ -47,7 +47,7 @@ TC002 Input wrong OTP number after Registration process
 TC003 Resend OTP number code
     [Documentation]         Click Kirim Ulang to get the OTP number code.
     ...                     Already go through registration process and in input OTP page
-	[Tags]                  Regression  Smoke   NeedReview  Fixed
+	[Tags]                  Regression  Smoke   NeedVerify
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
@@ -69,7 +69,7 @@ TC003 Resend OTP number code
 
 TC004 Registration with wrong information
     [Documentation]         User is unable to register their email and password from the website.
-    [Tags]                  Regression  Smoke   NeedReview  Fixed
+    [Tags]                  Regression  Smoke   Verified
 
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv

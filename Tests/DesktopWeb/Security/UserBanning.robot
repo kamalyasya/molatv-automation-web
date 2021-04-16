@@ -42,12 +42,12 @@ TC002 Watermark On Video Player
 
 TC003 Check Watermark on Free Content Video without Login
     [Documentation]         Check watermark on free content video without Login
-	[Tags]                  Regression  Smoke   Pending
+	[Tags]                  Regression  Smoke   Pending     Updated
 
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_Without_Login}
-    UserBanningPage.Login Untuk Menonton
-    UserBanningPage.Verify Login To Watch
+    MovieDetailPage.Login from movie detail
+    UserBanningPage.Verify Login To Watch Button Is Visible
 
 TC004 Check Watermark on Free Content Video using Account without package
     [Documentation]         Check watermark on free content video using account without package
@@ -78,8 +78,8 @@ TC006 Check Watermark on Premium Content Video without Login
 
     HomePage.Open Login Page
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL_18+}
-    UserBanningPage.login Untuk Menonton
-    UserBanningPage.Verify Login To Watch
+    MovieDetailPage.Login from movie detail
+    UserBanningPage.Verify Login To Watch Button Is Visible
 
 TC007 Check Watermark on Premium Content Video using Account without package
     [Documentation]         Check watermark on premium content video using account without package
