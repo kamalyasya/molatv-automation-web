@@ -3,7 +3,7 @@ Resource                ../../Frameworks/Routers.robot
 
 
 *** Variables ***
-${links_login_register_sekarang}                                css=p > a
+${links_login_register_sekarang}                                link=Register
 
 ${field_register_email}                                         id=identity
 ${field_register_password}                                      id=password

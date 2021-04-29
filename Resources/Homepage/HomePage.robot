@@ -21,13 +21,14 @@ ${menu_top_bar_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
 ${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
 ${menu_top_bar_homepage_bold}                   css=._392KM
 
-${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(text(),'Profile')]
-${links_homepage_menu_inbox}                    xpath=//div[text()='Inbox']
-${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Favorite']
-${links_homepage_menu_pengaturan}               xpath=//div[text()='Settings']
-${links_homepage_menu_langganan}                xpath=//div[text()='Subscription']
-${links_homepage_menu_order_history}            xpath=//div[text()='Payment History']
-${links_homepage_menu_beli_akses}               xpath=//div[text()='Subscribe Now' and not (@class='_2yKxK')]
+${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(@data-testid, 'menu-profile')]
+${links_homepage_menu_inbox}                    xpath=//div[contains(@data-testid, 'menu-inbox')]
+${links_homepage_menu_tontonan_saya}            xpath=//div[contains(@data-testid, 'menu-favorite')]
+${links_homepage_menu_langganan}                xpath=//div[contains(@data-testid, 'menu-subscription')]
+${links_homepage_menu_order_history}            xpath=//div[contains(@data-testid, 'menu-payment-history')]
+${links_homepage_menu_beli_akses}               xpath=//div[contains(@data-testid, 'menu-subscribe-now')]
+${links_homepage_menu_pengaturan}               xpath=//div[contains(@data-testid, 'menu-settings')]
+
 ${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
 ${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
 
@@ -97,13 +98,13 @@ ${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
 
 # Profile Page
 ${links_homepage_menu_selected}                 css=._1NGTJ
-${links_homepage_menu_profil}                   xpath=//div[text()='Profil']
-${links_homepage_menu_inbox}                    xpath=//div[text()='Pesan Masuk']
-${links_homepage_menu_tontonan_saya}            xpath=//div[text()='Tontonan Saya']
-${links_homepage_menu_pengaturan}               xpath=//div[text()='Pengaturan']
-${links_homepage_menu_langganan}                xpath=//div[text()='Langganan']
-${links_homepage_menu_order_history}            xpath=//div[text()='Riwayat Pembelian']
-${links_homepage_menu_beli_akses}               xpath=//div[text()='Beli Akses' and not(@class='_2yKxK')]
+${links_homepage_menu_profil}                   ${links_homepage_menu_profil}
+${links_homepage_menu_inbox}                    ${links_homepage_menu_inbox}
+${links_homepage_menu_tontonan_saya}            ${links_homepage_menu_tontonan_saya}
+${links_homepage_menu_pengaturan}               ${links_homepage_menu_pengaturan}
+${links_homepage_menu_langganan}                ${links_homepage_menu_langganan}
+${links_homepage_menu_order_history}            ${links_homepage_menu_order_history}
+${links_homepage_menu_beli_akses}               ${links_homepage_menu_beli_akses}
 
 ${links_homepage_privasi}                       css=[href='\/privacy']
 ${links_homepage_syarat_dan_ketentuan}          css=[href='\/terms-conditions']
