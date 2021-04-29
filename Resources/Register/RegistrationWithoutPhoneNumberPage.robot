@@ -4,7 +4,7 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 
-${links_login_create_account_now}                   css=p > a
+${links_login_create_account_now}                   link=Register
 
 ${field_register_email}                             id=identity
 ${text_register_email_error}                        css=[for='identity']

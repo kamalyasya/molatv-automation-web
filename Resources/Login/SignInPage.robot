@@ -85,7 +85,7 @@ Verify User Is Redirected Back To The Same Movie Detail Page Automatically
     Wait Until Location Contains        ${EXPECTED_URL_SAMPLE_MOVIE}
     Location Should Be                  ${EXPECTED_URL_SAMPLE_MOVIE}
     Wait Until Element Is Visible       ${text_movie_detail_title}
-    Element Should Not Be Visible       ${movie_detail_login_blocker}
+#    Element Should Not Be Visible       ${movie_detail_login_blocker}
 
 Click Button Google Login
     Wait Until Element Is Visible       ${button_login_google}

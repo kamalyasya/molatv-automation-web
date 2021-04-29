@@ -128,8 +128,8 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    Wait Until Element Is Visible       ${movie_mouse_over}
-    mouse over                          ${movie_mouse_over}
+#    Wait Until Element Is Visible       ${movie_mouse_over}
+#    mouse over                          ${movie_mouse_over}
     ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
     ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
     Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}

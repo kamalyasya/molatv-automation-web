@@ -215,8 +215,8 @@ Verify Bar Account and picture
    Element Should Be Visible                        ${text_picture_profile_after}
 
 Select Pengaturan
-    Wait Until Element Is Visible                   ${text_pengaturan_settings}
-    Click Element                                   ${text_pengaturan_settings}
+    Wait Until Element Is Visible                   ${links_homepage_menu_pengaturan}
+    Click Element                                   ${links_homepage_menu_pengaturan}
     Wait Until Element Is Visible                   ${text_alert_dialog_atur_password}
     Element Should Be Visible                       ${text_alert_dialog_atur_password}
     Wait Until Element Is Visible                   ${button_nanti_saja_atur_password}
@@ -360,9 +360,9 @@ Input same case at Old and New Password
     Click Element                               ${label_view_password3}
 
 Select Subscription
-    Wait Until Element Is Visible               ${label_menu_langganan}
-    Element Should Be Visible                   ${label_menu_langganan}
-    Click Element                               ${label_menu_langganan}
+    Wait Until Element Is Visible               ${links_homepage_menu_langganan}
+    Element Should Be Visible                   ${links_homepage_menu_langganan}
+    Click Element                               ${links_homepage_menu_langganan}
     Sleep                                       2
 
 Select Verify Status
