@@ -525,6 +525,7 @@ Verify Progress Bar Will Appear
 
 Open Profile Page
     Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Sleep                                       2
     Mouse Over                                  ${menu_homepage_accounts}
     Wait Until Element Is Visible               ${text_homepage_menu_profile}
     Click Element                               ${text_homepage_menu_profile}

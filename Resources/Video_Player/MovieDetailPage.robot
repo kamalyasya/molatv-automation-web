@@ -21,7 +21,7 @@ ${button_forward_movie_detail}                  css=.forwardIcon
 ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
-${movie_pause_button}                           css=.pauseIcon
+${movie_pause_button}                           css=.css-gysqbn.pauseIcon
 ${button_login_to_watch_movie_detail_page}      css=._3J12S span
 ${button_watch_now_movie_detail_page}           css=._3J12S span
 ${button_sound_on_trailer_movie_detail_page}    css=._20cSF
@@ -32,7 +32,7 @@ ${button_play_card_trailer_movie_detail_page}   css=.overlay > .css-1k9fjl5.play
 
 ${movie_mouse_over}                             css=#video-child
 ${movie_quality_control}                        css=div#vpcc-quality
-${movie_change_quality}                         css=.quality_popup
+${movie_quality_popup}                          css=.quality_popup
 ${movie_quality_list_270}                       css=.css-6p59hx > div:nth-of-type(4)
 ${movie_quality_list_360}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(3)
 ${movie_quality_list_576}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(2)
@@ -40,6 +40,7 @@ ${movie_quality_list_720}                       css=div#vpcc-quality  .css-6p59h
 ${movie_quality_list_auto}                      css=.css-6p59hx > div:nth-of-type(5)
 ${movie_quality_selected}                       css=.quality_list.active
 ${movie_quality_title}                          css=.quality_title
+${movie_quality_checklist_active}               css=.quality_popup .css-gysqbn.tickIcon
 
 # Autoplay
 ${text_autoplay_next_movie_title}               css=.upc-video-title
@@ -47,16 +48,20 @@ ${autoplay_next_movie}                          css=.content
 ${autoplay_button_Play_next}                    css=.play
 ${text_autoplay_counter_next}                   css=.container span
 ${autoplay_button_skip}                         css=.close
+${frame_autoplay}                               css=.container
 
 ${close_caption}                                css=#vpcc-subtitle
 ${subtitle_title}                               css=.subtitle_title
 ${subtitle_list_Indonesia}                      css=div#vpcc-subtitle  .css-6p59hx > div:nth-of-type(1)
+${subtitle_list_english}                        css=div#vpcc-subtitle  .css-6p59hx > div:nth-of-type(2)
 ${subtitle_list_off}                            xpath=//div[@id='vpcc-subtitle']//div[.='Off']
 
 ${movie2_play_button}                           css=.css-18dkaks.playIcon
 ${movie_volume_bar}                             css=input#vpcc-volume
 ${volume_button}                                css=div#volume-button
 ${button_fullscreen}                            css=#vpcc-fullscreen
+${button_exit_fullscreen_movie_detail_page}     css=#vpcc-fullscreen
+${button_fill_on_screen_movie_detail_page}      css=#vpcc-zoomtofill
 ${button_play_player_control}                   css=.playIcon
 
 # Video Player Fullscreen Mode
@@ -115,6 +120,18 @@ ${links_movie_detail_terms_conditions}          css=.css-usqan1 a
 #Related Video
 ${title_related_video_movie_detail_page}        css=.slide-current.slide-visible.slider-slide .title
 
+#Age Blocker
+${frame_ageblocker}                             css=.styles_modal__gNwvD
+${contents_ageblocker}                          css=._27W52
+${button_agree_ageblocker}                      css=._3UpwF
+
+#popup purchase
+${popup_purchase_package}                       css=._60ugo
+${text_purchase_package}                        css=._2Wg44
+${button_subscribe_now}                         css=._33Xwm
+${button_redeem_voucher}                        css=.rgSjS
+${button_login_to_watch}                        css=._33Xwm
+
 *** Keywords ***
 Select an asset for video playback (Live/Reply/Movie)
     [Arguments]  ${URL_MOVIE_DETAIL}
@@ -133,12 +150,10 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-#    Wait Until Element Is Visible       ${movie_mouse_over}
-#    mouse over                          ${movie_mouse_over}
-    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
-    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
-    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
-    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
+    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}
+    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}
+    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'                 Click Element                       ${button_login_to_watch_movie_detail_page}
+    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'           Click Element                       ${button_videos_player_login_to_watch_after_trailer}
 #    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
 #    Click Element                       ${button_watch_now_movie_detail_page}
 
@@ -156,8 +171,8 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
     Element Should Be Visible           ${text_categories_movie_detail_page}
-#    Scroll Element Into View            ${expected_movie_detail_related_video}
-#    Element Should Be Visible           ${expected_movie_detail_related_video}
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
     Element Should Be Visible           ${expected_rating_movie_detail}
 
@@ -180,6 +195,14 @@ Play Content 'Watch Now'
     sleep                               5
 
 Click Button Watch Now On Video Player
+    sleep                               2
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               3
+    Mouse Over                          ${movie_mouse_over}
     ${CHECK_WATCH_NOW_BUTTON}           Run Keyword And Return Status               Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}           10
     Run Keyword If                      '${CHECK_WATCH_NOW_BUTTON}'=='True'         Click Element                       ${button_watch_now_movie_detail_page}
     ...     ELSE                        Play Content Video Or Play Video From Begining
@@ -188,7 +211,7 @@ Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
-    ${PLAY_BUTTON}             Run Keyword And Return Status           Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}   5
+    ${PLAY_BUTTON}             Run Keyword And Return Status          Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}   5
     Run Keyword If                '${PLAY_BUTTON}' == 'True'          Play Content 'Mulai Dari Awal'
     ...     ELSE                                                      Play Content From Movie Detail
 
@@ -227,6 +250,7 @@ Mouse Hover To Movie
     Mouse Over                          ${movie_mouse_over}
 
 Verify The progress bar and elapsed time are updating when playing a content
+    sleep                               2
     Mouse Over                          ${movie_mouse_over}
     Page Should Contain Element         ${movie_pause_button}
     Page Should Contain Element         ${movie_detail_duration}
@@ -262,38 +286,39 @@ Verify Auto Play Is Not Displayed
     Page Should Not Contain Element     ${autoplay_button_skip}
     Element Should Not Be Visible       ${autoplay_button_skip}
 
-
 Change Video Quality
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
     Click Element                       ${movie_quality_control}
-    Wait Until Element Is Visible       ${movie_change_quality}
-    Click Element                       ${movie_quality_list_576}
-    sleep                               5
-    Mouse Over                          ${movie_mouse_over}
-    Wait Until Element Is Visible       ${movie_change_quality}
+    Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_270}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
     Mouse Over                          ${movie_mouse_over}
-    Wait Until Element Is Visible       ${movie_change_quality}
+    Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_360}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
     Mouse Over                          ${movie_mouse_over}
-    Wait Until Element Is Visible       ${movie_change_quality}
+    Wait Until Element Is Visible       ${movie_quality_popup}
+    Click Element                       ${movie_quality_list_576}
+    Element Should Be Visible           ${movie_quality_checklist_active}
+    sleep                               5
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_720}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
 
-Verify Change Quality
-    [Arguments]  ${EXPECTED_CHANGE_QUALITY_576}     ${EXPECTED_CHANGE_QUALITY_270}      ${EXPECTED_CHANGE_QUALITY_360}      ${EXPECTED_CHANGE_QUALITY_720}
-    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_576}
-    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_270}
-    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_360}
-    Page Should Contain Element         ${movie_change_quality}            ${EXPECTED_CHANGE_QUALITY_720}
-    Page Should Contain Element         ${movie_quality_title}
+Verify Popup Quality Disappear After Click Button Quality
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${movie_quality_control}
+    Element Should Not Be Visible       ${movie_quality_popup}
 
 Verify Content not Supporting Closed Caption
     Mouse Over                          ${movie_mouse_over}
-    Page Should Not Contain Element     ${close_caption}                    ${expected_close_caption_icon}
+    Wait Until Element Is Visible       ${movie_button_pause}
+    Element Should Not Be Visible       ${close_caption}
 
 Play a content which is not supporting closed caption
     [Arguments]  ${URL_MOVIE_DETAIL2}
@@ -306,11 +331,15 @@ Verify Close Caption Icon
     Page Should Contain Element         ${expected_close_caption_icon}
 
 Play a content which is supporting closed caption
+    Choose Closed Caption off
     Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${close_caption}
-    Click Element                       ${close_caption}
+    Click Element                       ${subtitle_list_english}
+    sleep                               5
     Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${close_caption}
     Click Element                       ${subtitle_list_Indonesia}
+    Sleep                               5
 
 Verify Subtitle On Screen
     Wait Until Element Is Visible       ${expected_subtitle_on_screen}
@@ -326,7 +355,7 @@ Choose Closed Caption off
     Sleep                               5
 
 Verify Closed Caption is Not Shown
-    Page Should Not Contain Element     ${expected_subtitle_on_screen}
+    Element Should Not Be Visible       ${expected_subtitle_on_screen}
 
 Verify Change volume during video playback
     Wait Until Element Is Visible       ${movie_mouse_over}
@@ -336,13 +365,17 @@ Verify Change volume during video playback
     Wait Until Element Is Visible       ${expected_volume}
     Element Should Be Visible           ${expected_volume}
     Capture Element Screenshot          ${expected_volume}
-    Mouse Over                          ${volume_button}
+    Sleep                               1
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${volume_button}
+    Mouse Over                          ${movie_mouse_over}
     Click Element                       ${volume_button}
     Element Should Be Visible           ${volume_button}
     Capture Element Screenshot          ${expected_volume}
 
 Play a content in fullscreen mode
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_pause_button}
     Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Click Element                       ${button_fullscreen}
@@ -373,6 +406,8 @@ Verify fullscreen icon
     Page Should Contain Element         ${expected_fullscreen_icon}
     Capture Element Screenshot          ${expected_fullscreen_icon}
     Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_exit_fullscreen_movie_detail_page}
+    Element Should Be Visible           ${button_fill_on_screen_movie_detail_page}
     Click Element                       ${button_fullscreen}
 
 Verify Video Metadata
@@ -380,9 +415,11 @@ Verify Video Metadata
     Wait Until Element Is Not Visible   ${expected_player_control_unhide}
     Element Should Not Be Visible       ${expected_player_control_unhide}
     Mouse Over                          ${movie_mouse_over}
-    Mouse Over                          ${expected_player_control_unhide}
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${expected_player_control_unhide}
     Element Should Be Visible           ${expected_player_control_unhide}
+    Element Should Be Visible           ${button_exit_fullscreen_movie_detail_page}
+    Element Should Be Visible           ${button_fill_on_screen_movie_detail_page}
 
 Verify Movie Details Page Is Shown
     [Arguments]     ${EXPECTED_TITLE_CONTENT}
@@ -390,8 +427,11 @@ Verify Movie Details Page Is Shown
     Element Should Contain              ${text_movie_detail_title}               ${EXPECTED_TITLE_CONTENT}
 
 Verify Pause And Resume Live Matches
+    Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_pause_button}
     Click Element                       ${movie_pause_button}
+    Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${button_play_player_control}
     Page Should Contain Element         ${button_play_player_control}
     Sleep                               2
@@ -423,6 +463,7 @@ Verify Upcoming In Matches Page
 
 Verify Default Control
     Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_pause_button}
     Element Should Be Visible           ${movie_pause_button}
     Click Element                       ${movie_pause_button}
@@ -432,8 +473,34 @@ Verify Default Control
     Mouse Over                          ${movie_mouse_over}
     Element Should Be Visible           ${expected_volume}
     Element Should Be Visible           ${movie_detail_duration}
-    Element Should Be Visible           ${button_fullscreen}
     Element Should Be Visible           ${movie_quality_control}
+    Element Should Be Visible           ${button_fullscreen}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_fullscreen}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_exit_fullscreen_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_fill_on_screen_movie_detail_page}
+
+Verify Default Control Trailer
+    Mouse Over                          ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_pause_button}
+    Element Should Be Visible           ${movie_pause_button}
+    Click Element                       ${movie_pause_button}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_play_player_control}
+    Element Should Be Visible           ${button_play_player_control}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${expected_volume}
+    Element Should Be Visible           ${movie_detail_duration}
+    Element Should Be Visible           ${movie_quality_control}
+    Element Should Be Visible           ${button_fullscreen}
+    Mouse Over                          ${movie_mouse_over}
+    Click Element                       ${button_fullscreen}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_exit_fullscreen_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
 
 Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
@@ -447,44 +514,72 @@ Click button Forward/backward movie
     Wait Until Element Is Visible       ${button_forward_movie_detail}
     Mouse Over                          ${button_forward_movie_detail}
     Wait Until Element Is Visible       ${button_forward_movie_detail}
+    ${VIDEOID}                          Get Element Attribute           css=video            id
+    ${VIDEOID}                          Remove String                   ${VIDEOID}           video-main-
+
+    # Get First Position
+    ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${FIRST_POSITION}                   Execute Javascript              ${COMMAND_GET_FIRST_POSITION}
+    Capture Element Screenshot          ${movie_detail_duration}
     Click Element                       ${button_forward_movie_detail}
-    Mouse Over                          ${button_forward_movie_detail}
     Wait Until Element Is Visible       ${button_forward_movie_detail}
-    Click Element                       ${button_forward_movie_detail}
-    Sleep                               3
+    ${COMMAND_GET_CURRENT_POSITION}     catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_GET_CURRENT_POSITION}
+    Capture Element Screenshot          ${movie_detail_duration}
+    Should Be True                      ${FIRST_POSITION} < ${CURRENT_POSITION}
+    Sleep                               2
     Mouse Over                          ${movie_mouse_over}
-    Mouse Over                          ${button_backward_movie_detail}
     Wait Until Element Is Visible       ${button_backward_movie_detail}
+    ${VIDEOID}                          Get Element Attribute           css=video            id
+    ${VIDEOID}                          Remove String                   ${VIDEOID}           video-main-
+
+    # Get First Position
+    ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${FIRST_POSITION}                   Execute Javascript              ${COMMAND_GET_FIRST_POSITION}
+    Capture Element Screenshot          ${movie_detail_duration}
     Click Element                       ${button_backward_movie_detail}
-    Mouse Over                          ${button_backward_movie_detail}
     Wait Until Element Is Visible       ${button_backward_movie_detail}
-    Click Element                       ${button_backward_movie_detail}
+    ${COMMAND_GET_CURRENT_POSITION}     catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
+    ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_GET_CURRENT_POSITION}
+    Capture Element Screenshot          ${movie_detail_duration}
+    Should Be True                      ${FIRST_POSITION} > ${CURRENT_POSITION}
 
 Seek To Last 10s
-    # Mouse Over To Movie
+    Sleep                               2
     Mouse Over                          ${movie_mouse_over}
     Sleep                               2
 
     # Get VIDEOID
-#    ${VIDEOID}                      Get Location
-#    ${VIDEOID}                      Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
-    ${VIDEOID}                      Get Element Attribute           css=video            id
-    ${VIDEOID}                      Remove String                   ${VIDEOID}           video-main-
+#    ${VIDEOID}                         Get Location
+#    ${VIDEOID}                         Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+    ${VIDEOID}                          Get Element Attribute           css=video            id
+    ${VIDEOID}                          Remove String                   ${VIDEOID}           video-main-
 
     # Get VOD length
-    ${COMMAND_GET_DURATION}         catenate                        return window.player${VIDEOID}.getMediaElement().seekable.end(0)
-    ${DURATION}                     Execute Javascript              ${COMMAND_GET_DURATION}
+    ${COMMAND_GET_DURATION}             catenate                        return window.player${VIDEOID}.getMediaElement().seekable.end(0)
+    ${DURATION}                         Execute Javascript              ${COMMAND_GET_DURATION}
 
     # Calculate last 10s
-    ${DESIRED_POSITION}             Evaluate                        ${DURATION}-10
-    ${COMMAND_SEEK_TO}              catenate                        return window.player${VIDEOID}.getMediaElement().currentTime=${DESIRED_POSITION}
+    ${DESIRED_POSITION}                 Evaluate                        ${DURATION}-10
+    ${COMMAND_SEEK_TO}                  catenate                        return window.player${VIDEOID}.getMediaElement().currentTime=${DESIRED_POSITION}
 
     # Seek to position
-    ${CURRENT_POSITION}             Execute Javascript              ${COMMAND_SEEK_TO}
+    ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_SEEK_TO}
 
 Verify Categories Movie
+    #CATEGORIES CURRENT MOVIE
     Wait Until Element Is Visible       ${expected_categories_movie_detail}
-    Element Text Should Be              ${expected_categories_movie_detail}     Mystery
+    ${CATEGORIES_CURRENT_VIDEO}         Get Text                    ${text_categories_movie_detail_page}
+
+    Wait Until Element Is Visible       ${autoplay_button_Play_next}
+    Click Element                       ${autoplay_button_Play_next}
+    Accept Adult Content
+
+    #CATEGORIES NEXT MOVIE
+    Wait Until Element Is Visible       ${expected_categories_movie_detail}
+    ${CATEGORIES_NEXT_VIDEO}            Get Text                    ${text_categories_movie_detail_page}
+
+    Should Be True                      '${CATEGORIES_CURRENT_VIDEO}' == '${CATEGORIES_NEXT_VIDEO}'
 
 Seek bar Volume
     # Mouse Over To Movie
@@ -503,7 +598,7 @@ Seek bar Volume
 
     # Get Element Size Seek Volume Up
     ${width}	${height} =   Get Element Size            ${button_seek_volume}
-    ${result} =   Evaluate                    (${width}/2)
+    ${result} =   Evaluate                    (${width}/2) - 30
     Drag And Drop By Offset     ${button_seek_volume}       ${result}         0
 
     # Capture To Verify
@@ -511,23 +606,27 @@ Seek bar Volume
     Capture Element Screenshot          ${expected_volume}
 
 Verify Next Episode Same Category As VOD
-    [Arguments]     ${EXPECTED_TITLE_SAME_EPISODES}
-    Wait Until Element Is Visible       ${expected_title_same_episode}
-    Element Text Should Be              ${expected_title_same_episode}      ${EXPECTED_TITLE_SAME_EPISODES}
+    ${TITLE_NEXT_VIDEO_S1}              Get Text                                ${text_movie_detail_title}
+    ${TITLE_NEXT_VIDEO_S1}=             remove string                           S1E08: DAYS TO JAN'S DEATH 2, 1 ...               DAYS TO JAN'S DEATH 2, 1 ...     ${SPACE}
+    Click Element                       ${autoplay_button_Play_next}
+    Wait Until Element Is Visible       ${text_movie_detail_title}
+    Element Should Be Visible           ${text_movie_detail_title}
+    ${TITLE_NEXT_VIDEO_S2}              Get Text                                ${text_movie_detail_title}
+    ${TITLE_NEXT_VIDEO_S2}=             remove string                           TRAILER 35 DAYS S2              TRAILER 35 DAYS     ${SPACE}
+    Should Be True                      '${TITLE_NEXT_VIDEO_S1}' != '${TITLE_NEXT_VIDEO_S2}'
 
 Verify Countdown Auto Play
-    [Arguments]     ${EXPECTED_LOCATION_NEXT_EPISODE}
-    Wait Until Element Is Visible       ${expected_countdown_autoplay}
-    Element Should Be Visible           ${expected_countdown_autoplay}
-    Wait Until Location Is              ${EXPECTED_LOCATION_NEXT_EPISODE}
-    Wait Until Element Is Visible       ${expected_title_movie_detail}
-    Element Should Be Visible           ${expected_title_movie_detail}
+    Wait Until Element Is Visible       ${text_autoplay_counter_next}
+    Element Should Be Visible           ${text_autoplay_counter_next}
+    Capture Element Screenshot          ${text_autoplay_counter_next}
 
 Verify Button Replay Auto Play
-    Sleep                               6
+    Sleep                               12
     Mouse Over                          ${movie_mouse_over}
+    Element Should not Be Visible       ${frame_autoplay}
     Wait Until Element Is Visible       ${button_play_player_control}
     Element Should Be Visible           ${button_play_player_control}
+    Click Element                       ${button_play_player_control}
 
 Click Button Play Default Control
      Wait Until Element Is Visible      ${button_play_player_control}
@@ -537,17 +636,27 @@ Verify No Autoplay Vanished
     Wait Until Element Is Not Visible   ${expected_autoplay_movie}
     Element Should Not Be Visible       ${expected_autoplay_movie}
 
-Click Button Next Video Beside Volume
+Click Button Next Video Beside Volume And Verify Movie In Related Video Is Same With Next Movie
+    #Get Title Related Video
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    ${TITLE_RELATED_VIDEO}              Get Text                                ${title_related_video_movie_detail_page}
+    Scroll Element Into View            ${expected_title_movie_detail}
+
     Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${button_next_video_beside_volume}
     Wait Until Element Is Visible       ${button_next_video_beside_volume}
     Click Element                       ${button_next_video_beside_volume}
 
+    #Get Title Movie After Click Button Next Video
+    Wait Until Element Is Visible       ${text_movie_detail_title}
+    ${TITLE_NEXT_MOVIE}                 Get Text                                ${text_movie_detail_title}
+    Should Be True                      '${TITLE_RELATED_VIDEO}' == '${TITLE_NEXT_MOVIE}'
+
 Verify Message Prompt To Sign In
     [Arguments]     ${URL}
-    Wait Until Element Is Visible       ${movie_detail_login_blocker}
-    Element Should Be Visible           ${movie_detail_login_blocker}
-    Click Element                       ${movie_detail_login_blocker}
+    Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}
+    Element Should Be Visible           ${button_videos_player_login_to_watch_after_trailer}
+    Click Element                       ${button_videos_player_login_to_watch_after_trailer}
     Click Element                       ${button_close_login_movie_detail}
     Verify Is Redirected Back To The Same Movie Detail      ${URL}
 
@@ -630,7 +739,6 @@ Verify VOD Is Playing
     Mouse Over                          ${movie_pause_button}
     Wait Until Element Is Visible       ${movie_pause_button}
     Element Should Be Visible           ${movie_pause_button}
-    # Verify Play Button Is Visible
     Element Should Not Be Visible       ${button_play_player_control}
 
 Verify VOD Is Playing And Time Is Elapsed
@@ -745,9 +853,73 @@ Verify Related Video Based On Series Film Title
 Verify Title Related Video
     Scroll Element Into View            ${expected_movie_detail_related_video}
     ${TITLE_RELATED_VIDEO}              Get Text                                ${title_related_video_movie_detail_page}
-    ${TITLE_RELATED_VIDEO}=             remove string                           S1E02: LIZA SOWS HER OATES              LIZA SOWS HER OATES     ${SPACE}
+    ${TITLE_RELATED_VIDEO}=             remove string                           S1E02: BRIDGE AND TUNNELVISION              BRIDGE AND TUNNELVISION     ${SPACE}
     Should Be Equal                     ${TITLE_RELATED_VIDEO}                  S1E02:
 
     Run Keyword If                      '${TITLE_RELATED_VIDEO}' == 'S1E02:'    Verify Related Video Based On Series Film Title
     ...     ELSE IF                     '${TITLE_RELATED_VIDEO}' != 'S1E02:'    Verify Related Video Based On Single Film Title
     ...                                 ELSE                                    Fail    Title Change
+
+Verify Movie In Related Video Is Same With Movie In Autoplay
+    Sleep                               2
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    ${TITLE_RELATED_VIDEO}              Get Text                                ${title_related_video_movie_detail_page}
+    Scroll Element Into View            ${expected_title_movie_detail}
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_button_pause}
+    Seek To Last 10s
+    Sleep                               2
+
+    ${TITLE_MOVIE_AUTOPLAY}             Get Text                                ${text_autoplay_next_movie_title}
+    Should Be True                      '${TITLE_RELATED_VIDEO}' == '${TITLE_MOVIE_AUTOPLAY}'
+
+Seek Progress Bar
+    Wait Until Element Is Visible       ${frame_autoplay}
+    Element Should Be Visible           ${frame_autoplay}
+# Mouse Over To Movie
+    Mouse Over                          ${movie_mouse_over}
+    Sleep                               2
+
+    # Get VIDEOID
+#    ${VIDEOID}                         Get Location
+#    ${VIDEOID}                         Remove String Using Regexp      ${VIDEOID}           ^.*?(?=vd)
+    ${VIDEOID}                          Get Element Attribute           css=video            id
+    ${VIDEOID}                          Remove String                   ${VIDEOID}           video-main-
+
+    # Get VOD length
+    ${COMMAND_GET_DURATION}             catenate                        return window.player${VIDEOID}.getMediaElement().seekable.end(0)
+    ${DURATION}                         Execute Javascript              ${COMMAND_GET_DURATION}
+
+    # Calculate last 10s
+    ${DESIRED_POSITION_1}               Evaluate                        ${DURATION}-3500
+    ${COMMAND_SEEK_TO}                  catenate                        return window.player${VIDEOID}.getMediaElement().currentTime=${DESIRED_POSITION_1}
+
+    # Seek to position
+    ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_SEEK_TO}
+
+Verify Video Player Continue Playing
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${movie_pause_button}
+    Element Should Not Be Visible       ${frame_autoplay}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${movie_pause_button}
+    Sleep                               3
+
+Verify Play Movie With User Without Package
+    Wait Until Element Is Visible       ${popup_purchase_package}
+    Element Should Be Visible           ${popup_purchase_package}
+    Element Should Be Visible           ${text_purchase_package}
+    Element Should Be Visible           ${button_subscribe_now}
+    Element Should Be Visible           ${button_redeem_voucher}
+    Element Should Not Be Visible       Verify Default Control
+
+Verify Button Fill On Screen And Fit On Screen Works Fine
+    Mouse Over                          ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_fill_on_screen_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_fill_on_screen_movie_detail_page}
+    Capture Element Screenshot          ${button_fill_on_screen_movie_detail_page}
+    Click Element                       ${button_fill_on_screen_movie_detail_page}
+    Mouse Over                          ${movie_mouse_over}
+    Element Should Be Visible           ${button_fill_on_screen_movie_detail_page}
+    Capture Element Screenshot          ${button_fill_on_screen_movie_detail_page}
