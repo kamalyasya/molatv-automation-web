@@ -150,12 +150,10 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}
-    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}
-    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'                 Click Element                       ${button_login_to_watch_movie_detail_page}
-    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'           Click Element                       ${button_videos_player_login_to_watch_after_trailer}
-#    Wait Until Element Is Visible       ${button_watch_now_movie_detail_page}
-#    Click Element                       ${button_watch_now_movie_detail_page}
+    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
+    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
+    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
+    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
 
 Verify Direct To Login Page
     Wait Until Element Is Visible       ${frame_login_movie_detail}
