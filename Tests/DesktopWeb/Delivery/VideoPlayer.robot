@@ -68,7 +68,7 @@ Delivery - Video Player: TC002 Play the content
 
 Delivery - Video Player: TC003 Trailer Asset
     [Documentation]     Verify the VOD Trailer can be played
-    [Tags]              Regression  Smoke   Verfied
+    [Tags]              Regression  Smoke   Verified
 
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL4}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL4}
@@ -236,7 +236,7 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
 
 Delivery - Video Player: TC015 Auto Next Video - Rewind VOD
     [Documentation]     Verify the pop up next video will disappear after scrub progress bar
-    [Tags]              Regression   Smoke  Verfied
+    [Tags]              Regression   Smoke  Verified
 
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
     MovieDetailPage.Login from movie detail
