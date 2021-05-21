@@ -379,7 +379,7 @@ Verify UI Homepage Side Bar Menu
     Element Should Be Visible                   ${menu_side_bar_homepage_browse}
     Element Should Be Visible                   ${menu_side_bar_homepage_matches}
     Element Should Be Visible                   ${menu_side_bar_homepage_beli_akses}
-    Element Should Be Visible                   ${menu_side_bar_homepage_redeem_voucher}
+    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}
 
 Verify UI Homepage Top Bar Menu
     Element Should Be Visible                   ${menu_top_bar_homepage_home}
@@ -526,6 +526,7 @@ Verify Progress Bar Will Appear
 
 Open Profile Page
     Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Sleep                                       2
     Mouse Over                                  ${menu_homepage_accounts}
     Wait Until Element Is Visible               ${text_homepage_menu_profile}
     Click Element                               ${text_homepage_menu_profile}

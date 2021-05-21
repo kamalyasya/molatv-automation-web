@@ -184,3 +184,9 @@ Click Button Tutup
     Wait Until Element Is Visible                   ${button_tutup_agerestriction}
     Page Should Contain Element                     ${button_tutup_agerestriction}
     Click Element                                   ${button_tutup_agerestriction}
+
+Verify Age Blocker 18+ With Click Element
+    Wait Until Element Is Visible       ${frame_ageblocker}
+    Element Should Be Visible           ${contents_ageblocker}
+    Element Should Be Visible           ${button_agree_ageblocker}
+    Click Element                       ${button_agree_ageblocker}
