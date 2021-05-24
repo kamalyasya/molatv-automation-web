@@ -13,6 +13,8 @@ Open Mychrome Browser
     ${chrome_options}       Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${window_size}          Set Variable    window-size=1920,1080
     Call Method    ${chrome_options}    add_argument    test-type
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
