@@ -237,7 +237,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+#    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
 
     # Tambah pengecekan countdown 10s
@@ -252,7 +252,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+#    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
     Logout Account
 
