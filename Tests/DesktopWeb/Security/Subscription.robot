@@ -11,7 +11,7 @@ ${URL_MOVIE_DETAIL}                     ${HOST}/watch?v=vd91851888
 ${URL_MOVIE_DETAIL1}                    ${HOST}/watch?v=vd74299098
 ${URL_MOVIE_DETAIL2}                    ${HOST}/watch?v=vd98699941
 ${URL_MOVIE_DETAIL3}                    ${HOST}/watch?v=HBO014459X0
-${URL_MOVIE_DETAIL4}                    ${HOST}/watch?v=vd93162681
+${URL_MOVIE_DETAIL4}                    ${HOST}/watch?q=pbsi&v=vd94115639
 ${URL_MOVIE_DETAIL5}                    ${HOST}/watch?py_id=HBO-Movies-Fami&v=HBO017051X0
 ${URL_MOVIE_DETAIL6}                    ${HOST}/watch?v=vd02317119
 ${URL_TRAILER_DETAIL}                   ${HOST}/watch?v=vd98467304

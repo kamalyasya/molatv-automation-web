@@ -26,9 +26,6 @@ ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}        ${URL_MOVIE_DETAIL_18+_HBO}
 ${EXPECTED_URL_MOVIE_DETAIL_NON18+_HBO}     ${URL_MOVIE_DETAIL_NON18+_HBO}
 
 *** Test Cases ***
-
-
-
 TC001 Access 18+ content without login
     [Documentation]     Account not already had a package and login
     [Tags]              Regression  Smoke   Verified
@@ -86,18 +83,18 @@ TC003 Access 18+ content using 18+ account
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
-    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X" HBO        ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X"        ${URL_MOVIE_DETAIL_18+_HBO}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
-    HboPlayback.Play HBO Movies
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age Blocker 4 18+ Button "X"
     Reload Page
     Logout Account
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
-    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X"        ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X" HBO        ${URL_MOVIE_DETAIL_18+_HBO}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
-    MovieDetailPage.Play Content Mola From Movie Detail
-    AgeRestrictionPage.Verify Show Age Blocker 4 18+ Button "X"
+    AgeRestrictionPage.Play HBO Movies Age Restriction
     Reload Page
     Logout Account
 
@@ -153,22 +150,22 @@ TC005 Access 18+ content using account didn't have date of birth
     [Documentation]     Account already had a package and login
     [Tags]              Regression  Smoke   Prod_Sync   Verified
 
-#    Reset Mola DOB              ${UID}
-#    HomePage.Open Login Page
-#    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
-#    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_MOLA}
-#    AgeRestrictionPage.Click Button Close
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Click Button Close 'X'
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Verify Show Age blocker DOB
-#    AgeRestrictionPage.Select Age Under 18 Years
-#    AgeRestrictionPage.Click Button Yes, I Agree
-#    AgeRestrictionPage.Verify Profile Update
-#    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_MOLA}
-#    AgeRestrictionPage.Can't Play Button
-#    Reload Page
-#    Logout Account
+    Reset Mola DOB              ${UID}
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
+    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_MOLA}
+    AgeRestrictionPage.Click Button Close
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Click Button Close 'X'
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age blocker DOB
+    AgeRestrictionPage.Select Age Under 18 Years
+    AgeRestrictionPage.Click Button Yes, I Agree
+    AgeRestrictionPage.Verify Profile Update
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_MOLA}
+    AgeRestrictionPage.Can't Play Button
+    Reload Page
+    Logout Account
 
     Reset Mola DOB              ${UID}
     HomePage.Open Login Page
@@ -190,49 +187,49 @@ TC005 Access 18+ content using account didn't have date of birth
     MovieDetailPage.Verify VOD Is Playing
     Reload Page
     HomePage.Go To Homepage
-    Sleep                                               30
-    AgeRestrictionPage.Verify View All Continue Watching
-    AgeRestrictionPage.Click View All Continue Watching
-    AgeRestrictionPage.Verify View All Continue Watching List
+    Sleep                                               45
+#    AgeRestrictionPage.Verify View All Continue Watching
+#    AgeRestrictionPage.Click View All Continue Watching
+#    AgeRestrictionPage.Verify View All Continue Watching List
     Logout Account
 
 
-#    Reset Mola DOB HBO              ${UID1}
-#    HomePage.Open Login Page
-#    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_HBO_EMAIL}     ${ACCOUNT_WITHOUTDOB_HBO_PASSWORD}
-#    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
-#    AgeRestrictionPage.Click Button Close
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Click Button Close 'X'
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Verify Show Age blocker DOB
-#    AgeRestrictionPage.Select Age Under 18 Years
-#    AgeRestrictionPage.Click Button Yes, I Agree
-#    AgeRestrictionPage.Verify Profile Update
-#    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_HBO}
-#    AgeRestrictionPage.Can't Play Button
-#    Reload Page
-#    Logout Account
-#
-#    Reset Mola DOB HBO              ${UID1}
-#    HomePage.Open Login Page
-#    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_HBO_EMAIL}     ${ACCOUNT_WITHOUTDOB_HBO_PASSWORD}
-#    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
-#    AgeRestrictionPage.Click Button Close
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Click Button Close 'X'
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Verify Show Age blocker DOB
-#    AgeRestrictionPage.Select Age Over 18 Years
-#    AgeRestrictionPage.Click Button Yes, I Agree
-#    AgeRestrictionPage.Verify Profile Update
-#    AgeRestrictionPage.Click Button Close 'X'
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Verify Show Age Blocker 3 18+         ${URL_MOVIE_DETAIL_18+_HBO}
-#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
-#    HboContentRestriction.Play Hbo Content 21+
-#    Reload Page
-#    Logout Account
+    Reset Mola DOB HBO              ${UID1}
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_HBO_EMAIL}     ${ACCOUNT_WITHOUTDOB_HBO_PASSWORD}
+    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Click Button Close
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Click Button Close 'X'
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age blocker DOB
+    AgeRestrictionPage.Select Age Under 18 Years
+    AgeRestrictionPage.Click Button Yes, I Agree
+    AgeRestrictionPage.Verify Profile Update
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Can't Play Button
+    Reload Page
+    Logout Account
+
+    Reset Mola DOB HBO              ${UID1}
+    HomePage.Open Login Page
+    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB_HBO_EMAIL}     ${ACCOUNT_WITHOUTDOB_HBO_PASSWORD}
+    AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Click Button Close
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Click Button Close 'X'
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age blocker DOB
+    AgeRestrictionPage.Select Age Over 18 Years
+    AgeRestrictionPage.Click Button Yes, I Agree
+    AgeRestrictionPage.Verify Profile Update
+    AgeRestrictionPage.Click Button Close 'X'
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age Blocker 3 18+         ${URL_MOVIE_DETAIL_18+_HBO}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
+    HboContentRestriction.Play Hbo Content 21+
+    Reload Page
+    Logout Account
 
         #    Ditambahkan     >> tambah text yang ada di dalam Frame Ini = This content is only provided for adult. By clicking "Agree", you make sure that you are:  18 years old or older     Being legally responsible with all risk that might emerge from watching this programme.
         #    Ditambahkan     >> Verify Click X For close frame age blocker "Adult Content (18+)"
@@ -291,11 +288,10 @@ TC007 Access 18+ content from continue blocker
     Logout Account
 
 
-
 TC008 Access 18+ content from continue watching list
     [Documentation]         Watch content that has been watched before from continue watching list at home page
     ...                     Untuk VOD yang ada di Home div:nth-of-type(1) > .css-5jjjwv.undefined > div > h3 "Continue Watching" dari Akun 18+ Dirubah Menjadi Akun Dibawah 18+
-	[Tags]                  Regression  Smoke   Prod_Sync   Verified
+	[Tags]                  Regression  Smoke   Prod_Sync   Verified    Skip
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
@@ -339,14 +335,10 @@ TC008 Access 18+ content from continue watching list
 TC009 Login from 18+ content using 18+ account
     [Documentation]         Account already had a package and login
     ...                     Ini Sama kaya Nomor 3 -
-	[Tags]                  Regression  Smoke   Prod_Sync
-#    AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+_MOLA2}
-#    MovieDetailPage.Go To Movie Detail             ${URL_MOVIE_DETAIL_18+_MOLA}
-#    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
+	[Tags]                  Regression  Smoke   Prod_Sync   Verified
 
     MovieDetailPage.Go To Movie Detail          ${URL_MOVIE_DETAIL_18+_MOLA}
     MovieDetailPage.Login from movie detail
-#    MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}               ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE_DETAIL_18+_MOLA}
     AgeRestrictionPage.Verify Show Age Blocker 3 18+        ${URL_MOVIE_DETAIL_18+_MOLA}
@@ -356,28 +348,28 @@ TC009 Login from 18+ content using 18+ account
     Reload Page
     Logout Account
 
-#    AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+_MOLA}
-#    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
-#    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X"        ${URL_MOVIE_DETAIL_18+_MOLA}
-#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_MOLA}
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    AgeRestrictionPage.Verify Show Age Blocker 4 18+ Button "X"
-#    Reload Page
-#    Logout Account
-#
-#    AgeRestrictionPage.Select 18+ Movie Content HBO         ${URL_MOVIE_DETAIL_18+_HBO}
-#    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
-#    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X" HBO        ${URL_MOVIE_DETAIL_18+_HBO}
-#    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
-#    MovieDetailPage.Play Content Mola From Movie Detail
-#    Reload Page
-#    Logout Account
+    AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+_MOLA}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
+    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X"        ${URL_MOVIE_DETAIL_18+_MOLA}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_MOLA}
+    MovieDetailPage.Play Content Mola From Movie Detail
+    AgeRestrictionPage.Verify Show Age Blocker 4 18+ Button "X"
+    Reload Page
+    Logout Account
+
+    AgeRestrictionPage.Select 18+ Movie Content HBO         ${URL_MOVIE_DETAIL_18+_HBO}
+    SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}    ${ACCOUNTS_HBO_PASSWORD}
+    AgeRestrictionPage.Verify Show Age Blocker 3 18+ Button "X" HBO        ${URL_MOVIE_DETAIL_18+_HBO}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_HBO}
+    MovieDetailPage.Play Content Mola From Movie Detail
+    Reload Page
+    Logout Account
 
 
 TC010 Login from 18+ content using under 18+ account
     [Documentation]         Account already had a package and login
     ...                     Ini Sama kaya Nomor 4
-	[Tags]                  Regression  Smoke   Prod_Sync
+	[Tags]                  Regression  Smoke   Prod_Sync   Verified
 
 	AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+_MOLA}
     SignInPage.Login Using Credentials              ${ACCOUNT_WITHDOB_EMAIL}        ${ACCOUNT_WITHDOB_PASSWORD}
@@ -396,25 +388,26 @@ TC010 Login from 18+ content using under 18+ account
 TC011 Login from 18+ content using account didn't have date of birth
     [Documentation]         Account already had a package and login
     ...                     Ini Sama kaya Nomor 5
-	[Tags]                  Regression  Smoke   Prod_Sync
-    Reset Mola DOB          ${UID}
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
-    AgeRestrictionPage.using account didn't have DOB       ${URL_MOVIE_DETAIL_18+_MOLA}
-    AgeRestrictionPage.Verify Show Age blocker DOB
-    AgeRestrictionPage.Click Button Tutup
-    Reload Page
-    Logout Account
+	[Tags]                  Regression  Smoke   Prod_Sync   Verified
 
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
-    AgeRestrictionPage.using account didn't have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
-    AgeRestrictionPage.Verify Show Age blocker DOB
-    AgeRestrictionPage.Click Button Tutup
-    Reload Page
-    Logout Account
+#    Reset Mola DOB          ${UID}
+#    HomePage.Open Login Page
+#    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
+#    AgeRestrictionPage.using account didn't have DOB       ${URL_MOVIE_DETAIL_18+_MOLA}
+#    AgeRestrictionPage.Verify Show Age blocker DOB
+#    AgeRestrictionPage.Click Button Tutup
+#    Reload Page
+#    Logout Account
+#
+#    HomePage.Open Login Page
+#    SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
+#    AgeRestrictionPage.using account didn't have DOB       ${URL_MOVIE_DETAIL_18+_HBO}
+#    AgeRestrictionPage.Verify Show Age blocker DOB
+#    AgeRestrictionPage.Click Button Tutup
+#    Reload Page
+#    Logout Account
 
-     Reset Mola DOB              ${UID}
+    Reset Mola DOB              ${UID}
     HomePage.Open Login Page
     SignInPage.Login Using Credentials          ${ACCOUNT_WITHOUTDOB1_EMAIL}     ${ACCOUNT_WITHOUTDOB1_PASSWORD}
     AgeRestrictionPage.Using Account Didn't Have DOB       ${URL_MOVIE_DETAIL_18+_MOLA}

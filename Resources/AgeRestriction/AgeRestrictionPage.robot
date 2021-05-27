@@ -54,6 +54,9 @@ ${fill_change_dob_under_18+_agerestriction}                 css=.css-kba4ly.reac
 ${text_continue_watching_agerestriction}                    css=div:nth-of-type(1) > .css-5jjjwv.css-ikrxqq > div > h3
 ${view_all_continue_watching}                               css=div:nth-of-type(1) > .css-5jjjwv.css-ikrxqq > a
 ${text_title_view_all_continue_watching}                    xpath=//p[contains(text(),'BIG WEDDING')]
+${movie_button_play_hbo}                                    xpath=/html//div[@id='video-player-root']//div[@class='_2zwq4']
+
+
 
 *** Keywords ***
 Select 18+ Movie Content
@@ -74,7 +77,6 @@ Select 18+ Movie Content HBO
     Sleep                                           1
     Go To                                           ${URL_MOVIE_DETAIL_18+_HBO}
     Wait Until Element Is Visible                   ${button_videos_player_login_to_watch_after_trailer}
-#    Mouse Over                                      ${movie_mouse_over}
     Page Should Contain Element                     ${button_videos_player_login_to_watch_after_trailer}
     Capture Element Screenshot                      ${button_videos_player_login_to_watch_after_trailer}
     Sleep                                           1
@@ -242,7 +244,7 @@ Using Account Didn't Have DOB
     Element Should Be Visible                       ${frame_konten_dewasa_agerestriction}
     Wait Until Element Is Visible                   ${text_verifikasi_umur_agerestriction}
     Page Should Contain Element                     ${text_verifikasi_umur_agerestriction}
-    Capture Element Screenshot                      ${text_verifikasi_umur_agerestriction}
+#    Capture Element Screenshot                      ${text_verifikasi_umur_agerestriction}
     Element Should Contain                          ${text_verifikasi_umur_agerestriction}      ${EXPECTED_TEXT_TITLE_AGE_VERIFICATION_AGERESTRICTION}
     Wait Until Element Is Visible                   ${text_kalimat_verifikasi_umur}
     Page Should Contain Element                     ${text_kalimat_verifikasi_umur}
@@ -285,9 +287,8 @@ Click Button Yes, I Agree
 
 Verify Profile Update
     Wait Until Element Is Visible                   ${text_profile_successfully_update_agerestriction}
-    Page Should Contain Element                     ${text_profile_successfully_update_agerestriction}
-#    Element Should Be Visible                       ${text_profile_successfully_update_agerestriction}
-    Capture Page Screenshot                         ${text_profile_successfully_update_agerestriction}
+#    Page Should Contain Element                     ${text_profile_successfully_update_agerestriction}
+#    Capture Page Screenshot                         ${text_profile_successfully_update_agerestriction}
     Element Should Contain                          ${text_profile_successfully_update_agerestriction}      Profile successfully update
 
 Click Button Close
@@ -317,14 +318,14 @@ Selection Change DOB Under 18+
     Click Element                                   ${fill_dropdown_list_scroll_day1_agerestriction}
 
 Verify View All Continue Watching
-    Sleep                                           10
+    Sleep                                           30
     Wait Until Page Contains Element                ${text_continue_watching_agerestriction}
     Wait Until Element Is Visible                   ${text_continue_watching_agerestriction}
     Element Should Be Visible                       ${text_continue_watching_agerestriction}
     Scroll To Element                               ${text_continue_watching_agerestriction}
 
 Click View All Continue Watching
-    Sleep                                           10
+    Sleep                                           30
     Wait Until Page Contains Element                ${view_all_continue_watching}
     Wait Until Element Is Visible                   ${view_all_continue_watching}
     Element Should Be Visible                       ${view_all_continue_watching}
@@ -332,9 +333,16 @@ Click View All Continue Watching
     Click Element                                   ${view_all_continue_watching}
 
 Verify View All Continue Watching List
-    Sleep                                           10
+    Sleep                                           30
     Wait Until Element Is Visible                   ${text_title_view_all_continue_watching}
     Wait Until Page Contains Element                ${text_title_view_all_continue_watching}
     Page Should Contain Element                     ${text_title_view_all_continue_watching}
     Element Should Be Visible                       ${text_title_view_all_continue_watching}
     Click Element                                   ${text_title_view_all_continue_watching}
+
+Play HBO Movies Age Restriction
+    Sleep                                           30
+    Wait Until Element Is Visible                   ${movie_button_play_hbo}
+    Click Element                                   ${movie_button_play_hbo}
+    Sleep                                           10
+    Sleep                                           10
