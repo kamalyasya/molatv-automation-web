@@ -12,7 +12,10 @@ Open Mychrome Browser
     [Arguments]    ${URL}
     ${chrome_options}       Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${window_size}          Set Variable    window-size=1920,1080
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    test-type
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --disable-extensions
     Call Method    ${chrome_options}    add_argument    --disable-popup-blocking
     Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
@@ -30,7 +33,7 @@ Open Mychrome Browser
     ...	           '${OS}' == 'Windows'	chromedriver_win32/chromedriver.exe
 
     Run Keyword If    os.sep == '/'    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}    executable_path=${CURDIR}/../../Webdrivers/${chrometype}
-    ...    ELSE                        Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}
+#    ...    ELSE                        Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}
 #    Maximize Browser Window
     Go To          ${URL}
 

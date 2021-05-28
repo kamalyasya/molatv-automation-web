@@ -296,7 +296,6 @@ Click Button Close
     Page Should Contain Element                     ${button_tutup_agerestriction}
     Click Element                                   ${button_tutup_agerestriction}
 
-
 Click Button Close 'X'
     Wait Until Element Is Visible                   ${button_close_x_adult_content}
     Page Should Contain Element                     ${button_close_x_adult_content}
@@ -346,3 +345,9 @@ Play HBO Movies Age Restriction
     Click Element                                   ${movie_button_play_hbo}
     Sleep                                           10
     Sleep                                           10
+
+Verify Age Blocker 18+ With Click Element
+    Wait Until Element Is Visible       ${frame_ageblocker}
+    Element Should Be Visible           ${contents_ageblocker}
+    Element Should Be Visible           ${button_agree_ageblocker}
+    Click Element                       ${button_agree_ageblocker}

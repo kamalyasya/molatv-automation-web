@@ -9,7 +9,7 @@ ${menu_movies}                          css=.FYgXF ._11ipt:nth-of-type(1)
 ${mola_hub_hbo}                         css=.css-ai1awt.css-jk6p7n > .css-1mmkue0 > a:nth-of-type(3) > .css-1wegyzv
 ${movie_detail_title}                   css=h1
 ${movie_button_play}                    css=.control_buttons_play
-${movie_button_pause}                   css=.control_buttons_play_pause
+${movie_button_pause}                   css=.pauseIcon
 ${Movie_hbo_logo}                       css=.splash-img-container
 ${select_frame}                         css=.css-uz10iv > iframe[title='HBO GO Asia']
 
