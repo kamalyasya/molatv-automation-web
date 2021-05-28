@@ -347,7 +347,7 @@ Play HBO Movies Age Restriction
     Sleep                                           10
 
 Verify Age Blocker 18+ With Click Element
-    Wait Until Element Is Visible       ${frame_ageblocker}
-    Element Should Be Visible           ${contents_ageblocker}
-    Element Should Be Visible           ${button_agree_ageblocker}
-    Click Element                       ${button_agree_ageblocker}
+    Wait Until Element Is Visible                   ${frame_ageblocker}
+    Element Should Be Visible                       ${contents_ageblocker}
+    Element Should Be Visible                       ${button_agree_ageblocker}
+    Click Element                                   ${button_agree_ageblocker}
