@@ -47,16 +47,18 @@ User able to play HBO Go movies
     Go To                           ${URL_HBO_MOVIE}
 
 Play HBO Movies
-    Sleep                           10
+    Sleep                           30
     Select Frame                    ${select_frame}
     Wait Until Element Is Visible   ${movie_button_play}
     Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_play}
-    Sleep                           5
-    Sleep                           3
+    Sleep                           10
+    Sleep                           10
 
 Verify User able to play HBO Go movies
+    Sleep                           25
     Page Should Contain Element     ${movie_button_pause}
+    Sleep                           10
     Page Should Contain Element     ${Movie_hbo_logo}
 
 Verify default control
