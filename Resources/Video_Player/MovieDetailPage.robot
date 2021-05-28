@@ -16,6 +16,7 @@ ${frame_login_movie_detail}                     css=._32OqX
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
 ${movie_detail_play_button}                     css=.playIcon
+${mola_movie_detail_play_button}                css=._2zwq4
 ${movie_detail_image_logo}                      css=img[alt='Bug-logo Player']
 ${button_forward_movie_detail}                  css=.forwardIcon
 ${button_backward_movie_detail}                 css=.backwardIcon
@@ -150,7 +151,7 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
-    Element Should Be Visible           ${text_categories_movie_detail_page}
+#    Element Should Be Visible           ${text_categories_movie_detail_page}
 #    Scroll Element Into View            ${expected_movie_detail_related_video}
 #    Element Should Be Visible           ${expected_movie_detail_related_video}
 #    Scroll Element Into View            ${expected_title_movie_detail}
@@ -160,6 +161,12 @@ Play Content From Movie Detail
     Wait Until Element Is Visible       ${expected_title_movie_detail}
     Wait Until Element Is Visible       ${movie_detail_play_button}
     Click Element                       ${movie_detail_play_button}
+
+Play Content Mola From Movie Detail
+    sleep                               5
+    Wait Until Element Is Visible       ${expected_title_movie_detail}
+    Wait Until Element Is Visible       ${mola_movie_detail_play_button}
+    Click Element                       ${mola_movie_detail_play_button}
 
 Play Content 'Mulai Dari Awal'
     sleep                               5
