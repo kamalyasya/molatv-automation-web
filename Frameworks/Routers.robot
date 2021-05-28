@@ -15,6 +15,7 @@ Resource            Configs.robot
 Resource            ../Resources/Accounts/FavoritePage.robot
 Resource            ../Resources/Accounts/ProfilePage.robot
 Resource            ../Resources/AgeRestriction/AgeRestrictionPage.robot
+Resource            ../Resources/Browse/Movies/CategoriesPage.robot
 Resource            ../Resources/Browse/Movies/MoviePlaylistPage.robot
 Resource            ../Resources/Browse/Movies/MovieSeriesSeasonPage.robot
 Resource            ../Resources/Common/Browsers.robot

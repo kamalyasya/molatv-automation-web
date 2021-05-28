@@ -702,7 +702,8 @@ Verify After Autoplay Play Next Video
 
 Verify Autoplay Countdown Is Appear
     Wait Until Element Is Visible       ${text_autoplay_counter_next}
-    Element Should Contain              ${text_autoplay_counter_next}       Play next movie in 10
+    Wait Until Element Contains         ${text_autoplay_counter_next}       Play next movie in 9
+#    Element Should Contain              ${text_autoplay_counter_next}       Play next movie in 10
 
 Verify Button Login To Watch Appear After Trailer Finished
     Wait Until Element Is Visible       ${movie_mouse_over}
