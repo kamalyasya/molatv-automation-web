@@ -25,6 +25,10 @@ ${ACCOUNT_UNREGISTERED}                     cincincin@mola.tv
 ${ACCOUNT_UNREGISTERED_PASSWORD}            crypt:JQMRvNqbGergBgQDA86cqSs8K7ZlOTyvY1edJASF6z3bvvxfJtXFtgZ5lmt+Ib3uHCQQlO+w
 ${ACCOUNT_WITHDOB_EMAIL}                    tiafathiahesty@gmail.com
 ${ACCOUNT_WITHDOB_PASSWORD}                 crypt:eLI28vmqKS4EWz78O2F84cX9l9PtFDzM53tUrD+u9UVVW4Pgj6NYMEtkmQxg8mKAsepTmODJnhI=
+${ACCOUNT_WITHDOB_HBO_EMAIL}                hbouat+2@mola.tv
+${ACCOUNT_WITHDOB_HBO_PASSWORD}             crypt:jun7a7aO5luuiiW7Tokc1bo1nisb4I01+32nwKph1gm9WhryJ6L5JLQXCXHeqFaeSvJNVTky
+${ACCOUNT_WITHOUTDOB_HBO_EMAIL}             hbouat+3@mola.tv
+${ACCOUNT_WITHOUTDOB_HBO_PASSWORD}          crypt:jun7a7aO5luuiiW7Tokc1bo1nisb4I01+32nwKph1gm9WhryJ6L5JLQXCXHeqFaeSvJNVTky
 ${ACCOUNT_WITHOUTDOB_EMAIL}                 tiafathiahesty1@gmail.com
 ${ACCOUNT_WITHOUTDOB_PASSWORD}              crypt:eLI28vmqKS4EWz78O2F84cX9l9PtFDzM53tUrD+u9UVVW4Pgj6NYMEtkmQxg8mKAsepTmODJnhI=
 ${ACCOUNT_WITHOUTDOB1_EMAIL}                20187279169reza@gmail.com

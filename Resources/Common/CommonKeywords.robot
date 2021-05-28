@@ -56,3 +56,15 @@ Reset Mola DOB
 
     Log To Console          ${response.content}
     Should Be Equal         ${json_response}            200
+
+Reset Mola DOB HBO
+    [Arguments]    ${UID1}
+    Create Session          reset_mola_dob              ${HOST}
+    ${endpoint}             Set Variable                /accounts/_/v2/profile/reset/birthdate
+    ${headers}=             Create Dictionary           Content-Type    application/json
+    &{data}=                Create Dictionary           uid=${UID1}
+    ${response}=            POST On Session             reset_mola_dob      ${endpoint}    headers=${headers}   json=${data}
+    ${json_response}=       Convert To String           ${response.status_code}
+
+    Log To Console          ${response.content}
+    Should Be Equal         ${json_response}            200

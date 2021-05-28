@@ -20,7 +20,9 @@ Verify Title Movie
 
 Play Hbo Content 21+
     Select Frame                        ${hbo_select_frame_movie_detail_21+}
+    Sleep                               20
     Wait Until Element Is Visible       ${hbo_movie_button_play}
+    Sleep                               20
     Click Element                       ${hbo_movie_button_play}
     Sleep                               10
 

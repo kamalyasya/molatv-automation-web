@@ -9,7 +9,7 @@ ${menu_movies}                          css=.FYgXF ._11ipt:nth-of-type(1)
 ${mola_hub_hbo}                         css=.css-ai1awt.css-jk6p7n > .css-1mmkue0 > a:nth-of-type(3) > .css-1wegyzv
 ${movie_detail_title}                   css=h1
 ${movie_button_play}                    css=.control_buttons_play
-${movie_button_pause}                   css=.control_buttons_play_pause
+${movie_button_pause}                   css=.pauseIcon
 ${Movie_hbo_logo}                       css=.splash-img-container
 ${select_frame}                         css=.css-uz10iv > iframe[title='HBO GO Asia']
 
@@ -47,16 +47,18 @@ User able to play HBO Go movies
     Go To                           ${URL_HBO_MOVIE}
 
 Play HBO Movies
-    Sleep                           10
+    Sleep                           30
     Select Frame                    ${select_frame}
     Wait Until Element Is Visible   ${movie_button_play}
     Mouse Over                      ${mouse_hover_movie}
     Click Element                   ${movie_button_play}
-    Sleep                           5
-    Sleep                           3
+    Sleep                           10
+    Sleep                           10
 
 Verify User able to play HBO Go movies
+    Sleep                           25
     Page Should Contain Element     ${movie_button_pause}
+    Sleep                           10
     Page Should Contain Element     ${Movie_hbo_logo}
 
 Verify default control
