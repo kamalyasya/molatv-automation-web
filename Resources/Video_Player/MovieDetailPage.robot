@@ -151,8 +151,15 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
-    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
+    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}                      10
+    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}            5
+    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
+    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
+
+Login From Movie Detail If There Is Trailer
+    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}                      10
+    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}            5
+    Mouse Over                          ${movie_mouse_over}
     Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
     run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
 
@@ -368,6 +375,7 @@ Verify Change volume during video playback
     Wait Until Element Is Visible       ${expected_volume}
     Mouse Over                          ${expected_volume}
     Wait Until Element Is Visible       ${expected_volume}
+    Mouse Over                          ${movie_mouse_over}
     Element Should Be Visible           ${expected_volume}
     Capture Element Screenshot          ${expected_volume}
     Sleep                               1
@@ -719,6 +727,7 @@ Check Favorit Video
 
 Verify VOD Is Playing
     Wait Until Element Is Visible       ${movie_mouse_over}
+    Sleep                               3
     Mouse Over                          ${movie_mouse_over}
     Sleep                               2
 
@@ -733,6 +742,7 @@ Verify VOD Is Playing
     ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
     ${FIRST_POSITION}                   Execute Javascript              ${COMMAND_GET_FIRST_POSITION}
     Sleep                               5
+    Mouse Over                          ${movie_mouse_over}
     # Get Current Position
     ${COMMAND_GET_CURRENT_POSITION}     catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
     ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_GET_CURRENT_POSITION}

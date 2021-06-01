@@ -254,7 +254,7 @@ Delivery - Video Player: TC016 Auto Next Video - Age Desclimer
     [Tags]              Regression   Smoke  Verified
 
     MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL18+}
-    MovieDetailPage.Login from movie detail
+    MovieDetailPage.Login From Movie Detail If There Is Trailer
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Accept Adult Content
