@@ -180,7 +180,7 @@ Verify Is Redirected Back To The Same Movie Detail
     Scroll Element Into View            ${expected_movie_detail_related_video}
     Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
-    Element Should Be Visible           ${expected_rating_movie_detail}
+#    Element Should Be Visible           ${expected_rating_movie_detail}
 
 Play Content From Movie Detail
     sleep                               5
