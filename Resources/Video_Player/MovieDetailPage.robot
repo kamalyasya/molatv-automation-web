@@ -519,7 +519,8 @@ Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
 #    Click Element                       ${movie_quality_control}
-    Wait Until Element Is Visible       ${movie_change_quality}
+#    Wait Until Element Is Visible       ${movie_change_quality}
+    Wait Until Element Is Visible       ${movie_quality_selected}
     Element Should Contain              ${movie_quality_selected}           720
     Sleep                               3
 
