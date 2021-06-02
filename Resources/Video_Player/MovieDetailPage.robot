@@ -176,7 +176,7 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
-    Element Should Be Visible           ${text_categories_movie_detail_page}
+#    Element Should Be Visible           ${text_categories_movie_detail_page}
     Scroll Element Into View            ${expected_movie_detail_related_video}
     Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}

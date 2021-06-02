@@ -132,7 +132,7 @@ TC006 Subscription Blocker after user buy package
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
     HboPlayback.Play HBO Movies
-    HboPlayback.Verify User able to play HBO Go movies
+    HboPlayback.Verify default control
     Reload Page
     Go Back
     Reload Page
