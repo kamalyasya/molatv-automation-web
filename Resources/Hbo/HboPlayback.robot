@@ -61,6 +61,17 @@ Verify User able to play HBO Go movies
     Sleep                           10
     Page Should Contain Element     ${Movie_hbo_logo}
 
+Verify User able to play HBO Go movies Subcription
+    Sleep                           20
+    Mouse Over                      ${mouse_hover_movie}
+    Sleep                           3
+    Mouse Over                      ${mouse_hover_movie}
+    Wait Until Element Is Visible   ${movie_button_pause}
+    Mouse Over                      ${mouse_hover_movie}
+    Page Should Contain Element     ${movie_button_pause}
+    Sleep                           10
+    Page Should Contain Element     ${Movie_hbo_logo}
+
 Verify default control
     Mouse Over                      ${mouse_hover_movie}
     Page Should Contain Element     ${movie_button_volume}
