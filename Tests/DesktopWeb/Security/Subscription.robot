@@ -47,8 +47,8 @@ TC002 Check video quality
     [Tags]      Regression  Smoke   Verified
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNT_WITHDOB_HBO_EMAIL}        ${ACCOUNT_WITHDOB_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_WITHDOB_HBO_EMAIL}
     HomePage.Open Profile Page
     SettingsPage.Select Subscription
     SettingsPage.Select Verify Status
@@ -65,8 +65,8 @@ TC003 There's no ads banner in every package
     [Tags]      Regression  Smoke   Verified
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
+    SignInPage.Login Using Credentials                      ${ACCOUNT_WITHDOB_HBO_EMAIL}        ${ACCOUNT_WITHDOB_HBO_PASSWORD}
+    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_WITHDOB_HBO_EMAIL}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Verify Status
@@ -132,7 +132,7 @@ TC006 Subscription Blocker after user buy package
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNTS_HBO_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
     HboPlayback.Play HBO Movies
-    HboPlayback.Verify User able to play HBO Go movies
+    HboPlayback.Verify default control
     Reload Page
     Go Back
     Reload Page
