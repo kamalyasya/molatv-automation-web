@@ -7,9 +7,13 @@ ${text_subscription_package_title_beli_paket}           css=._1NGTJ
 ${button_subscription_package_beli_paket_1}             xpath=//button[text()='Subscribe Now']
 
 # Package
-${text_subscription_package_1st_package_title}          css=div:nth-of-type(2) > * > * > h4
-${text_subscription_package_1st_package_price}          css=div:nth-of-type(2) > * > * > h5
-${button_subscription_package_1st_package_subscribe_now}  css=div:nth-of-type(2) > * > .css-1o01cj2
+${text_subscription_package_1st_package_title}          css=div:nth-of-type(1) > * > * > h4
+${text_subscription_package_1st_package_price}          css=div:nth-of-type(1) > * > * > h5
+${button_subscription_package_1st_package_subscribe_now}  css=div:nth-of-type(1) > * > .css-1o01cj2
+
+# ${text_subscription_package_1st_package_title}          css=div:nth-of-type(2) > * > * > h4
+# ${text_subscription_package_1st_package_price}          css=div:nth-of-type(2) > * > * > h5
+# ${button_subscription_package_1st_package_subscribe_now}  css=div:nth-of-type(2) > * > .css-1o01cj2
 
 # Check your order Page
 ${text_subscription_package_title_order_page}           xpath=//div[text()='Check your order']
