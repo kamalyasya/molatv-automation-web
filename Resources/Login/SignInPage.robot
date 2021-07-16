@@ -16,7 +16,7 @@ ${text_login_email_error_message}   css=.inputError
 
 ${sidebar_home}                     css=._1GfoO
 ${button_profile_home}              css=._2YhM7
-${button_accounts_logout}           css=._3qxwB
+${button_accounts_logout}           css=._3Jegx
 ${icon_menu_home}                   css=div:nth-of-type(2) > .SwWJf
 
 # Frame Email not registered
@@ -67,8 +67,8 @@ Input Wrong Credential For 7 Times
     Click Element                       ${button_login_login}
     Wait Until Element Is Not Visible   ${button_login_loading_login}
     Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
+    # Wait Until Element Is Not Visible   ${button_login_loading_login}
+    # Click Element                       ${button_login_login}
 
 Click Lupa Password Links
     Wait Until Element Is Visible       ${links_login_lupa_password}
