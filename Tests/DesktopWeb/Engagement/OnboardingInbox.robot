@@ -18,7 +18,7 @@ ${EXPECTED_TEXT_TITLE_DAFTAR_PESAN_ONBOARDING}              Message List
 ${EXPECTED_TEXT_CONTENT_DAFTAR_PESAN_ONBOARDING}            All your message lists, can see here!
 *** Test Cases ***
 #TC001 - Show onboarding for notif badge
-#    [Documentation]  User can see inbox onboarding from homepage
+#    [Documentation]  User can see inbox onboarding from Homepage
 #	[Tags]  Regression
 #
 #    HomePage.Open Login Page

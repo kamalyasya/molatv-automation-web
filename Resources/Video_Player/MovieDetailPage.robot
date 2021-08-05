@@ -23,7 +23,7 @@ ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
 ${movie_pause_button}                           css=.css-gysqbn.pauseIcon
-${button_login_to_watch_movie_detail_page}      css=._3J12S span
+${button_login_to_watch_movie_detail_page}      xpath=//button[contains(text(),'Login to Watch')] | //span[contains(text(),'Login to Watch')]
 ${button_watch_now_movie_detail_page}           css=._3J12S span
 ${button_sound_on_trailer_movie_detail_page}    css=._20cSF
 ${text_play_trailer_movie_detail_page}          css=._2Wg44
@@ -31,7 +31,7 @@ ${frame_play_trailer_movie_detail_page}         css=._2mt2k .css-1kiiaat
 ${card_trailer_movie_detail_page}               css=.card div:nth-of-type(1)
 ${button_play_card_trailer_movie_detail_page}   css=.overlay > .css-1k9fjl5.play
 
-${movie_mouse_over}                             css=#video-child
+${movie_mouse_over}                             css=#video-player-root
 ${movie_quality_control}                        css=div#vpcc-quality
 ${movie_quality_popup}                          css=.quality_popup
 ${movie_quality_list_270}                       css=.css-6p59hx > div:nth-of-type(4)
@@ -151,17 +151,14 @@ Go To Movie Detail
     Go To                               ${URL_MOVIE_DETAIL}
 
 Login from movie detail
-    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}                      10
-    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}            5
-    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
-    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
-
-Login From Movie Detail If There Is Trailer
-    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}                      10
-    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}            5
-    Mouse Over                          ${movie_mouse_over}
-    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
-    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
+    Wait Until Element Is Visible       ${movie_mouse_over}
+    Click Element                       ${movie_mouse_over}
+    Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}
+    Click Element                       ${button_login_to_watch_movie_detail_page}
+    #    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
+    #    ${CHECK_BUTTON_LOGIN_AFTER_TRAILER}             Run Keyword And Return Status               Wait Until Element Is Visible       ${button_videos_player_login_to_watch_after_trailer}           5
+    #    Run Keyword If                      '${CHECK_BUTTON_LOGIN_TRAILER}'=='True'         Click Element                       ${button_login_to_watch_movie_detail_page}
+    #    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
 
 Verify Direct To Login Page
     Wait Until Element Is Visible       ${frame_login_movie_detail}
@@ -176,11 +173,11 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
-#    Element Should Be Visible           ${text_categories_movie_detail_page}
+    Element Should Be Visible           ${text_categories_movie_detail_page}
     Scroll Element Into View            ${expected_movie_detail_related_video}
     Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
-#    Element Should Be Visible           ${expected_rating_movie_detail}
+    Element Should Be Visible           ${expected_rating_movie_detail}
 
 Play Content From Movie Detail
     sleep                               5
@@ -375,7 +372,6 @@ Verify Change volume during video playback
     Wait Until Element Is Visible       ${expected_volume}
     Mouse Over                          ${expected_volume}
     Wait Until Element Is Visible       ${expected_volume}
-    Mouse Over                          ${movie_mouse_over}
     Element Should Be Visible           ${expected_volume}
     Capture Element Screenshot          ${expected_volume}
     Sleep                               1
@@ -519,8 +515,7 @@ Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
 #    Click Element                       ${movie_quality_control}
-#    Wait Until Element Is Visible       ${movie_change_quality}
-    Wait Until Element Is Visible       ${movie_quality_selected}
+    Wait Until Element Is Visible       ${movie_change_quality}
     Element Should Contain              ${movie_quality_selected}           720
     Sleep                               3
 
@@ -728,7 +723,6 @@ Check Favorit Video
 
 Verify VOD Is Playing
     Wait Until Element Is Visible       ${movie_mouse_over}
-    Sleep                               3
     Mouse Over                          ${movie_mouse_over}
     Sleep                               2
 
@@ -743,7 +737,6 @@ Verify VOD Is Playing
     ${COMMAND_GET_FIRST_POSITION}       catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
     ${FIRST_POSITION}                   Execute Javascript              ${COMMAND_GET_FIRST_POSITION}
     Sleep                               5
-    Mouse Over                          ${movie_mouse_over}
     # Get Current Position
     ${COMMAND_GET_CURRENT_POSITION}     catenate                        return window.player${VIDEOID}.getMediaElement().currentTime
     ${CURRENT_POSITION}                 Execute Javascript              ${COMMAND_GET_CURRENT_POSITION}
@@ -832,7 +825,8 @@ Verify After Autoplay Play Next Video
 
 Verify Autoplay Countdown Is Appear
     Wait Until Element Is Visible       ${text_autoplay_counter_next}
-    Element Should Contain              ${text_autoplay_counter_next}       Play next movie in 10
+    Wait Until Element Contains         ${text_autoplay_counter_next}       Play next movie in 9
+#    Element Should Contain              ${text_autoplay_counter_next}       Play next movie in 10
 
 Verify Button Login To Watch Appear After Trailer Finished
     Wait Until Element Is Visible       ${movie_mouse_over}
