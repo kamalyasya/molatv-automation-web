@@ -3,7 +3,7 @@ Resource                ../../Frameworks/Routers.robot
 
 
 *** Variables ***
-${links_login_register_sekarang}                                link=Register
+${links_login_register_sekarang}                                xpath=//div//*[text()='Register']
 
 ${field_register_email}                                         id=identity
 ${field_register_password}                                      id=password
@@ -43,8 +43,8 @@ ${button_register_subcription_plan}                             css=div:nth-of-t
 ${button_register_pay_subcription}                              css=._1sYFn > div > div:nth-of-type(2) ._2Kbv7  .vhbIU
 
 # Terms and condition, Privacy Policy
-${links_registration_terms_condition}                           css=._3HlQw > p > a:nth-of-type(1)
-${links_registration_privacy_policy}                            css=._3HlQw > p > a:nth-of-type(2)
+${links_registration_terms_condition}                           css=p > a:nth-of-type(1)
+${links_registration_privacy_policy}                            css=p > a:nth-of-type(2)
 
 
 *** Keywords ***

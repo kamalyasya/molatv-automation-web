@@ -5,8 +5,8 @@ Resource                ../../Frameworks/Routers.robot
 ${field_login_email}                id=identity
 ${field_login_password}             id=password
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
-${button_login_login}               css=._3C-S2
-${button_login_loading_login}       css=._3C-S2.nA5CF.undefined > ._3_DDx
+${button_login_login}               xpath=//button[text()="Login"]
+${button_login_loading_login}       css=.Hmrxx._3C-S2.nA5CF.undefined > ._3_DDx
 ${text_login_error_message}         css=.ch-Xo
 ${links_login_lupa_password}        css=[href='\/accounts\/forgot-password']
 ${button_login_google}              css=._3Zzdj > button:nth-of-type(1)
@@ -20,10 +20,10 @@ ${button_accounts_logout}           css=._3Jegx
 ${icon_menu_home}                   css=div:nth-of-type(2) > .SwWJf
 
 # Frame Email not registered
-${text_login_title_email_not_registered}    xpath=//div[contains(text(),'Email is not registered')]
-${text_login_continue_register_with}        css=._3NBC1
-${button_login_cancel_register}     xpath=//button[contains(text(),'Cancel')]
-${button_login_create_account}      xpath=//button[contains(text(),'Register')]
+${text_login_title_email_not_registered}            xpath=//div[contains(text(),'Email is not registered')]
+${text_login_create_account_with_this_email}        css=._1frfL
+${button_login_cancel_register}                     xpath=//button[contains(text(),'Cancel')]
+${button_login_create_account}                      xpath=//button[contains(text(),'Register')]
 
 *** Keywords ***
 Login Using Credentials
@@ -55,20 +55,25 @@ Verify A Error Message Show Up
 Input Wrong Credential For 7 Times
     [Arguments]     ${EMAIL}    ${PASSWORD}
     Login Using Credentials             ${EMAIL}    ${PASSWORD}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    Wait Until Element Is Not Visible   ${button_login_loading_login}
-    Click Element                       ${button_login_login}
-    # Wait Until Element Is Not Visible   ${button_login_loading_login}
-    # Click Element                       ${button_login_login}
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    Sleep    5
+    Login Using Credentials             ${EMAIL}    ${PASSWORD}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
+    #    Wait Until Element Is Not Visible   ${button_login_loading_login}
+    #    Click Element                       ${button_login_login}
 
 Click Lupa Password Links
     Wait Until Element Is Visible       ${links_login_lupa_password}
@@ -144,10 +149,10 @@ Verify Frame Register Is Appeared
     [Arguments]     ${EMAIL}
     Wait Until Element Is Visible       ${text_login_title_email_not_registered}
     Element Should Be Visible           ${text_login_title_email_not_registered}
-    Wait Until Element Is Visible       ${text_login_continue_register_with}
-    Element Should Be Visible           ${text_login_continue_register_with}
+    Wait Until Element Is Visible       ${text_login_create_account_with_this_email}
+    Element Should Be Visible           ${text_login_create_account_with_this_email}
     ${EXTECTED_TEXT}                    Catenate                Create account with this email\n${EMAIL}\n?
-    Element Should Contain              ${text_login_continue_register_with}                    ${EXTECTED_TEXT}
+    Element Should Contain              ${text_login_create_account_with_this_email}                    ${EXTECTED_TEXT}
     Wait Until Element Is Visible       ${button_login_cancel_register}
     Element Should Be Visible           ${button_login_cancel_register}
     Wait Until Element Is Visible       ${button_login_create_account}

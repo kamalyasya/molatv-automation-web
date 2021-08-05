@@ -67,8 +67,7 @@ TC003 Access 18+ content using 18+ account
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     AgeRestrictionPage.Verify Show Age Blocker 3 18+         ${URL_MOVIE_DETAIL_18+_MOLA}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail          ${EXPECTED_URL_MOVIE_DETAIL_18+_MOLA}
-#    MovieDetailPage.Click Button Watch Now On Video Player
-    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Click Button Watch Now On Video Player
     MovieDetailPage.Verify VOD Is Playing
     Reload Page
     Logout Account
@@ -374,14 +373,14 @@ TC010 Login from 18+ content using under 18+ account
 
 	AgeRestrictionPage.Select 18+ Movie Content         ${URL_MOVIE_DETAIL_18+_MOLA}
     SignInPage.Login Using Credentials              ${ACCOUNT_WITHDOB_EMAIL}        ${ACCOUNT_WITHDOB_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_MOLA}
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     AgeRestrictionPage.Can't Play Button
     Reload Page
     Logout Account
 
     AgeRestrictionPage.Select 18+ Movie Content HBO         ${URL_MOVIE_DETAIL_18+_HBO}
     SignInPage.Login Using Credentials              ${ACCOUNT_WITHDOB_EMAIL}        ${ACCOUNT_WITHDOB_PASSWORD}
-    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button      ${URL_MOVIE_DETAIL_18+_HBO}
+    AgeRestrictionPage.Verify Show Age blocker "CLOSE or TUTUP" button
     AgeRestrictionPage.Can't Play Button
     Reload Page
     Logout Account

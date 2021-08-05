@@ -23,18 +23,27 @@ TC001 UI of the Search page
 
 TC002 Keyword predictions
     [Documentation]  Verify Prediction keywords are displayed when entering one character in the search text box
-    [Tags]           Regression  Smoke  NeedReview
+    [Tags]           Regression  Smoke  NeedReview  Fixed
 
     HomePage.Open Search Page
     SearchPage.Input Search Keyword             Go Back to
     SearchPage.Verify Keyword Predictions       go back to china
+    SearchPage.Click Keyword Prediction
+    SearchPage.Verify Search Result             go back to china
+    SearchPage.Clear Keywords On Search Field
 
-    SearchPage.Input Search Keyword             Go Back to
-    SearchPage.Verify Keyword Predictions       go back to china
+    SearchPage.Input Search Keyword             garuda
+    SearchPage.Verify Keyword Predictions       garuda select
+    SearchPage.Click Keyword Prediction
+    SearchPage.Verify Search Result             garuda select
+    SearchPage.Clear Keywords On Search Field
+
     SearchPage.Input Search Keyword             liverpool vs
     SearchPage.Verify Keyword Predictions       liverpool vs arsenal
+    SearchPage.Click Keyword Prediction
+    SearchPage.Verify Search Result             liverpool vs arsenal
 
-    # Tambahin click prediction, trus search field nya muncul kata yg dipilih,
+    # Tambahin click prediction, trus search field nya muncul kata yg dipilih,  SearchPage.Click Keyword Prediction, SearchPage.Verify Search Result
 
 TC004 Search by title
     [Documentation]  Verify Search by title is shown by specific catalogue
@@ -50,19 +59,16 @@ TC004 Search by title
     SearchPage.Search Using Keyword             DOWN +
     SearchPage.Verify Search Result             DOWN +
 
-    # Tambah Search result for keywords
+    # Tambah Search result for keywords -> SearchPage.Verify Search Result
 
 TC006 Search by special characters
     [Documentation]  Verify Search by special characters will not shown
-    [Tags]           Regression     NeedReview
+    [Tags]           Regression     NeedReview      Fixed
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${KEYWORD_USD}
     SearchPage.Verify No Result Found           ${KEYWORD_USD}
     SearchPage.Clear Keywords On Search Field
-#TC006 Search by special characters (Space)
-#    [Documentation]  Verify Search by special characters will not shown
-#    [Tags]           Regression
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${SPACE}
@@ -73,16 +79,16 @@ TC006 Search by special characters
 
 TC007 No search results
     [Documentation]  Verify The message appears after a search with invalid keywords
-    [Tags]           Regression  Smoke  NeedReview
+    [Tags]           Regression  Smoke  NeedReview  Fixed
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword             ${KEYWORD_NO_RESULT}
     SearchPage.Verify No Result Found           ${KEYWORD_NO_RESULT}
-    #Tambah kemunculan icon mola not found, try different keywords juga
+    #Tambah kemunculan icon mola not found, try different keywords juga -> SearchPage.Verify No Result Found
 
 TC008 Navigate from search results to content details page
     [Documentation]  Verify Navigate from the "Search Results" page to the content detail page
-    [Tags]           Regression     Smoke   NeedReview
+    [Tags]           Regression     Smoke   NeedReview  Fixed
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword                             ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
@@ -90,12 +96,26 @@ TC008 Navigate from search results to content details page
     SearchPage.Open Related Movie
     MovieDetailPage.Verify Movie Details Page Is Shown          ${KEYWORD_MOVIE_GO_BACK_TO_CHINA}
 
-    # Tambah content HBO, contoh keyword,
-    # tambah sofa kuning, navigate to epispode sofa kuning, judul halamannya sofa kuning
+    Go Back
+    SearchPage.Clear Keywords On Search Field
+    SearchPage.Search Using Keyword                             JOKER
+    SearchPage.Verify Search Result                             JOKER
+    SearchPage.Open Related Movie
+    MovieDetailPage.Verify Movie Details Page Is Shown          JOKER
+
+    Go Back
+    SearchPage.Clear Keywords On Search Field
+    SearchPage.Search Using Keyword                             sofa kuning
+    SearchPage.Verify Search Result                             sofa kuning
+    SearchPage.Open Related Movie
+    CategoriesPage.Verify Categories Page Is Shown              sofa kuning
+
+    # Tambah content HBO, contoh keyword, DONE
+    # tambah sofa kuning, navigate to epispode sofa kuning, judul halamannya sofa kuning -> CategoriesPage.Verify Categories Page Is Shown
 
 TC009 Recent Search
     [Documentation]  Verify Search results will be displayed below the search field
-    [Tags]           Regression     Smoke   NeedReview
+    [Tags]           Regression     Smoke   NeedReview  Fixed
 
     HomePage.Open Search Page
     SearchPage.Search Using Keyword                             garuda
@@ -103,8 +123,10 @@ TC009 Recent Search
     HomePage.Open Login Page
     HomePage.Open Search Page
     SearchPage.Verify Recent Search Is Shown                    garuda
+    SearchPage.Click Recent Search History
+    SearchPage.Verify Search Result                             garuda
 
-    # tambah kalau di click history nyari lagi
+    # tambah kalau di click history nyari lagi -> SearchPage.Click Recent Search History
 
 TC010 Search Suggestion
     [Documentation]  Verify the list of suggestion will appear while typing some keywords
