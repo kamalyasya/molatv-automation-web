@@ -3,12 +3,12 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${text_profile_username}                css=div:nth-of-type(4) > p
-${text_profile_email}                   css=div:nth-of-type(5) > p
+${text_profile_email}                   css=div:nth-of-type(9) > p
 ${text_profile_phone}                   css=div:nth-of-type(6) > p
 ${text_profile_DOB}                     css=div:nth-of-type(7) > p
 ${text_profile_gender}                  css=div:nth-of-type(8) > p
 ${text_profile_country}                 css=div:nth-of-type(9) > p
-${button_profile_keluar}                css=._3qxwB
+${button_profile_keluar}                css=._3Jegx
 
 
 *** Keywords ***
