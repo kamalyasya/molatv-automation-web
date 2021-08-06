@@ -78,23 +78,23 @@ ${frame_homepage_inbox_onboarding}              css=.__floater__body
 ${text_homepage_title_onboarding}               css=._2u2aj
 ${text_homepage_content_onboarding}             css=._1fO2X
 
-${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
-${text_homepage_selected_menu}                  css=.Trssw._2yKxK
-${menu_homepage_selected_menu}                  css=._3lT3U
-${menu_homepage_search}                         css=div:nth-of-type(1) > .SwWJf
-${menu_homepage_home}                           css=._1GfoO > div:nth-of-type(2)
-${menu_homepage_home_hover}                     css=div:nth-of-type(2) > ._2yKxK
-${menu_homepage_browse}                         css=._1GfoO > div:nth-of-type(3)
-${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
-${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
-${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
-${menu_homepage_accounts}                       css=._2YhM7
+#${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
+#${text_homepage_selected_menu}                  css=.Trssw._2yKxK
+#${menu_homepage_selected_menu}                  css=._3lT3U
+#${menu_homepage_search}                         css=div:nth-of-type(1) > .SwWJf
+#${menu_homepage_home}                           css=._1GfoO > div:nth-of-type(2)
+#${menu_homepage_home_hover}                     css=div:nth-of-type(2) > ._2yKxK
+#${menu_homepage_browse}                         css=._1GfoO > div:nth-of-type(3)
+#${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
+#${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
+#${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
+${menu_homepage_accounts}                       ${menu_side_bar_homepage_accounts}
 ${text_homepage_menu_profile}                   css=[data-testid='side-menu-profile-text']
-${text_homepage_langganan_count_number}         css=.count-number
-${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
-${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
-${menu_homepage_sports}                         css=.FYgXF > div:nth-of-type(3)
-${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
+#${text_homepage_langganan_count_number}         css=.count-number
+#${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
+#${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
+#${menu_homepage_sports}                         css=.FYgXF > div:nth-of-type(3)
+#${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
 
 # Profile Page
 ${links_homepage_menu_selected}                 css=._1NGTJ
@@ -525,9 +525,9 @@ Verify Progress Bar Will Appear
     Capture Element Screenshot                  ${progress_bar_continues_watching}
 
 Open Profile Page
-    Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
     Sleep                                       2
-    Mouse Over                                  ${menu_homepage_accounts}
+    Mouse Over                                  ${menu_side_bar_homepage_accounts}
     Wait Until Element Is Visible               ${text_homepage_menu_profile}
     Click Element                               ${text_homepage_menu_profile}
     Mouse Over To Live Chat
