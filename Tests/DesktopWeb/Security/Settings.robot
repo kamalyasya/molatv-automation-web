@@ -10,7 +10,7 @@ Test Teardown           CommonKeywords.End Testing
 ${URL}                              ${HOST}/accounts/profile
 
 ${Username}                         testing
-${PHONE1}                           +6281297180000
+${PHONE1}                           6281297180000
 ${DOB}
 ${Gender}                           Male
 ${Country}                          Indonesia
@@ -69,7 +69,7 @@ TC002 Edit Profile
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE}    ${DOB}      Female   Japan
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      Female   Japan
     SettingsPage.Make changes to default value      ${PHONE1}
     Reload Page
     Go Back

@@ -2,12 +2,12 @@
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
-${text_profile_username}                css=div:nth-of-type(4) > p
-${text_profile_email}                   css=div:nth-of-type(9) > p
-${text_profile_phone}                   css=div:nth-of-type(6) > p
-${text_profile_DOB}                     css=div:nth-of-type(7) > p
-${text_profile_gender}                  css=div:nth-of-type(8) > p
-${text_profile_country}                 css=div:nth-of-type(9) > p
+${text_profile_username}                xpath=//*[normalize-space()='Username']/following-sibling::p
+${text_profile_email}                   xpath=//*[normalize-space()='Email']/following-sibling::p
+${text_profile_phone}                   xpath=//*[@for='changePhoneNumber']/following-sibling::p
+${text_profile_DOB}                     xpath=//*[@for='changeBirthdate']/following-sibling::p
+${text_profile_gender}                  xpath=//*[normalize-space()='Gender']/following-sibling::p
+${text_profile_country}                 xpath=//*[@for='changeLocation']/following-sibling::p
 ${button_profile_keluar}                css=._3Jegx
 
 
@@ -42,14 +42,14 @@ Verify Accounts
     [Arguments]     ${Username}     ${Email}    ${Phone}     ${DOB}    ${Gender}   ${Country}
 #    > Tambah Username , phone number , Gender , Country + Date of birth
     Wait Until Element Is Visible       ${text_profile_username}
-    Element Should Contain              ${text_profile_username}       ${Username}
+    Element Should Contain              ${text_profile_username}        ${Username}
     Wait Until Element Is Visible       ${text_profile_email}
-    Element Should Contain              ${text_profile_email}       ${Email}
+    Element Should Contain              ${text_profile_email}           ${Email}
     Wait Until Element Is Visible       ${text_profile_phone}
-    Element Should Contain              ${text_profile_phone}       ${Phone}
+    Element Should Contain              ${text_profile_phone}           ${Phone}
     Wait Until Element Is Visible       ${text_profile_DOB}
-    Element Should Contain              ${text_profile_DOB}       ${DOB}
+    Element Should Contain              ${text_profile_DOB}             ${DOB}
     Wait Until Element Is Visible       ${text_profile_gender}
-    Element Should Contain              ${text_profile_gender}       ${Gender}
+    Element Should Contain              ${text_profile_gender}          ${Gender}
     Wait Until Element Is Visible       ${text_profile_country}
-    Element Should Contain              ${text_profile_country}       ${Country}
+    Element Should Contain              ${text_profile_country}         ${Country}
