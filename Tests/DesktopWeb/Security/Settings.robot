@@ -31,6 +31,11 @@ ${ULANG_PASSWORD02}                 12345678
 ${PASSWORD_BARU02}                  sapisuper69690
 ${ULANG_PASSWORD03}                 sapisuper69690
 
+
+${testusername}                     T.hbo
+${testuser}                         t.hbo@mola.tv
+${testpassword}                     M0L4h8o!
+
 ${URL_MOVIE_DETAIL}                 ${HOST}/watch?v=vd93496274
 ${EXPECTED_URL_MOVIE_DETAIL}        ${URL_MOVIE_DETAIL}
 
@@ -62,19 +67,19 @@ TC002 Edit Profile
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Login Using Credentials          ${testuser}     ${testpassword}
     SettingsPage.Select User icon
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      Female   Japan
+    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      Female   Japan
     SettingsPage.Make changes to default value      ${PHONE1}
     Reload Page
     Go Back
     Open Profile Page
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     Reload Page
     # Tambah yg diganti username, phone number      --> Fixed
     # TAMBAH Verifikasi Username , phone number , Gender , Country Pada saat Sebelum & Sesudah Perubahan
@@ -143,24 +148,24 @@ TC011 Edit Profile change Date of Birth
 
     Log                    Reason Can't Automated :     Because For The Change Of Birth Date It Takes The Next 3 Months To Make The Next Change
 
-TC012 Edit Profile change Phone Number
-    [Documentation]         User already have an account and sign in
-    ...                     Make phone number change, using phone number that already used for another account
-    [Tags]                  Regression  Smoke   Verified
+# TC012 Edit Profile change Phone Number
+#     [Documentation]         User already have an account and sign in
+#     ...                     Make phone number change, using phone number that already used for another account
+#     [Tags]                  Regression  Smoke   Verified
 
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-    SettingsPage.Select User icon
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
-    SettingsPage.Select Ubah button
-    SettingsPage.Make phone number change               ${PHONE2}
-    SettingsPage.Verify phone number Already Exist Message
-    Reload Page
-    Go Back
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
-    Reload Page
-    SettingsPage.Verify That Phone Number Hasn't Changed
-    Logout Account
+#     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+#     SettingsPage.Select User icon
+#     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+#     SettingsPage.Select Ubah button
+#     SettingsPage.Make phone number change               ${PHONE2}
+#     SettingsPage.Verify phone number Already Exist Message
+#     Reload Page
+#     Go Back
+#     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+#     Reload Page
+#     SettingsPage.Verify That Phone Number Hasn't Changed
+#     Logout Account
 
     # pakai nomer telp yg udah di pakai
     # Verifikasi phone already exist
@@ -237,7 +242,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
 
     # Tambah pengecekan countdown 10s
@@ -252,7 +257,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
     Logout Account
 

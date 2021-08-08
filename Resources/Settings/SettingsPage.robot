@@ -28,8 +28,8 @@ ${text_ubah_akun_settings}                              css=._3MuQu
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
 ${text_edit_profile_before}                             xpath=//h1[normalize-space()='Edit Profile']
-${text_account_after}                                   css=._2AqYX > ._2h0ZG
-${text_picture_profile_after}                           css=.flovB
+${text_account_after}                                   css=._29dxZ:nth-of-type(4) p
+${text_picture_profile_after}                           css=._1DR_v
 ${button_keluar_settings}                               css=._3qxwB
 ${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_alert_dialog_atur_password}                      css=div[role='alertdialog']

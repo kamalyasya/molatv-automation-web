@@ -45,8 +45,8 @@ Verify Accounts
     Element Should Contain              ${text_profile_username}        ${Username}
     Wait Until Element Is Visible       ${text_profile_email}
     Element Should Contain              ${text_profile_email}           ${Email}
-    Wait Until Element Is Visible       ${text_profile_phone}
-    Element Should Contain              ${text_profile_phone}           ${Phone}
+    # Wait Until Element Is Visible       ${text_profile_phone}
+    # Element Should Contain              ${text_profile_phone}           ${Phone}
     Wait Until Element Is Visible       ${text_profile_DOB}
     Element Should Contain              ${text_profile_DOB}             ${DOB}
     Wait Until Element Is Visible       ${text_profile_gender}
