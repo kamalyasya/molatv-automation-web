@@ -34,11 +34,11 @@ ${button_play_card_trailer_movie_detail_page}   css=.overlay > .css-1k9fjl5.play
 ${movie_mouse_over}                             css=#video-player-root
 ${movie_quality_control}                        css=div#vpcc-quality
 ${movie_quality_popup}                          css=.quality_popup
-${movie_quality_list_270}                       css=.css-6p59hx > div:nth-of-type(4)
-${movie_quality_list_360}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(3)
-${movie_quality_list_576}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(2)
-${movie_quality_list_720}                       css=div#vpcc-quality  .css-6p59hx > div:nth-of-type(1)
-${movie_quality_list_auto}                      css=.css-6p59hx > div:nth-of-type(5)
+${movie_quality_list_270}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(5)
+${movie_quality_list_360}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(4)
+${movie_quality_list_576}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(3)
+${movie_quality_list_720}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(2)
+${movie_quality_list_auto}                      css=div#vpcc-quality .css-ilj64n > div:nth-of-type(6)
 ${movie_quality_selected}                       css=.quality_list.active
 ${movie_quality_title}                          css=.quality_title
 ${movie_quality_checklist_active}               css=.quality_popup .css-gysqbn.tickIcon
@@ -166,6 +166,8 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
+    ${CHECK_TEXT_CATEGORY}               Run Keyword And Return Status       Wait Until Element Is Visible       ${text_categories_movie_detail_page}
+    ${CHECK_EXPECTED_RATING}               Run Keyword And Return Status       Wait Until Element Is Visible       ${expected_rating_movie_detail}
     Wait Until Location Is              ${URL}
     Location Should Be                  ${URL}
     Wait Until Element Is Visible       ${expected_title_movie_detail}
@@ -173,11 +175,16 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
-    Element Should Be Visible           ${text_categories_movie_detail_page}
+    IF    '${CHECK_TEXT_CATEGORY}' == 'True'
+        Element Should Be Visible           ${text_categories_movie_detail_page}
+    END
+
     Scroll Element Into View            ${expected_movie_detail_related_video}
     Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
-    Element Should Be Visible           ${expected_rating_movie_detail}
+    IF    '${CHECK_EXPECTED_RATING}' == 'True'
+        Element Should Be Visible           ${expected_rating_movie_detail}
+    END
 
 Play Content From Movie Detail
     sleep                               5
@@ -515,7 +522,7 @@ Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
 #    Click Element                       ${movie_quality_control}
-    Wait Until Element Is Visible       ${movie_change_quality}
+    # Wait Until Element Is Visible       ${movie_change_quality}
     Element Should Contain              ${movie_quality_selected}           720
     Sleep                               3
 
