@@ -168,6 +168,8 @@ Verify Direct To Login Page
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
+    ${CHECK_TEXT_CATEGORY}               Run Keyword And Return Status       Wait Until Element Is Visible       ${text_categories_movie_detail_page}
+    ${CHECK_EXPECTED_RATING}               Run Keyword And Return Status       Wait Until Element Is Visible       ${expected_rating_movie_detail}
     Wait Until Location Is              ${URL}
     Location Should Be                  ${URL}
     Wait Until Element Is Visible       ${expected_title_movie_detail}
@@ -175,11 +177,16 @@ Verify Is Redirected Back To The Same Movie Detail
     Element Should Be Visible           ${expected_movie_detail_synopsis}
     Element Should Be Visible           ${expected_movie_detail_cast}
     Element Should Be Visible           ${text_duration_movie_detail_page}
-    Element Should Be Visible           ${text_categories_movie_detail_page}
+    IF    '${CHECK_TEXT_CATEGORY}' == 'True'
+        Element Should Be Visible           ${text_categories_movie_detail_page}
+    END
+
     Scroll Element Into View            ${expected_movie_detail_related_video}
     Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
-    Element Should Be Visible           ${expected_rating_movie_detail}
+    IF    '${CHECK_EXPECTED_RATING}' == 'True'
+        Element Should Be Visible           ${expected_rating_movie_detail}
+    END
 
 Play Content From Movie Detail
     sleep                               5
@@ -518,7 +525,7 @@ Verify Video Quality 720
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
 #    Click Element                       ${movie_quality_control}
-    Wait Until Element Is Visible       ${movie_change_quality}
+    # Wait Until Element Is Visible       ${movie_change_quality}
     Element Should Contain              ${movie_quality_selected}           720
     Sleep                               3
 

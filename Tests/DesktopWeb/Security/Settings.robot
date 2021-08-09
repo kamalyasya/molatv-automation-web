@@ -64,7 +64,7 @@ TC002 Edit Profile
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}      ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
@@ -146,7 +146,7 @@ TC011 Edit Profile change Date of Birth
 TC012 Edit Profile change Phone Number
     [Documentation]         User already have an account and sign in
     ...                     Make phone number change, using phone number that already used for another account
-    [Tags]                  Regression  Smoke   Verified
+    [Tags]                  Regression  Smoke   Verified Skip
 
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
@@ -237,7 +237,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
 
     # Tambah pengecekan countdown 10s
@@ -252,7 +252,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
     Logout Account
 
