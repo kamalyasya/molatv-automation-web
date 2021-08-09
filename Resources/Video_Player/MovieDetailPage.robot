@@ -22,7 +22,7 @@ ${button_forward_movie_detail}                  css=.forwardIcon
 ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
-${movie_pause_button}                           css=.css-gysqbn.pauseIcon
+${movie_pause_button}                           css=.pauseIcon
 ${button_login_to_watch_movie_detail_page}      xpath=//button[contains(text(),'Login to Watch')] | //span[contains(text(),'Login to Watch')]
 ${button_watch_now_movie_detail_page}           css=._3J12S span
 ${button_sound_on_trailer_movie_detail_page}    css=._20cSF
@@ -34,11 +34,19 @@ ${button_play_card_trailer_movie_detail_page}   css=.overlay > .css-1k9fjl5.play
 ${movie_mouse_over}                             css=#video-player-root
 ${movie_quality_control}                        css=div#vpcc-quality
 ${movie_quality_popup}                          css=.quality_popup
+<<<<<<< HEAD
 ${movie_quality_list_270}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(5)
 ${movie_quality_list_360}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(4)
 ${movie_quality_list_576}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(3)
 ${movie_quality_list_720}                       css=div#vpcc-quality .css-ilj64n > div:nth-of-type(2)
 ${movie_quality_list_auto}                      css=div#vpcc-quality .css-ilj64n > div:nth-of-type(6)
+=======
+${movie_quality_list_270}                       xpath=//div[@class='quality_list ' and .='270']
+${movie_quality_list_360}                       xpath=//div[@class='quality_list ' and .='360']
+${movie_quality_list_576}                       xpath=//div[@class='quality_list ' and .='576']
+${movie_quality_list_720}                       xpath=//div[@class='quality_list ' and .='720']
+${movie_quality_list_auto}                      xpath=//div[@class='quality_list ' and .='Auto']
+>>>>>>> 0a55fe8f2213ab4a5d4c6860f7e510f034991093
 ${movie_quality_selected}                       css=.quality_list.active
 ${movie_quality_title}                          css=.quality_title
 ${movie_quality_checklist_active}               css=.quality_popup .css-gysqbn.tickIcon
@@ -161,8 +169,10 @@ Login from movie detail
     #    run keyword if                      '${CHECK_BUTTON_LOGIN_AFTER_TRAILER}'=='True'    Click Element                      ${button_videos_player_login_to_watch_after_trailer}
 
 Verify Direct To Login Page
-    Wait Until Element Is Visible       ${frame_login_movie_detail}
-    Element Should Be Visible           ${frame_login_movie_detail}
+    Wait Until Element Is Visible       ${field_login_email}
+    Element Should Be Visible           ${field_login_email}
+    Wait Until Element Is Visible       ${field_login_password}
+    Element Should Be Visible           ${field_login_password}
 
 Verify Is Redirected Back To The Same Movie Detail
     [Arguments]  ${URL}
@@ -303,6 +313,7 @@ Verify Auto Play Is Not Displayed
     Element Should Not Be Visible       ${autoplay_button_skip}
 
 Change Video Quality
+    Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_control}
     Click Element                       ${movie_quality_control}

@@ -32,6 +32,7 @@ Search Using Keyword
 Verify UI Search Page
     Wait Until Location Contains                /search
     Location Should Contain                     /search
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_search}
     Mouse Over                                  ${menu_side_bar_homepage_search}
     Wait Until Element Is Visible               ${text_homepage_selected_menu}
     Element Text Should Be                      ${text_homepage_selected_menu}              Search
