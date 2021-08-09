@@ -16,7 +16,7 @@ ${text_login_email_error_message}   css=.inputError
 
 ${sidebar_home}                     css=._1GfoO
 ${button_profile_home}              css=._2YhM7
-${button_accounts_logout}           css=._3qxwB
+${button_accounts_logout}           css=._3Jegx
 ${icon_menu_home}                   css=div:nth-of-type(2) > .SwWJf
 
 # Frame Email not registered
@@ -114,6 +114,7 @@ Verify Email field Error Message Is Show Up
 Logout Account
     Open Profile Page
     Wait Until Element Is Visible       ${button_accounts_logout}
+    Scroll To Element                   ${button_accounts_logout}
     Click Element                       ${button_accounts_logout}
     Wait Until Element Is Visible       ${icon_menu_home}
     Element Should Be Visible           ${icon_menu_home}

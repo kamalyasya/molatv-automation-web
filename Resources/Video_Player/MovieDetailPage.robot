@@ -12,7 +12,7 @@ ${text_categories_movie_detail_page}            css=.sub-header > span:nth-of-ty
 
 ${button_videos_player_login_to_watch_after_trailer}          css=._33Xwm
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
-${frame_login_movie_detail}                     css=._32OqX
+${frame_login_movie_detail}                     css=._1r9_k
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
 ${movie_detail_play_button}                     css=.playIcon
@@ -23,7 +23,7 @@ ${button_backward_movie_detail}                 css=.backwardIcon
 ${movie_detail_duration}                        css=.duration
 ${movie_progress_bar}                           css=.progressbar_progress
 ${movie_pause_button}                           css=.css-gysqbn.pauseIcon
-${button_login_to_watch_movie_detail_page}      css=._3J12S span
+${button_login_to_watch_movie_detail_page}      css=.Cig54._3J12S > span
 ${button_watch_now_movie_detail_page}           css=._3J12S span
 ${button_sound_on_trailer_movie_detail_page}    css=._20cSF
 ${text_play_trailer_movie_detail_page}          css=._2Wg44

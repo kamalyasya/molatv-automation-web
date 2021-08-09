@@ -32,6 +32,7 @@ ${links_homepage_menu_pengaturan}               xpath=//div[contains(@data-testi
 ${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
 ${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
 
+
 #Categories And Content In Home Page
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
 ${categories_homepage1}                         css=div:nth-of-type(2) > .css-17v1w3x > .css-1q8d97k
