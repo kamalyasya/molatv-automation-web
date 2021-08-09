@@ -143,24 +143,24 @@ TC011 Edit Profile change Date of Birth
 
     Log                    Reason Can't Automated :     Because For The Change Of Birth Date It Takes The Next 3 Months To Make The Next Change
 
-# TC012 Edit Profile change Phone Number
-#     [Documentation]         User already have an account and sign in
-#     ...                     Make phone number change, using phone number that already used for another account
-#     [Tags]                  Regression  Smoke   Verified
+TC012 Edit Profile change Phone Number
+    [Documentation]         User already have an account and sign in
+    ...                     Make phone number change, using phone number that already used for another account
+    [Tags]                  Regression  Smoke   Verified Skip
 
 
-#     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
-#     SettingsPage.Select User icon
-#     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
-#     SettingsPage.Select Ubah button
-#     SettingsPage.Make phone number change               ${PHONE2}
-#     SettingsPage.Verify phone number Already Exist Message
-#     Reload Page
-#     Go Back
-#     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
-#     Reload Page
-#     SettingsPage.Verify That Phone Number Hasn't Changed
-#     Logout Account
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SettingsPage.Select User icon
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    SettingsPage.Select Ubah button
+    SettingsPage.Make phone number change               ${PHONE2}
+    SettingsPage.Verify phone number Already Exist Message
+    Reload Page
+    Go Back
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    Reload Page
+    SettingsPage.Verify That Phone Number Hasn't Changed
+    Logout Account
 
     # pakai nomer telp yg udah di pakai
     # Verifikasi phone already exist
