@@ -31,11 +31,6 @@ ${ULANG_PASSWORD02}                 12345678
 ${PASSWORD_BARU02}                  sapisuper69690
 ${ULANG_PASSWORD03}                 sapisuper69690
 
-
-${testusername}                     T.hbo
-${testuser}                         t.hbo@mola.tv
-${testpassword}                     M0L4h8o!
-
 ${URL_MOVIE_DETAIL}                 ${HOST}/watch?v=vd93496274
 ${EXPECTED_URL_MOVIE_DETAIL}        ${URL_MOVIE_DETAIL}
 
@@ -67,19 +62,19 @@ TC002 Edit Profile
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
-    SignInPage.Login Using Credentials          ${testuser}     ${testpassword}
+    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
-    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}      ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
-    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      Female   Japan
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      Female   Japan
     SettingsPage.Make changes to default value      ${PHONE1}
     Reload Page
     Go Back
     Open Profile Page
-    ProfilePage.Verify Accounts                 ${Username}     ${testuser}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     Reload Page
     # Tambah yg diganti username, phone number      --> Fixed
     # TAMBAH Verifikasi Username , phone number , Gender , Country Pada saat Sebelum & Sesudah Perubahan
