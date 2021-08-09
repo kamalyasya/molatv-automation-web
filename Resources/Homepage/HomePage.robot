@@ -4,7 +4,7 @@ Resource                ../../Frameworks/Routers.robot
 *** Variables ***
 #Menu Mola TV Web
 ${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
-${text_homepage_selected_menu}                  xpath=//div[data-testid='side-menu-active']/following-sibling::div
+${text_homepage_selected_menu}                  xpath=//div[@data-testid='side-menu-active']/following-sibling::div
 ${menu_homepage_selected_menu}                  css=[data-testid='side-menu-active']
 ${menu_side_bar_homepage_search}                css=[data-testid='side-menu-search']
 ${menu_side_bar_homepage_home}                  css=[data-testid='side-menu-search']
@@ -374,12 +374,13 @@ Choose any live match
 
 Verify UI Homepage Side Bar Menu
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home}
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_search}
     Element Should Be Visible                   ${menu_side_bar_homepage_search}
     Element Should Be Visible                   ${menu_side_bar_homepage_home}
     Element Should Be Visible                   ${menu_side_bar_homepage_browse}
     Element Should Be Visible                   ${menu_side_bar_homepage_matches}
     Element Should Be Visible                   ${menu_side_bar_homepage_beli_akses}
-    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}
+#    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}       // This menu has been removed from sude bar
 
 Verify UI Homepage Top Bar Menu
     Element Should Be Visible                   ${menu_top_bar_homepage_home}
