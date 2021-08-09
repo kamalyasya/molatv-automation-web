@@ -14,7 +14,7 @@ ${URL_MOVIE_PLAYLIST3}                                      ${HOST}/categories/K
 *** Test Cases ***
 TC001 - Sort on Video Playlist
     [Documentation]  User can sorting video in Video Playlist
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   NeedReview
 
     MoviePlaylistPage.Open Movie Playlist               ${URL_MOVIE_PLAYLIST}
     MoviePlaylistPage.Click Sorting Button On Playlist
@@ -22,7 +22,7 @@ TC001 - Sort on Video Playlist
 
 TC002 - Sort on Playlist section
     [Documentation]  User can sorting video in Playlist Section
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   NeedReview
 
     MoviePlaylistPage.Open Movie Playlist               ${URL_MOVIE_PLAYLIST2}
     MoviePlaylistPage.Click Sorting Button On Playlist
@@ -30,7 +30,7 @@ TC002 - Sort on Playlist section
 
 TC003 - Sort on Series Season List
     [Documentation]  User can sorting video in series section list
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   NeedReview
 
     Open Series Playlist                                ${URL_MOVIE_PLAYLIST3}
     Click Sorting Button On Series
@@ -39,7 +39,7 @@ TC003 - Sort on Series Season List
 TC004 - Sort by Terbaru
     [Documentation]  User can sort video by newest realese date
     ...              Sorting option "Terbaru" just available on video list only (not have section inside)
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke   NeedReview
 
     Open Series Playlist                                ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Sorting By Terbaru On Series
@@ -48,7 +48,7 @@ TC004 - Sort by Terbaru
 TC005 - Sort by Terlama
     [Documentation]  User can sort video by oldest release date
     ...              Sorting option "Terlama" just available on video list only (not have section inside)
-    [Tags]  Regression  Smoke
+    [Tags]  Regression  Smoke   NeedReview
 
     Open Series Playlist                                ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Sorting By Terlama On Series
@@ -56,7 +56,7 @@ TC005 - Sort by Terlama
 
 TC006 - Sort by A - Z
     [Documentation]  User can sort video by ascending
-    [Tags]  Regression
+    [Tags]  Regression  NeedReview
 
     Open Series Playlist                                ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Sorting By A-Z On Series
@@ -64,7 +64,7 @@ TC006 - Sort by A - Z
 
 TC007 - Sort by Z - A
     [Documentation]  User can sort video by descending
-    [Tags]  Regression
+    [Tags]  Regression  NeedReview
 
     MovieSeriesSeasonPage.Open Series Playlist          ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Sorting By Z-A On Series
@@ -72,7 +72,7 @@ TC007 - Sort by Z - A
 
 TC008 - Sort by Default
     [Documentation]  User can restore sorting by default condition
-    [Tags]  Regression
+    [Tags]  Regression  NeedReview
 
     MovieSeriesSeasonPage.Open Series Playlist          ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Sorting By Z-A On Series
@@ -81,7 +81,7 @@ TC008 - Sort by Default
 
 TC009 - Cancel sorting video
     [Documentation]  User can cancel sorting / close bottom sheet
-    [Tags]  Regression
+    [Tags]  Regression  NeedReview
 
     MovieSeriesSeasonPage.Open Series Playlist          ${URL_MOVIE_PLAYLIST3}
     MovieSeriesSeasonPage.Click Sorting Button On Series

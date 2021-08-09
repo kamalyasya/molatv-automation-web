@@ -155,7 +155,7 @@ TC011 - Find all favorite video from homepage
 	[Tags]  Regression  Smoke
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_SUPERMOLA2_EMAIL}         ${ACCOUNT_SUPERMOLA2_PASSWORD}
+    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Click View All On Favorit Saya
     FavoritePage.Verify Tontonan Saya Is Opened
     Logout Account
