@@ -4,21 +4,21 @@ Resource                ../../Frameworks/Routers.robot
 *** Variables ***
 #Menu Mola TV Web
 ${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
-${text_homepage_selected_menu}                  css=.Trssw._2yKxK
-${menu_homepage_selected_menu}                  css=._3lT3U
-${menu_side_bar_homepage_search}                css=div:nth-of-type(1) > .SwWJf
-${menu_side_bar_homepage_home}                  css=._1GfoO > div:nth-of-type(2)
-${menu_side_bar_homepage_home_hover}            css=div:nth-of-type(2) > ._2yKxK
-${menu_side_bar_homepage_browse}                css=._1GfoO > div:nth-of-type(3)
-${menu_side_bar_homepage_matches}               css=._1GfoO > div:nth-of-type(4)
-${menu_side_bar_homepage_beli_akses}            css=._1GfoO > div:nth-of-type(5)
+${text_homepage_selected_menu}                  xpath=//div[@data-testid='side-menu-active']/following-sibling::div
+${menu_homepage_selected_menu}                  css=[data-testid='side-menu-active']
+${menu_side_bar_homepage_search}                css=[data-testid='side-menu-search']
+${menu_side_bar_homepage_home}                  css=[data-testid='side-menu-search']
+${menu_side_bar_homepage_home_hover}            css=[data-testid='side-menu-home-text']
+${menu_side_bar_homepage_browse}                css=[data-testid='side-menu-browse']
+${menu_side_bar_homepage_matches}               css=[data-testid='side-menu-matches']
+${menu_side_bar_homepage_beli_akses}            css=[data-testid='side-menu-subscribe']
 ${menu_side_bar_homepage_redeem_voucher}        css=._1GfoO > div:nth-of-type(6)
-${menu_side_bar_homepage_accounts}              css=._2YhM7
+${menu_side_bar_homepage_accounts}              css=[data-testid='side-menu-profile']
 ${text_homepage_langganan_count_number}         css=.count-number
-${menu_top_bar_homepage_home}                   css=.FYgXF > div:nth-of-type(1)
-${menu_top_bar_homepage_living}                 css=.FYgXF > div:nth-of-type(2)
-${menu_top_bar_homepage_sports}                 css=.FYgXF > div:nth-of-type(3)
-${menu_top_bar_homepage_kids}                   css=.FYgXF > div:nth-of-type(4)
+${menu_top_bar_homepage_home}                   css=[data-testid='top-bar-home-menu']
+${menu_top_bar_homepage_living}                 css=[data-testid='top-bar-living-menu']
+${menu_top_bar_homepage_sports}                 css=[data-testid='top-bar-sports-menu']
+${menu_top_bar_homepage_kids}                   css=[data-testid='top-bar-kids-menu']
 ${menu_top_bar_homepage_bold}                   css=._392KM
 
 ${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(@data-testid, 'menu-profile')]
@@ -79,23 +79,23 @@ ${frame_homepage_inbox_onboarding}              css=.__floater__body
 ${text_homepage_title_onboarding}               css=._2u2aj
 ${text_homepage_content_onboarding}             css=._1fO2X
 
-${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
-${text_homepage_selected_menu}                  css=.Trssw._2yKxK
-${menu_homepage_selected_menu}                  css=._3lT3U
-${menu_homepage_search}                         css=div:nth-of-type(1) > .SwWJf
-${menu_homepage_home}                           css=._1GfoO > div:nth-of-type(2)
-${menu_homepage_home_hover}                     css=div:nth-of-type(2) > ._2yKxK
-${menu_homepage_browse}                         css=._1GfoO > div:nth-of-type(3)
-${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
-${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
-${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
-${menu_homepage_accounts}                       css=._2YhM7
-${text_homepage_menu_profile}                   css=._2YhM7 > ._2yKxK
-${text_homepage_langganan_count_number}         css=.count-number
-${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
-${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
-${menu_homepage_sports}                         css=.FYgXF > div:nth-of-type(3)
-${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
+#${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
+#${text_homepage_selected_menu}                  css=.Trssw._2yKxK
+#${menu_homepage_selected_menu}                  css=._3lT3U
+#${menu_homepage_search}                         css=div:nth-of-type(1) > .SwWJf
+#${menu_homepage_home}                           css=._1GfoO > div:nth-of-type(2)
+#${menu_homepage_home_hover}                     css=div:nth-of-type(2) > ._2yKxK
+#${menu_homepage_browse}                         css=._1GfoO > div:nth-of-type(3)
+#${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
+#${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
+#${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
+${menu_homepage_accounts}                       ${menu_side_bar_homepage_accounts}
+${text_homepage_menu_profile}                   css=[data-testid='side-menu-profile-text']
+#${text_homepage_langganan_count_number}         css=.count-number
+#${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
+#${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
+#${menu_homepage_sports}                         css=.FYgXF > div:nth-of-type(3)
+#${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
 
 # Profile Page
 ${links_homepage_menu_selected}                 css=._1NGTJ
@@ -375,12 +375,13 @@ Choose any live match
 
 Verify UI Homepage Side Bar Menu
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home}
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_search}
     Element Should Be Visible                   ${menu_side_bar_homepage_search}
     Element Should Be Visible                   ${menu_side_bar_homepage_home}
     Element Should Be Visible                   ${menu_side_bar_homepage_browse}
     Element Should Be Visible                   ${menu_side_bar_homepage_matches}
     Element Should Be Visible                   ${menu_side_bar_homepage_beli_akses}
-    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}
+#    Element Should be visible                   ${menu_side_bar_homepage_redeem_voucher}       // This menu has been removed from sude bar
 
 Verify UI Homepage Top Bar Menu
     Element Should Be Visible                   ${menu_top_bar_homepage_home}
@@ -526,9 +527,9 @@ Verify Progress Bar Will Appear
     Capture Element Screenshot                  ${progress_bar_continues_watching}
 
 Open Profile Page
-    Wait Until Element Is Visible               ${menu_homepage_accounts}
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
     Sleep                                       2
-    Mouse Over                                  ${menu_homepage_accounts}
+    Mouse Over                                  ${menu_side_bar_homepage_accounts}
     Wait Until Element Is Visible               ${text_homepage_menu_profile}
     Click Element                               ${text_homepage_menu_profile}
     Mouse Over To Live Chat

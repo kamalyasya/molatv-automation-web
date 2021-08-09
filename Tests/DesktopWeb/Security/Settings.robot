@@ -10,7 +10,7 @@ Test Teardown           CommonKeywords.End Testing
 ${URL}                              ${HOST}/accounts/profile
 
 ${Username}                         testing
-${PHONE1}                           +6281297180000
+${PHONE1}                           6281297180000
 ${DOB}
 ${Gender}                           Male
 ${Country}                          Indonesia
@@ -64,12 +64,12 @@ TC002 Edit Profile
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}      ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
     SettingsPage.Make some changes and Save     ${Username}    ${PHONE}
     SettingsPage.Button Simpan
     SettingsPage.User Successfully Ubah
-    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE}    ${DOB}      Female   Japan
+    ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      Female   Japan
     SettingsPage.Make changes to default value      ${PHONE1}
     Reload Page
     Go Back
@@ -100,18 +100,18 @@ TC003 Edit Profile without saving it
     # TAMBAH Verifikasi Username , phone number , Gender , Country Pada saat Sebelum & Sesudah Perubahan
     # Pakai Email , Username , phone number , Gender , Country yang data nya lengkap
 
-#TC006 Atur Password without saving it
-#    [Documentation]        Make a password change and don't save it
-#    ...                    User already have an account and sign in
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :       Because For Enter the OTP Code that has been sent to Email User's
-#
-#TC008 Atur Password with different input at Password and Password Confirmation
-#    [Documentation]        User already have an account and sign in
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :       Because For Enter the OTP Code that has been sent to Email User's
+TC006 Atur Password without saving it
+    [Documentation]        Make a password change and don't save it
+    ...                    User already have an account and sign in
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :       Because For Enter the OTP Code that has been sent to Email User's
+
+TC008 Atur Password with different input at Password and Password Confirmation
+    [Documentation]        User already have an account and sign in
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :       Because For Enter the OTP Code that has been sent to Email User's
 
 TC010 Subscription view
     [Documentation]         View subscription page
@@ -136,17 +136,18 @@ TC010 Subscription view
     Logout Account
     # Tambah check dan verify email free
 
-#TC011 Edit Profile change Date of Birth
-#    [Documentation]        User already have an account and sign in. Edit the DOB 1 times to get DOB blocker.
-#    ...                    Make DOB changes
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :     Because For The Change Of Birth Date It Takes The Next 3 Months To Make The Next Change
+TC011 Edit Profile change Date of Birth
+    [Documentation]        User already have an account and sign in. Edit the DOB 1 times to get DOB blocker.
+    ...                    Make DOB changes
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :     Because For The Change Of Birth Date It Takes The Next 3 Months To Make The Next Change
 
 TC012 Edit Profile change Phone Number
     [Documentation]         User already have an account and sign in
     ...                     Make phone number change, using phone number that already used for another account
-    [Tags]                  Regression  Smoke   Verified
+    [Tags]                  Regression  Smoke   Verified Skip
+
 
     SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
@@ -236,7 +237,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
 
     # Tambah pengecekan countdown 10s
@@ -251,7 +252,7 @@ TC014 Autoplay ON
     MovieDetailPage.Verify Autoplay Next Video Is Visible
     MovieDetailPage.Click Button Play Next Auto Play
     MovieDetailPage.Verify After Autoplay Play Next Video
-#    MovieDetailPage.Play Content Video Or Play Video From Begining
+    MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
     Logout Account
 
@@ -298,26 +299,26 @@ TC016 Video Playback Test DRM
     MovieDetailPage.Verify VOD Is Playing And Time Is Elapsed
     MovieDetailPage.Verify The progress bar and elapsed time are updating when playing a content
 
-#TC017 Atur Password with user that login by email and password
-#    [Documentation]        User setting a new password with the new flow.
-#    ...                    User registered and logged-in with an account, registered using email+password (not SSO)
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
-#
-#TC018 Atur Password with user that login by Google, Facebook (have email) and Apple button
-#    [Documentation]        User setting a new password with the new flow.
-#    ...                    User registered and logged-in with an account, registered using Google, Facebook or Apple. (SSO)
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
-#
-#TC019 Atur Password with user that login by Facebook (don't have email)
-#    [Documentation]        User setting a new password with the new flow.
-#    ...                    User registered and logged-in with an account, registered using Facebook. (SSO)
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
+TC017 Atur Password with user that login by email and password
+    [Documentation]        User setting a new password with the new flow.
+    ...                    User registered and logged-in with an account, registered using email+password (not SSO)
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
+
+TC018 Atur Password with user that login by Google, Facebook (have email) and Apple button
+    [Documentation]        User setting a new password with the new flow.
+    ...                    User registered and logged-in with an account, registered using Google, Facebook or Apple. (SSO)
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
+
+TC019 Atur Password with user that login by Facebook (don't have email)
+    [Documentation]        User setting a new password with the new flow.
+    ...                    User registered and logged-in with an account, registered using Facebook. (SSO)
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
 
 TC020 Atur Password input wrong OTP number code
     [Documentation]         Input wrong OTP number at Atur Password flow.
@@ -357,11 +358,11 @@ TC021 Atur Password resend OTP number code
     # Tambah verifikasi 60s -> SettingsPage.Verify Resend OTP Number Code 60 Second -> fixed
     # Allert OTP code send  -> SettingsPage.Verify OTP Message Is Appeared
 
-#TC022 Atur Password add existing email address to Account
-#    [Documentation]        User cannot add email that has been previously registered.
-#    [Tags]                 Skip
-#
-#    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
+TC022 Atur Password add existing email address to Account
+    [Documentation]        User cannot add email that has been previously registered.
+    [Tags]                 Skip
+
+    Log                    Reason Can't Automated :     Because For Enter the OTP Code that has been sent to Email User's
 
 TC023 - Language
     [Documentation]         Setting language on Mola TV

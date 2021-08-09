@@ -6,20 +6,20 @@ ${field_login_email}                                    id=identity
 ${field_login_password}                                 id=password
 ${button_login_login}                                   css=._3C-S2
 ${status_berlangganan_profile_settings}                 css=._2vnbY > h1
-${text_profil_akun_id_pengguna_settings}                css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(3)
-${text_profil_akun_nama_pengguna_settings}              css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(4)
-${text_profil_akun_email_settings}                      css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(5)
-${text_profil_akun_no_telepon_settings}                 css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(6)
-${text_profil_akun_tanggal_lahir_settings}              css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(7)
-${text_profil_akun_jenis_kelamin_settings}              css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(8)
-${text_profil_akun_lokasi_settings}                     css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(9)
-${button_ubah_button_settings}                          css=._28BJH
-${button_batal_ubah_profil_settings}                    css=._3rHVa
+${text_profil_akun_id_pengguna_settings}                xpath=//*[@for='defaultID']/following-sibling::p
+${text_profil_akun_nama_pengguna_settings}              xpath=//*[normalize-space()='Username']/following-sibling::p
+${text_profil_akun_email_settings}                      xpath=//*[normalize-space()='Email']/following-sibling::p
+${text_profil_akun_no_telepon_settings}                 xpath=//*[@for='changePhoneNumber']/following-sibling::p
+${text_profil_akun_tanggal_lahir_settings}              xpath=//*[@for='changeBirthdate']/following-sibling::p
+${text_profil_akun_jenis_kelamin_settings}              xpath=//*[normalize-space()='Gender']/following-sibling::p
+${text_profil_akun_lokasi_settings}                     xpath=//*[@for='changeLocation']/following-sibling::p
+${button_ubah_button_settings}                          xpath=//button/div[.='Change']
+${button_batal_ubah_profil_settings}                    css=._18nl7
 ${label_no_telepon_settings}                            id=phone
 ${label_jenis_kelamin_m_settings}                       css=select[name='gender'] > option[value='m']
 ${label_user_name_settings}                             css=input#name
 ${label_lokasi_default_settings}                        css=select[name='location'] > option[value='Indonesia']
-${button_simpan_settings}                               css=._27srK._3C-S2
+${button_simpan_settings}                               xpath=//button[normalize-space()='Save']
 ${text_phone_number_already_existed}                    css=._3MuQu
 ${text_phone_number_settings_not_change}                css=._38NgJ.css-tqv6h2.css-ug8ckl > div:nth-of-type(6)
 ${label_phone_number_settings_not_change}               css=div:nth-of-type(6) > label
@@ -27,9 +27,9 @@ ${text_phone_number_settings_default}                   css=.LZ_R2:nth-of-type(6
 ${text_ubah_akun_settings}                              css=._3MuQu
 ${label_jenis_kelamin_f_settings}                       css=select[name='gender'] > option[value='f']
 ${label_lokasi_change01_settings}                       css=select[name='location'] > option[value='Japan']
-${text_edit_profile_before}                             css=._2RPl3
-${text_account_after}                                   css=._2AqYX > ._2h0ZG
-${text_picture_profile_after}                           css=.flovB
+${text_edit_profile_before}                             xpath=//h1[normalize-space()='Edit Profile']
+${text_account_after}                                   css=._29dxZ:nth-of-type(4) p
+${text_picture_profile_after}                           css=._1DR_v
 ${button_keluar_settings}                               css=._3qxwB
 ${text_pengaturan_settings}                             css=._16YQ- > div:nth-of-type(4)
 ${text_alert_dialog_atur_password}                      css=div[role='alertdialog']
@@ -120,6 +120,7 @@ Show Status Berlangganan
 The account information is shown in Profile page
     Wait Until Element Is Visible       ${links_homepage_menu_profil}
     Click Element                       ${links_homepage_menu_profil}
+    Wait Until Element Is Visible       ${text_profil_akun_id_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_id_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_nama_pengguna_settings}
     Element Should Be Visible           ${text_profil_akun_email_settings}
@@ -148,8 +149,8 @@ Make some changes and Save
     [Arguments]     ${Username}       ${Phone}
     Wait Until Element Is Visible                   ${label_user_name_settings}
     Input Text                                      ${label_user_name_settings}             ${Username}
-    Wait Until Element Is Visible                   ${label_no_telepon_settings}
-    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
+#    Wait Until Element Is Visible                   ${label_no_telepon_settings}
+#    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
     Wait Until Element Is Visible                   ${label_jenis_kelamin_m_settings}
     Click Element                                   ${label_jenis_kelamin_f_settings}
     Wait Until Element Is Visible                   ${label_lokasi_default_settings}
@@ -167,12 +168,12 @@ User Successfully Ubah
 
 Make changes to default value
     [Arguments]         ${Phone}
-    Select Ubah button
-    Wait Until Element Is Visible                   ${label_no_telepon_settings}
-    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
-    Button Simpan
-    User Successfully Ubah
-    Sleep                                           5
+#    Select Ubah button
+#    Wait Until Element Is Visible                   ${label_no_telepon_settings}
+#    Input Text                                      ${label_no_telepon_settings}            ${PHONE}
+#    Button Simpan
+#    User Successfully Ubah
+#    Sleep                                           5
 
     Select Ubah button
     Click Element                                   ${label_jenis_kelamin_f_settings}

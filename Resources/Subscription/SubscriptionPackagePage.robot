@@ -7,9 +7,15 @@ ${text_subscription_package_title_beli_paket}           css=._1NGTJ
 ${button_subscription_package_beli_paket_1}             xpath=//button[text()='Subscribe Now']
 
 # Package
-${text_subscription_package_1st_package_title}          css=div:nth-of-type(2) > * > * > h4
-${text_subscription_package_1st_package_price}          css=div:nth-of-type(2) > * > * > h5
-${button_subscription_package_1st_package_subscribe_now}  css=div:nth-of-type(2) > * > .css-1o01cj2
+${text_subscription_package_1st_package_title}          css=div:nth-of-type(1) > * > * > h4
+${text_subscription_package_1st_package_price}          css=div:nth-of-type(1) > section .css-fnl0jp > h5
+${button_subscription_package_1st_package_choose_duration}  css=div:nth-of-type(1) > section .css-sp1r2z
+${button_subscription_package_1st_package_1_month}      css=div:nth-of-type(1) > section .css-k8uftk > div:nth-of-type(1)
+${button_subscription_package_1st_package_checkout}     css=.css-3m0c9v
+
+# ${text_subscription_package_1st_package_title}          css=div:nth-of-type(2) > * > * > h4
+# ${text_subscription_package_1st_package_price}          css=div:nth-of-type(2) > * > * > h5
+# ${button_subscription_package_1st_package_subscribe_now}  css=div:nth-of-type(2) > * > .css-1o01cj2
 
 # Check your order Page
 ${text_subscription_package_title_order_page}           xpath=//div[text()='Check your order']
@@ -30,7 +36,7 @@ Choose A Package
     Wait Until Element Is Visible                       ${text_subscription_package_title_beli_paket}
     Wait Until Element Is Visible                       ${text_subscription_package_1st_package_title}
     Wait Until Element Is Visible                       ${text_subscription_package_1st_package_price}
-    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_subscribe_now}
+    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_choose_duration}
 #    ${TITLE_PACKAGE} =      Catenate                    Premium Entertainment 1 Month
     ${TITLE_PACKAGE} =      Get Text                    ${text_subscription_package_1st_package_title}
     ${PRICE_PACKAGE} =      Get Text                    ${text_subscription_package_1st_package_price}
@@ -38,8 +44,13 @@ Choose A Package
     Set Test Variable       ${TITLE_PACKAGE}
     Set Test Variable       ${PRICE_PACKAGE}
 
-    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_subscribe_now}
-    Click Element                                       ${button_subscription_package_1st_package_subscribe_now}
+    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_choose_duration}
+    Click Element                                       ${button_subscription_package_1st_package_choose_duration}
+    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_1_month}
+    Click Element                                       ${button_subscription_package_1st_package_1_month}
+    Wait Until Element Is Visible                       ${button_subscription_package_1st_package_checkout}
+    Click Element                                       ${button_subscription_package_1st_package_checkout}
+
 
 Verify On Beli Package Page
     Wait Until Element Is Visible                       ${text_subscription_package_title_order_page}
