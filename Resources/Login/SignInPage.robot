@@ -119,6 +119,7 @@ Verify Email field Error Message Is Show Up
 Logout Account
     Open Profile Page
     Wait Until Element Is Visible       ${button_accounts_logout}
+    Scroll To Element                   ${button_accounts_logout}
     Click Element                       ${button_accounts_logout}
     Wait Until Element Is Visible       ${icon_menu_home}
     Element Should Be Visible           ${icon_menu_home}
