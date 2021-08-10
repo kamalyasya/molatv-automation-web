@@ -25,7 +25,7 @@ ${SAMPLE_SERIES_SESSION_TITLE2}                             35 DAYS
 *** Test Cases ***
 TC001 - Favorite video for non-login user
     [Documentation]  User cannot fovorite video if they are not logged in
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     MovieDetailPage.Go To Movie Detail                      ${SAMPLE_MOVIE_URL_NON_LOGIN}
     MovieDetailPage.Click Button Favorit
@@ -37,7 +37,7 @@ TC001 - Favorite video for non-login user
 
 TC002 - Favorite video from video detil page
     [Documentation]  User can favorite video from video detil
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -67,7 +67,7 @@ TC002 - Favorite video from video detil page
 
 TC004 - Favorite video from series playlist
     [Documentation]  User can favorite video from series playlist
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -81,7 +81,7 @@ TC004 - Favorite video from series playlist
 
 TC005 - Open my favorite video from account
     [Documentation]  User can find all their favorite videos in my favorite tab on daftar tontonan page
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -92,7 +92,7 @@ TC005 - Open my favorite video from account
 
 TC006 - Open my favorite video from snackbar
     [Documentation]  User can find all their favorite videos in my favorite tab on daftar tontonan page by click text button in snackbar
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -106,7 +106,7 @@ TC006 - Open my favorite video from snackbar
 
 TC007 - Remove/Unfavorite video
     [Documentation]  User can remove video from their favorite video list
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -120,7 +120,7 @@ TC007 - Remove/Unfavorite video
 
 TC008 - Sort favorite video by latest
     [Documentation]  User can sort their favorite video list by latest added
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -131,7 +131,7 @@ TC008 - Sort favorite video by latest
 
 TC009 - Sort favorite video by oldest
     [Documentation]  User can sort their favorite video list by oldest added
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
@@ -142,7 +142,7 @@ TC009 - Sort favorite video by oldest
 
 TC010 - Condition when my favorite is empty
     [Documentation]  User can see empty state when my favorite list is empty
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
     SignInPage.Login Using Credentials                      ${ACCOUNT_SUPERMOLA1_EMAIL}         ${ACCOUNT_SUPERMOLA1_PASSWORD}
@@ -152,10 +152,10 @@ TC010 - Condition when my favorite is empty
 
 TC011 - Find all favorite video from homepage
     [Documentation]  User can find their favorite video from homepage
-	[Tags]  Regression  Smoke
+	[Tags]  Regression  Smoke  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_SUPERMOLA2_EMAIL}         ${ACCOUNT_SUPERMOLA2_PASSWORD}
+    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Click View All On Favorit Saya
     FavoritePage.Verify Tontonan Saya Is Opened
     Logout Account

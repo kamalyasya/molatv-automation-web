@@ -545,6 +545,7 @@ Go To Homepage
     Mouse Over To Live Chat
 
 Click View All On Favorit Saya
+    # Scroll Element Into View                    ${links_homepage_view_all_favorit_saya}
     Wait Until Element Is Visible               ${links_homepage_view_all_favorit_saya}
     Scroll Element Into View                    ${links_homepage_view_all_just_added}
     Click Element                               ${links_homepage_view_all_favorit_saya}
