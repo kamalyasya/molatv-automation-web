@@ -14,7 +14,7 @@ ${menu_side_bar_homepage_matches}               css=[data-testid='side-menu-matc
 ${menu_side_bar_homepage_beli_akses}            css=[data-testid='side-menu-subscribe']
 ${menu_side_bar_homepage_redeem_voucher}        css=._1GfoO > div:nth-of-type(6)
 ${menu_side_bar_homepage_accounts}              css=[data-testid='side-menu-profile']
-${text_homepage_langganan_count_number}         css=.count-number
+${text_homepage_langganan_count_number}         xpath=//*[@data-testid='side-menu-profile-text']/parent::*/following-sibling::*//*[contains(@class,'count-number')]
 ${menu_top_bar_homepage_home}                   css=[data-testid='top-bar-home-menu']
 ${menu_top_bar_homepage_living}                 css=[data-testid='top-bar-living-menu']
 ${menu_top_bar_homepage_sports}                 css=[data-testid='top-bar-sports-menu']
@@ -266,8 +266,7 @@ Verify Inbox Onboarding On Homepage
 
 Open Inbox Page
     Wait Until Element Is Not Visible           ${field_login_email}
-    Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
-    Click Element                               ${menu_side_bar_homepage_accounts}
+    Open Profile Page
     Wait Until Element Is Visible               ${links_homepage_menu_inbox}
     Click Element                               ${links_homepage_menu_inbox}
 
@@ -530,8 +529,8 @@ Open Profile Page
     Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
     Sleep                                       2
     Mouse Over                                  ${menu_side_bar_homepage_accounts}
-    Wait Until Element Is Visible               ${text_homepage_menu_profile}
-    Click Element                               ${text_homepage_menu_profile}
+    Wait Until Element Is Visible               ${menu_side_bar_homepage_accounts}
+    Click Element                               ${menu_side_bar_homepage_accounts}
     Mouse Over To Live Chat
 
 Open Tontonan Saya Page
@@ -553,3 +552,4 @@ Click View All On Favorit Saya
 Mouse Over To Live Chat
     Wait Until Element Is Visible               ${button_homepage_live_chat}
     Mouse Over                                  ${button_homepage_live_chat}
+    Mouse Out                                   ${button_homepage_live_chat}

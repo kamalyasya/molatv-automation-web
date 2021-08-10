@@ -33,15 +33,15 @@ TC002 Keyword predictions
     SearchPage.Clear Keywords On Search Field
 
     SearchPage.Input Search Keyword             garuda
-    SearchPage.Verify Keyword Predictions       garuda select
+    SearchPage.Verify Keyword Predictions       garuda di dadaku
     SearchPage.Click Keyword Prediction
-    SearchPage.Verify Search Result             garuda select
+    SearchPage.Verify Search Result             garuda di dadaku
     SearchPage.Clear Keywords On Search Field
 
-    SearchPage.Input Search Keyword             liverpool vs
-    SearchPage.Verify Keyword Predictions       liverpool vs arsenal
+    SearchPage.Input Search Keyword             liverpool
+    SearchPage.Verify Keyword Predictions       liverpool vs wolves (1-0)
     SearchPage.Click Keyword Prediction
-    SearchPage.Verify Search Result             liverpool vs arsenal
+    SearchPage.Verify Search Result             liverpool vs wolves (1-0)
 
     # Tambahin click prediction, trus search field nya muncul kata yg dipilih,  SearchPage.Click Keyword Prediction, SearchPage.Verify Search Result
 
