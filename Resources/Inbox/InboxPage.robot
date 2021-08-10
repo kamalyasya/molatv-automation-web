@@ -22,15 +22,16 @@ ${button_inbox_finish_daftar_pesan_onboarding}      id=next
 ${frame_inbox_onboarding}                           css=.__floater__body
 ${button_inbox_back_onboarding}                     id=back
 
-${text_inbox_count_number}                          css=.hhKCp .count-number
-${button_inbox_filter_all}                          css=.categoryTour > button:nth-of-type(1)
-${button_inbox_filter_promotion}                    xpath=//button[contains(text(),'Promotions')]
-${button_inbox_filter_messages}                     xpath=//button[contains(text(),'Messages')]
-${button_inbox_filter_selected}                     xpath=//html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']//div[@class='_3OoG5']/div[@class='_1KqoD']//div[@class='categoryTour']/button[@class="active"]
-${dropdown_inbox_sort}                              css=.css-1t0aoax
-${dropdown_inbox_sort_latest}                       xpath=//button[contains(text(),'Latest')]
-${dropdown_inbox_sort_oldest}                       xpath=//button[contains(text(),'Oldest')]
-${dropdown_inbox_sort_active}                       xpath=//button[@class="active" and (text()='Oldest' or text()='Latest')]
+${text_inbox_count_number}                          xpath=//div[@data-testid='menu-inbox']//div[contains(@class,'count-number')]
+${button_inbox_filter_all}                          xpath=//div[@class='categoryTour']/button[text()='All']
+${button_inbox_filter_promotion}                    xpath=//div[@class='categoryTour']/button[text()='Promotions']
+${button_inbox_filter_expired}                      xpath=//div[@class='categoryTour']/button[text()='Expired']
+${button_inbox_filter_messages}                     xpath=//div[@class='categoryTour']/button[contains(text(),'messages')]
+${button_inbox_filter_selected}                     css=button[class='active']
+${dropdown_inbox_sort}                              css=[data-testid='sort-by']
+${dropdown_inbox_sort_latest}                       css=[data-testid='sort-latest-text']
+${dropdown_inbox_sort_oldest}                       css=[data-testid='sort-oldest-text']
+${dropdown_inbox_sort_active}                       css=[data-testid='dropdown-sort-selected']
 ${frame_inbox_list_shimmering_loading}              css=.placeholderContainer
 ${text_inbox_list_date_time_inbox}                  css=.cardTour > a  small
 ${text_inbox_list_title_inbox}                      css=.cardTour > a  h3
@@ -156,11 +157,11 @@ Click Filter Promotions
 
 Verify Filter Promotions
     Wait Until Element Is Visible                   ${button_inbox_filter_selected}
-    Element Text Should Be                          ${button_inbox_filter_selected}             Promotions
+    Element Should Contain                          ${button_inbox_filter_selected}             Promotions          ignore_case=True
     Wait Until Element Is Visible                   ${text_inbox_list_title_inbox}
-    Element Should Contain                          ${text_inbox_list_title_inbox}              promotions
+    Element Should Contain                          ${text_inbox_list_title_inbox}              Promotions          ignore_case=True
     Wait Until Element Is Visible                   ${text_inbox_list_content_inbox}
-    Element Should Contain                          ${text_inbox_list_content_inbox}            promotions
+    Element Should Contain                          ${text_inbox_list_content_inbox}            Promotions          ignore_case=True
 
 Click Filter Messages
     Wait Until Element Is Visible                   ${button_inbox_filter_messages}
@@ -168,11 +169,11 @@ Click Filter Messages
 
 Verify Filter Messages
     Wait Until Element Is Visible                   ${button_inbox_filter_selected}
-    Element Should Contain                          ${button_inbox_filter_selected}             Messages
+    Element Should Contain                          ${button_inbox_filter_selected}             Messages            ignore_case=True
     Wait Until Element Is Visible                   ${text_inbox_list_title_inbox}
-    Element Should Contain                          ${text_inbox_list_title_inbox}              messages
+    Element Should Contain                          ${text_inbox_list_title_inbox}              Messages            ignore_case=True
     Wait Until Element Is Visible                   ${text_inbox_list_content_inbox}
-    Element Should Contain                          ${text_inbox_list_content_inbox}            messages
+    Element Should Contain                          ${text_inbox_list_content_inbox}            Messages            ignore_case=True
 
 Sorting By Latest
     Wait Until Element Is Visible                   ${dropdown_inbox_sort}
