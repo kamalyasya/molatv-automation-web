@@ -4,7 +4,8 @@ Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
 
-${links_login_create_account_now}                   link=Register
+${tab_register_new_account}                         css=._34RjW
+${tab_register_new_account_subscription_plan}       xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']//div[@class='_2O4IM']//div[@class='Wx02i']
 
 ${field_register_email}                             id=identity
 ${text_register_email_error}                        css=[for='identity']
@@ -35,13 +36,17 @@ ${scroll_register_pay_subcription}                  css=.css-vdka53 > div:nth-of
 ${button_register_pay_subcription}                  css=div:nth-of-type(5) > .css-hwiqbu > .css-1fu35er
 
 # Notification Message
-${text_registration_notification_message}           css=._3MuQu
+${text_registration_notification_message}           css=._1r9_k ._3MuQu
 
 *** Keywords ***
 
-Click Create Account Now
-    Wait Until Element Is Visible                   ${links_login_create_account_now}
-    Click Element                                   ${links_login_create_account_now}
+Click Tab Register Create New Account
+    Wait Until Element Is Visible                   ${tab_register_new_account}
+    Click Element                                   ${tab_register_new_account}
+
+Click Tab Register Create New Account Subscription Plan
+    Wait Until Element Is Visible                   ${tab_register_new_account_subscription_plan}
+    Click Element                                   ${tab_register_new_account_subscription_plan}
 
 Input all the field and tick the agreement
     [Arguments]  ${EMAIL}   ${PASSWORD}
