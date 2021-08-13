@@ -448,6 +448,8 @@ Verify Movie Details Page Is Shown
 Verify Pause And Resume Live Matches
     Wait Until Element Is Visible       ${movie_mouse_over}
     Mouse Over                          ${movie_pause_button}
+    sleep                               2
+    Mouse Over                          ${movie_pause_button}
     Click Element                       ${movie_pause_button}
     Mouse Over                          ${movie_mouse_over}
     Mouse Over                          ${movie_mouse_over}
@@ -644,6 +646,7 @@ Verify Button Replay Auto Play
     Mouse Over                          ${movie_mouse_over}
     Element Should not Be Visible       ${frame_autoplay}
     Wait Until Element Is Visible       ${button_play_player_control}
+    Mouse Over                          ${movie_mouse_over}
     Element Should Be Visible           ${button_play_player_control}
     Click Element                       ${button_play_player_control}
 
@@ -895,6 +898,7 @@ Verify Movie In Related Video Is Same With Movie In Autoplay
 
 Seek Progress Bar
     Wait Until Element Is Visible       ${frame_autoplay}
+    Sleep                               2
     Element Should Be Visible           ${frame_autoplay}
 # Mouse Over To Movie
     Mouse Over                          ${movie_mouse_over}

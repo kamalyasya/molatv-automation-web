@@ -225,11 +225,11 @@ Delivery - Video Player: TC014 Auto Next Video button in Player
     [Documentation]     Verify the Next VOD is play in the same Category as a VOD before
     [Tags]              Regression   Smoke  Verified
 
-    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Go To Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Login from movie detail
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials              ${ACCOUNTS_HBO_EMAIL}           ${ACCOUNTS_HBO_PASSWORD}
-    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL3}
+    MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${URL_MOVIE_DETAIL2}
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Click Button Next Video Beside Volume And Verify Movie In Related Video Is Same With Next Movie
     SignInPage.Logout Account

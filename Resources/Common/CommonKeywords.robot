@@ -17,7 +17,7 @@ End Testing
 
 Open Mola TV
     [Arguments]     ${URL}
-    ${BROWSER}      Convert To Lower Case    ${BROWSER}
+    ${BROWSER}      Convert To Lower Case       ${BROWSER}
     Run Keyword If      '${BROWSER}' == 'mychrome'              Open Mychrome Browser                       ${URL}
     ...    ELSE IF      '${BROWSER}' == 'myheadlesschrome'      Open Myheadlesschrome Browser               ${URL}
     ...    ELSE IF      '${BROWSER}' == 'chromemobile'          Open Chromemobile Browser                   ${URL}
