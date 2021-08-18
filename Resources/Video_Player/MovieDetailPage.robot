@@ -152,7 +152,7 @@ Go To Movie Detail
 
 Login from movie detail
     Wait Until Element Is Visible       ${movie_mouse_over}
-    Click Element                       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}
     Click Element                       ${button_login_to_watch_movie_detail_page}
     #    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
