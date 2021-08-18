@@ -3,7 +3,6 @@ Resource                        ../../Frameworks/Routers.robot
 
 *** Variables ***
 ${URL_BLANK}                    about:blank
-#${STRING_EMAIL}                 STATUS_${EMAILS}
 
 *** Keywords ***
 Start Testing
