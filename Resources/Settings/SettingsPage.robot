@@ -110,6 +110,9 @@ ${button_otp_verification_message_please_wait_60s}      xpath=//div[contains(tex
 ${text_otp_change_password_title_otp_sent}              css=.GLAMB
 ${text_otp_change_password_email}                       css=._3ynOi
 
+# Device Management
+${text_setting_device_management}                       xpath=//*[normalize-space()='Device Management']
+
 *** Keywords ***
 Show Status Berlangganan
     Wait Until Element Is Visible       ${menu_homepage_accounts}
