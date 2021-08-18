@@ -41,6 +41,7 @@ Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Register/RegistrationWithPhoneNumberPage.robot
 Resource            ../Resources/Register/RegistrationWithoutPhoneNumberPage.robot
 Resource            ../Resources/Search/SearchPage.robot
+Resource            ../Resources/Settings/DeviceManagementPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/Subscriptions/SubscriptionPage.robot
