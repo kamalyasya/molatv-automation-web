@@ -88,7 +88,7 @@ Clear Devices On Device Management
     IF  """${status_${EMAILS}}""" == '0'
              CommonKeywords.Start Testing       ${HOST}
              HomePage.Open Login Page
-             SignInPage.Login Using Credentials          ${EMAIL}       ${PASSWORD}
+             SignInPage.Restore Existing Cookies Or Relogin         ${EMAIL}       ${PASSWORD}
              HomePage.Open Profile Page
              SettingsPage.Select Pengaturan
 
@@ -117,9 +117,33 @@ Clear Devices On Device Management
              END
 
              Log                        ${status_${EMAILS}}
-             Set Test Variable          ${status_${EMAILS}}             1
-             Set Global Variable        ${status_${EMAILS}}
+             Set Global Variable        ${status_${EMAILS}}             1
              Log                        ${status_${EMAILS}}
-             Logout Account
+#             Logout Account
              CommonKeywords.End Testing
+    END
+
+Get All Cookies
+    [Arguments]    ${EMAIL}
+
+    ${STRING_EMAIL}          Remove String         ${EMAIL}     .    @    +
+    # Check Is variable exist?
+    ${is_variable_exist}=    Get Variable Value    ${cookies_${STRING_EMAIL}}
+    ${variable_status}=      Set Variable If    """${is_variable_exist}""" != 'None'    ${True}    ${False}
+
+    # Assign value if variable is not exist
+    IF  '${variable_status}' == '${False}'
+        Set Global Variable      ${cookies_${STRING_EMAIL}}     0
+    END
+
+    ${cookies}              Get Cookies              as_dict=True
+    Set Global Variable     ${cookies_${STRING_EMAIL}}     ${cookies}
+    Log                     ${cookies_${STRING_EMAIL}}
+
+Set All Cookies
+    [Arguments]    ${EMAIL}
+    ${STRING_EMAIL}                Remove String         ${EMAIL}     .    @    +
+    FOR    ${key}    IN    @{cookies_${STRING_EMAIL}.keys()}
+        ${string_key}               Catenate                cookies_${STRING_EMAIL}.${key}
+        Add Cookie      ${key}      ${${string_key}}
     END
