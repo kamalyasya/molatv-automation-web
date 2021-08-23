@@ -40,7 +40,7 @@ ${image_inbox_image_empty_message}                  css=.emptyImage
 ${text_inbox_title_empty_message}                   css=.title
 ${text_inbox_text_empty_message}                    css=.text
 ${button_inbox_muat_lebih}                          css=.button_load_more
-${text_inbox_date_last_message}                     css=div:nth-of-type(12) > a  small
+${text_inbox_date_last_message}                     xpath=(//div/small)[last()]
 ${button_inbox_detail_back}                         css=.inbox__back_button
 ${text_inbox_detail_title_message}                  css=.inbox__title
 ${text_inbox_detail_content_message}                css=.inbox__description
@@ -246,4 +246,4 @@ Verify User Can Load More Message
     Wait Until Element Is Visible                   ${text_inbox_date_last_message}
     Scroll Element Into View                        ${text_inbox_date_last_message}
     Element Should Be Visible                       ${text_inbox_date_last_message}
-    Element Text Should Be                          ${text_inbox_date_last_message}                     01 August 2020
+    Element Should Contain                          ${text_inbox_date_last_message}                     01 August 2021
