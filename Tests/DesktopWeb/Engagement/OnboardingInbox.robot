@@ -30,7 +30,7 @@ TC002 - Click next on every onboarding
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                              ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Next Button On Inbox Filter Per Kategori Onboarding
     # InboxPage.Click Next Button On Inbox Sort By Onboarding               // Sort By Onbording removed
@@ -42,7 +42,7 @@ TC003 - Click back on some onboarding
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                              ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Next Button On Inbox Filter Per Kategori Onboarding
     # InboxPage.Click Next Button On Inbox Sort By Onboarding               // Sort By Onbording removed
@@ -57,7 +57,7 @@ TC004 - Click skip on some onboarding
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
 
 TC005 - Show onboarding for filter category
@@ -65,7 +65,7 @@ TC005 - Show onboarding for filter category
 	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Verify Inbox Filter Per Kategori Onboarding Is Displayed      ${EXPECTED_TEXT_TITLE_FILTER_PERKATEGORI_ONBOARDING}    ${EXPECTED_TEXT_CONTENT_FILTER_PERKATEGORI_ONBOARDING}
 
@@ -74,7 +74,7 @@ TC006 - Show onboarding for sorting
 	[Tags]  Regression  Skip
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                 ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Next Button On Inbox Filter Per Kategori Onboarding
     InboxPage.Verify Inbox Sort By Onboarding Is Displayed                  ${EXPECTED_TEXT_TITLE_SORT_BY_ONBOARDING}         ${EXPECTED_TEXT_CONTENT_SORT_BY_ONBOARDING}
@@ -84,7 +84,7 @@ TC007 - Show onboarding for inbox list
 	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                         ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                         ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Next Button On Inbox Filter Per Kategori Onboarding
     # InboxPage.Click Next Button On Inbox Sort By Onboarding               // Sort By Onbording removed
@@ -95,7 +95,7 @@ TC008 - Click Finish on some onboarding
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                         ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                                      ${ACCOUNT_SUPERMOLA1_EMAIL}                         ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Next Button On Inbox Filter Per Kategori Onboarding
     # InboxPage.Click Next Button On Inbox Sort By Onboarding               // Sort By Onbording removed
