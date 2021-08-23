@@ -231,7 +231,7 @@ Play Content Video Or Play Video From Begining
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
     Wait Until Element Is Visible               ${movie_mouse_over}
-    Click Element                               ${movie_mouse_over}
+    Mouse Over                                  ${movie_mouse_over}
     Wait Until Element Is Visible               ${button_movie_detail_play_alternative}
     Click Element                               ${button_movie_detail_play_alternative}
 
