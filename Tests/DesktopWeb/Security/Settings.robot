@@ -46,13 +46,14 @@ TC001 Edit Profile view
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Show Status Berlangganan
     SettingsPage.The account information is shown in Profile page
     SettingsPage.The Ubah button is shown under user info
     Reload Page
     Go Back
-    Logout Account
+    # Logout Account
 
 TC002 Edit Profile
     [Documentation]         Make a change at edit profile
@@ -62,7 +63,8 @@ TC002 Edit Profile
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${PHONE}			    Catenate 	        62${RANDOM_NUMBER}
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}      ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
@@ -85,7 +87,8 @@ TC003 Edit Profile without saving it
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon 01
     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button 01
@@ -95,7 +98,7 @@ TC003 Edit Profile without saving it
     SettingsPage.Verify Bar Account and picture
     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     Reload Page
-    Logout Account
+    # Logout Account
     # Tambah Verify sebelum dan sesudah SettingsPage.Click Back button
     # TAMBAH Verifikasi Username , phone number , Gender , Country Pada saat Sebelum & Sesudah Perubahan
     # Pakai Email , Username , phone number , Gender , Country yang data nya lengkap
@@ -119,6 +122,7 @@ TC010 Subscription view
     [Tags]                  Regression  Smoke   Verified
 
     SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    # SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
     SettingsPage.Select Verify Status
@@ -146,10 +150,11 @@ TC011 Edit Profile change Date of Birth
 TC012 Edit Profile change Phone Number
     [Documentation]         User already have an account and sign in
     ...                     Make phone number change, using phone number that already used for another account
-    [Tags]                  Regression  Smoke   Verified Skip
+    [Tags]                  Regression  Smoke   Verified    Skip
 
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     SettingsPage.Select Ubah button
@@ -160,7 +165,7 @@ TC012 Edit Profile change Phone Number
     ProfilePage.Verify Accounts                 ${Username}     ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${PHONE1}    ${DOB}      ${Gender}   ${Country}
     Reload Page
     SettingsPage.Verify That Phone Number Hasn't Changed
-    Logout Account
+    # Logout Account
 
     # pakai nomer telp yg udah di pakai
     # Verifikasi phone already exist
@@ -170,7 +175,8 @@ TC013 System Info
     [Documentation]         Check System page at My Account page
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69_EMAIL}     ${ACCOUNT_SUPERMOLA69_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69_EMAIL}     ${ACCOUNT_SUPERMOLA69_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click System Info In Setting
@@ -180,7 +186,7 @@ TC013 System Info
     SettingsPage.Verify System Info Is Appear           ${URL_System_Info_Footer}
     SettingsPage.Verify Label System Info In Footer
     Reload Page
-    Logout Account
+    # Logout Account
     # Check tulisan browser, os, location, isp, ip, date&time muncul
     # Tambah dari footer system info
     # Check tulisan browser, os, location, isp, ip, date&time muncul
@@ -190,7 +196,8 @@ TC024 Autoplay OFF
     ...                     Turn off Autoplay toggle button
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Turn on / off Autoplay toggle button
@@ -200,14 +207,15 @@ TC024 Autoplay OFF
     MovieDetailPage.Verify Auto Play Not Displayed
     Reload Page
     Go Back
-    Logout Account
+    # Logout Account
 
 TC014 Autoplay ON
     [Documentation]         Check toggle button function to enable and disable autoplay
     ...                     Turn on Autoplay toggle button
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Verify Autoplay toggle button is turn on
@@ -254,13 +262,14 @@ TC014 Autoplay ON
     MovieDetailPage.Verify After Autoplay Play Next Video
     MovieDetailPage.Play Content Video Or Play Video From Begining
     MovieDetailPage.Verify Content Is Playing In Default Mode
-    Logout Account
+    # Logout Account
 
 TC015 Internet Speed Test
     [Documentation]         check the internet connection that is connected to mola tv
     [Tags]                  Regression  Smoke  Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Internet Speed Test              ${URL_mola_speed}
@@ -276,7 +285,8 @@ TC016 Video Playback Test Non-DRM
     ...                     User already login
     [Tags]                  Regression  Smoke   NeedVerify
 
-    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
@@ -290,7 +300,8 @@ TC016 Video Playback Test DRM
     ...                     User already login
     [Tags]                  Regression  Smoke   NeedVerify
 
-    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNTS_HBO_EMAIL}      ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Click Video Playback Test
@@ -324,7 +335,8 @@ TC020 Atur Password input wrong OTP number code
     [Documentation]         Input wrong OTP number at Atur Password flow.
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials                              ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
@@ -344,7 +356,8 @@ TC021 Atur Password resend OTP number code
     [Documentation]         countdown for 60 second
     [Tags]                  Regression  Smoke   NeedVerify
 
-    SignInPage.Login Using Credentials          ${ACCOUNTS_MOLA_TESTING21_EMAIL}         ${ACCOUNTS_MOLA_TESTING21_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNTS_MOLA_TESTING21_EMAIL}         ${ACCOUNTS_MOLA_TESTING21_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNTS_MOLA_TESTING21_EMAIL}     ${ACCOUNTS_MOLA_TESTING21_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Ubah Password
@@ -368,7 +381,8 @@ TC023 - Language
     [Documentation]         Setting language on Mola TV
     [Tags]                  Regression  Smoke   NeedVerify
 
-    SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    # SignInPage.Login Using Credentials          ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin           ${ACCOUNT_SUPERMOLA69690_EMAIL}     ${ACCOUNT_SUPERMOLA69690_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Pengaturan
     SettingsPage.Select Language for Change language Preference
@@ -379,7 +393,7 @@ TC023 - Language
     SettingsPage.Verify Change Language To English
     Reload Page
     Go Back
-    Logout Account
+    # Logout Account
 
     # Perlu Adanya NeedVerify di bagian TabMenu css=._16YQ- dan    Menu Setting    css=._1KqoD Verify Text nya saja
     # Tambah Pengecekkan untuk Change Language nya itu gak pakai login ????
