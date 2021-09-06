@@ -26,6 +26,7 @@ Resource            ../Resources/Hbo/HboPlayback.robot
 Resource            ../Resources/Homepage/HomePage.robot
 Resource            ../Resources/Homepage/PrivacyPage.robot
 Resource            ../Resources/Homepage/TermsConditionsPage.robot
+Resource            ../Resources/Homepage/WelcomePage.robot
 Resource            ../Resources/Inbox/InboxPage.robot
 Resource            ../Resources/Login/ForgotPasswordPage.robot
 Resource            ../Resources/Login/LoginFacebookPage.robot
