@@ -9,8 +9,8 @@ ${button_favorit_daftar_pengingat}              xpath=///div[@innertext='Daftar 
 ${dropdown_favorit_sort_by}                     css=.sort-label-box
 ${dropdown_favorit_sort_by_selected}            css=.sort-label-box > .label
 ${dropdown_favorit_sort_selected}               css=.label.label-active
-${dropdown_favorit_sort_latest}                 css=.sort-menu > div:nth-of-type(2)
-${dropdown_favorit_sort_oldest}                 css=.sort-menu > div:nth-of-type(3)
+${dropdown_favorit_sort_latest}                 css=[data-testid='sort-latest-text']
+${dropdown_favorit_sort_oldest}                 css=[data-testid='sort-oldest-text']
 
 # Content Of Tontonan Saya
 ${text_favorit_title}                           css=.title
@@ -24,7 +24,7 @@ ${text_favorit_empty_state_text}                css=.cardTour > .text
 *** Keywords ***
 Verify Tontonan Saya Is Opened
     Wait Until Element Is Visible               ${links_homepage_menu_selected}
-    Element Should Contain                      ${links_homepage_menu_selected}             Favorite
+    Element Should Contain                      ${links_homepage_menu_selected}             My Watchlist
     Wait Until Element Is Visible               ${text_favorit_title}
     Element Should Be Visible                   ${text_favorit_title}
     Element Should Be Visible                   ${text_favorit_shortdesc}
@@ -61,7 +61,7 @@ Verify Condition When My Favorite Is Empty
     Element Should Be Visible                   ${text_favorit_empty_state_title}
     Element Should Contain                      ${text_favorit_empty_state_title}           No Favorites
     Element Should Be Visible                   ${text_favorit_empty_state_text}
-    Element Should Contain                      ${text_favorit_empty_state_text}            You have no favorite videos
+    Element Should Contain                      ${text_favorit_empty_state_text}            Choose movie or match and add to this list
 
 Remove Favorit Video From Tontonan Saya
     [Arguments]    ${TEXT_EXPECTED_MOVIE_TITLE}

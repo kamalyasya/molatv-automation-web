@@ -26,6 +26,7 @@ Resource            ../Resources/Hbo/HboPlayback.robot
 Resource            ../Resources/Homepage/HomePage.robot
 Resource            ../Resources/Homepage/PrivacyPage.robot
 Resource            ../Resources/Homepage/TermsConditionsPage.robot
+Resource            ../Resources/Homepage/WelcomePage.robot
 Resource            ../Resources/Inbox/InboxPage.robot
 Resource            ../Resources/Login/ForgotPasswordPage.robot
 Resource            ../Resources/Login/LoginFacebookPage.robot
@@ -41,6 +42,7 @@ Resource            ../Resources/Register/RegistrationPage.robot
 Resource            ../Resources/Register/RegistrationWithPhoneNumberPage.robot
 Resource            ../Resources/Register/RegistrationWithoutPhoneNumberPage.robot
 Resource            ../Resources/Search/SearchPage.robot
+Resource            ../Resources/Settings/DeviceManagementPage.robot
 Resource            ../Resources/Settings/SettingsPage.robot
 Resource            ../Resources/Subscription/SubscriptionPackagePage.robot
 Resource            ../Resources/Subscriptions/SubscriptionPage.robot

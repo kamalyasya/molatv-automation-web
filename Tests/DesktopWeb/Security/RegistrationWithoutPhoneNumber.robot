@@ -36,7 +36,8 @@ TC002 Input wrong OTP number after Registration process
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
 
-    RegistrationWithoutPhoneNumberPage.Click Create Account Now
+    HomePage.Open Login Page
+    RegistrationWithoutPhoneNumberPage.Click Tab Register Create New Account
     RegistrationWithoutPhoneNumberPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationWithoutPhoneNumberPage.Click Register Button
     RegistrationWithoutPhoneNumberPage.Verify Enter OTP Code
@@ -52,7 +53,8 @@ TC003 Resend OTP number code
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
 
-    RegistrationWithoutPhoneNumberPage.Click Create Account Now
+    HomePage.Open Login Page
+    RegistrationWithoutPhoneNumberPage.Click Tab Register Create New Account
     RegistrationWithoutPhoneNumberPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationWithoutPhoneNumberPage.Click Register Button
     RegistrationWithoutPhoneNumberPage.Verify Enter OTP Code
@@ -75,10 +77,11 @@ TC004 Registration with wrong information
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${PASSWORD}             Catenate            molamola${RANDOM_NUMBER}
 
-    RegistrationWithoutPhoneNumberPage.Click Create Account Now
+    HomePage.Open Login Page
+    RegistrationWithoutPhoneNumberPage.Click Tab Register Create New Account
     RegistrationWithoutPhoneNumberPage.Input the field with invalid fields format       ${EMAIL_REGISTERED2}     ${PASSWORD_REGISTERED2}
     RegistrationWithoutPhoneNumberPage.Click Register Button
-    RegistrationWithoutPhoneNumberPage.Can Not click button Register
+#    RegistrationWithoutPhoneNumberPage.Can Not click button Register
 
     Log     Input email already register, a top alert bar show up : Email Already Exists Close
     Register Using Email Password                                   ${ACCOUNT_CINCIN_EMAIL}             1234566             1234566
@@ -111,15 +114,16 @@ TC004 Registration with wrong information
 
 TC005 Registration from special assets
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Skip
+    [Tags]                  Regression  Smoke   Verified
 
 	${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
 
+    HomePage.Open Login Page
     RegistrationWithoutPhoneNumberPage.Select any special assets or content               ${SAMPLE_MOVIE_URL}
     MovieDetailPage.Login from movie detail
-    RegistrationWithoutPhoneNumberPage.Click Create Account Now
+    RegistrationWithoutPhoneNumberPage.Click Tab Register Create New Account
     RegistrationWithoutPhoneNumberPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationWithoutPhoneNumberPage.Click Register Button
     RegistrationWithoutPhoneNumberPage.Verify Enter OTP Code
@@ -129,15 +133,16 @@ TC005 Registration from special assets
 
 TC006 Registration from Beli Paket Page
     [Documentation]         User is able to register their email and password from the website.
-    [Tags]                  Skip
+    [Tags]                  Regression  Smoke   Verified
 
     ${RANDOM_NUMBER}        Generate random string      10      0123456789
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@mola.tv
     ${EMAIL}			    Catenate	        kamal.yasha+${RANDOM_NUMBER}@gmail.com
 
+    HomePage.Open Login Page
     HomePage.Open Beli Akses Menu
     SubscriptionPackagePage.Choose A Package
-    RegistrationWithoutPhoneNumberPage.Click Create Account Now
+    RegistrationWithoutPhoneNumberPage.Click Tab Register Create New Account Subscription Plan
     RegistrationWithoutPhoneNumberPage.Input all the field and tick the agreement      ${EMAIL}     ${PASSWORD}
     RegistrationWithoutPhoneNumberPage.Click Register Button
     RegistrationWithoutPhoneNumberPage.Verify Enter OTP Code

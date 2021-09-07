@@ -32,6 +32,24 @@ Login Using Credentials
     Input Password On Login Page        ${PASSWORD}
     Click Login Button On Login Page
 
+Restore Existing Cookies Or Relogin
+     [Arguments]     ${EMAIL}    ${PASSWORD}
+    # Remove special characters
+    ${EMAILS}                Remove String         ${EMAIL}     .    @    +
+
+    # Check Is variable exist?
+    ${is_variable_exist}=    Get Variable Value    ${cookies_${EMAILS}}
+    ${variable_status}=      Set Variable If    """${is_variable_exist}""" != 'None'    ${True}    ${False}
+
+    # Assign value if variable is not exist
+    IF  '${variable_status}' == '${False}'
+        Login Using Credentials           ${EMAIL}      ${PASSWORD}
+        Get All Cookies    ${EMAILS}
+    ELSE IF    '${variable_status}' == '${True}'
+        Set All Cookies    ${EMAILS}
+        Reload Page
+    END
+
 Input Email On Login Page
     [Arguments]     ${EMAIL}
     Wait Until Element Is Visible       ${field_login_email}
@@ -119,9 +137,10 @@ Verify Email field Error Message Is Show Up
 Logout Account
     Open Profile Page
     Wait Until Element Is Visible       ${button_accounts_logout}
+    Scroll To Element                   ${button_accounts_logout}
     Click Element                       ${button_accounts_logout}
-    Wait Until Element Is Visible       ${icon_menu_home}
-    Element Should Be Visible           ${icon_menu_home}
+    Wait Until Element Is Visible       ${icon_welcome_page_mola}
+    Element Should Be Visible           ${icon_welcome_page_mola}
 
 Verify Sign In Button Is Disabled
     Wait Until Element Is Visible       ${button_login_login}

@@ -1,0 +1,26 @@
+datasources:3f8291a56aeef48279ad31a04fa766de95b2639b
+commandlineoptions:65f95c924ba97541f47949701c4e3c51192a5b43
+suitesfrom:no-suites-from-option
+file:7658bf12d28df8f55beb9b303b9a7097fac0d598
+--test Suites.ClearDevices
+#WAIT
+--suite Suites.Delivery.VideoPlayer
+--suite Suites.Delivery.Home
+--suite Suites.Delivery.Search
+#WAIT
+--suite Suites.Engagement.OnboardingInbox
+--suite Suites.Engagement.Inbox
+#WAIT
+--suite Suites.Engagement.PlaylistFavorite
+--suite Suites.Engagement.SortingOnPlaylist
+#WAIT
+--suite Suites.Security.About
+--suite Suites.Security.Settings
+#WAIT
+--suite Suites.Security.AgeRestriction
+--suite Suites.Security.Subscription
+--suite Suites.Security.RegistrationWithoutPhoneNumber
+#WAIT
+--suite Suites.Security.SignIn
+#WAIT
+--suite Suites.Security.LoginWithoutPhoneNumber

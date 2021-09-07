@@ -12,10 +12,11 @@ ${text_categories_movie_detail_page}            css=.sub-header > span:nth-of-ty
 
 ${button_videos_player_login_to_watch_after_trailer}          css=._33Xwm
 ${text_login_login_page}                        css=._2WE07 > ._3CiJF
-${frame_login_movie_detail}                     css=._32OqX
+${frame_login_movie_detail}                     css=._1r9_k
 ${field_login_email}                            id=email
 ${field_login_password}                         id=password
 ${movie_detail_play_button}                     css=.playIcon
+${button_movie_detail_play_alternative}         xpath=//div[contains(@class, 'playIcon')] | //button[text()='Play from beginning'] | //span[text()='Watch Now']
 ${mola_movie_detail_play_button}                css=._2zwq4
 ${movie_detail_image_logo}                      css=img[alt='Bug-logo Player']
 ${button_forward_movie_detail}                  css=.forwardIcon
@@ -152,7 +153,7 @@ Go To Movie Detail
 
 Login from movie detail
     Wait Until Element Is Visible       ${movie_mouse_over}
-    Click Element                       ${movie_mouse_over}
+    Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}
     Click Element                       ${button_login_to_watch_movie_detail_page}
     #    ${CHECK_BUTTON_LOGIN_TRAILER}                   Run Keyword And Return Status               Wait Until Element Is Visible       ${button_login_to_watch_movie_detail_page}           10
@@ -229,10 +230,15 @@ Play Content Video Or Play Video From Begining
     ${CHECK_ADULT_BLOCKER}      Run Keyword And Return Status   Wait Until Element Is Visible       ${frame_movie_detail_adult_content_18}    5
     Run Keyword If      '${CHECK_ADULT_BLOCKER}'=='True'        Accept Adult Content
 
-    ${PLAY_BUTTON}             Run Keyword And Return Status          Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}   5
-    Run Keyword If                '${PLAY_BUTTON}' == 'True'          Play Content 'Mulai Dari Awal'
-    ...     ELSE                                                      Play Content From Movie Detail
+    Wait Until Element Is Visible               ${movie_mouse_over}
+    Mouse Over                                  ${movie_mouse_over}
+    Wait Until Element Is Visible               ${button_movie_detail_play_alternative}
+    Click Element                               ${button_movie_detail_play_alternative}
 
+    # Temporary changed to new logic
+    #    ${PLAY_BUTTON}             Run Keyword And Return Status          Wait Until Element Is Visible       ${button_mulai_popup_movie_detail}   5
+    #    Run Keyword If                '${PLAY_BUTTON}' == 'True'          Play Content 'Mulai Dari Awal'
+    #    ...     ELSE                                                      Play Content From Movie Detail
 
     ${CHECK_LIMIT}      Run Keyword And Return Status           Wait Until Element Is Visible       ${frame_movie_detail_device_limit}       10
     Run Keyword If      '${CHECK_LIMIT}'=='True'                Play Content Again

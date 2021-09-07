@@ -10,6 +10,7 @@ Start Testing
     Open Mola TV                ${URL}
     Set Selenium Timeout        ${DEFAULT_TIMEOUT}
     Set Selenium Speed	        ${DELAY}
+    Click Button Browse On Welcome Page
     
 
 End Testing
@@ -68,3 +69,82 @@ Reset Mola DOB HBO
 
     Log To Console          ${response.content}
     Should Be Equal         ${json_response}            200
+
+Clear Devices On Device Management
+    [Arguments]    ${EMAIL}     ${PASSWORD}
+
+    # Remove special characters
+    ${EMAILS}                Remove String         ${EMAIL}     .    @    +
+
+    # Check Is variable exist?
+    ${is_variable_exist}=    Get Variable Value    ${status_${EMAILS}}
+    ${variable_status}=      Set Variable If    """${is_variable_exist}""" != 'None'    ${True}    ${False}
+
+    # Assign value if variable is not exist
+    IF  '${variable_status}' == '${False}'
+        Set Test Variable        ${status_${EMAILS}}     0
+        Set Global Variable      ${status_${EMAILS}}
+    END
+
+    IF  """${status_${EMAILS}}""" == '0'
+             CommonKeywords.Start Testing       ${HOST}
+             HomePage.Open Login Page
+             SignInPage.Restore Existing Cookies Or Relogin         ${EMAIL}       ${PASSWORD}
+             HomePage.Open Profile Page
+             SettingsPage.Select Pengaturan
+
+             # Open device management
+             Wait Until Element Is Visible               ${text_setting_device_management}
+             Click Element                               ${text_setting_device_management}
+
+             ${IS_REMOVE_BUTTON_VISIBLE}       Run Keyword And Return Status       Wait Until Element Is Visible        ${button_device_management_edit}            20
+             IF  '${IS_REMOVE_BUTTON_VISIBLE}' == 'True'
+#                 ${ELEMENT_COUNT}              Get Element Count          ${button_device_management_edit}
+                 ${ELEMENT_COUNT}              Set Variable        200
+
+                 ${index}=    Set Variable    1
+                 FOR    ${i}    IN RANGE    ${ELEMENT_COUNT}
+                     Exit For Loop If    ${index} > ${ELEMENT_COUNT}
+
+                     ${STATUS}       Run Keyword And Return Status          Element Should Be Visible       ${button_device_management_edit}        2
+                     IF  '${STATUS}' == 'True'
+                         Remove Device
+                     ELSE
+                         Exit For Loop
+                     END
+
+                     ${index}=    Evaluate    ${index} + 1
+                 END
+             END
+
+             Log                        ${status_${EMAILS}}
+             Set Global Variable        ${status_${EMAILS}}             1
+             Log                        ${status_${EMAILS}}
+#             Logout Account
+             CommonKeywords.End Testing
+    END
+
+Get All Cookies
+    [Arguments]    ${EMAIL}
+
+    ${STRING_EMAIL}          Remove String         ${EMAIL}     .    @    +
+    # Check Is variable exist?
+    ${is_variable_exist}=    Get Variable Value    ${cookies_${STRING_EMAIL}}
+    ${variable_status}=      Set Variable If    """${is_variable_exist}""" != 'None'    ${True}    ${False}
+
+    # Assign value if variable is not exist
+    IF  '${variable_status}' == '${False}'
+        Set Global Variable      ${cookies_${STRING_EMAIL}}     0
+    END
+
+    ${cookies}              Get Cookies              as_dict=True
+    Set Global Variable     ${cookies_${STRING_EMAIL}}     ${cookies}
+    Log                     ${cookies_${STRING_EMAIL}}
+
+Set All Cookies
+    [Arguments]    ${EMAIL}
+    ${STRING_EMAIL}                Remove String         ${EMAIL}     .    @    +
+    FOR    ${key}    IN    @{cookies_${STRING_EMAIL}.keys()}
+        ${string_key}               Catenate                cookies_${STRING_EMAIL}.${key}
+        Add Cookie      ${key}      ${${string_key}}
+    END

@@ -11,35 +11,35 @@ ${URL}				                                        ${HOST}
 *** Test Cases ***
 TC001 - Access inbox non-login user
     [Documentation]  User try to access inbox from mola.tv web
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
     InboxPage.Verify Show Button Login Displayed To Access Inbox
 
 TC002 - Access inbox login user
     [Documentation]  Login user can access inbox
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Direct To Inbox Page
 
 TC003 - User get new inbox
     [Documentation]  TC003 - User get new inbox
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA32_EMAIL}               ${ACCOUNT_SUPERMOLA32_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA32_EMAIL}               ${ACCOUNT_SUPERMOLA32_PASSWORD}
     Verify Count Number Is Shown
 
 TC004 - Inbox list impression
     [Documentation]  User can see inbox list
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Direct To Inbox Page
@@ -47,10 +47,10 @@ TC004 - Inbox list impression
 
 TC005 - User filter inbox by category
     [Documentation]  User can filter inbox by category
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}                ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}                ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Click Filter Promotions
@@ -60,10 +60,10 @@ TC005 - User filter inbox by category
 
 TC006 - Sorting by latest
     [Documentation]  User can sort inbox by latest received
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Sorting By Latest
@@ -71,10 +71,10 @@ TC006 - Sorting by latest
 
 TC007 - Sorting by oldest
     [Documentation]  User can sort inbox by oldest received
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Sorting By Oldest
@@ -82,31 +82,31 @@ TC007 - Sorting by oldest
 
 TC008 - User has no inbox
     [Documentation]  User can sort inbox by oldest received
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA1_EMAIL}               ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA1_EMAIL}               ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Empty State Is Shown
 
 TC010 - User click button in inbox detail
     [Documentation]  User can click button inside inbox message
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Open Message
-    InboxPage.Verify User Can Open Message              title promotions                          content promotions
+    InboxPage.Verify User Can Open Message              title                                     content
 
 TC011 - User back to inbox list from inbox detail
     [Documentation]  User can back to inbox list from inbox detail
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Open Message
@@ -115,10 +115,10 @@ TC011 - User back to inbox list from inbox detail
 
 TC013 - User want to show all inbox
     [Documentation]  User can load all the inbox
-	[Tags]  Regression
+	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA21_EMAIL}              ${ACCOUNT_SUPERMOLA21_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA21_EMAIL}              ${ACCOUNT_SUPERMOLA21_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Click Load More Button
