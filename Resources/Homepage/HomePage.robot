@@ -20,6 +20,7 @@ ${menu_top_bar_homepage_living}                 css=[data-testid='top-bar-living
 ${menu_top_bar_homepage_sports}                 css=[data-testid='top-bar-sports-menu']
 ${menu_top_bar_homepage_kids}                   css=[data-testid='top-bar-kids-menu']
 ${menu_top_bar_homepage_bold}                   css=._392KM
+${menu_all_topbar}                              css=.FYgXF.children__header
 
 ${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(@data-testid, 'menu-profile')]
 ${links_homepage_menu_inbox}                    xpath=//div[contains(@data-testid, 'menu-inbox')]
@@ -30,7 +31,7 @@ ${links_homepage_menu_beli_akses}               xpath=//div[contains(@data-testi
 ${links_homepage_menu_pengaturan}               xpath=//div[contains(@data-testid, 'menu-settings')]
 
 ${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
-${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
+${rail_banner_continue_watching}                xpath=//*[text()='Continue Watching']/ancestor::div/div[contains(@class,'carouselWrapper')]//img[contains(@class,'bannerImage')]
 
 #Categories And Content In Home Page
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
@@ -66,7 +67,8 @@ ${image_content_homepage}                       css=.css-hq095j
 ${frame_categories_and_content_homepage}        css=._36Wlv
 
 #Rail Banner In All Menu
-${rail_banner_all_menu}                         css=.css-1sownrj
+${rail_banner_all_menu}                         xpath=//img[contains(@class,'bannerImage')]
+${rail_banner_homepage2}                        css=.css-1gwlbo5
 
 #All Match Card
 ${page_match_card}                              css=.css-1et68jm
@@ -153,7 +155,7 @@ ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
 #VOD In Continues Watching
-${title_vod_continues_watching}                 css=.css-5jjjwv.undefined
+${title_vod_continues_watching}                 xpath=//*[text()='Continue Watching']/ancestor::div/div[contains(@class,'carouselWrapper')]//img[contains(@class,'bannerImage')]/ancestor::div[contains(@class,'resumeWrapper')]/following-sibling::div/p
 ${progress_bar_continues_watching}              css=.css-15ddkiw
 
 #View All HomePage
@@ -177,12 +179,11 @@ ${text_no_matches_matches_page}                 css=._1KMFc
 
 *** Keywords ***
 Verify The App Navigates To Home Page
-    [Arguments]     ${HOME}
     Wait Until Element Is Not Visible           ${field_login_email}
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home}
     Mouse Over                                  ${menu_side_bar_homepage_home}
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home_hover}
-    Element Text Should Be                      ${menu_side_bar_homepage_home_hover}         ${HOME}
+    Element Should Be Visible                   ${menu_all_topbar}
 
 Open Beli Akses Menu
     Wait Until Element Is Visible               ${menu_side_bar_homepage_beli_akses}
@@ -411,19 +412,40 @@ Verify Rail Banner Homepage
     Element Should Be Visible                   ${expected_arrow_left_rail_banner_homepage}
 
 Click Banner & Verify Banner Can Be Selected
-    Scroll Element Into View                    ${banner_homepage_content1}
-    Wait Until Element Is Visible               ${banner_homepage_content1}
-    Click Element                               ${banner_homepage_content1}
+    Scroll Element Into View                    ${menu_all_topbar}
+    @{CHECK_BANNERS}=     Get WebElements       ${rail_banner_homepage2}
+    log     ${CHECK_BANNERS}
 
-    ${LOCATION1}                                Get Location
-    Location Should Contain                     ${LOCATION1}
+    FOR                     ${ITEM}        IN      @{CHECK_BANNERS}
+            log             ${ITEM}
+            ${RESULT}=  Get Element Attribute       ${ITEM}     srcset
+            click element                           ${ITEM}
+#            IF  '${RESULT}' == 'None'
+#                Fail
+            END
+#    Scroll Element Into View                    ${banner_homepage_content1}
+#    Wait Until Element Is Visible               ${banner_homepage_content1}
+#    Click Element                               ${banner_homepage_content1}
+#
+#    ${LOCATION1}                                Get Location
+#    Location Should Contain                     ${LOCATION1}
 
-Verify Continue Watching Displayed Under The Banner
+Verify Card Continue Watching
     Wait Until Element Is Visible               ${logo_homepage_molatv}
     Click Element                               ${logo_homepage_molatv}
     Wait Until Element Is Visible               ${rail_banner_continue_watching}
     Scroll Element Into View                    ${rail_banner_continue_watching}
-    Element Should Be Visible                   ${rail_banner_continue_watching}
+
+    @{CHECK_FIRST_LIST_CARD}=       Get Web Elements        ${rail_banner_continue_watching}
+    log list                        ${CHECK_FIRST_LIST_CARD}
+    get from list                   ${CHECK_FIRST_LIST_CARD}   0
+    Get Element Attribute           ${CHECK_FIRST_LIST_CARD}   0
+
+    FOR                 ${CARD}        IN                @{CHECK_FIRST_LIST_CARD}
+                log                                      ${CARD}
+                ${RESULT}=      Get Element Attribute    ${CARD}     src
+                log                                      ${RESULT}
+    END
 
 Verify Title VOD In Continues Watching
     Wait Until Element Is Visible               ${title_vod_continues_watching}
@@ -489,22 +511,19 @@ Rails Is Empty In All Menu
     Element Should Not Be Visible               ${rail_banner_all_menu}
 
 Verify No empty raiis shown in any page
-    Click Element                       ${menu_top_bar_homepage_home}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_living}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_sports}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_kids}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 10000})
+    sleep                                       3
+    @{CHECK_RAILS}=     Get WebElements    ${rail_banner_all_menu}
+    log     ${CHECK_RAILS}
+
+    FOR                     ${ITEM}        IN      @{CHECK_RAILS}
+            log             ${ITEM}
+            ${RESULT}=  Get Element Attribute       ${ITEM}     srcset
+            log             ${RESULT}
+            IF  '${RESULT}' == 'None'
+                Fail
+            END
+    END
 
 Click View All
     Click Element                               ${button_view_all1}

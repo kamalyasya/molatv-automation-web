@@ -21,7 +21,7 @@ TC001 Homepage UI
 
 TC002 Homepage Banner
     [Documentation]  UI Verification
-    [Tags]  Regression  Smoke   NeedReview
+    [Tags]  Regression  Smoke   NeedReview  OnGoing
 
     HomePage.Verify Rail Banner Homepage
     #verifikasi bannernya bergeser otomatis setiap 5 detik
@@ -29,15 +29,19 @@ TC002 Homepage Banner
 
 TC003 Select All Banner
     [Documentation]  Verify the banner can be selected
-    [Tags]  Regression  Smoke   NeedReview
+    [Tags]  Regression  Smoke   NeedReview  OnGoing
 
+    Homepage.Open Login Page
+    SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
+    Homepage.Verify The App Navigates To Home Page
+    Homepage.Verify No empty raiis shown in any page
     HomePage.Click Banner & Verify Banner Can Be Selected
     #yang di click adalah banner(besar) bukan card
-    #verifikasi judul film atau jika series verifikasi judul series
+    #verifikasi judul film atau jika series, verifikasi judul series
 
 TC004 Continue Watching
     [Documentation]  UI Verification
-    [Tags]  Regression  Smoke   NeedReview
+    [Tags]  Regression  Smoke   NeedReview  OnGoing
     #verifikasi continue watching muncul maksimal 15 VOD
     #Verifikasi jika film urutan ke-n setelah menonton akan berada di urutan pertama
 
@@ -46,8 +50,8 @@ TC004 Continue Watching
     MovieDetailPage.Verify Direct To Login Page
     SignInPage.Login Using Credentials           ${ACCOUNTS_HBO_EMAIL}            ${ACCOUNTS_HBO_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail            ${EXPECTED_URL_MOVIE}
-    MovieDetailPage.Click Button Watch Now On Video Player
-    HomePage.Verify Continue Watching Displayed Under The Banner
+    MovieDetailPage.Play Content Video Or Play Video From Begining
+    HomePage.Verify Card Continue Watching
 
 #TC005 Continue Watching - Timestamp
 #    [Documentation]  Verify the remaining time in the VOD will appear in the bottom left corner
@@ -57,7 +61,7 @@ TC004 Continue Watching
 
 TC006 Continue Watching - Progress bar
     [Documentation]  Verify the time spent in the VOD will appear in the form of a blue bar
-    [Tags]  Regression  Smoke   NeedReview
+    [Tags]  Regression  Smoke   NeedReview  OnGoing
     #verifikasi progress bar sesuai dengan durasi terakhir menonton
 
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE}
@@ -69,9 +73,9 @@ TC006 Continue Watching - Progress bar
     HomePage.Verify Continue Watching Displayed Under The Banner
     HomePage.Verify Progress Bar Will Appear
 
-TC007 Continue Watching
+TC007 Continue Watching VOD Title
     [Documentation]  Verify The Description of VOD will appear in the bottom of video
-    [Tags]  Regression  Smoke   NeedReview
+    [Tags]  Regression  Smoke   NeedReview  Done
     #Verifikasi judul pada continues watching berada di bawah card
 
     MovieDetailPage.Go To Movie Detail           ${URL_MOVIE}
@@ -80,7 +84,7 @@ TC007 Continue Watching
     SignInPage.Login Using Credentials           ${ACCOUNT_PUTRA_EMAIL}             ${ACCOUNT_PUTRA_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail              ${EXPECTED_URL_MOVIE}
     MovieDetailPage.Play Content Video Or Play Video From Begining
-    HomePage.Verify Continue Watching Displayed Under The Banner
+    HomePage.Verify Card Continue Watching
     HomePage.Verify Title VOD In Continues Watching
 
 TC008 Homepage Categories
@@ -144,4 +148,5 @@ TC014 Handling Empty Title/Thumbnail
 
 
 TC017 Recommendations
+
     #Dibuat dinamis dibandingkan gambarnya antara desktop web dan mobile
