@@ -29,25 +29,27 @@ TC001 - Favorite video for non-login user
 
     MovieDetailPage.Go To Movie Detail                      ${SAMPLE_MOVIE_URL_NON_LOGIN}
     MovieDetailPage.Click Button Favorit
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     MovieDetailPage.Verify Is Redirected Back To The Same Movie Detail      ${SAMPLE_MOVIE_URL_NON_LOGIN}
     Check Favorit Video
     MovieDetailPage.Verify Favorit Button Is Non Active
-    Logout Account
+    # Logout Account
 
 TC002 - Favorite video from video detil page
     [Documentation]  User can favorite video from video detil
 	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     MovieDetailPage.Go To Movie Detail                      ${SAMPLE_MOVIE_URL_FAVORITE}
     Check Favorit Video
     MovieDetailPage.Click Button Favorit
     MovieDetailPage.Verify Favorit Button Is Active
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_MOVIE_URL_FAVORITE_TITLE}
-    Logout Account
+    # Logout Account
 
 #TC003 - Favorite video from series season
 #    [Documentation]  User can favorite video from series season
@@ -70,24 +72,26 @@ TC004 - Favorite video from series playlist
 	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_URL}
     Check Favorit Series
     MovieSeriesSeasonPage.Click Button Favorit On Series
     MovieSeriesSeasonPage.Verify Favorit Button Is Active On Series
     MovieDetailPage.Verify Video Added To My Favorite In Daftar Tontonan Page       ${SAMPLE_SERIES_TITLE}
     Verify Video Is Appeared At Favorite Video Section In Homepage                  ${SAMPLE_SERIES_TITLE}
-    Logout Account
+    # Logout Account
 
 TC005 - Open my favorite video from account
     [Documentation]  User can find all their favorite videos in my favorite tab on daftar tontonan page
 	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Open Tontonan Saya Page
     FavoritePage.Verify Tontonan Saya Is Opened
-    Logout Account
+    # Logout Account
 
 
 TC006 - Open my favorite video from snackbar
@@ -95,13 +99,14 @@ TC006 - Open my favorite video from snackbar
 	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     MovieSeriesSeasonPage.Open Series Playlist                    ${SAMPLE_SERIES_SESSION_URL2}
     Check Favorit Series
     MovieSeriesSeasonPage.Click Button Favorit On Series
     Click Button Lihat Daftar Favorit
     FavoritePage.Verify Tontonan Saya Is Opened
-    Logout Account
+    # Logout Account
 
 
 TC007 - Remove/Unfavorite video
@@ -109,53 +114,59 @@ TC007 - Remove/Unfavorite video
 	[Tags]  Regression  Smoke  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Open Tontonan Saya Page
     FavoritePage.Remove Favorit Video From Tontonan Saya    ${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}
     MovieDetailPage.Verify Favorit Button Is Non Active
     FavoritePage.Verify Video Removed From Tontonan Saya    ${SAMPLE_MOVIE_URL_FAVORITE_TITLE2}
     MovieDetailPage.Go To Movie Detail                      ${SAMPLE_MOVIE_URL_FAVORITE2}
     MovieDetailPage.Click Button Favorit
-    Logout Account
+    # Logout Account
 
 TC008 - Sort favorite video by latest
     [Documentation]  User can sort their favorite video list by latest added
 	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Open Tontonan Saya Page
     Sort Favorite Video By Latest
     Verify Sort Favorite Video By Latest
-    Logout Account
+    # Logout Account
 
 TC009 - Sort favorite video by oldest
     [Documentation]  User can sort their favorite video list by oldest added
 	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
     HomePage.Open Tontonan Saya Page
     Sort Favorite Video By Oldest
     Verify Sort Favorite Video By Oldest
-    Logout Account
+    # Logout Account
 
 TC010 - Condition when my favorite is empty
     [Documentation]  User can see empty state when my favorite list is empty
 	[Tags]  Regression  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_SUPERMOLA1_EMAIL}         ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_SUPERMOLA1_EMAIL}         ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_SUPERMOLA1_EMAIL}         ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Tontonan Saya Page
     FavoritePage.Verify Condition When My Favorite Is Empty
-    Logout Account
+    # Logout Account
 
 TC011 - Find all favorite video from homepage
     [Documentation]  User can find their favorite video from homepage
 	[Tags]  Regression  Smoke  NeedReview
 
 	HomePage.Open Login Page
-    SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
+    # SignInPage.Login Using Credentials                      ${ACCOUNT_CINCIN_EMAIL}         ${ACCOUNT_CINCIN_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNT_CINCIN_EMAIL}             ${ACCOUNT_CINCIN_PASSWORD}
+    HomePage.Go To Homepage
     HomePage.Click View All On Favorit Saya
     FavoritePage.Verify Tontonan Saya Is Opened
-    Logout Account
+    # Logout Account
