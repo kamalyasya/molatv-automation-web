@@ -2,6 +2,7 @@
 Resource                ../../Frameworks/Routers.robot
 
 *** Variables ***
+${icon_welcome_page_mola}                           css=.logo-header
 ${button_welcome_page_browse_mola}                  css=.button-text
 
 *** Keywords ***
