@@ -21,7 +21,7 @@ TC002 - Access inbox login user
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Direct To Inbox Page
@@ -31,7 +31,7 @@ TC003 - User get new inbox
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA32_EMAIL}               ${ACCOUNT_SUPERMOLA32_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA32_EMAIL}               ${ACCOUNT_SUPERMOLA32_PASSWORD}
     Verify Count Number Is Shown
 
 TC004 - Inbox list impression
@@ -39,7 +39,7 @@ TC004 - Inbox list impression
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Direct To Inbox Page
@@ -50,7 +50,7 @@ TC005 - User filter inbox by category
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}                ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}                ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Click Filter Promotions
@@ -63,7 +63,7 @@ TC006 - Sorting by latest
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Sorting By Latest
@@ -74,7 +74,7 @@ TC007 - Sorting by oldest
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}               ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Sorting By Oldest
@@ -85,7 +85,7 @@ TC008 - User has no inbox
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA1_EMAIL}               ${ACCOUNT_SUPERMOLA1_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA1_EMAIL}               ${ACCOUNT_SUPERMOLA1_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Verify Empty State Is Shown
@@ -95,7 +95,7 @@ TC010 - User click button in inbox detail
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Open Message
@@ -106,7 +106,7 @@ TC011 - User back to inbox list from inbox detail
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA31_EMAIL}              ${ACCOUNT_SUPERMOLA31_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Open Message
@@ -118,7 +118,7 @@ TC013 - User want to show all inbox
 	[Tags]  Regression  NeedReview
 
     HomePage.Open Login Page
-    SignInPage.Login Using Credentials                  ${ACCOUNT_SUPERMOLA21_EMAIL}              ${ACCOUNT_SUPERMOLA21_PASSWORD}
+    SignInPage.Restore Existing Cookies Or Relogin                  ${ACCOUNT_SUPERMOLA21_EMAIL}              ${ACCOUNT_SUPERMOLA21_PASSWORD}
     HomePage.Open Inbox Page
     InboxPage.Click Skip Button On Onboarding
     InboxPage.Click Load More Button
