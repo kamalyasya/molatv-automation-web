@@ -121,7 +121,7 @@ TC010 Subscription view
     ...                     User already have an account and sign in
     [Tags]                  Regression  Smoke   Verified
 
-    SignInPage.Login Using Credentials          ${ACCOUNTS_HBO_EMAIL}        ${ACCOUNTS_HBO_PASSWORD}
+    SignInPage.Login Using Credentials          ${ACCOUNTS_MOLA_TESTING8_EMAIL}      ${ACCOUNTS_MOLA_TESTING8_PASSWORD}
     # SignInPage.Restore Existing Cookies Or Relogin          ${ACCOUNTS_HBO_EMAIL}     ${ACCOUNTS_HBO_PASSWORD}
     SettingsPage.Select User icon
     SettingsPage.Select Subscription
@@ -130,6 +130,7 @@ TC010 Subscription view
     Go Back
     Logout Account
     Reload Page
+    WelcomePage.Click Button Browse On Welcome Page
     Open Profile Page
     SignInPage.Login Using Credentials          ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
     SettingsPage.Select User icon
