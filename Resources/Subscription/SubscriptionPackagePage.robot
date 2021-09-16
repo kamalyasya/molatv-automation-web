@@ -8,9 +8,9 @@ ${button_subscription_package_beli_paket_1}             xpath=//button[text()='S
 
 # Package
 ${text_subscription_package_1st_package_title}          css=div:nth-of-type(1) > * > * > h4
-${text_subscription_package_1st_package_price}          xpath=//div[.="Choose Duration"]/preceding-sibling::div//h5[contains(text(),'Rp')]
-${button_subscription_package_1st_package_choose_duration}  xpath=//button[.='Choose Duration']
-${button_subscription_package_1st_package_1_month}      xpath=//div//h5[contains(text(),'1 Month')][1]
+${text_subscription_package_1st_package_price}          xpath=//*[.='Start From']/following-sibling::h5
+${button_subscription_package_1st_package_choose_duration}  xpath=//button[contains(text(),'Choose Duration')]
+${button_subscription_package_1st_package_1_month}      xpath=//h5[contains(.,'1 Month')]
 ${button_subscription_package_1st_package_checkout}     xpath=//button[.='Checkout']
 
 # ${text_subscription_package_1st_package_title}          css=div:nth-of-type(2) > * > * > h4
