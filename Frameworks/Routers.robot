@@ -18,6 +18,7 @@ Resource            ../Resources/AgeRestriction/AgeRestrictionPage.robot
 Resource            ../Resources/Browse/Movies/CategoriesPage.robot
 Resource            ../Resources/Browse/Movies/MoviePlaylistPage.robot
 Resource            ../Resources/Browse/Movies/MovieSeriesSeasonPage.robot
+Resource            ../Resources/Category/Category.robot
 Resource            ../Resources/Common/Browsers.robot
 Resource            ../Resources/Common/CommonKeywords.robot
 Resource            ../Resources/Data/Accounts.robot
