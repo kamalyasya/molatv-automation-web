@@ -65,6 +65,8 @@ TC009 Sign Out
     ProfilePage.Verify Logged In Using Correct Account              ${ACCOUNT_SUPERMOLA50_EMAIL}
     ProfilePage.Sign Out
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
+#    WelcomePage.Verify Navigate To Welcome Page
+#    WelcomePage.Click Button Browse On Welcome Page
     ProfilePage.Verify Sign Out
 
 TC011 Sign in using Google button from login page

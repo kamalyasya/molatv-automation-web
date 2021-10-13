@@ -141,6 +141,9 @@ Logout Account
     Click Element                       ${button_accounts_logout}
     Wait Until Element Is Visible       ${icon_menu_home}
     Element Should Be Visible           ${icon_menu_home}
+#    Wait Until Element Is Visible       ${icon_welcome_page_mola}
+#    Element Should Be Visible           ${icon_welcome_page_mola}
+#    WelcomePage.Click Button Browse On Welcome Page
 
 Verify Sign In Button Is Disabled
     Wait Until Element Is Visible       ${button_login_login}
