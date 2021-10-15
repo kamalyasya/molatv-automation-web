@@ -20,6 +20,7 @@ ${menu_top_bar_homepage_living}                 css=[data-testid='top-bar-living
 ${menu_top_bar_homepage_sports}                 css=[data-testid='top-bar-sports-menu']
 ${menu_top_bar_homepage_kids}                   css=[data-testid='top-bar-kids-menu']
 ${menu_top_bar_homepage_bold}                   css=._392KM
+${menu_all_topbar}                              css=.FYgXF.children__header
 
 ${links_homepage_menu_profil}                   xpath=//div[@class='_16YQ-']//div[contains(@data-testid, 'menu-profile')]
 ${links_homepage_menu_inbox}                    xpath=//div[contains(@data-testid, 'menu-inbox')]
@@ -28,10 +29,8 @@ ${links_homepage_menu_langganan}                xpath=//div[contains(@data-testi
 ${links_homepage_menu_order_history}            xpath=//div[contains(@data-testid, 'menu-payment-history')]
 ${links_homepage_menu_beli_akses}               xpath=//div[contains(@data-testid, 'menu-subscribe-now')]
 ${links_homepage_menu_pengaturan}               xpath=//div[contains(@data-testid, 'menu-settings')]
-
-${rail_banner_homepage}                         css=._2HGOE > div:nth-of-type(1) .slider-frame
-${rail_banner_continue_watching}                css=._36Wlv.css-tqv6h2.css-ug8ckl > div:nth-of-type(1)
-
+${rail_banner_homepage}                         xpath=//div[contains(@class,'slider css-11xe1ut css-7zlhwa css-1yigjkk')]
+${rail_banner_continue_watching}                xpath=//*[text()='Continue Watching']/ancestor::div/div[contains(@class,'carouselWrapper')]//img[contains(@class,'bannerImage')]
 
 #Categories And Content In Home Page
 ${categories_trending_now_homepage}             css=._4_hPI > div:nth-child(3)
@@ -40,7 +39,7 @@ ${content_homepage1}                            css=[class='css-1lezvj0 css-tqv6
 ${button_view_all1}                             link=View All
 ${categories_homepage2}                         css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage2}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .carouselWrapper
-${button_view_all2}                             css=div:nth-of-type(3) > .css-17v1w3x > .css-1q8d97k > a
+${button_view_all2}                             xpath=//*[text()='Trending on Mola Today']/ancestor::div/div/div[contains(@class,'css-1q8d97k')]/*[text()='View All']
 ${rail_banner_content_homepage1}                css=.css-21l0kp
 ${categories_homepage3}                         css=div:nth-of-type(5) > .css-17v1w3x > .css-1q8d97k
 ${content_homepage3}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(5) .carouselWrapper
@@ -63,11 +62,13 @@ ${categories_homepage8}                         css=div:nth-of-type(12) > .css-1
 ${content_homepage8}                            css=[class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(12) .carouselWrapper
 ${button_view_all8}                             css=div:nth-of-type(12) > .css-17v1w3x > .css-1q8d97k > a
 ${rail_banner_content_homepage4}                css=.css-21l0kp
-${image_content_homepage}                       css=.css-hq095j
-${frame_categories_and_content_homepage}        css=._36Wlv
+${image_card_content_homepage}                  xpath=//*[contains(@class,'carouselWrapper')]
+${title_categories_homepage}                    xpath=//*[contains(@class,'css-5jjjwv')] | //*[contains(@class,'css-1q8d97k')]
+${image_card_categories_homepage}               xpath=//div[@data-testid='carousel-playlists-FBI-Cat']
 
 #Rail Banner In All Menu
-${rail_banner_all_menu}                         css=.css-1sownrj
+${rail_banner_all_menu}                         xpath=//img[contains(@class,'bannerImage')]
+${rail_banner_homepage2}                        css=.css-1gwlbo5
 
 #All Match Card
 ${page_match_card}                              css=.css-1et68jm
@@ -79,23 +80,8 @@ ${frame_homepage_inbox_onboarding}              css=.__floater__body
 ${text_homepage_title_onboarding}               css=._2u2aj
 ${text_homepage_content_onboarding}             css=._1fO2X
 
-#${logo_homepage_molatv}                         css=._1qzw_ > img[alt='logo Mola']
-#${text_homepage_selected_menu}                  css=.Trssw._2yKxK
-#${menu_homepage_selected_menu}                  css=._3lT3U
-#${menu_homepage_search}                         css=div:nth-of-type(1) > .SwWJf
-#${menu_homepage_home}                           css=._1GfoO > div:nth-of-type(2)
-#${menu_homepage_home_hover}                     css=div:nth-of-type(2) > ._2yKxK
-#${menu_homepage_browse}                         css=._1GfoO > div:nth-of-type(3)
-#${menu_homepage_matches}                        css=._1GfoO > div:nth-of-type(4)
-#${menu_homepage_beli_akses}                     css=._1GfoO > div:nth-of-type(5)
-#${menu_homepage_redeem_voucher}                 css=._1GfoO > div:nth-of-type(6)
 ${menu_homepage_accounts}                       ${menu_side_bar_homepage_accounts}
 ${text_homepage_menu_profile}                   css=[data-testid='side-menu-profile-text']
-#${text_homepage_langganan_count_number}         css=.count-number
-#${menu_homepage_movies}                         css=.FYgXF > div:nth-of-type(1)
-#${menu_homepage_living}                         css=.FYgXF > div:nth-of-type(2)
-#${menu_homepage_sports}                         css=.FYgXF > div:nth-of-type(3)
-#${menu_homepage_kids}                           css=.FYgXF > div:nth-of-type(4)
 
 # Profile Page
 ${links_homepage_menu_selected}                 css=._1NGTJ
@@ -154,7 +140,7 @@ ${uncheckbox_1}                                 css=div:nth-of-type(2) > ._1GnU3
 ${currently_playing_matches}                    css=div:nth-of-type(3) > div > .DgfMr > ._3mEMU
 
 #VOD In Continues Watching
-${title_vod_continues_watching}                 css=.css-5jjjwv.undefined
+${title_vod_continues_watching}                 xpath=//*[text()='Continue Watching']/ancestor::div/div[contains(@class,'carouselWrapper')]//img[contains(@class,'bannerImage')]/ancestor::div[contains(@class,'resumeWrapper')]/following-sibling::div/p
 ${progress_bar_continues_watching}              css=.css-15ddkiw
 
 #View All HomePage
@@ -176,14 +162,20 @@ ${links_homepage_view_all_just_added}           css=[href='\/categories\/fea-jus
 # No Match In Page Matches
 ${text_no_matches_matches_page}                 css=._1KMFc
 
+#Homepage HUBS
+${all_column_hubs_homepage}                     css=.css-1mmkue0
+${title_hubs_homepage}                          css=//*[text()='Home Hub']
+${hubs_all_movies_homepage}                     css=.css-1mmkue0 > a:nth-of-type(1)
+${hubs_all_series_homepage}                     css=.css-1mmkue0 > a:nth-of-type(2)
+${hubs_hbo_go_homepage}                         css=.css-1mmkue0 > a:nth-of-type(3)
+
 *** Keywords ***
 Verify The App Navigates To Home Page
-    [Arguments]     ${HOME}
     Wait Until Element Is Not Visible           ${field_login_email}
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home}
     Mouse Over                                  ${menu_side_bar_homepage_home}
     Wait Until Element Is Visible               ${menu_side_bar_homepage_home_hover}
-    Element Text Should Be                      ${menu_side_bar_homepage_home_hover}         ${HOME}
+    Element Should Be Visible                   ${menu_all_topbar}
 
 Open Beli Akses Menu
     Wait Until Element Is Visible               ${menu_side_bar_homepage_beli_akses}
@@ -399,7 +391,8 @@ Verify Categories And Content Is Shown
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 20000})
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 25000})
     Scroll Element Into View                    ${matches_footer}
-    Element Should Be Visible                   ${frame_categories_and_content_homepage}
+    Element Should Be Visible                   ${title_categories_homepage}
+    Element Should Be Visible                   ${image_card_content_homepage}
     Element Should Be Visible                   ${mola_hub}
     Element Should Be Visible                   ${matches_footer}
 
@@ -411,19 +404,40 @@ Verify Rail Banner Homepage
     Element Should Be Visible                   ${expected_arrow_left_rail_banner_homepage}
 
 Click Banner & Verify Banner Can Be Selected
-    Scroll Element Into View                    ${banner_homepage_content1}
-    Wait Until Element Is Visible               ${banner_homepage_content1}
-    Click Element                               ${banner_homepage_content1}
+    Scroll Element Into View                    ${menu_all_topbar}
+    @{CHECK_BANNERS}=     Get WebElements       ${rail_banner_homepage2}
+    log     ${CHECK_BANNERS}
 
-    ${LOCATION1}                                Get Location
-    Location Should Contain                     ${LOCATION1}
+    FOR                     ${ITEM}        IN      @{CHECK_BANNERS}
+            log             ${ITEM}
+            ${RESULT}=  Get Element Attribute       ${ITEM}     srcset
+            click element                           ${ITEM}
+#            IF  '${RESULT}' == 'None'
+#                Fail
+            END
+#    Scroll Element Into View                    ${banner_homepage_content1}
+#    Wait Until Element Is Visible               ${banner_homepage_content1}
+#    Click Element                               ${banner_homepage_content1}
+#
+#    ${LOCATION1}                                Get Location
+#    Location Should Contain                     ${LOCATION1}
 
-Verify Continue Watching Displayed Under The Banner
+Verify Card Continue Watching
     Wait Until Element Is Visible               ${logo_homepage_molatv}
     Click Element                               ${logo_homepage_molatv}
     Wait Until Element Is Visible               ${rail_banner_continue_watching}
     Scroll Element Into View                    ${rail_banner_continue_watching}
-    Element Should Be Visible                   ${rail_banner_continue_watching}
+
+    @{CHECK_FIRST_LIST_CARD}=       Get Web Elements        ${rail_banner_continue_watching}
+    log list                        ${CHECK_FIRST_LIST_CARD}
+    get from list                   ${CHECK_FIRST_LIST_CARD}   0
+    Get Element Attribute           ${CHECK_FIRST_LIST_CARD}   0
+
+    FOR                 ${CARD}        IN                @{CHECK_FIRST_LIST_CARD}
+                log                                      ${CARD}
+                ${RESULT}=      Get Element Attribute    ${CARD}     src
+                log                                      ${RESULT}
+    END
 
 Verify Title VOD In Continues Watching
     Wait Until Element Is Visible               ${title_vod_continues_watching}
@@ -465,15 +479,45 @@ Verify the UI of category page after click view all button
     Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
     Wait Until Element Is Visible               ${title_categories_view_all}
     Element Should Be Visible                   ${title_categories_view_all}
+    Go Back
+    Wait Until Element Is Visible               ${logo_homepage_molatv}
+    Scroll Element Into View                    ${button_view_all2}
+    Click Element                               ${button_view_all2}
+    Wait Until Element Is Visible               ${title_categories_view_all}
+    Element Should Be Visible                   ${title_categories_view_all}
+    Element Should Be Visible                   ${button_sorting_playlist_view_all}
+    Element Should Be Visible                   ${rail_assets_thumbnails_view_all}
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 200})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 300})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 400})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 600})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 700})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 800})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 1200})
+    Wait Until Element Is Visible               ${footer_view_all}
+    Element Should Be Visible                   ${footer_view_all}
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 1200})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 800})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 700})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 600})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 500})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 400})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 300})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 200})
+    Execute JavaScript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 100})
+    Wait Until Element Is Visible               ${title_categories_view_all}
+    Element Should Be Visible                   ${title_categories_view_all}
 
 Verify the info shown in VOD/Match Card
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 25000})
     Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 20000})
-    Scroll Element Into View                    ${image_content_homepage}
+    Scroll Element Into View                    ${image_card_content_homepage}
     Get Source
-    Get Value                                   ${image_content_homepage}
-    ${width}    ${height} =                     Get Element Size    ${image_content_homepage}
-    Element Should Be Visible                   ${image_content_homepage}
+    Get Value                                   ${image_card_content_homepage}
+    ${width}    ${height} =                     Get Element Size    ${image_card_content_homepage}
+    Element Should Be Visible                   ${image_card_content_homepage}
 
 Verify the back button on the all pages
     Go Back
@@ -488,23 +532,20 @@ Rails Is Shown In All Menu
 Rails Is Empty In All Menu
     Element Should Not Be Visible               ${rail_banner_all_menu}
 
-Verify No empty raiis shown in any page
-    Click Element                       ${menu_top_bar_homepage_home}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_living}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_sports}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
-    Click Element                       ${menu_top_bar_homepage_kids}
-    ${CHECK_RAILS}  run keyword and return status  Wait Until Element Is Visible    ${rail_banner_all_menu}     3
-    run keyword if      '${CHECK_RAILS}' == 'FALSE'      Rails Is Empty In All Menu
-    ...                 ELSE                             Rails Is Shown In All Menu
+Verify No empty rails shown in any page
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 10000})
+    sleep                                       3
+    @{CHECK_RAILS}=     Get WebElements    ${rail_banner_all_menu}
+    log     ${CHECK_RAILS}
+
+    FOR                     ${ITEM}        IN      @{CHECK_RAILS}
+            log             ${ITEM}
+            ${RESULT}=  Get Element Attribute       ${ITEM}     srcset
+            log             ${RESULT}
+            IF  '${RESULT}' == 'None'
+                Fail
+            END
+    END
 
 Click View All
     Click Element                               ${button_view_all1}
@@ -553,3 +594,30 @@ Mouse Over To Live Chat
     Wait Until Element Is Visible               ${button_homepage_live_chat}
     Mouse Over                                  ${button_homepage_live_chat}
     Mouse Out                                   ${button_homepage_live_chat}
+
+Choose Movies Categories
+    Mouse over                                  ${menu_top_bar_homepage_home}
+    Sleep                                       3
+    Element Should be Visible                   ${image_card_categories_homepage}
+    Click Element                               ${image_card_categories_homepage}
+
+Verify Mola Hubs
+    Wait Until Element is Visible               ${all_column_hubs_homepage}
+    Element Should Be Visible                   ${hubs_all_movies_homepage}
+    Element Should Be Visible                   ${hubs_all_series_homepage}
+    Element Should Be Visible                   ${hubs_hbo_go_homepage}
+
+Choose Mola Hub All Movies
+    Wait Until Element Is Visible               ${all_column_hubs_homepage}
+    Element Should Be Visible                   ${hubs_all_movies_homepage}
+    Click Element                               ${hubs_all_movies_homepage}
+
+Choose Mola Hub All Series
+    Wait Until Element Is Visible               ${all_column_hubs_homepage}
+    Element Should Be Visible                   ${hubs_all_series_homepage}
+    Click Element                               ${hubs_all_series_homepage}
+
+Choose Mola Hub HBO GO
+    Wait Until Element Is Visible               ${all_column_hubs_homepage}
+    Element Should Be Visible                   ${hubs_hbo_go_homepage}
+    Click Element                               ${hubs_hbo_go_homepage}
