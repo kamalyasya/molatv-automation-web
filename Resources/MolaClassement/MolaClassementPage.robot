@@ -5,11 +5,18 @@ Resource                ../../Frameworks/Routers.robot
 ${menu_side_bar_homepage_browse}                        css=._1GfoO > div:nth-of-type(3)
 ${banner_image_fadein_sports}                           xpath=/html//div[@id='app']/div[@class='_3e0P_']//a[@href='/libraries/sports']/div/div/div[@class='imageBorder']
 ${banner_image_sport_not_visible}                       css=a:nth-of-type(3)  p
-${text_catalog_sport_competitions}                      xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']/div[1]/div//h3[.='Football Competitions']
-${frame_match_card_slider_sports}                       css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .slider-list
+#${text_catalog_sport_competitions}                      xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']/div[1]/div//h3[.='Football Competitions']
+#${text_catalog_sport_competitions}                      xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']/div[1]//h3[.='All Sports Competitions']
+${text_catalog_sport_competitions}                      css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(12) h3
+#${frame_match_card_slider_sports}                       css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(2) .slider-list
+${frame_match_card_slider_sports}                       css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(12) .carouselWrapper
 ${view_all_sport_competitions}                          css=[href='\/categories\/leaguecomp']
+#${view_all_sport_competitions}                          css=[href='\/categories\/leaguecomp']
 ${frame_live_this_week_slider_sports}                   css=[class] [class='css-1lezvj0 css-tqv6h2 css-ug8ckl']:nth-of-type(3) .slider-list
 ${header_premier_league}                                css=.headTitle
+${header_description_landing_page}                      css=.headDescription
+${card_standings_carousel_wrapper}                      css=.css-11xe1ut.css-1yigjkk.css-7zlhwa.slider > .slider-frame > .slider-list
+${card_standings_team_position_1}                       css=.slide-current.slide-visible.slider-slide .team-detail
 ${premier_league_place_holder}                          css=div:nth-of-type(1) > div > * > * > .imageWrapper.loaded > .imageBorder
 ${rail_banner_premier_league}                           css=.css-vtf346
 ${text_title_premier_league}                            css=.title
@@ -17,7 +24,7 @@ ${content_standing_table}                               css=.css-11xe1ut.css-612
 ${text_view_full_table}                                 xpath=/html//div[@id='app']/div[@class='_3e0P_']/div[@class='_2_fH- children__container']//div[@class='view-all']
 ${button_sliding_mola_card1}                            css=div:nth-of-type(1) > * > .carouselWrapper> .slider .slider-control-centerright .default
 ${button_sliding_mola_card2}                            css=div:nth-of-type(2) > * > .carouselWrapper> .slider .slider-control-centerright .default
-${button_sliding_mola_card3}                            css=div:nth-of-type(3) > * > .carouselWrapper> .slider .slider-control-centerright .default
+${button_sliding_mola_card3}                            css=.css-11xe1ut.css-612516.slider > .slider-control-centerright  .css-u1zq1d.default
 ${button_sliding_mola_card4}                            css=div:nth-of-type(4) > * > .carouselWrapper> .slider .slider-control-centerright .default
 ${button_sliding_mola_card5}                            css=div:nth-of-type(5) > * > .carouselWrapper> .slider .slider-control-centerright .default
 ${button_sliding_mola_card6}                            css=div:nth-of-type(6) > * > .carouselWrapper> .slider .slider-control-centerright .default
@@ -34,7 +41,7 @@ ${click_calendar_item_in_premier_league}                xpath=._30NbM
 ${list_container_desktop_date}                          css=div#container__desktop > ._1NzSC
 ${click_image_trophy_icon}                              css=._3SmIq
 ${click_dropdown_list_premier_league}                   css=div:nth-of-type(1) > .s-text
-${click_dropdown_list_premier_league1}                  css=div:nth-of-type(1) > .s-menu  button[type='button']
+${click_dropdown_list_premier_league1}                  css=div:nth-of-type(2) > .s-text
 ${click_view_all_premier_league}                        css=div:nth-of-type(1) > .DgfMr > ._3mEMU > a
 ${button_sliding_premier_league_standings}              css=.css-u1zq1d.default
 ${text_content_title_matches}                           css=div:nth-of-type(1) > h3
@@ -53,10 +60,19 @@ Click Sports
 
 Click Premiere League Football Competitions
     Wait Until Element Is Not Visible           ${banner_image_sport_not_visible}       5
-    Sleep                                       5
-    Scroll Element Into View                    ${text_catalog_sport_competitions}
-    Element Should Be Visible                   ${text_catalog_sport_competitions}
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 5000})
+    sleep                                       2
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 7000})
+    sleep                                       2
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 8000})
+    sleep                                       2
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 9000})
+    sleep                                       2
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 11000})
+    sleep                                       2
+#    Scroll Element Into View                    ${text_catalog_sport_competitions}
     Wait Until Element Is Visible               ${text_catalog_sport_competitions}
+    Element Should Be Visible                   ${text_catalog_sport_competitions}
     Scroll Element Into View                    ${frame_match_card_slider_sports}
     Element Should Be Visible                   ${view_all_sport_competitions}
     Wait Until Element Is Visible               ${view_all_sport_competitions}
@@ -67,6 +83,23 @@ Click Premiere League Football Competitions
 Click Premiere League
     Sleep                                       3
     Go To                                       ${HOST}/categories/epl
+    Wait Until Element Is Visible               ${header_premier_league}
+    Element Should Be Visible                   ${header_premier_league}
+    Wait Until Element Is Visible               ${header_description_landing_page}
+    Element Should Be Visible                   ${header_description_landing_page}
+#    Scroll Element Into View                    ${card_standings_carousel_wrapper}
+    Execute Javascript                          document.getElementsByClassName('children__container')[0].scrollTo({top: 700})
+    sleep                                       2
+#    Wait Until Element Is Visible               ${card_standings_carousel_wrapper}
+    Element Should Be Visible                   ${card_standings_carousel_wrapper}
+#    Tambahan Goals nya Harus Muncul Standing Card dengan CSS nya nanti : [class='carouselWrapper css-1k87zi']
+
+Verify Standing Card Premiere League Page
+    Sleep                                       2
+    Wait Until Element Is Visible               ${card_standings_carousel_wrapper}
+    Element Should Be Visible                   ${card_standings_carousel_wrapper}
+    Wait Until Element Is Visible               ${card_standings_team_position_1}
+    Element Should Be Visible                   ${card_standings_team_position_1}
 
 Click "View Full Table" In Mola Card Standings
     Wait Until Element Is Not Visible           ${premier_league_place_holder}
@@ -75,6 +108,7 @@ Click "View Full Table" In Mola Card Standings
     Scroll To Element                           ${text_view_full_table}
     Element Should Be Visible                   ${text_view_full_table}
     Click Element                               ${text_view_full_table}
+#   Tambahan Goals nya Harus Muncul Standing Card dengan CSS nya nanti : .standingsWrapper
 
 Click next/previous arrow in right and left sides of carousel
     Wait Until Element Is Not Visible           ${banner_image_fadein_sports}
@@ -88,16 +122,17 @@ Click next/previous arrow in right and left sides of carousel
     Click Element                               ${button_sliding_mola_card2}
 
     Scroll Element Into View                    ${button_sliding_mola_card3}
-    Element Should Be Visible                   ${button_sliding_mola_card3}
+    Wait Until Element Is Visible               ${button_sliding_mola_card3}
+#    Element Should Be Visible                   ${button_sliding_mola_card3}
     Click Element                               ${button_sliding_mola_card3}
 
-    Scroll Element Into View                    ${button_sliding_mola_card4}
-    Element Should Be Visible                   ${button_sliding_mola_card4}
-    Click Element                               ${button_sliding_mola_card4}
-
-    Scroll Element Into View                    ${button_sliding_mola_card5}
-    Element Should Be Visible                   ${button_sliding_mola_card5}
-    Click Element                               ${button_sliding_mola_card5}
+#    Scroll Element Into View                    ${button_sliding_mola_card4}
+#    Element Should Be Visible                   ${button_sliding_mola_card4}
+#    Click Element                               ${button_sliding_mola_card4}
+#
+#    Scroll Element Into View                    ${button_sliding_mola_card5}
+#    Element Should Be Visible                   ${button_sliding_mola_card5}
+#    Click Element                               ${button_sliding_mola_card5}
 
 Select the league in dropdown that you want to show
     Wait Until Element Is Not Visible           ${view_all_sport_competitions}

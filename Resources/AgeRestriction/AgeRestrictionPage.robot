@@ -56,9 +56,12 @@ ${view_all_continue_watching}                               css=div:nth-of-type(
 ${text_title_view_all_continue_watching}                    xpath=//p[contains(text(),'BIG WEDDING')]
 ${movie_button_play_hbo}                                    xpath=/html//div[@id='video-player-root']//div[@class='_2zwq4']
 
-
+${ininama_nya_apa}                                          css=input#user-name
 
 *** Keywords ***
+Open Login Page
+    Wait Until Element Is Visible                    ${ininama_nya_apa}
+
 Select 18+ Movie Content
     [Arguments]                                     ${URL_MOVIE_DETAIL_18+_MOLA}
     Sleep                                           1
