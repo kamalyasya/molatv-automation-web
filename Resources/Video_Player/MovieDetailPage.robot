@@ -182,8 +182,8 @@ Verify Is Redirected Back To The Same Movie Detail
         Element Should Be Visible           ${text_categories_movie_detail_page}
     END
 
-#    Scroll Element Into View            ${expected_movie_detail_related_video}
-#    Element Should Be Visible           ${expected_movie_detail_related_video}
+    Scroll Element Into View            ${expected_movie_detail_related_video}
+    Element Should Be Visible           ${expected_movie_detail_related_video}
     Scroll Element Into View            ${expected_title_movie_detail}
     IF    '${CHECK_EXPECTED_RATING}' == 'True'
         Element Should Be Visible           ${expected_rating_movie_detail}
@@ -317,22 +317,22 @@ Change Video Quality
     Click Element                       ${movie_quality_control}
     Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_270}
-#    Element Should Be Visible           ${movie_quality_checklist_active}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_360}
-#    Element Should Be Visible           ${movie_quality_checklist_active}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_576}
-#    Element Should Be Visible           ${movie_quality_checklist_active}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
     Mouse Over                          ${movie_mouse_over}
     Wait Until Element Is Visible       ${movie_quality_popup}
     Click Element                       ${movie_quality_list_720}
-#    Element Should Be Visible           ${movie_quality_checklist_active}
+    Element Should Be Visible           ${movie_quality_checklist_active}
     sleep                               5
 
 Verify Popup Quality Disappear After Click Button Quality

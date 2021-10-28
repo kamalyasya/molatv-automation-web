@@ -16,7 +16,7 @@ ${EXPECTED_TEXT_MENU_HOME}              Home
 TC001 - Discover mola card standings
     [Documentation]     User can discover mola card standings
     ...             User already login/not
-    [Tags]  Regression  Smoke   oke / verified
+    [Tags]  Regression  Smoke  Verified
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
