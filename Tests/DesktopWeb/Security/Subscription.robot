@@ -131,8 +131,8 @@ TC006 Subscription Blocker after user buy package
     SignInPage.Login Using Credentials                  ${ACCOUNT_CINCIN_EMAIL}        ${ACCOUNT_CINCIN_PASSWORD}
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_CINCIN_EMAIL}
     MovieDetailPage.Go To Movie Detail      ${URL_MOVIE_DETAIL3}
-    HboPlayback.Play HBO Movies
-    HboPlayback.Verify User able to play HBO Go movies
+#    HboPlayback.Play HBO Movies
+#    HboPlayback.Verify User able to play HBO Go movies
     Reload Page
     Go Back
     Reload Page
