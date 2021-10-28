@@ -16,7 +16,7 @@ ${EXPECTED_TEXT_MENU_HOME}              Home
 TC001 - Discover mola card standings
     [Documentation]     User can discover mola card standings
     ...             User already login/not
-    [Tags]  Regression  Smoke
+    [Tags]  Regression  Smoke  Verified
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
@@ -25,12 +25,14 @@ TC001 - Discover mola card standings
     MolaClassementPage.Click Sports
     MolaClassementPage.Click Premiere League Football Competitions
     MolaClassementPage.Click Premiere League
+    #    Tambahan Goals nya Harus Muncul Standing Card dengan CSS nya nanti : [class='carouselWrapper css-1k87zi']
+    MolaClassementPage.Verify Standing Card Premiere League Page
     Logout Account
 
 TC002 - Discover mola standings
     [Documentation]     User can discover mola classement standings
     ...             User already login/not
-    [Tags]  Regression  Smoke
+    [Tags]  Regression  Smoke   Need Review
 
     HomePage.Open Login Page
     SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
@@ -40,6 +42,8 @@ TC002 - Discover mola standings
     MolaClassementPage.Click Premiere League Football Competitions
     MolaClassementPage.Click Premiere League
     MolaClassementPage.Click "View Full Table" In Mola Card Standings
+    #   Tambahan Goals nya Harus Muncul Standing Card dengan CSS nya nanti : .standingsWrapper
+
     Logout Account
 
 TC003 - Mola card standings impression
@@ -54,6 +58,7 @@ TC003 - Mola card standings impression
     MolaClassementPage.Click Sports
     MolaClassementPage.Click Premiere League Football Competitions
     MolaClassementPage.Click Premiere League
+    #    Tambahan Goals nya Harus Muncul Standing Card dan Detail Isi dari Tiap Kotaknya + total 20 Card dengan CSS nya nanti : [class] [tabindex='-1']:nth-of-type(3) .team-detail
     Logout Account
 
 TC004 - Mola standings page impression
@@ -69,6 +74,7 @@ TC004 - Mola standings page impression
     MolaClassementPage.Click Premiere League Football Competitions
     MolaClassementPage.Click Premiere League
     MolaClassementPage.Click "View Full Table" In Mola Card Standings
+    #    Tambahan Goals nya Harus Checking Dari CSS:.standingsTitle + css=.standingsHeading-filer + css=thead > tr + css=.table-standings > tbody Dan Pecahan Dari Boddy nya
     Logout Account
 
 TC005 - Sliding mola card standings
@@ -81,36 +87,40 @@ TC005 - Sliding mola card standings
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     MolaClassementPage.Click Browse In Sidebar
     MolaClassementPage.Click Sports
-    MolaClassementPage.Click next/previous arrow in right and left sides of carousel
-    Logout Account
-
-TC006 - Sort standings by league
-    [Documentation]     User can choose league standings that they want to show
-    ...             User already in mola standings page
-    [Tags]  Regression  Smoke
-
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
-    MolaClassementPage.Click Browse In Sidebar
-    MolaClassementPage.Click Sports
     MolaClassementPage.Click Premiere League Football Competitions
-    MolaClassementPage.Select the league in dropdown that you want to show
+    MolaClassementPage.Click Premiere League
+    MolaClassementPage.Click next/previous arrow in right and left sides of carousel
+    #   Tambahannya Untuk left sides of carousel Cukup 1 Kali Aja Pilih Side nya css=[class='carouselWrapper css-6exqqo'] .css-u1zq1d
     Logout Account
 
-TC007 - Sort standings by gameweek
-    [Documentation]     User can choose gameweek that they want to show
-    ...             User already in mola standings page
-    [Tags]  Regression  Smoke
-
-    HomePage.Open Login Page
-    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
-    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
-    MolaClassementPage.Click Browse In Sidebar
-    MolaClassementPage.Click Sports
-    MolaClassementPage.Click mola standings gameweek sorting option in the left sides
-    MolaClassementPage.Select the gameweek in dropdown that you want to show
-    Logout Account
+#   Untuk Testcase Nomor 6 dan 7 sedang HoldOn and Status In : N/A
+#TC006 - Sort standings by league
+#    [Documentation]     User can choose league standings that they want to show
+#    ...             User already in mola standings page
+#    [Tags]  Regression  Smoke
+#
+#    HomePage.Open Login Page
+#    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+#    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
+#    MolaClassementPage.Click Browse In Sidebar
+#    MolaClassementPage.Click Sports
+#    MolaClassementPage.Click Premiere League Football Competitions
+#    MolaClassementPage.Select the league in dropdown that you want to show
+#    Logout Account
+#
+#TC007 - Sort standings by gameweek
+#    [Documentation]     User can choose gameweek that they want to show
+#    ...             User already in mola standings page
+#    [Tags]  Regression  Smoke
+#
+#    HomePage.Open Login Page
+#    SignInPage.Login Using Credentials              ${ACCOUNT_KAMAL_EMAIL}      ${ACCOUNT_KAMAL_PASSWORD}
+#    ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
+#    MolaClassementPage.Click Browse In Sidebar
+#    MolaClassementPage.Click Sports
+#    MolaClassementPage.Click mola standings gameweek sorting option in the left sides
+#    MolaClassementPage.Select the gameweek in dropdown that you want to show
+#    Logout Account
 
 TC008 - Scroll up/down in mola standings page
     [Documentation]     User can scroll up and down inside the page to show all standings
@@ -140,6 +150,7 @@ TC009 - Discover mola standings from matches page
     HomePage.Verify The App Navigates To Home Page                  ${EXPECTED_TEXT_MENU_HOME}
     HomePage.Open Matches Page
     MolaClassementPage.Click trophy icon
+    # Pokoknya Goals Nya Sudah dapat di Clicking untuk Trofi nya dan masuk ke Standing Bar Clasment.
     HomePage.Open Matches Page
     MolaClassementPage.test1
 
@@ -153,3 +164,4 @@ TC010 - Discover mola card standings in matches page
     ProfilePage.Verify Logged In Using Correct Account      ${ACCOUNT_KAMAL_EMAIL}
     HomePage.Open Matches Page
     MolaClassementPage.test2
+    #    Untuk Goals yang Ini Temukan Standing Cards Pada Section Atau Playlist Premier League Only, In Today Or Next Day Until Define the Content Premier League.
